@@ -26,11 +26,10 @@ x
 [PyRT][pyrt]
 =====
 
-Python Routeing Toolkit.  Developed at Sprint ATL, this
-  comprised code for collecting and analysing ISIS and BGP protocol
-  activity.  It was operational in SprintLink, Sprint's Tier-1 IP
-  backbone, for over 3 years continuously and resulted in several
-  first-in-class papers.
+Python Routeing Toolkit.  Developed at Sprint ATL, this comprised code
+for collecting and analysing ISIS and BGP protocol activity.  It was
+operational in SprintLink, Sprint's Tier-1 IP backbone, for over 3
+years continuously and resulted in several first-in-class papers.
 
 =--
 

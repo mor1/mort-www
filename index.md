@@ -9,16 +9,17 @@ parent: mort
      title='Richard Mortier' 
      alt='Photo of Richard Mortier' height='100px' />
 
-Welcome!
-========
+Hello!
+======
 
-Hi!  I'm Richard Mortier or, more commonly, **mort**.  I'm currently
-the Horizon Transitional Fellow in Computer Science at the [Horizon
-Institute][horizon], based here at the [University of
-Nottingham][nottingham].
+I'm Richard Mortier or, more commonly, **mort**.  I'm currently the
+Horizon Transitional Fellow in Computer Science at the [Horizon
+Institute][horizon], based here in the [University of
+Nottingham][nottingham] [School of Computer Science][cs].
 
 [horizon]: https://www.horizon.ac.uk/
 [nottingham]: http://www.nottingham.ac.uk/
+[cs]: http://www.cs.nott.ac.uk/
 
 +-- {.section}
 Research
@@ -53,11 +54,10 @@ consultancy and selected development work.
 Contact
 =======
 
-I can be contacted by phone on (+44) 115 823 2552, by email at
-<mailto:richard.mortier@nottingham.ac.uk>, and on a variety of instant
-messaging systems.  My office is A29 in the [Sir Colin Campbell
-Building, University of Nottingham][map].  I am online at [twitter][],
-[github][], [linkedin][], and [facebook][].
+I can be contacted by phone on +44 115 823 2552, or by email
+(preferred) at <mailto:richard.mortier@nottingham.ac.uk>.  My office
+is A29 in the [Sir Colin Campbell Building][map].  I am online at
+[twitter][], [github][], [linkedin][], and [facebook][].
 
 [map]: http://unip.nottingham.ac.uk/default.asp?id=7
 [twitter]: http://twitter.com/mort___
