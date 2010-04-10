@@ -45,9 +45,18 @@ distributed system performance monitoring and debugging, to Internet
 routing protocols, to real-time media platform design and
 implementation.  I have worked in a variety of roles, from high-level
 platform architecture to detailed implementation of complex networked
-systems to website designer and implementer.  I am available for
-consultancy and selected development work.
+systems to website designer and implementer.  I have consulted and
+worked for a range of companies, including startups ([&mu;][vipadia],
+[S][camrivox], [M][cplane], [L][alertme]) and corporates ([M][sprint],
+[L][microsoft]) in both the US and UK.  I am available for consultancy
+and selected development work.
 
+[vipadia]: http://vipadia.com/
+[camrivox]: http://camrivox.com/
+[cplane]: http://cplane.com/
+[alertme]: http://alertme.com/
+[sprint]: http://sprint.com/
+[microsoft]: http://microsoft.com/
 =--
 
 +-- {.section}

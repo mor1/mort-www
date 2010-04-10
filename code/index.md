@@ -16,7 +16,11 @@ Released Code
 [Perscon][perscon]
 ========
 
-x
+Personal Containers are an experiment in enabling you to collate and
+control your digital footprint.  At the moment the focus is on
+collecting and managing your own data; future goals include developing
+ways to enable others to interact with your data for mutual benefit,
+while still retaining ultimate control yourself.
 
 [perscon]: http://perscon.net/
 
@@ -26,10 +30,11 @@ x
 [PyRT][pyrt]
 =====
 
-Python Routeing Toolkit.  Developed at Sprint ATL, this comprised code
-for collecting and analysing ISIS and BGP protocol activity.  It was
-operational in SprintLink, Sprint's Tier-1 IP backbone, for over 3
-years continuously and resulted in several first-in-class papers.
+I developed the Python Routeing Toolkit while at Sprint ATL.  It
+comprises code for collecting and analysing ISIS and BGP protocol
+activity.  The original release is at
+<https://research.sprintlabs.com/pyrt/> but it does not appear to be
+maintained, unlike my [github hosted version][pyrt].
 
 =--
 
@@ -37,10 +42,9 @@ years continuously and resulted in several first-in-class papers.
 [Karaka][]
 ======
 
-the Skype-XMPP gateway.  Developed at Vipadia Limited, this was a
-scalable software system implementing a distributed Skype-XMPP
-(Extensible Messaging and Presence Protocol as used by, e.g.,~Google
-Talk) bridge.  Acquired by Voxeo Corp.
+Developed at Vipadia Limited, this is a scalable software system
+implementing a distributed Skype-XMPP gateway released under the
+GPLv2.  Copyright was acquired by Voxeo Corp. in January 2010.
          
 =--
 
@@ -48,31 +52,45 @@ Miscellaneous Scripts
 ---------------------
 
 +-- {.section}
-[Bash/Sh][sh]
-========
-
-x
-=--
-
-+-- {.section}
 [Python][python]
 =======
 
-x
+bib2html: *convert bibtex files to JSON/HTML*<br>
+cal: *replacement for Unix `cal` command with more options*<br>
+ip2as: *lookup AS owning an IP address*<br>
+jsonpretty: *pretty print JSON on `stdin`*<br>
+num: *print number in selection of useful bases*<br>
+tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
 =--
 
 +-- {.section}
 [Gawk/Awk][awk]
 ========
 
-x
+rfc2bib: *convert IETF RFC index text file to bibtex*<br>
+id2bib: *convert IETF Internet Draft index text file to bibtex*<br>
 =--
+
++-- {.section}
+[Bash/Sh][sh]
+========
+
+envfns: *environment manipulation shell functions*<br>
+filefns: *filesystem related shell functions*<br>
+numfns: *number based conversion shell functions*<br>
+pdfmerge: *merge set of PDFs into one*<br>
+=--
+
 
 +-- {.section}
 [C][cutils]
 ==
 
-x
+glob: *`glob` shell function as binary*<br>
+loadup: *ensure n-of-m jobs in a batch running until batch complete*<br>
+nohup: *`nohup` shell function as a binary*<br>
+range: *Python's `range()` builtin, for command line use*<br>
+
 =--
 
 
