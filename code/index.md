@@ -5,7 +5,7 @@ parent: mort
 ---
 
 <img class='inset right' 
-     src='/images/joker.png' 
+     src='{{ site.url_root }}images/joker.png' 
      title='Richard Mortier' 
      alt='Photo of Richard Mortier' height='100px' />
 
@@ -20,7 +20,8 @@ Personal Containers are an experiment in enabling you to collate and
 control your digital footprint.  At the moment the focus is on
 collecting and managing your own data; future goals include developing
 ways to enable others to interact with your data for mutual benefit,
-while still retaining ultimate control yourself.
+while still retaining ultimate control yourself.  The code is
+available under the GPLv2.
 
 [perscon]: http://perscon.net/
 
@@ -30,11 +31,13 @@ while still retaining ultimate control yourself.
 [PyRT][pyrt]
 =====
 
-I developed the Python Routeing Toolkit while at Sprint ATL.  It
-comprises code for collecting and analysing ISIS and BGP protocol
-activity.  The original release is at
-<https://research.sprintlabs.com/pyrt/> but it does not appear to be
-maintained, unlike my [github hosted version][pyrt].
+I developed the Python Routeing Toolkit while at Sprint ATL, who
+released it under the GPLv2.  It comprises code for collecting and
+analysing routeing data.  This package currently collects BGPv4 and
+ISIS, and dumps and parses MRTD files including MRTD TABLE_DUMP files
+(as available from, e.g., RouteViews and RIPE/RIS).  A number of
+utilities for manipulating these dumps are also provided.  
+
 
 =--
 
@@ -55,10 +58,10 @@ Miscellaneous Scripts
 [Python][python]
 =======
 
-bib2html: *convert bibtex files to JSON/HTML*<br>
-cal: *replacement for Unix `cal` command with more options*<br>
-ip2as: *lookup AS owning an IP address*<br>
-jsonpretty: *pretty print JSON on `stdin`*<br>
+bib2html: *convert BibTeX files to JSON/HTML*<br>
+cal: *replacement for Unix `cal` command: similar output, more options*<br>
+ip2as: *lookup the AS owning an IP address*<br>
+jsonpretty: *pretty print JSON from `stdin`*<br>
 num: *print number in selection of useful bases*<br>
 tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
 =--
@@ -67,8 +70,8 @@ tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
 [Gawk/Awk][awk]
 ========
 
-rfc2bib: *convert IETF RFC index text file to bibtex*<br>
-id2bib: *convert IETF Internet Draft index text file to bibtex*<br>
+rfc2bib: *convert IETF RFC index text file to BibTeX*<br>
+id2bib: *convert IETF Internet Draft index text file to BibTeX*<br>
 =--
 
 +-- {.section}
@@ -87,14 +90,14 @@ pdfmerge: *merge set of PDFs into one*<br>
 ==
 
 glob: *`glob` shell function as binary*<br>
-loadup: *ensure n-of-m jobs in a batch running until batch complete*<br>
+loadup: *ensure n-of-m jobs in a batch kept running until batch completes*<br>
 nohup: *`nohup` shell function as a binary*<br>
 range: *Python's `range()` builtin, for command line use*<br>
 
 =--
 
 
-[pyrt]: http://github.com/mor1/pyrt
+[pyrt]: https://research.sprintlabs.com/pyrt/
 [Karaka]: http://code.google.com/p/karaka/
 [python]: http://github.com/mor1/python-scripts
 [awk]: http://github.com/mor1/awk-scripts

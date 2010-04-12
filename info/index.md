@@ -5,12 +5,12 @@ parent: mort
 ---
 
 <img class='inset right' 
-     src='/images/mort-hiding.png' 
+     src='{{ site.url_root }}images/mort-hiding.png' 
      title='Richard Mortier' 
      alt='Photo of Richard Mortier' height='100px' />
 
-History
-=======
+Background
+==========
 
 In 2001 I completed my Ph.D., ''[Internet Traffic Engineering][phd]''
 with the [Systems Research Group][srg] at the [University of
@@ -53,8 +53,11 @@ co-founder I designed and implemented the company's two main products:
   communications into their applications and websites
 
 Clackpoint was written up in [TechCrunch][] and on Google's [SocialWeb
-Blog][socialweb].  Two months after launch it had been installed on
-around 1000 websites, was serving 6000 users/day (120,000
+Blog][socialweb].  As well as the public website, Clackpoint was
+available as a gadget for Google's OpenSocial and Google Wave, as a
+custom plugin for the HotCRP conference management system, and as a
+plugin for Atlassian Confluence.  Two months after launch it had been
+installed on around 1000 websites, was serving 6000 users/day (120,000
 unique/month) from over 180 countries, and handling over 600,000
 minutes/month.  Acquisition of both Clackpoint and Karaka by [Voxeo
 Corp.][voxeo] was [announced][] in January 2010.
@@ -121,4 +124,15 @@ techniques][infospect].
 [linkfail]: http://doi.acm.org/10.1145/637201.637238
 [loops]: http://doi.acm.org/10.1145/637201.637217
 [sprintlink]: http://www.sprint.net/
+=--
+
++-- {.section}
+Cplane Inc.
+===========
+
+During my Ph.D. I spent several weeks as a consultant to Cplane, a
+California-based startup developing novel network control software.  I
+integrated Cisco's Virtual Switch Interface Protocol with their
+network control platform.  
+
 =--
