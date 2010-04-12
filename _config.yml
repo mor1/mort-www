@@ -1,5 +1,6 @@
 ---
 url_root: /~rmm/
+url_root: /
 
 auto: false
 pygments: true
