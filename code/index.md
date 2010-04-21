@@ -36,7 +36,9 @@ released it under the GPLv2.  It comprises code for collecting and
 analysing routeing data.  This package currently collects BGPv4 and
 ISIS, and dumps and parses MRTD files including MRTD TABLE_DUMP files
 (as available from, e.g., RouteViews and RIPE/RIS).  A number of
-utilities for manipulating these dumps are also provided.  
+utilities for manipulating these dumps are also provided.  Since the
+code on [Sprint's website][pyrt] appears to be orphaned, I have
+created a [github repository here][pyrt-gh] for it.
 
 
 =--
@@ -98,6 +100,7 @@ range: *Python's `range()` builtin, for command line use*<br>
 
 
 [pyrt]: https://research.sprintlabs.com/pyrt/
+[pyrt-gh]: http://github.com/mor1/pyrt/
 [Karaka]: http://code.google.com/p/karaka/
 [python]: http://github.com/mor1/python-scripts
 [awk]: http://github.com/mor1/awk-scripts
