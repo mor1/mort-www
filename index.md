@@ -74,3 +74,16 @@ be contacted by email (preferred) at
 [facebook]: http://facebook.com/richard.mortier
 =--
 
++-- {.section}
+[Twitter][]
+=======
+
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"> </script>
+
+*Contacting Twitter...*{:#twitter_update_list}
+
+<script type="text/javascript"
+        src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=1"> </script>
+
+
+=--
