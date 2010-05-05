@@ -60,6 +60,7 @@ Miscellaneous Scripts
 [Python][python]
 =======
 
+bberry: *parse RIM Blackberry backup (.IPD) files, extracting contacts*<br>
 bib2html: *convert BibTeX files to JSON/HTML*<br>
 cal: *replacement for Unix `cal` command: similar output, more options*<br>
 ip2as: *lookup the AS owning an IP address*<br>
@@ -82,7 +83,7 @@ id2bib: *convert IETF Internet Draft index text file to BibTeX*<br>
 
 envfns: *environment manipulation shell functions*<br>
 filefns: *filesystem related shell functions*<br>
-numfns: *number based conversion shell functions*<br>
+numfns: *number base conversion shell functions*<br>
 pdfmerge: *merge set of PDFs into one*<br>
 =--
 
