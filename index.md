@@ -32,12 +32,12 @@ encompasses a variety of challenges in information privacy, cloud
 computing, database systems, and usability.  Some first steps along
 these lines can be found at <http://perscon.net>.
 
-<!-- I have now added some [third year project suggestions][third-year] for
+<!-- I have now added some [project suggestions][projects] for
 students here at Nottingham.  If anyone else either implements any of
 these, can prove that they're impossible, or has any other interesting
 comment to make, please [mail me][e]. -->
 
-[third-year]: research/2010-third-year/
+[projects]: research/2010-projects/
 [e]: mailto:richard.mortier@nottingham.ac.uk
 
 =--

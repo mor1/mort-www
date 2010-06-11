@@ -1,6 +1,6 @@
 ---
 layout: default
-title: third-year research projects
+title: 2010 projects
 parent: mort
 ---
 [perscon]: http://perscon.net/
@@ -9,8 +9,8 @@ parent: mort
 [Vyper]: http://got.net/~landauer/sw/vyper_readme.html
 [e]: mailto:richard.mortier@nottingham.ac.uk
 
-Third Year Research Project Proposals---2010
-============================================
+Project Proposals---2010
+========================
 
 **Warning**: These projects all involve *substantial* coding, often in
 languages, environments or at levels not commonly exercised in your
@@ -19,8 +19,9 @@ involve some actual research.  I would not recommend considering them
 unless you are *both* a confident programmer *and* likely to perform
 well in the exams.
 
-If you're a third-year student at University of Nottingham and you
-*do* wish to take on one of these projects, please [mail me][e].
+If you're a third-year or masters student at University of Nottingham
+and you *do* wish to take on one of these projects, please [mail
+me][e].
 
 If anyone else either implements any of these, can prove that they’re
 impossible, or has any other interesting comment to make, then also,
