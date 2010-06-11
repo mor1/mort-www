@@ -15,7 +15,7 @@ Project Proposals---2010
 **Warning**: These projects all involve *substantial* coding, often in
 languages, environments or at levels not commonly exercised in your
 other courses.  They might all be considered difficult and some may
-involve some actual research.  I would not recommend considering them
+involve publishable research.  I would not recommend considering them
 unless you are *both* a confident programmer *and* likely to perform
 well in the exams.
 
