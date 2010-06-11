@@ -287,6 +287,18 @@ body#Kith #header a.kith
 	font-weight: bold;
 	font-variant: small-caps;
 }
+.section h2 {
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+	position: absolute;
+	width: 6em;
+	max-width: 6em;
+	margin-top: 0;
+    margin-left: -7.5em;
+    border-top: 1px solid black;
+    font-weight: normal;
+    font-style: italic;
+}
 .section p { margin-bottom: 1.43em; }
 
 /* @end */
