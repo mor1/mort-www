@@ -1,5 +1,6 @@
 ---
 layout: default
+section: home
 title: home
 parent: mort
 ---
@@ -21,6 +22,7 @@ Nottingham][nottingham] [School of Computer Science][cs].
 [nottingham]: http://www.nottingham.ac.uk/
 [cs]: http://www.cs.nott.ac.uk/
 
+
 +-- {.section}
 Research
 ========
@@ -40,9 +42,7 @@ comment to make, please [mail me][e]. -->
 [projects]: research/2010-projects/
 [e]: mailto:richard.mortier@nottingham.ac.uk
 
-=--
 
-+-- {.section}
 Expertise
 ========= 
 
@@ -63,9 +63,8 @@ available for consultancy and selected development work.
 [alertme]: http://alertme.com/
 [sprint]: http://sprint.com/
 [microsoft]: http://microsoft.com/
-=--
 
-+-- {.section}
+
 Contact
 =======
 
@@ -80,9 +79,8 @@ be contacted by email (preferred) at
 [github]: http://github.com/mor1
 [linkedin]: http://linkedin.com/in/richardmortier
 [facebook]: http://facebook.com/richard.mortier
-=--
 
-+-- {.section}
+
 [Twitter][]
 =======
 

@@ -10,6 +10,7 @@ analytics_id: UA-15796259-1
 auto: false
 pygments: true
 markdown: maruku
+exclude: _deploy
 
 maruku:
     use_divs: true

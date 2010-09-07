@@ -1,5 +1,6 @@
 ---
 layout: default
+section: papers
 title: papers
 parent: mort
 ---

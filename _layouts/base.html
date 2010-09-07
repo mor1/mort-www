@@ -7,7 +7,7 @@
     <meta name="google-site-verification" content="7opYvKhBnh1M2rgHuIfEzH4n-JCwoviyNIvZ_-OhsUE" />
     <meta name="google-site-verification" content="q29i6s2Bapo9EHS5w0uI2V6zjt-3plGPFUcIQKBAwB4" />
     <title>{{ page.title }} &laquo; {{ page.parent }}</title>
-    <base href="{{ site.url_root }}" />
+<!--    <base href="{{ site.url_root }}" /> -->
     <meta name="author" content="Richard Mortier" />
     <meta name="description" content="Richard Mortier's home pages" />
     <meta name="copyright" content="Copyright (C) 2010 Richard Mortier" />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ site.url_root }}css/screen.css" type="text/css" />
   </head>
 
-  <body>
+  <body id="{{ page.section }}">
 
     <div id="site">
       {{ content }}

@@ -1,7 +1,8 @@
 ---
 layout: default
+section: teaching
 title: 2010 projects
-parent: mort
+parent: teaching &laquo; mort
 ---
 [perscon]: http://perscon.net/
 [Python]: http://www.python.org/

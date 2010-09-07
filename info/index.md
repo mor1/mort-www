@@ -1,5 +1,6 @@
 ---
 layout: default
+section: info
 title: history
 parent: mort
 ---
@@ -74,9 +75,7 @@ of topics including integration of CTI with Microsoft Dynamics;
 website development in Python/Django; and telephone control of home
 automation systems.
 
-=--
 
-+-- {.section}
 [Microsoft Research][msrc]
 ==================
 
@@ -101,9 +100,7 @@ billion packets over 4 weeks from Microsoft's corporate backbone
 network.  I also developed the F# parsing library used to process
 these traces.
 
-=--
 
-+-- {.section}
 [Sprint ATL][atl]
 ==========
 
@@ -124,9 +121,8 @@ techniques][infospect].
 [linkfail]: http://doi.acm.org/10.1145/637201.637238
 [loops]: http://doi.acm.org/10.1145/637201.637217
 [sprintlink]: http://www.sprint.net/
-=--
 
-+-- {.section}
+
 Cplane Inc.
 ===========
 

@@ -1,0 +1,6 @@
+AuthUserFile /stud/pg/rmm/lib/webpasswd
+AuthName ZoneName
+AuthType Basic
+<Limit GET POST PUT>
+	require user mac
+</Limit>

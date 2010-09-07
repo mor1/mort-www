@@ -242,15 +242,14 @@ ul.compact li a {
 .twitter-title a { display: inline; }
 /* @end */
 
-body#Work #header a.work, 
-body#Home #header a.home, 
-body#Play #header a.play,
-body#Info #header a.info,
-body#Code #header a.code,
-body#Past #header a.past,
-body#Kith #header a.kith
+body#home #header a.home, 
+body#papers #header a.papers,
+body#research #header a.research,
+body#info #header a.info,
+body#code #header a.code,
+body#teaching #header a.teaching
 { 
-	border-bottom: 2px solid silver; 
+	border-bottom: 0.5ex solid silver; 
 }
 
 /* @end */
@@ -300,7 +299,6 @@ body#Kith #header a.kith
     font-style: italic;
 }
 .section p { margin-bottom: 1.43em; }
-
 /* @end */
 
 .list .title { font-weight: bold; }
@@ -512,3 +510,17 @@ span.maruku-inline { }
 img.maruku-png { }
 /* @end */
 
+.twocol-list ul { width: 36em; margin-top: 0em; }
+.twocol-list ul li { float: left; width: 17em; }
+.twocol-list br { clear: left; }
+
+.threecol-list ul { width: 36em; margin-top: 0em; }
+.threecol-list ul li { float: left; width: 11em; }
+.threecol-list br { clear: left; }
+
+.section h3 {
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+	line-height: 1.43em;
+    margin-top: 1ex;
+}

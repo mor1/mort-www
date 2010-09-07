@@ -1,5 +1,6 @@
 ---
 layout: default
+section: code
 title: code
 parent: mort
 ---
@@ -25,9 +26,6 @@ available under the GPLv2.
 
 [perscon]: http://perscon.net/
 
-=--
-
-+-- {.section}
 [PyRT][pyrt]
 =====
 
@@ -40,10 +38,6 @@ utilities for manipulating these dumps are also provided.  Since the
 code on [Sprint's website][pyrt] appears to be orphaned, I have
 created a [github repository here][pyrt-gh] for it.
 
-
-=--
-
-+-- {.section}
 [Karaka][]
 ======
 
@@ -69,17 +63,13 @@ jsonpretty: *pretty print JSON from `stdin`*<br>
 num: *print number in selection of useful bases*<br>
 skrype: *parse and print Skype `.dbb` logfiles*<br>
 tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
-=--
 
-+-- {.section}
 [Gawk/Awk][awk]
 ========
 
 rfc2bib: *convert IETF RFC index text file to BibTeX*<br>
 id2bib: *convert IETF Internet Draft index text file to BibTeX*<br>
-=--
 
-+-- {.section}
 [Bash/Sh][sh]
 ========
 
@@ -87,10 +77,7 @@ envfns: *environment manipulation shell functions*<br>
 filefns: *filesystem related shell functions*<br>
 numfns: *number base conversion shell functions*<br>
 pdfmerge: *merge set of PDFs into one*<br>
-=--
 
-
-+-- {.section}
 [C][cutils]
 ==
 
