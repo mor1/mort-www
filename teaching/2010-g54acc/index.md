@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: summarise
 section: teaching
 title: g54acc
 parent: teaching &laquo; mort
@@ -27,10 +27,10 @@ naming and addressing; switching and routing; IP/TCP/UDP; presentation
 encoding, services, application protocols; security; network
 management.
 
-
-Links
+Admin
 =====
 
++-- {.summarise .hidden}
 + [Computer Science module list][modules]
 + [Official module catalog entry][catalog]
 + [Reading list][reading]
@@ -43,9 +43,9 @@ Links
 [reading]: http://www.nottingham.ac.uk/is/gateway/readinglists/local/displaylist?module=G54ACC
 [g53acc]: http://www.cs.nott.ac.uk/~drm/G53ACC/index.html
 [g52ccn]: http://www.cs.nott.ac.uk/~mvr/G52CCN/
-
 =--
 
+=--
 
 Lectures
 --------
@@ -53,7 +53,8 @@ Lectures
 Lecture notes made available here for educational purposes only.
 Content is Copyright &copy; 2010 [Richard Mortier][rmm].  Please [mail
 me][mail] with any comments or errata.
-                                                
+
++-- {.summarise .hidden}
 +-- {.section}
 
 Lecture 1. **Internetworking**
@@ -71,8 +72,6 @@ Lecture 1. **Internetworking**
 =--
 
 ### Related:
-
-
 
 [Impact of
 offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10talks/watson-stack.pdf)
@@ -223,11 +222,13 @@ Lecture 9. **Security**
 =--
    
 =--
+=--
 
 
 Exercises
 ---------
 
++-- {.summarise .hidden}
 +-- {.section}
     
 Exercise 1.  **Tools**
@@ -296,12 +297,13 @@ support N=64, 32, 16.
 References: [RFC4122](http://ietf.org/rfc/rfc4122.txt),
 [RFC4648](http://ietf.org/rfc/rfc4648.txt). 
 
-
+=--
 =--
 
 Books
 -----
 
++-- {.summarise .hidden}
 Many of the following assume some knowledge of the C programming
 language.  No individual book is followed directly, but all of these
 contain excellent background information, related content, and
@@ -413,10 +415,12 @@ different specific platforms).
 [algorithmics]: http://www.elsevier.com/wps/find/bookdescription.cws_home/704109/description
 
 =--
+=--
 
 External Links
 --------------
 
++-- {.summarise .hidden}
 Note that these take you away from University of Nottingham pages.  I
 am not responsible for any of the content linked.  They generally
 contain material relevant to the topics covered.
@@ -477,4 +481,5 @@ Miscellaneous
 [routergod]: http://routergod.com/
 
 
+=--
 =--
