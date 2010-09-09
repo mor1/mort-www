@@ -242,7 +242,7 @@ ul.compact li a {
 .twitter-title a { display: inline; }
 /* @end */
 
-body#home #header a.home, 
+body#home #header a.home,
 body#papers #header a.papers,
 body#research #header a.research,
 body#info #header a.info,
@@ -524,3 +524,4 @@ img.maruku-png { }
 	line-height: 1.43em;
     margin-top: 1ex;
 }
+
