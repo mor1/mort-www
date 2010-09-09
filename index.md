@@ -72,7 +72,7 @@ I am in office A29 in the [Sir Colin Campbell Building][map].  I can
 be contacted by email (preferred) at
 <mailto:richard.mortier@nottingham.ac.uk>, or by phone on +44 115 823
 2552.  I am online at [twitter][], [github][], [linkedin][], and
-[facebook][].
+[facebook][].  My Erd&#x0151;s number appears to be 3.
 
 [map]: http://unip.nottingham.ac.uk/default.asp?id=7
 [twitter]: http://twitter.com/mort___
@@ -84,7 +84,7 @@ be contacted by email (preferred) at
 [Twitter][]
 =======
 
-<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"> </script>
+<script type="text/javascript" src="{{site.url_root}}js/twitter-blogger.js"> </script>
 
 *Contacting Twitter...*{:#twitter_update_list}
 

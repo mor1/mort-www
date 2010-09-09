@@ -4,4 +4,5 @@ AuthType Basic
 <Limit GET POST PUT>
 	require user mac
 	require user sooi
+	require user jac
 </Limit>
