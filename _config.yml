@@ -1,11 +1,11 @@
 ---
 ## github
-#url_root: /
-#analytics_id: UA-15796259-1
+url_root: /
+analytics_id: UA-15796259-1
 
 ## cs.nott
-url_root: /~rmm/
-analytics_id: UA-15796259-2
+#url_root: /~rmm/
+#analytics_id: UA-15796259-2
 
 auto: false
 pygments: true
