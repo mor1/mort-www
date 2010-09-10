@@ -99,6 +99,7 @@ Lecture 2. **Routing**
 [OpenFlow](http://openflow.org/),
 [OpenVSwitch](http://openvswitch.org/),
 [NoX](http://noxrepo.org/)
+[PyRT](http://github.com/mor1/pyrt/)
 
 Lecture 3. **Transport: Basics**
 --------------------------------
@@ -165,6 +166,9 @@ Lecture 6. **Services and Applications**
 
 <br />
 =--
+
+### Related:
+[Sample HTTP trace](http://www.rogerclarke.com/II/IPrimerhttp-dump.html)
 
 <p> </p>
 
@@ -267,6 +271,12 @@ traffic.  In a language of your choice, implement code to parse the
 resulting PCAP file, reassembling data successfully transferred in all
 TCP flows (i.e., ignore retransmissions).  Print statistics concerning
 flow duration, size, bandwidth, loss.
+
+If you find yourself unable to run `tcpdump` directly, consider using
+some publicly available dataset from, e.g.,
+[Crawdad](http://crawdad.cs.dartmouth.edu/data.php), or the [UMass
+Trace
+Repository](http://traces.cs.umass.edu/index.php/Network/Network).
 
 
 Exercise 3.  **Routes**
