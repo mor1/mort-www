@@ -504,7 +504,7 @@ dl.figure dd {
 /* @end */
 
 /* @group Equations */
-div.maruku-equation { display: block ;text-align: center; }
+div.maruku-equation { display: block; text-align: center; }
 div.maruku-equation img.maruku-png { position: relative; top: -0.75em;}
 span.maruku-inline { }
 img.maruku-png { }
@@ -525,3 +525,7 @@ img.maruku-png { }
     margin-top: 1ex;
 }
 
+:link.external { 
+    padding-right: 13px; 
+    background: url(@SITE_ROOT@img/external.png) top right no-repeat; 
+}

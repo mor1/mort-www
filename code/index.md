@@ -6,7 +6,7 @@ parent: mort
 ---
 
 <img class='inset right' 
-     src='{{ site.url_root }}images/joker.png' 
+     src='{{ site.url_root }}img/joker.png' 
      title='Richard Mortier' 
      alt='Photo of Richard Mortier' height='100px' />
 
