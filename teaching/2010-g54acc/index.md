@@ -9,16 +9,15 @@ G54ACC - Advanced Computer Communications
 =========================================
 
 I am teaching this course in conjunction with [Prof. Derek
-McAuley][mac] -- please see his pages for material relevant to his
-half of the course.  If you have any questions about my parts of the
-course, please [mail me][mail].
+McAuley][mac] -- contact him with questions about his part of the
+course.  If you have any questions or errata for my parts of the
+course, or for these web pages, please [mail me][mail].
 
 [mac]: http://www.cs.nott.ac.uk/~drm/
 [mail]: mailto:richard.mortier@nottingham.ac.uk?subject=g54acc
 [rmm]: http://www.cs.nott.ac.uk/~rmm/
 
 +-- {.section}
-
 Topics
 ======
 
@@ -43,19 +42,114 @@ Admin
 [reading]: http://www.nottingham.ac.uk/is/gateway/readinglists/local/displaylist?module=G54ACC
 [g53acc]: http://www.cs.nott.ac.uk/~drm/G53ACC/index.html
 [g52ccn]: http://www.cs.nott.ac.uk/~mvr/G52CCN/
-=--
-
-=--
+=-- {.summarise .hidden}
+=-- {.section}
 
 Lectures
 --------
 
-Lecture notes made available here for educational purposes only.
-Content is Copyright &copy; 2010 [Richard Mortier][rmm].  Please [mail
-me][mail] with any comments or errata.
+Lecture notes made available here for teaching purposes only.  
+
++-- {.section}
+
+
+IP and Down
+===========
+
+Lectured by [Prof. Derek McAuley][mac], Fridays, 14.00--15.00.  
 
 +-- {.summarise .hidden}
-+-- {.section}
+
+
+Lecture 1.  **Network --- IP**
+------------------------------
++-- {.twocol-list}
++ Internetworking
++ IP to datalink mapping
++ ARP / connection setup
++ E.g., Ethernet, ADSL, Mobile, Wireless
++ MPLS (e.g. 21CN)
+
+<br />
+=-- {.twocol-list}
+
+
+Lectures 2 & 3. **Physical & datalink**
+---------------------------------------
++-- {.twocol-list}                              
++ Modulation
++ Information theory (intro!)
++ Coding, blocks / scramblers
++ Error correction / detection
++ Optical
++ WDM
+
+<br />
+=-- {.twocol-list}
+
+
+Lectures 4 & 5. **Ethernet**
+----------------------------
++-- {.twocol-list}                              
++ 10Base5,2,T, 100/1000/10G
++ Coding
++ Coax, hubs, switches
++ Broadcast & multicast
++ New additions CGE, DCE
+
+<br />
+=-- {.twocol-list}
+
+
+Lecture 6. **ADSL**
+-------------------
++-- {.twocol-list}                              
++ Coding
++ ATM
++ VPs / VCs
++ Aggregation
++ Segmentation
++ History and modern day
+
+<br />
+=-- {.twocol-list}
+
+
+Lectures 7 & 8. **Wireless** 
+----------------------------
++-- {.twocol-list}                              
++ Coding
++ Radio issues
++ Timing, movements and slots
++ Channels
+
+<br />
+=-- {.twocol-list}
+
+
+Lectures 9 & 10. **Switching** 
+------------------------------
++-- {.twocol-list}                              
++ Switch architectures
++ Buffering
++ Queuing
++ QoS
++ NPUs
+
+<br />
+=-- {.twocol-list}
+
+
+=-- {.summarise .hidden}
+
+-----------
+
+IP and Up
+=========
+
+Lectured by [me][rmm], Mondays, 17.00--18.00.  
+
++-- {.summarise .hidden}
 
 Lecture 1. **Internetworking**
 ------------------------------
@@ -69,7 +163,7 @@ Lecture 1. **Internetworking**
 + Alternatives
 
 <br />
-=--
+=-- {.twocol-list}
 
 ### Related:
 
@@ -78,6 +172,7 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 ([cached](./material/watson-stack.pdf))
 
 <p> </p>
+
 
 Lecture 2. **Routing**
 ----------------------
@@ -91,7 +186,7 @@ Lecture 2. **Routing**
 + Alternatives
 
 <br />
-=--
+=-- {.twocol-list}
 
 <p> </p>
 
@@ -100,6 +195,7 @@ Lecture 2. **Routing**
 [OpenVSwitch](http://openvswitch.org/),
 [NoX](http://noxrepo.org/),
 [PyRT](http://github.com/mor1/pyrt/)
+
 
 Lecture 3. **Transport: Basics**
 --------------------------------
@@ -112,13 +208,14 @@ Lecture 3. **Transport: Basics**
 + TCP flow control
 
 <br />
-=--
+=-- {.twocol-list}
 
 ### Related: 
 [Scalable Stream Transport](http://ccr.sigcomm.org/online/?q=node/272)
 ([cached](./material/fp240-ford.pdf))
 
 <p> </p>
+
 
 Lecture 4. **Transport: Advanced**
 ----------------------------------
@@ -129,7 +226,7 @@ Lecture 4. **Transport: Advanced**
 + Multimedia and TCP fairness
 
 <br />
-=--
+=-- {.twocol-list}
 
 ### Related: 
 [TCP congestion control survey](http://dx.doi.org/10.1109/SURV.2010.042710.00114) 
@@ -148,10 +245,10 @@ Lecture 5. **Connecting**
 + QOS: IntServ, DiffServ
 
 <br />
-=--
-
+=-- {.twocol-list}
 
 <p> </p>
+
 
 Lecture 6. **Services and Applications**
 ----------------------------------------
@@ -165,12 +262,13 @@ Lecture 6. **Services and Applications**
 + P2P protocols
 
 <br />
-=--
+=-- {.twocol-list}
 
 ### Related:
 [Sample HTTP trace](http://www.rogerclarke.com/II/IPrimerhttp-dump.html)
 
 <p> </p>
+
 
 Lecture 7. **Management**
 -------------------------
@@ -185,9 +283,10 @@ Lecture 7. **Management**
 + An hypothetical network management system
 
 <br />
-=--
+=-- {.twocol-list}
 
 <p> </p>
+
 
 Lecture 8. **Network Programming**
 ----------------------------------
@@ -199,7 +298,7 @@ Lecture 8. **Network Programming**
 + Cloud computing
 
 <br />
-=--
+=-- {.twocol-list}
 
 ### Related:
 
@@ -223,10 +322,13 @@ Lecture 9. **Security**
 + TLS/SSL/HTTPS
 
 <br />
-=--
-   
-=--
-=--
+=-- {.twocol-list}
+=-- {.summarise .hidden}
+
+-----------
+
+=-- {.section}
+
 
 
 Exercises
@@ -307,8 +409,8 @@ support N=64, 32, 16.
 References: [RFC4122](http://ietf.org/rfc/rfc4122.txt),
 [RFC4648](http://ietf.org/rfc/rfc4648.txt). 
 
-=--
-=--
+=-- {.summarise .hidden}
+=-- {.section}
 
 Books
 -----
@@ -424,8 +526,8 @@ different specific platforms).
 [interconnections]: http://portal.acm.org/citation.cfm?id=316181
 [algorithmics]: http://www.elsevier.com/wps/find/bookdescription.cws_home/704109/description
 
-=--
-=--
+=-- {.section}
+=-- {.summarise .hidden}
 
 External Links
 --------------
@@ -467,11 +569,13 @@ Related Courses
   [EE122 (2009)][ee122-09] [EE122 (2010)][ee122-10] 
 + University of Berkeley, Graduate Computer Networks [CS268
   (2003)][ee122-09]  
++ University of Cambridge, [Network Architecture][cucl-r02] (primarily
+  a paper-reading/research based course).
 
 [ee122-09]: http://inst.eecs.berkeley.edu/~ee122/fa09/
 [ee122-10]: http://inst.eecs.berkeley.edu/~ee122/fa10/
 [cs268-03]: http://inst.eecs.berkeley.edu/~cs268/sp03/
-
+[cucl-r02]: http://www.cl.cam.ac.uk/teaching/1011/R02/papers/
 
 Miscellaneous
 -------------
@@ -490,6 +594,5 @@ Miscellaneous
 
 [routergod]: http://routergod.com/
 
-
-=--
-=--
+=-- {.section}
+=-- {.summarise .hidden}

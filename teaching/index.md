@@ -66,4 +66,10 @@ Networking
 
 + [The TCP/IP Guide](http://www.tcpipguide.com/free/index.htm), Charles M. Kozierok
 
+
+Systems
+-------
+
++ [Odd Comments and Strange Doings in Unix](http://cm.bell-labs.com/cm/cs/who/dmr/odd.html), Dennis Ritchie
+
 =--
