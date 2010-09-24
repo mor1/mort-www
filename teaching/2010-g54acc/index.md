@@ -56,33 +56,41 @@ Lecture notes made available here for teaching purposes only.
 IP and Down
 ===========
 
-Lectured by [Prof. Derek McAuley][mac], Fridays, 14.00--15.00.  
+Lectured by [Prof. Derek McAuley][mac], Fridays, 14.00--15.00 in
+JC-EXCHGE-B.LT1.
 
-+-- {.summarise .hidden}
-
-
-Lecture 1.  **Network --- IP**
-------------------------------
++-- {.summarise .visible}
+[Lecture 1](./lectures/ip-and-down/01ipdown.pdf) **Network---IP**
+---------------------------
 +-- {.twocol-list}
 + Internetworking
 + IP to datalink mapping
-+ ARP / connection setup
-+ E.g., Ethernet, ADSL, Mobile, Wireless
-+ MPLS (e.g. 21CN)
++ ARP/connection setup
++ e.g., Ethernet, ADSL, Mobile, Wireless
++ MPLS (e.g., 21CN)
 
 <br />
 =-- {.twocol-list}
 
 
-Lectures 2 & 3. **Physical & datalink**
----------------------------------------
-+-- {.twocol-list}                              
+[Lecture 2](./lectures/ip-and-down/02mux.pdf)  **Multiplexing**
+----------------------------
++-- {.twocol-list}
++ TDM variants
++ Statistcial multiplexing
++ Hello to Queuing theory
++ CDMA
+
+<br />
+=-- {.twocol-list}
+
+
+[Lecture 3](./lectures/ip-and-down/03phy.pdf) **Physical**
+-----------------------
++-- {.twocol-list}
 + Modulation
-+ Information theory (intro!)
-+ Coding, blocks / scramblers
-+ Error correction / detection
-+ Optical
-+ WDM
++ Coding, blocks/scramblers
++ Error correction/detection
 
 <br />
 =-- {.twocol-list}
@@ -90,12 +98,12 @@ Lectures 2 & 3. **Physical & datalink**
 
 Lectures 4 & 5. **Ethernet**
 ----------------------------
-+-- {.twocol-list}                              
++-- {.twocol-list}
 + 10Base5,2,T, 100/1000/10G
 + Coding
 + Coax, hubs, switches
 + Broadcast & multicast
-+ New additions CGE, DCE
++ New additions: CGE, DCE
 
 <br />
 =-- {.twocol-list}
@@ -103,7 +111,7 @@ Lectures 4 & 5. **Ethernet**
 
 Lecture 6. **ADSL**
 -------------------
-+-- {.twocol-list}                              
++-- {.twocol-list}
 + Coding
 + ATM
 + VPs / VCs
@@ -115,9 +123,10 @@ Lecture 6. **ADSL**
 =-- {.twocol-list}
 
 
-Lectures 7 & 8. **Wireless** 
+Lectures 7 & 8. **Wireless**
 ----------------------------
-+-- {.twocol-list}                              
++-- {.twocol-list}
++ Mobile & 802.11
 + Coding
 + Radio issues
 + Timing, movements and slots
@@ -127,9 +136,9 @@ Lectures 7 & 8. **Wireless**
 =-- {.twocol-list}
 
 
-Lectures 9 & 10. **Switching** 
+Lectures 9 & 10. **Switching**
 ------------------------------
-+-- {.twocol-list}                              
++-- {.twocol-list}
 + Switch architectures
 + Buffering
 + Queuing
@@ -139,19 +148,18 @@ Lectures 9 & 10. **Switching**
 <br />
 =-- {.twocol-list}
 
-
-=-- {.summarise .hidden}
+=-- {.summarise .visible}
 
 -----------
 
 IP and Up
 =========
 
-Lectured by [me][rmm], Mondays, 17.00--18.00.  
+Lectured by [me][rmm], Mondays, 17.00--18.00 in JC-BSSOUTH-A25.
 
-+-- {.summarise .hidden}
++-- {.summarise .visible}
 
-Lecture 1. **Internetworking**
+[Lecture 1](./lectures/ip-and-up/01-TheInternetProtocol.pdf) **Internetworking**
 ------------------------------
 +-- {.twocol-list}
 + Encapsulation
@@ -174,7 +182,7 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 <p> </p>
 
 
-Lecture 2. **Routing**
+[Lecture 2](./lectures/ip-and-up/02-Routing.pdf) **Routing**
 ----------------------
 +-- {.twocol-list}
 + Link-state
@@ -195,9 +203,10 @@ Lecture 2. **Routing**
 [OpenVSwitch](http://openvswitch.org/),
 [NoX](http://noxrepo.org/),
 [PyRT](http://github.com/mor1/pyrt/)
+[BGP statistics](http://bgp.potaroo.net/)
 
 
-Lecture 3. **Transport: Basics**
+[Lecture 3](./lectures/ip-and-up/03-Transport.pdf) **Transport: Basics**
 --------------------------------
 +-- {.twocol-list}
 + Process multiplexing
@@ -217,7 +226,7 @@ Lecture 3. **Transport: Basics**
 <p> </p>
 
 
-Lecture 4. **Transport: Advanced**
+[Lecture 4](./lectures/ip-and-up/04-TransportAdvanced.pdf) **Transport: Advanced**
 ----------------------------------
 +-- {.twocol-list}
 + Achieving reliability
@@ -235,7 +244,7 @@ Lecture 4. **Transport: Advanced**
 <p> </p>
 
 
-Lecture 5. **Connecting**
+[Lecture 5](./lectures/ip-and-up/05-Connecting.pdf) **Connecting**
 -------------------------
 +-- {.twocol-list}
 + Address translation
@@ -249,6 +258,8 @@ Lecture 5. **Connecting**
 
 <p> </p>
 
+### Related:
+[End-to-end argument](http://doi.acm.org/10.1145/357401.357402) ([cached](./material/p277-saltzer.pdf))
 
 Lecture 6. **Services and Applications**
 ----------------------------------------
@@ -260,6 +271,7 @@ Lecture 6. **Services and Applications**
 + XMPP
 + BOSH
 + P2P protocols
++ Active networks
 
 <br />
 =-- {.twocol-list}
@@ -270,7 +282,7 @@ Lecture 6. **Services and Applications**
 <p> </p>
 
 
-Lecture 7. **Management**
+[Lecture 7](./lectures/ip-and-up/07-Management.pdf) **Management**
 -------------------------
 +-- {.twocol-list}
 + Network management
@@ -288,7 +300,7 @@ Lecture 7. **Management**
 <p> </p>
 
 
-Lecture 8. **Network Programming**
+[Lecture 8](./lectures/ip-and-up/08-Programming.pdf) **Network Programming**
 ----------------------------------
 +-- {.twocol-list}
 + Berkeley sockets
@@ -310,7 +322,7 @@ Lecture 8. **Network Programming**
 <p> </p>
 
 
-Lecture 9. **Security**
+[Lecture 9](./lectures/ip-and-up/09-Security.pdf) **Security**
 -----------------------
 +-- {.twocol-list}
 + Common requirements

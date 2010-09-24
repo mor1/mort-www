@@ -29,9 +29,11 @@ p { margin: 0 0 1.5em 0; text-align: justify; }
 
 a { text-decoration: none; color: #339; }
 a:hover { text-decoration: underline; color: #33f; }
+/*
 a.pdf:before { 
 	margin-right: 1em;
 	content: url(/files/css/icon_pdf.gif); }
+*/
 
 h1,h2,h3,h4 { 
 	line-height:1em; 
@@ -527,5 +529,9 @@ img.maruku-png { }
 
 :link.external { 
     padding-right: 13px; 
-    background: url(/img/external.png) top right no-repeat; 
+    background: url(/~rmm/img/external.png) top right no-repeat; 
+}
+:link.pdf { 
+    padding-right: 18px; 
+    background: url(/~rmm/img/icon-pdf.gif) top right no-repeat; 
 }
