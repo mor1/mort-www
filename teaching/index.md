@@ -53,6 +53,13 @@ System Performance
 + [Quantitative System Performance](http://www.cs.washington.edu/homes/lazowska/qsp/) (book)
 + [Fundamental laws of computer system performance](http://doi.acm.org/10.1145/800200.806196) (paper)
 
+
+Machine Learning
+----------------
+
++ [A collection of online resources](http://metaoptimize.com/qa/questions/186/)
+                                                                               
+
 Graph Theory
 ------------
 
@@ -71,5 +78,6 @@ Systems
 -------
 
 + [Odd Comments and Strange Doings in Unix](http://cm.bell-labs.com/cm/cs/who/dmr/odd.html), Dennis Ritchie
++ [Concise electronics for geeks](http://lcamtuf.coredump.cx/electronics/)
 
 =--

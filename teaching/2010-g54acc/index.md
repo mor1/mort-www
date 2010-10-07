@@ -178,6 +178,7 @@ Lectured by [me][rmm], Mondays, 17.00--18.00 in JC-BSSOUTH-A25.
 [Impact of
 offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10talks/watson-stack.pdf)
 ([cached](./material/watson-stack.pdf))
+[ipv6 transition]
 
 <p> </p>
 
@@ -204,7 +205,7 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 [NoX](http://noxrepo.org/),
 [PyRT](http://github.com/mor1/pyrt/)
 [BGP statistics](http://bgp.potaroo.net/)
-
+[mcquillan paper]
 
 [Lecture 3](./lectures/ip-and-up/03-Transport.pdf) **Transport: Basics**
 --------------------------------
@@ -343,8 +344,12 @@ Lecture 6. **Services and Applications**
 
 
 
-Exercises
----------
+Lab Exercises
+-------------
+
+Note that these are not assessed, but are intended for your education
+only.  As a result, I place no constraint on which programming
+language you select for any of the programming exercises.  Go wild!
 
 +-- {.summarise .hidden}
 +-- {.section}
@@ -353,12 +358,12 @@ Exercise 1.  **Tools**
 ----------------------
 
 Read the `man` pages for 
-* `arp`, 
+* `arp(8)`, 
 * `ifconfig` (if on Unix) or `ipconfig` (if on Windows),
-* `netstat`,
-* `ping`,
-* `whois`,
-* `traceroute`.
+* `netstat(1)`,
+* `ping(8)`,
+* `whois(1)`,
+* `traceroute(8)` or `tracert` on Windows.
 
 Experiment running them and interpreting their output.  Note that the
 University firewall prevents ICMP from escaping the university
@@ -435,20 +440,21 @@ extension work.
 
 +-- {.section}
 
+General
+=======
+
+These books are good general background textbooks on computer
+communications.  They all cover material from the course, much of
+which will be in more detail or with more examples than we have time
+to go into during lectures.
+
+
 Network Algorithmics
 --------------------
 
 [Network Algorithmics: An Interdisciplinary Approach to Designing Fast
 Networked Devices][algorithmics] by [George Varghese][varghese],
 Morgan-Kaufman, 2004.  ISBN 978-0-12-088477-3.
-
-
-Stallings
----------
-
-[Data and Computer Communication Networks, sixth edition][dcc] by
-[William Stallings][stallings], Prentice Hall, 2011.  ISBN:
-978-0-13-139205-2.
 
 
 Interconnections
@@ -467,6 +473,29 @@ Top-Down Approach
 [Jim Kurose][kurose] and [Keith Ross][ross], 2007.
 
 
+A Systems Approach
+------------------
+
+[Computer Networks - A Systems Approach, 4th Edition][systemsapproach]
+by [Larry L. Peterson][peterson] and [Bruce S. Davie][davie], Morgan
+Kaufmann, 2007.
+
+
+Stallings
+---------
+
+[Data and Computer Communication Networks, sixth edition][dcc] by
+[William Stallings][stallings], Prentice Hall, 2011.  ISBN:
+978-0-13-139205-2.
+
+
+Topic Specific
+==============
+
+These books provide more detail on particular elements covered within
+the course.  
+           
+
 UNIX Network Programming
 ------------------------
 
@@ -483,21 +512,6 @@ TCP/IP Illustrated
 [W. Richard Stevens][stevens].  See also [Volume 2: The
 Implementation][illustrated2] and [Volume 3: TCP for Transactions,
 HTTP, NNTP, and the UNIX Domain Protocols][illustrated3].  
-
-
-A Systems Approach
-------------------
-
-[Computer Networks - A Systems Approach, 4th Edition][systemsapproach]
-by [Larry L. Peterson][peterson] and [Bruce S. Davie][davie], Morgan
-Kaufmann, 2007.
-
-
-Tanenbaum
----------
-
-[Computer Networks, 4th Edition][networks] by [Andrew
-Tanenbaum][tanenbaum], 2002. 
 
 Internetworking
 ---------------
