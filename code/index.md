@@ -14,7 +14,7 @@ Released Code
 =============
 
 +-- {.section}
-[Perscon][perscon]
+[Perscon][]
 ========
 
 Personal Containers are an experiment in enabling you to collate and
@@ -26,7 +26,23 @@ available under the GPLv2.
 
 [perscon]: http://perscon.net/
 
-[PyRT][pyrt]
+[Homework][homework-git]
+========
+
+This is an experiment using [Open vSwitch][ovs] and [NoX][] to control
+a wireless Linux access point as part of the wider [Homework][]
+project.  The repository contains snapshots of both Open vSwitch and
+NoX (as `git` *submodules* no less), as well as the Homework specific
+control script which currently provides basic PERMIT/DENY
+functionality based on MAC address and exposed via a simple web
+services interface.
+
+[homework-git]: http://github.com/mor1/homework/
+[homework]: http://www.homenetworks.ac.uk/
+[ovs]: http://openvswitch.org/
+[nox]: http://noxrepo.org/
+
+[PyRT][]
 =====
 
 I developed the Python Routeing Toolkit while at Sprint ATL, who
@@ -51,7 +67,7 @@ Miscellaneous Scripts
 ---------------------
 
 +-- {.section}
-[Python][python]
+[Python][]
 =======
 
 bberry: *parse RIM Blackberry backup (.IPD) files, extracting contacts*<br>
@@ -91,7 +107,7 @@ range: *Python's `range()` builtin, for command line use*<br>
 
 [pyrt]: https://research.sprintlabs.com/pyrt/
 [pyrt-gh]: http://github.com/mor1/pyrt/
-[Karaka]: http://code.google.com/p/karaka/
+[karaka]: http://github.com/mor1/karaka/
 [python]: http://github.com/mor1/python-scripts
 [awk]: http://github.com/mor1/awk-scripts
 [cutils]: http://github.com/mor1/c-utils
