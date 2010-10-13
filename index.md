@@ -89,7 +89,7 @@ be contacted by email (preferred) at
 *Contacting Twitter...*{:#twitter_update_list}
 
 <script type="text/javascript"
-        src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=1"> </script>
+        src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=3"> </script>
 
 
 =--

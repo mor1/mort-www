@@ -239,7 +239,13 @@ ul.compact li a {
 
 /* @group Twitter */
 #twitter_update_list { display: inline; margin: 0; }
-#twitter_update_list li { display: inline; margin: 0;}
+#twitter_update_list li { 
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+    }
+#twitter_update_list li:before { content: "\2012 \0020"; }
 .twitter-title { display: inline; margin: 0; }
 .twitter-title a { display: inline; }
 /* @end */
