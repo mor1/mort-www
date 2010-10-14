@@ -34,12 +34,6 @@ encompasses a variety of challenges in information privacy, cloud
 computing, database systems, and usability.  Some first steps along
 these lines can be found at <http://perscon.net>.
 
-<!-- I have now added some [project suggestions][projects] for
-students here at Nottingham.  If anyone else either implements any of
-these, can prove that they're impossible, or has any other interesting
-comment to make, please [mail me][e]. -->
-
-[projects]: research/2010-projects/
 [e]: mailto:richard.mortier@nottingham.ac.uk
 
 
@@ -50,8 +44,8 @@ I have worked on a wide range of systems and network topics, from
 distributed system performance monitoring and debugging, to Internet
 routing protocols, to real-time media platform design and
 implementation.  I have worked in a variety of roles, from high-level
-platform architecture to detailed implementation of complex networked
-systems to website designer and implementer.  I have consulted and
+platform architect, to designing and building complex networked
+systems, to website designer and implementer.  I have consulted and
 worked for a broad range of companies, including startups
 ([&mu;][vipadia], [S][camrivox], [M][cplane], [L][alertme]) and
 corporates ([M][sprint], [L][microsoft]) in both the US and UK.  I am
@@ -90,6 +84,5 @@ be contacted by email (preferred) at
 
 <script type="text/javascript"
         src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=3"> </script>
-
 
 =--
