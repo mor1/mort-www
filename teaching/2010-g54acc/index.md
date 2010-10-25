@@ -96,14 +96,25 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-Lectures 4 & 5. **Ethernet**
-----------------------------
+[Lecture 4](./lectures/ip-and-down/04optical.pdf) **Optical**
+-----------------------
 +-- {.twocol-list}
-+ 10Base5,2,T, 100/1000/10G
-+ Coding
++ Ethernet phyiscal
++ Optical transmission
++ Frequency response
++ WDM
+
+<br />
+=-- {.twocol-list}
+
+
+[Lecture 5](./lectures/ip-and-down/05ether.pdf) **Ethernet**
+-----------------------
++-- {.twocol-list}
 + Coax, hubs, switches
-+ Broadcast & multicast
-+ New additions: CGE, DCE
++ Broadcast
++ Multicast
++ CGE, DCE
 
 <br />
 =-- {.twocol-list}
@@ -262,7 +273,7 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 ### Related:
 [End-to-end argument](http://doi.acm.org/10.1145/357401.357402) ([cached](./material/p277-saltzer.pdf))
 
-Lecture 6. **Services and Applications**
+[Lecture 6](./lectures/ip-and-up/06-Applications.pdf) **Applications**
 ----------------------------------------
 +-- {.twocol-list}
 + Session, presentation layers
@@ -271,7 +282,7 @@ Lecture 6. **Services and Applications**
 + Cookies, pipelining
 + XMPP
 + BOSH
-+ P2P protocols
++ Peer-to-peer
 + Active networks
 
 <br />
