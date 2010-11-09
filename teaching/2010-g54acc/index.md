@@ -330,7 +330,8 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 [REST and WS](http://bitworking.org/news/125/REST-and-WS),
 [A more complex REST example](http://bitworking.org/news/201/RESTify-DayTrader),
 [RESTful JSON](http://bitworking.org/news/restful_json)
-
+[How Google Builds APIs](http://www.google.com/events/io/2010/sessions/how-google-builds-apis.html)
+                                                                                                   
 <p> </p>
 
 
@@ -407,6 +408,10 @@ some publicly available dataset from, e.g.,
 [Crawdad](http://crawdad.cs.dartmouth.edu/data.php), or the [UMass
 Trace
 Repository](http://traces.cs.umass.edu/index.php/Network/Network).
+
+[Iain Fraser](http://www.cs.nott.ac.uk/~ikf/) has kindly taken some
+traces as directed above for reference: the parsed traces are
+[here](./material/tcpdump-traces.zip).
 
 
 Exercise 3.  **Routes**
