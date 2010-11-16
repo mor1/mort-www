@@ -72,7 +72,9 @@ Networking
 ----------
 
 + [The TCP/IP Guide](http://www.tcpipguide.com/free/index.htm), Charles M. Kozierok
-
++ [Mathematical Foundations of Computer
+  Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking),
+  S. Keshav
 
 Systems
 -------
@@ -81,3 +83,6 @@ Systems
 + [Concise electronics for geeks](http://lcamtuf.coredump.cx/electronics/)
 
 =--
+
+
+

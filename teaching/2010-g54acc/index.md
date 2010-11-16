@@ -30,16 +30,13 @@ Admin
 =====
 
 +-- {.summarise .hidden}
-+ [Computer Science module list][modules]
-+ [Official module catalog entry][catalog]
-+ [Reading list][reading]
++ [Computer Science module list](http://www.nottingham.ac.uk/ugstudy/modules.php?code=000319)
++ [Official module catalog entry](http://modulecatalogue.nottingham.ac.uk/Nottingham/asp/ModuleDetails.asp?crs_id=021237&year_id=000110)
++ [Reading list](http://www.nottingham.ac.uk/is/gateway/readinglists/local/displaylist?module=G54ACC)
 + [G53ACC][], last year's course, but note that this year's course,
   G54ACC, is **new** for 2010/2011
 + [G52CCN][], the prerequisite course for this one
 
-[modules]: http://www.nottingham.ac.uk/ugstudy/modules.php?code=000319
-[catalog]: http://modulecatalogue.nottingham.ac.uk/Nottingham/asp/ModuleDetails.asp?crs_id=021237&year_id=000110
-[reading]: http://www.nottingham.ac.uk/is/gateway/readinglists/local/displaylist?module=G54ACC
 [g53acc]: http://www.cs.nott.ac.uk/~drm/G53ACC/index.html
 [g52ccn]: http://www.cs.nott.ac.uk/~mvr/G52CCN/
 =-- {.summarise .hidden}
@@ -186,10 +183,10 @@ Lectured by [me][rmm], Mondays, 17.00--18.00 in JC-BSSOUTH-A25.
 
 ### Related:
 
-[Impact of
-offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10talks/watson-stack.pdf)
-([cached](./material/watson-stack.pdf))
-[ipv6 transition]
+[Impact of offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10talks/watson-stack.pdf)
+    ([cached](./material/watson-stack.pdf)),
+[IPv6 transition](http://ccr.sigcomm.org/drupal/?q=node/622)
+    ([cached](./material/p18-2v40n3e-guerinA.pdf))
 
 <p> </p>
 
@@ -214,9 +211,10 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 [OpenFlow](http://openflow.org/),
 [OpenVSwitch](http://openvswitch.org/),
 [NoX](http://noxrepo.org/),
-[PyRT](http://github.com/mor1/pyrt/)
-[BGP statistics](http://bgp.potaroo.net/)
-[mcquillan paper]
+[PyRT](http://github.com/mor1/pyrt/),
+[BGP statistics](http://bgp.potaroo.net/),
+McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](http://dx.doi.org/10.1145/205447.205453)
+        ([cached](./material/p54-mcquillan.pdf))
 
 [Lecture 3](./lectures/ip-and-up/03-Transport.pdf) **Transport: Basics**
 --------------------------------
@@ -233,7 +231,7 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 
 ### Related: 
 [Scalable Stream Transport](http://ccr.sigcomm.org/online/?q=node/272)
-([cached](./material/fp240-ford.pdf))
+        ([cached](./material/fp240-ford.pdf))
 
 <p> </p>
 
@@ -251,7 +249,7 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 
 ### Related: 
 [TCP congestion control survey](http://dx.doi.org/10.1109/SURV.2010.042710.00114) 
-([cached](./material/Host-to-host%2Econgestion%2Econtrol%2Efor%2ETCP.pdf))
+        ([cached](./material/Host-to-host%2Econgestion%2Econtrol%2Efor%2ETCP.pdf))
 
 <p> </p>
 
@@ -268,10 +266,12 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 <br />
 =-- {.twocol-list}
 
+### Related:
+[End-to-end argument](http://doi.acm.org/10.1145/357401.357402) 
+        ([cached](./material/p277-saltzer.pdf))
+
 <p> </p>
 
-### Related:
-[End-to-end argument](http://doi.acm.org/10.1145/357401.357402) ([cached](./material/p277-saltzer.pdf))
 
 [Lecture 6](./lectures/ip-and-up/06-Applications.pdf) **Applications**
 ----------------------------------------
@@ -308,6 +308,10 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 
 <br />
 =-- {.twocol-list}
+
+### Related:
+[NANOG](http://nanog.org/)
+[UKNOF](http://uknof.org.uk/)
 
 <p> </p>
 
@@ -348,6 +352,28 @@ offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10t
 
 <br />
 =-- {.twocol-list}
+
+
+<p> </p>
+
+
+[Lecture 10](./lectures/ip-and-up/10-Abstractions.pdf) **Abstractions & 3G Evolution**
+-----------------------
++-- {.twocol-list}
++ System design
++ Common techniques
++ 3G data network
++ Signal measurement
++ Idle mode
++ Tracking areas
++ Pooling
+
+<br />
+
+=-- {.twocol-list}
+
+<p> </p>
+
 =-- {.summarise .hidden}
 
 -----------
