@@ -44,14 +44,24 @@ am not responsible for any of the content linked.
 General
 -------
 
-+ [Twenty terrible reasons for lecturing](http://www.brookes.ac.uk/services/ocsd/2_learntch/20reasons.html)
-+ [On the cruelty of really teaching computing science](http://userweb.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html)
++ [Twenty terrible reasons for
+  lecturing](http://www.brookes.ac.uk/services/ocsd/2_learntch/20reasons.html) 
++ [On the cruelty of really teaching computing
+  science](http://userweb.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html)
++ [A Tour through the Visualization
+  Zoo](http://queue.acm.org/detail.cfm?id=1805128) ([cached](./material/p20-heer.pdf))
++ [JavaScript Guide](https://developer.mozilla.org/en/JavaScript/Guide)
++ [CS51: Introduction to Computer Science II: Abstraction and
+  Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
 
 System Performance
 ------------------
 
-+ [Quantitative System Performance](http://www.cs.washington.edu/homes/lazowska/qsp/) (book)
-+ [Fundamental laws of computer system performance](http://doi.acm.org/10.1145/800200.806196) (paper)
++ [Quantitative System
+  Performance](http://www.cs.washington.edu/homes/lazowska/qsp/)
+  (book) 
++ [Fundamental laws of computer system
+  performance](http://doi.acm.org/10.1145/800200.806196) (paper) 
 
 
 Machine Learning
@@ -64,8 +74,14 @@ Graph Theory
 ------------
 
 + [Graph Theory](http://diestel-graph-theory.com/), Reinhard Diestel (book)
-+ [Graph Theory with Applications](http://www.ecp6.jussieu.fr/pageperso/bondy/books/gtwa/gtwa.html), J.A. Bondy and U.S.R. Murty (book)
-+ [Spectral Graph Theory](http://www.math.ucsd.edu/~fan/research/revised.html), Fan Chung (book chapters)
++ [Graph Theory with
+  Applications](http://www.ecp6.jussieu.fr/pageperso/bondy/books/gtwa/gtwa.html),
+  J.A. Bondy and U.S.R. Murty (book) 
++ [Spectral Graph
+  Theory](http://www.math.ucsd.edu/~fan/research/revised.html), Fan
+  Chung (book chapters) 
++ [Graph Theory Resource
+  Page](http://www.mongoosemetrics.com/phone-articles/graph-theory-resource-page.php) 
 
 
 Networking
@@ -73,14 +89,19 @@ Networking
 
 + [The TCP/IP Guide](http://www.tcpipguide.com/free/index.htm), Charles M. Kozierok
 + [Mathematical Foundations of Computer
-  Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking),
+  Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking), 
   S. Keshav
+http://wps.aw.com/aw_kurose_network_5/111/28536/7305314.cw/index.html
+
 
 Systems
 -------
 
-+ [Odd Comments and Strange Doings in Unix](http://cm.bell-labs.com/cm/cs/who/dmr/odd.html), Dennis Ritchie
-+ [Concise electronics for geeks](http://lcamtuf.coredump.cx/electronics/)
++ [Odd Comments and Strange Doings in
+  Unix](http://cm.bell-labs.com/cm/cs/who/dmr/odd.html), Dennis
+  Ritchie 
++ [Concise electronics for
+  geeks](http://lcamtuf.coredump.cx/electronics/) 
 
 =--
 
