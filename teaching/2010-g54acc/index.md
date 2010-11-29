@@ -117,7 +117,7 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-Lecture 6. **ADSL**
+[Lecture 6] (./lectures/ip-and-down/06adsl.pdf) **ADSL**
 -------------------
 +-- {.twocol-list}
 + Coding
@@ -131,6 +131,7 @@ Lecture 6. **ADSL**
 =-- {.twocol-list}
 
 
+<!--
 Lectures 7 & 8. **Wireless**
 ----------------------------
 +-- {.twocol-list}
@@ -142,9 +143,9 @@ Lectures 7 & 8. **Wireless**
 
 <br />
 =-- {.twocol-list}
+-->
 
-
-Lectures 9 & 10. **Switching**
+[Lectures 9 & 10] (./lectures/ip-and-down/07switching.pdf) **Switching**
 ------------------------------
 +-- {.twocol-list}
 + Switch architectures
