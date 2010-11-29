@@ -145,7 +145,7 @@ Lectures 7 & 8. **Wireless**
 =-- {.twocol-list}
 -->
 
-[Lectures 9 & 10] (./lectures/ip-and-down/07switching.pdf) **Switching**
+[Lectures 9 & 10] (./lectures/ip-and-down/07switch.pdf) **Switching**
 ------------------------------
 +-- {.twocol-list}
 + Switch architectures
