@@ -91,7 +91,9 @@ Networking
 + [Mathematical Foundations of Computer
   Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking), 
   S. Keshav
-http://wps.aw.com/aw_kurose_network_5/111/28536/7305314.cw/index.html
++ [Applets](http://wps.aw.com/aw_kurose_network_5/111/28536/7305314.cw/index.html)
+  for
+  [Computer Networking: A Top-Down Approach](http://www.aw-bc.com/kurose_ross/)
 
 
 Systems
