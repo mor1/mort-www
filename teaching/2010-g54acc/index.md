@@ -70,7 +70,7 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-[Lecture 2](./lectures/ip-and-down/02mux.pdf)  **Multiplexing**
+[Lecture 2 & 3](./lectures/ip-and-down/02mux.pdf)  **Multiplexing**
 ----------------------------
 +-- {.twocol-list}
 + TDM variants
@@ -82,7 +82,7 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-[Lecture 3](./lectures/ip-and-down/03phy.pdf) **Physical**
+[Lecture 4 & 5](./lectures/ip-and-down/03phy.pdf) **Physical**
 -----------------------
 +-- {.twocol-list}
 + Modulation
@@ -93,7 +93,7 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-[Lecture 4](./lectures/ip-and-down/04optical.pdf) **Optical**
+[Lecture 6](./lectures/ip-and-down/04optical.pdf) **Optical**
 -----------------------
 +-- {.twocol-list}
 + Ethernet phyiscal
@@ -105,7 +105,7 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-[Lecture 5](./lectures/ip-and-down/05ether.pdf) **Ethernet**
+[Lecture 7 & 8](./lectures/ip-and-down/05ether.pdf) **Ethernet**
 -----------------------
 +-- {.twocol-list}
 + Coax, hubs, switches
@@ -117,7 +117,7 @@ JC-EXCHGE-B.LT1.
 =-- {.twocol-list}
 
 
-[Lecture 6] (./lectures/ip-and-down/06adsl.pdf) **ADSL**
+[Lecture 9] (./lectures/ip-and-down/06adsl.pdf) **ADSL**
 -------------------
 +-- {.twocol-list}
 + Coding
@@ -130,6 +130,18 @@ JC-EXCHGE-B.LT1.
 <br />
 =-- {.twocol-list}
 
+
+[Lectures 10] (./lectures/ip-and-down/07switch.pdf) **Switching**
+------------------------------
++-- {.twocol-list}
++ Switch architectures
++ Buffering
++ Queuing
++ QoS
++ NPUs
+
+<br />
+=-- {.twocol-list}
 
 <!--
 Lectures 7 & 8. **Wireless**
@@ -144,18 +156,6 @@ Lectures 7 & 8. **Wireless**
 <br />
 =-- {.twocol-list}
 -->
-
-[Lectures 9 & 10] (./lectures/ip-and-down/07switch.pdf) **Switching**
-------------------------------
-+-- {.twocol-list}
-+ Switch architectures
-+ Buffering
-+ Queuing
-+ QoS
-+ NPUs
-
-<br />
-=-- {.twocol-list}
 
 =-- {.summarise .visible}
 
