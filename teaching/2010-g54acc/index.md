@@ -379,7 +379,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 <p> </p>
 
 
-[Lecture 11](./lectures/ip-and-up/11-Revision.pdf) **Feedback, Sample question, Revision**
+[Lecture 11](./lectures/ip-and-up/11-Revision.pdf) **Feedback, &c**
 -----------------------
 +-- {.twocol-list}
 + SET/SEM Feedback feedback
