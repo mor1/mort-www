@@ -251,6 +251,9 @@ McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](ht
 ### Related: 
 [TCP congestion control survey](http://dx.doi.org/10.1109/SURV.2010.042710.00114) 
         ([cached](./material/Host-to-host%2Econgestion%2Econtrol%2Efor%2ETCP.pdf))
+[TCP
+visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
+[TCP/IP protocol sequence diagrams](http://www.eventhelix.com/EventStudio/tcp_ip_sequence_diagrams/)
 
 <p> </p>
 
@@ -368,6 +371,20 @@ McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](ht
 + Idle mode
 + Tracking areas
 + Pooling
+
+<br />
+
+=-- {.twocol-list}
+
+<p> </p>
+
+
+[Lecture 11](./lectures/ip-and-up/11-Revision.pdf) **Feedback, Sample question, Revision**
+-----------------------
++-- {.twocol-list}
++ SET/SEM Feedback feedback
++ Sample exam question
++ Revision topics
 
 <br />
 

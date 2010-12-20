@@ -50,9 +50,19 @@ General
   science](http://userweb.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html)
 + [A Tour through the Visualization
   Zoo](http://queue.acm.org/detail.cfm?id=1805128) ([cached](./material/p20-heer.pdf))
-+ [JavaScript Guide](https://developer.mozilla.org/en/JavaScript/Guide)
 + [CS51: Introduction to Computer Science II: Abstraction and
   Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
++ [An entrance exam, MIT,
+  1869](http://libraries.mit.edu/archives/exhibits/exam/index.html) 
+
+
+Programming
+-----------
+
++ [JavaScript Guide](https://developer.mozilla.org/en/JavaScript/Guide)
++ [Freely available programming
+  books](http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books)
+
 
 System Performance
 ------------------
@@ -68,7 +78,9 @@ Machine Learning
 ----------------
 
 + [A collection of online resources](http://metaoptimize.com/qa/questions/186/)
-                                                                               
++ [Mining of Massive
+  Datasets](http://infolab.stanford.edu/~ullman/pub/book.pdf) (book)
+
 
 Graph Theory
 ------------
