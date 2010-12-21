@@ -338,7 +338,9 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 [REST and WS](http://bitworking.org/news/125/REST-and-WS),
 [A more complex REST example](http://bitworking.org/news/201/RESTify-DayTrader),
 [RESTful JSON](http://bitworking.org/news/restful_json)
-[How Google Builds APIs](http://www.google.com/events/io/2010/sessions/how-google-builds-apis.html)
+[How Google Builds
+APIs](http://www.google.com/events/io/2010/sessions/how-google-builds-apis.html)
+([cached](./material/googleapis-how-google-builds-apis.pdf)) 
                                                                                                    
 <p> </p>
 

@@ -54,7 +54,15 @@ General
   Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
 + [An entrance exam, MIT,
   1869](http://libraries.mit.edu/archives/exhibits/exam/index.html) 
-
++ [Mathematics, the most misunderstood
+  subject](http://www.fordham.edu/academics/programs_at_fordham_/mathematics_departme/what_math/index.asp).
+  Quite relevant to computer science (and probably other similarly
+  "academic" subjects too).
++ [A Mathematician's Apology](http://www.math.ualberta.ca/mss/)
+  ([cached](./material/GHHardy-AMathematiciansApology.pdf)),
+  G.H. Hardy
++ [How to Write More Clearly, Think More Clearly, and Learn Complex
+  Material More Easily](./material/WriteThinkLearn.pdf) (local copy)
 
 Programming
 -----------
