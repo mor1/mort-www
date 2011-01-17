@@ -63,6 +63,8 @@ General
   G.H. Hardy
 + [How to Write More Clearly, Think More Clearly, and Learn Complex
   Material More Easily](./material/WriteThinkLearn.pdf) (local copy)
++ [Seven selected Information Visualization
+  papers](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers) 
 
 
 Programming
@@ -75,8 +77,6 @@ Programming
 + [Eloquent Javascript](http://eloquentjavascript.net/)
 + [Common Lisp: A Gentle Introduction to Symbolic
   Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html)
-+ [Seven selected Information Visualization
-  papers](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers) 
 
 System Performance
 ------------------
