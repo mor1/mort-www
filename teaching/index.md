@@ -64,13 +64,19 @@ General
 + [How to Write More Clearly, Think More Clearly, and Learn Complex
   Material More Easily](./material/WriteThinkLearn.pdf) (local copy)
 
+
 Programming
 -----------
 
 + [JavaScript Guide](https://developer.mozilla.org/en/JavaScript/Guide)
 + [Freely available programming
   books](http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books)
-
++ [How to Design Programs](http://htdp.org/2003-09-26/Book/)
++ [Eloquent Javascript](http://eloquentjavascript.net/)
++ [Common Lisp: A Gentle Introduction to Symbolic
+  Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html)
++ [Seven selected Information Visualization
+  papers](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers) 
 
 System Performance
 ------------------
@@ -124,6 +130,15 @@ Systems
   Ritchie 
 + [Concise electronics for
   geeks](http://lcamtuf.coredump.cx/electronics/) 
++ [The MOS 6502 and the Best Layout Guy in the
+  World](http://research.swtch.com/2011/01/mos-6502-and-best-layout-guy-in-world.html)
+  *Warning! Contains hardware!*
++ [Scalable memory allocation using
+  jemalloc](http://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919)
++ [Write your own (simple)
+  OS](http://mikeos.berlios.de/write-your-own-os.html) 
++ [Roll your own toy-Unix
+  OS](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 
 =--
 
