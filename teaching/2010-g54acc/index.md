@@ -250,7 +250,7 @@ McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](ht
 
 ### Related: 
 [TCP congestion control survey](http://dx.doi.org/10.1109/SURV.2010.042710.00114) 
-        ([cached](./material/Host-to-host%2Econgestion%2Econtrol%2Efor%2ETCP.pdf))
+        ([cached](./material/Host-to-host%20congestion%20control%20for%20TCP.pdf))
 [TCP
 visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 [TCP/IP protocol sequence diagrams](http://www.eventhelix.com/EventStudio/tcp_ip_sequence_diagrams/)
@@ -341,7 +341,9 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 [How Google Builds
 APIs](http://www.google.com/events/io/2010/sessions/how-google-builds-apis.html)
 ([cached](./material/googleapis-how-google-builds-apis.pdf)) 
-                                                                                                   
+[Please drop the
+SOAP!](http://thecoffman.com/2011/01/please-drop-the-soap/)
+
 <p> </p>
 
 
