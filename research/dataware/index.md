@@ -65,8 +65,8 @@ Conference on Communication Systems and Networks (COMSNETS)_,
 Bangalore, India, January 2011. Invited paper.
 
 R. Mortier.  [Horizon- Becoming Dataware][sn-video]
-([slides][sn-slides]). [SocialNets
-Workshop](http://www.cl.cam.ac.uk/research/srg/netos/socialnets/),
+([slides][sn-slides]). _[SocialNets
+Workshop](http://www.cl.cam.ac.uk/research/srg/netos/socialnets/)_,
 Cambridge, UK, November 2009.  
 
 D. McAuley.  [Free the data to build the digital economy][psr].
@@ -74,8 +74,8 @@ _Public Service Review: Central Government_ issue 21, 2010.
 
 R. Mortier, C. Greenhalgh, D. McAuley, A. Spence, A. Madhavapeddy,
 J. Crowcroft, S. Hand.  [Personal Containers or, Your Life in Bits][digifut].
-[Digital Futures](https://www.horizon.ac.uk/news/digitalfutures/)
-workshop, Nottingham UK, October 2010. 
+_[Digital Futures](https://www.horizon.ac.uk/news/digitalfutures/)
+workshop_, Nottingham UK, October 2010. 
 
 [sn-slides]: http://www.cl.cam.ac.uk/research/srg/netos/socialnets/slides/Richard_Motier.pdf
 [sn-video]: http://www.cl.cam.ac.uk/research/srg/netos/socialnets/videos/10.mp4

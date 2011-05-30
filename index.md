@@ -24,57 +24,21 @@ Nottingham][nottingham] [School of Computer Science][cs].
 
 
 +-- {.section}
-Research
-========
-
-My research interests span a range of topics, all with a networked
-systems angle.  Due to the breadth of the Horizon Digital Economy
-programme of work, in addition to my primary projects below
-I'm also involved to a greater or lesser extent in projects spanning
-topics from mixed reality urban games to use of bio-sensing in TV
-production to infrastructure support for tracking physical objects
-ranging from tableware to smart buildings.
-
-[Dataware](research/dataware/)
-------------------------------
-is a framework to enable individuals to give controlled access to
-their personal data for processing by third parties.  This will
-provide the basic infrastructure on which we can build a socially
-acceptable personal data marketplace. 
-
-[Homework](http://www.homenetworks.ac.uk/)
-------------------------------------------
-is taking a comprehensive look at the problems users face in
-managing their home network infrastructure.  [We've built a novel
-Linux-based home router](https://github.com/homework/) using a custom
-monitoring platform and a control infrastructure built using [Open
-vSwitch][ovs] and [NOX][]. 
-
-[Mirage](http://www.openmirage.org)
------------------------------------
-is an exokernel for constructing secure, high-performance network
-applications across a variety of cloud computing and mobile platforms.
-Code is developed in OCaml on a normal OS such as Linux or MacOS X,
-and then compiled into a fully-standalone, specialised microkernel
-that runs under the Xen hypervisor. 
-
-
-[e]: mailto:richard.mortier@nottingham.ac.uk
-[ovs]: http://openvswitch.org/
-[nox]: http://noxrepo.org/
 
 
 Expertise
 ========= 
 
-I have worked on topics from distributed system performance monitoring
-and debugging, to Internet routing protocols, to real-time media
-platform design and implementation.  I have worked in a variety of
-roles, from high-level platform architect, to designer and implementer
-of complex networked systems, to website designer and builder.  I have
-consulted and worked for a broad range of companies, including
-startups ([&mu;][vipadia], [S][camrivox], [M][cplane], [L][alertme])
-and corporates ([M][sprint], [L][microsoft]) in both the US and UK.  
+My [research][] covers a range of topics, all with a networked
+systems angle.  I have worked on topics from distributed system
+performance monitoring and debugging, to Internet routing protocols,
+to real-time media platform design and implementation.  I have worked
+in a variety of roles, from high-level platform architect, to designer
+and implementer of complex networked systems, to website designer and
+builder.  I have consulted and worked for a broad range of companies,
+including startups ([&mu;][vipadia], [S][camrivox], [M][cplane],
+[L][alertme]) and corporates ([M][sprint], [L][microsoft]) in both the
+US and UK.
 
 I am currently available for consultancy and selected development work.
 

@@ -11,25 +11,51 @@ Teaching
 This page serves merely as an index to relevant online
 teaching-related material.
 
+2011
+----
+
++-- {.section}
+G54ACC
+======
+
+Material related to the level 4 Advanced Computer Communications course.
+
+G54CCS
+======
+
+Material related to the level 4 Connected Computing at Scale course.
+
+
+[Projects][2011-projects]
+========
+
+[Third-year/Masters project suggestions][2011-projects].
+
+=--
+
+[2011-projects]: 2011-projects/
+[2011-g54acc]: 2011-g54acc/
+[2011-g54ccs]: 2011-g54ccs/
+
 
 2010
 ----
 
 +-- {.section}
-[G54ACC][g54acc]
+[G54ACC][2010-g54acc]
 ======
 
-[Material related to the fourth-year Advanced Computer Communications course][g54acc].
+[Material related to the level 4 Advanced Computer Communications course][2010-g54acc].
 
 
-[Projects][]
+[Projects][2010-projects]
 ========
 
-[Third-year/Masters project suggestions][projects].
+[Third-year/Masters project suggestions][2010-projects].
 =--
 
-[projects]: 2010-projects/
-[g54acc]: 2010-g54acc/
+[2010-projects]: 2010-projects/
+[2010-g54acc]: 2010-g54acc/
 
 
 
@@ -71,52 +97,69 @@ am not responsible for any of the content linked.
 
 
 Programming
------------
+===========
 
-+ [JavaScript Guide](https://developer.mozilla.org/en/JavaScript/Guide)
 + [Freely available programming
   books](http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books)
 + [How to Design Programs](http://htdp.org/2003-09-26/Book/)
-+ [Eloquent Javascript](http://eloquentjavascript.net/)
-+ [Common Lisp: A Gentle Introduction to Symbolic
-  Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html)
-+ [Try F#](http://tryfs.net/)
 + [Clever Algorithms: Nature-Inspired Programming
   Recipes](http://www.cleveralgorithms.com/) 
-+ [If you think you're a Java programmer, just read
-  this](http://chaosinmotion.com/blog/?p=622).  Please.
-+ [JS libs,
-  deconcstructed](http://www.keyframesandcode.com/resources/javascript/deconstructed/)
-+ [The Scheme Programming Language](http://scheme.com/tspl4/)
 + [Interesting but lesser known data
   structures](http://stackoverflow.com/questions/500607/what-are-the-lesser-known-but-cool-data-structures) 
 + [Bit twiddling](http://graphics.stanford.edu/~seander/bithacks.html)
 + [Parsing Techniques - A Practical
   Guide](http://www.few.vu.nl/~dick/PTAPG.html)
-+ [Learn You A Haskell for a Great
-  Good](http://learnyouahaskell.com/chapters)
++ [If you think you're a Java programmer, just read
+  this](http://chaosinmotion.com/blog/?p=622).  Please.
++ [What every C programmer should
+  know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html),
+  followed by especially [part
+  2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
+
+Javascript
+----------
+
++ [JavaScript Guide](https://developer.mozilla.org/en/JavaScript/Guide)
++ [Eloquent Javascript](http://eloquentjavascript.net/)
++ [JS libs,
+  deconcstructed](http://www.keyframesandcode.com/resources/javascript/deconstructed/)
 + [Up and Running with
   Node.js](http://ofps.oreilly.com/titles/9781449398583/index.html) 
 + [Mastering Node](https://github.com/visionmedia/masteringnode/)
 
+Functional Programming
+----------------------
+
++ [Common Lisp: A Gentle Introduction to Symbolic
+  Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html) 
++ [The Scheme Programming Language](http://scheme.com/tspl4/)
++ [Try F#](http://tryfs.net/)
++ [Learn You A Haskell for a Great
+  Good](http://learnyouahaskell.com/chapters)
+
+Objective-C
+-----------
+
++ [Become an XCoder](http://www.cocoalab.com/?q=becomeanxcoder) 
++ [Objective C 2.0
+  essentials](http://www.techotopia.com/index.php/Objective-C_2.0_Essentials) 
++ [Learning Cocoa with
+  Objective-C](http://commons.oreilly.com/wiki/index.php/Learning_Cocoa_with_Objective-C) 
++ [The Objective-C programming
+  language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html) 
++ [Objective-C for Java
+  programmers](http://www.informit.com/articles/article.aspx?p=1568732) 
+
+
+Mathematics
+===========
+
+<br />
 
 Probability and Statisics
 -------------------------
 
 + [Think Stats](http://www.greenteapress.com/thinkstats/)
-
-
-System Performance
-------------------
-
-+ [Quantitative System
-  Performance](http://www.cs.washington.edu/homes/lazowska/qsp/)
-  (book) 
-+ [Fundamental laws of computer system
-  performance](http://doi.acm.org/10.1145/800200.806196) (paper) 
-+ [Numbers Everyone Should
-  Know](http://highscalability.com/numbers-everyone-should-know) 
-
 
 Machine Learning
 ----------------
@@ -124,7 +167,6 @@ Machine Learning
 + [A collection of online resources](http://metaoptimize.com/qa/questions/186/)
 + [Mining of Massive
   Datasets](http://infolab.stanford.edu/~ullman/pub/book.pdf) (book)
-
 
 Graph Theory
 ------------
@@ -139,6 +181,11 @@ Graph Theory
 + [Graph Theory Resource
   Page](http://www.mongoosemetrics.com/phone-articles/graph-theory-resource-page.php) 
 
+
+Systems
+=======
+
+<br />
 
 Networking
 ----------
@@ -158,9 +205,8 @@ Networking
   it](http://host.comsoc.org/freetutorial/anritsu4/Myung/sun_tut8.htm)
   without all the screen rubbish. 
 
-
-Systems
--------
+Operating Systems
+-----------------
 
 + [Odd Comments and Strange Doings in
   Unix](http://cm.bell-labs.com/cm/cs/who/dmr/odd.html), Dennis
@@ -176,6 +222,16 @@ Systems
 + [Bootstrapping a compiler from
   nothing](http://homepage.ntlworld.com/edmund.grimley-evans/bcompiler.html) 
 
+Performance
+-----------
+
++ [Quantitative System
+  Performance](http://www.cs.washington.edu/homes/lazowska/qsp/)
+  (book) 
++ [Fundamental laws of computer system
+  performance](http://doi.acm.org/10.1145/800200.806196) (paper) 
++ [Numbers Everyone Should
+  Know](http://highscalability.com/numbers-everyone-should-know) 
 
 Hardware
 --------

@@ -254,7 +254,8 @@ McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](ht
 [TCP
 visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 [TCP/IP protocol sequence diagrams](http://www.eventhelix.com/EventStudio/tcp_ip_sequence_diagrams/)
-
+[TCP Flow Control Tutorial](http://www.ipam.ucla.edu/publications/cntut/cntut_1497.ppt)
+     ([cached](./material/cntut_1497.ppt))
 <p> </p>
 
 

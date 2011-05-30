@@ -1,8 +1,8 @@
 ---
 layout: default
-section: papers
+section: research
 title: papers
-parent: mort
+parent: research
 ---
 
 Note: this list is somewhat out-of-date and is simply a placeholder
