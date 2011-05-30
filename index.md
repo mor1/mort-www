@@ -29,7 +29,7 @@ Nottingham][nottingham] [School of Computer Science][cs].
 Expertise
 ========= 
 
-My [research][] covers a range of topics, all with a networked
+My [research](research) spans a range of topics, all with a networked
 systems angle.  I have worked on topics from distributed system
 performance monitoring and debugging, to Internet routing protocols,
 to real-time media platform design and implementation.  I have worked
