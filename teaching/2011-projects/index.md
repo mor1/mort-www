@@ -4,11 +4,6 @@ section: teaching
 title: 2011 projects
 parent: teaching &laquo; mort
 ---
-[perscon]: http://perscon.net/
-[Python]: http://www.python.org/
-[Mirage]: http://openmirage.org/
-[Vyper]: http://got.net/~landauer/sw/vyper_readme.html
-[e]: mailto:richard.mortier@nottingham.ac.uk
 
 Project Proposals---2011
 ========================
@@ -53,7 +48,19 @@ using eg., Google Translate, either as a Facebook app or a browser
 plugin.
 
 
+Mailman Threading
+----
 
+[`mailman`](http://www.gnu.org/software/mailman) is a popular email
+list manager.  In many cases list members would prefer not to receive
+follow-up emails unless they're actually interested in the topic.
+This project involves designing and adding a feature to `mailman` to
+have a list send only the first email in each thread to participants
+*until* a list member replies to the thread, at which point they
+should receive the thread's past history, as well as any future
+mails.  `mailman` is written in [Python][] so Python programming
+skills would be beneficial, although Python is very easy to learn,
+particularly if you have programming experience.  
 
 =--
 
@@ -66,7 +73,8 @@ Functional Servers
 ------------------
 
 Develop and evaluate some substantial piece of systems software, e.g.,
-XMPP server, BGP router, for the [Mirage][] platform.
+XMPP server, Wave server, BGP router, for the [Mirage][]
+platform. 
 
 Snakes On the Cloud
 -------------------
@@ -105,3 +113,9 @@ what and (bonus, might be impossible) dynamically modify manifests so
 that applications can be given time-limited capabilities.
 
 =--
+
+[perscon]: http://perscon.net/
+[Python]: http://www.python.org/
+[Mirage]: http://openmirage.org/
+[Vyper]: http://got.net/~landauer/sw/vyper_readme.html
+[e]: mailto:richard.mortier@nottingham.ac.uk
