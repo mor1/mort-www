@@ -15,15 +15,15 @@ teaching-related material.
 ----
 
 +-- {.section}
-G54ACC
+[G54ACC][2011-g54acc]
 ======
 
-Material related to the level 4 Advanced Computer Communications course.
+[Material related to the level 4 Advanced Computer Communications course.][2011-g54acc]
 
-G54CCS
+[G54CCS][2011-g54ccs]
 ======
 
-Material related to the level 4 Connected Computing at Scale course.
+[Material related to the level 4 Connected Computing at Scale course.][2011-g54ccs]
 
 
 [Projects][2011-projects]
