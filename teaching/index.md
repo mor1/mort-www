@@ -75,6 +75,8 @@ am not responsible for any of the content linked.
   Zoo](http://queue.acm.org/detail.cfm?id=1805128) ([cached](./material/p20-heer.pdf))
 + [CS51: Introduction to Computer Science II: Abstraction and
   Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
++ [6.006: Introduction to
+  Algorithms](http://courses.csail.mit.edu/6.006/spring11/notes.shtml) (MIT)
 + [An entrance exam, MIT,
   1869](http://libraries.mit.edu/archives/exhibits/exam/index.html) 
 + [Mathematics, the most misunderstood
@@ -115,6 +117,8 @@ Programming
   know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html),
   followed by especially [part
   2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
++ [Learn Python the Hard Way](http://learnpythonthehardway.org/)
++ [Learn C the Hard Way](http://learncodethehardway.org/)
 
 Javascript
 ----------
@@ -126,6 +130,9 @@ Javascript
 + [Up and Running with
   Node.js](http://ofps.oreilly.com/titles/9781449398583/index.html) 
 + [Mastering Node](https://github.com/visionmedia/masteringnode/)
++ [JavaScript Language Advanced Tips 'n'
+  Tricks](http://code.google.com/p/jslibs/wiki/JavascriptTips)
+
 
 Functional Programming
 ----------------------
@@ -136,6 +143,8 @@ Functional Programming
 + [Try F#](http://tryfs.net/)
 + [Learn You A Haskell for a Great
   Good](http://learnyouahaskell.com/chapters)
++ [The implementation of functional programming
+  languages](http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/) 
 
 Objective-C
 -----------
@@ -160,6 +169,7 @@ Probability and Statisics
 -------------------------
 
 + [Think Stats](http://www.greenteapress.com/thinkstats/)
++ [Computer Vision Models](http://computervisionmodels.blogspot.com/)
 
 Machine Learning
 ----------------
@@ -167,6 +177,7 @@ Machine Learning
 + [A collection of online resources](http://metaoptimize.com/qa/questions/186/)
 + [Mining of Massive
   Datasets](http://infolab.stanford.edu/~ullman/pub/book.pdf) (book)
++ [ML Demos](http://mldemos.epfl.ch/)
 
 Graph Theory
 ------------
@@ -180,6 +191,11 @@ Graph Theory
   Chung (book chapters) 
 + [Graph Theory Resource
   Page](http://www.mongoosemetrics.com/phone-articles/graph-theory-resource-page.php) 
+
+Calculus
+--------
+
++ [funny little calculus text](http://www.math.upenn.edu/~ghrist/FLCT/)
 
 
 Systems
@@ -221,6 +237,9 @@ Operating Systems
   Internals](http://duartes.org/gustavo/blog/category/internals)
 + [Bootstrapping a compiler from
   nothing](http://homepage.ntlworld.com/edmund.grimley-evans/bcompiler.html) 
++ [UNIX kernel sources, 1st edition](http://code.google.com/p/unix-jun72/)
++ [DOSManDrivel](http://dosmandrivel.blogspot.com/), the blog of Tim
+  Paterson, original author of DOS.
 
 Performance
 -----------
