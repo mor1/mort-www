@@ -1,8 +1,8 @@
 ---
 layout: default
-section: research
+section: papers
 title: papers
-parent: research
+parent: mort
 ---
 
 Note: this list is somewhat out-of-date and is simply a placeholder
@@ -13,8 +13,11 @@ these.
 [r]: http://github.com/mor1/rmm-bibs
 [e]: mailto:richard.mortier@nottingham.ac.uk
 
+
 Publications
 ============
+
+<!--
 
 **Sharing airtime with Shair avoids wasting time and money**<br>
  _Pan Hui, Richard Mortier, Kuang Xu, Jon Crowcroft, Victor O.K. Li_<br>
@@ -151,7 +154,7 @@ Conference on Very Large Databases (VLDB), September 2006.
  _<a href="http://www.cl.cam.ac.uk/~jac22/">Jon Crowcroft</a>, <a href="http://www.cl.cam.ac.uk/~smh22/">Steve Hand</a>, <a href="http://www.vipadia.com/people/mort/">Richard Mortier</a>, <a href="http://berkeley.intel-research.net/troscoe/">Timothy Roscoe</a>, <a href="http://www.cl.cam.ac.uk/~akw27/">Andrew Warfield</a>_<br> Proceedings of SIGCOMM Workshop on Future Directions in Network Architecture (FDNA'03), August 2003, pp.258--266.
 
 **QoS's Downfall: At the bottom or not at all!**<br>
- _<a href="http://www.cl.cam.ac.uk/~jac22/">Jon Crowcroft</a>, <a href="http://www.cl.cam.ac.uk/~smh22/">Steve Hand</a>, <a href="http://www.vipadia.com/people/mort/">Richard Mortier</a>, <a href="http://berkeley.intel-research.net/troscoe/">Timothy Roscoe</a>, <a href="http://www.cl.cam.ac.uk/~akw27/">Andrew Warfield</a>_<br> Proceedings of SIGCOMM Workshop on Revisiting IP QoS (RIPQOS'03), August 2003, pp.190--114.
+ _<a href="http://www.cl.cam.ac.uk/~jac22/">Jon Crowcroft</a>, <a href="http://www.cl.cam.ac.uk/~smh22/">Steve Hand</a>, <a href="http://www.vipadia.com/people/mort/">Richard Mortier</a>, <a href="http://berkeley.intel-research.net/troscoe/">Timothy Roscoe</a>, <a href="http://www.cl.cam.ac.uk/~akw27/">Andrew Warfield</a>_<br> Proceedings of SIGCOMM Workshop on Revisiting IP QoS (RIPQOS'03), August 2003, pp.190--114. 
 
 **Magpie: On-Line Modelling and Performance Aware Systems**<br>
  _<a href="http://www.research.microsoft.com/users/pbar/">Paul Barham</a>, <a href="http://www.research.microsoft.com/~risaacs/">Rebecca Isaacs</a>, <a href="http://www.vipadia.com/people/mort/">Richard Mortier</a>, <a href="http://www.research.microsoft.com/users/dnarayan/">Dushyanth Narayanan</a>_<br> Proceedings of <a href="http://www.usenix.org/events/hotos03/">ACM HotOS-IX</a>, May 2003.
@@ -210,3 +213,12 @@ Conference on Very Large Databases (VLDB), September 2006.
 **QoS User Agent Software**<br>
  _<a href="http://www.research.microsoft.com/users/neils/">Neil Stratford</a>, <a href="http://www.vipadia.com/people/mort/">Richard Mortier</a>_<br>
  ESPRIT LTR 21917 (Pegasus II) Deliverable 4.3.3, 1999.
+
+-->
+
+<script type="text/javascript" src="{{ site.url_root }}js/jquery.yql.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/jquery.tmpl.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/debug.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/bibtex.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/papers.js"> </script>
+

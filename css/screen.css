@@ -541,3 +541,14 @@ img.maruku-png { }
     padding-right: 18px; 
     background: url(/img/icon-pdf.gif) top right no-repeat; 
 }
+
+.entry {
+    padding-bottom: 2ex;
+}
+
+.entry .title {
+    font-weight: bold;
+}
+.entry .authors {
+    font-style: italic;
+}
