@@ -132,6 +132,8 @@ Javascript
 + [Mastering Node](https://github.com/visionmedia/masteringnode/)
 + [JavaScript Language Advanced Tips 'n'
   Tricks](http://code.google.com/p/jslibs/wiki/JavascriptTips)
++ [Javascript
+  Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/), mini-book
 
 
 Functional Programming
