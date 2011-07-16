@@ -18,6 +18,16 @@ Publications
 ============
 
 <!--
+<script type="text/javascript" src="{{ site.url_root }}js/jquery.yql.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/jquery.tmpl.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/debug.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/bibtex.js"> </script>
+<script type="text/javascript" src="{{ site.url_root }}js/papers.js"> </script>
+-->
+
+<script type="text/javascript" src="https://raw.github.com/mor1/mor1.github.com/papers-via-yql/js/papers.js"> </script>
+
+<!--
 
 **Sharing airtime with Shair avoids wasting time and money**<br>
  _Pan Hui, Richard Mortier, Kuang Xu, Jon Crowcroft, Victor O.K. Li_<br>
@@ -215,10 +225,3 @@ Conference on Very Large Databases (VLDB), September 2006.
  ESPRIT LTR 21917 (Pegasus II) Deliverable 4.3.3, 1999.
 
 -->
-
-<script type="text/javascript" src="{{ site.url_root }}js/jquery.yql.js"> </script>
-<script type="text/javascript" src="{{ site.url_root }}js/jquery.tmpl.js"> </script>
-<script type="text/javascript" src="{{ site.url_root }}js/debug.js"> </script>
-<script type="text/javascript" src="{{ site.url_root }}js/bibtex.js"> </script>
-<script type="text/javascript" src="{{ site.url_root }}js/papers.js"> </script>
-

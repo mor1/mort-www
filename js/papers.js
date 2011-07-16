@@ -1,19 +1,18 @@
-alert("papers.js");
-var papers = {
-    bibfiles: [ 
+var papers = (function () {
+
+    var bibfiles = [ 
 //        "https://github.com/mor1/rmm-bibs/blob/master/strings.bib",
-        "https://github.com/mor1/rmm-bibs/blob/master/rmm-conference.bib",
-        "https://github.com/mor1/rmm-bibs/blob/master/rmm-workshop.bib",
-        "https://github.com/mor1/rmm-bibs/blob/master/rmm-journal.bib",
-        "https://github.com/mor1/rmm-bibs/blob/master/rmm-patents.bib",
-        "https://github.com/mor1/rmm-bibs/blob/master/rmm-techreport.bib",
-        "https://github.com/mor1/rmm-bibs/blob/master/rmm-unpublished.bib"
-    ],
+            "https://github.com/mor1/rmm-bibs/blob/master/rmm-conference.bib",
+            "https://github.com/mor1/rmm-bibs/blob/master/rmm-workshop.bib",
+            "https://github.com/mor1/rmm-bibs/blob/master/rmm-journal.bib",
+            "https://github.com/mor1/rmm-bibs/blob/master/rmm-patents.bib",
+            "https://github.com/mor1/rmm-bibs/blob/master/rmm-techreport.bib",
+            "https://github.com/mor1/rmm-bibs/blob/master/rmm-unpublished.bib"
+    ];
+    var promises = [];
+    var entries  = [];
 
-    promises: [],
-    entries : [],
-
-    parse : function (input) {
+    parse = function (input) {
         var raw = input
             .replace(/\<div\>|\<\/div\>/gm,"")
             .replace(/  |\n/gm," ");
@@ -30,49 +29,57 @@ var papers = {
                             vv.last = ns.slice(1,ns.length).join(" ");
                         }
                     });
-                papers.entries.push(v);
+                entries.push(v);
             });
-    },
+    };
 
-    fetch : function (_, url) {
-        papers.promises.push(
+    fetch = function (_, url) {
+        promises.push(
             $.Deferred(
-                function () {
-                    var promise=this;
+                function (promise) {
                     $.yql('select * from html where url=@url and xpath=@xpath',
                           {
                               'url': url,
                               'xpath': "//div[@class=\'highlight']/pre"
                           },
                           function (data) {
-                              papers.parse(data.query.results.pre.content);
+                              parse(data.query.results.pre.content);
                               promise.resolve();
-                          });                                  
-                }).promise()
+                          });
+                }
+            ).promise()
         );
-    },
+    };
 
-    render : function (_, entry) {
+    render_entry = function (_, entry) {
         var format_author = function (a) {
             return a.first[0]+". "+a.last;
         };
-
-        var fentry = {};
+         var fentry = {};
         fentry.title = entry.title.replace(/{|}/g, "");
         fentry.authors = $.map(entry.author, format_author).join(", ");
         fentry.booktitle = entry.booktitle;
-
-        return $.tmpl(
+         return $.tmpl(
             '<div class="entry">'
-            + '<span class="title">${title}</span><br />'
-            + '<span class="authors">${authors}</span><br />'
-            + '<span class="venue">${booktitle}</span>'
-            + '</div>', fentry).insertAfter("#publications");
-    }
-};
+                + '<span class="title">${title}</span><br />'
+                + '<span class="authors">${authors}</span><br />'
+                + '<span class="venue">${booktitle}</span>'
+                + '</div>', fentry).insertAfter("#publications");
+    };
 
-$.each(papers.bibfiles, papers.fetch);
-$.when.apply(null, papers.promises).then(
-    function () {
-        $.each(papers.entries, papers.render);
+    return {
+        render : function () {
+            $.each(bibfiles, fetch);
+            $.when.apply(null, promises).then(
+                function () {
+                    $.each(entries, render_entry);
+                });
+        }
+    };
+})();
+
+$.getJSON(
+    "https://raw.github.com/mor1/rmm-bibs/master/rmm-conference.bib",
+    function (data) {
+        console.log(data);
     });
