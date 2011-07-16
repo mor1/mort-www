@@ -25,7 +25,7 @@ Publications
 <script type="text/javascript" src="{{ site.url_root }}js/papers.js"> </script>
 -->
 
-<script src="https://github.com/mor1/mor1.github.com/raw/papers/js/papers.js"> </script>
+<script src="https://raw.github.com/mor1/mor1.github.com/papers/js/papers.js"> </script>
 
 <!--
 

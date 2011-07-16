@@ -81,7 +81,7 @@ var papers = (function () {
 })();
 
 $.getJSON(
-    "https://github.com/mor1/rmm-bibs/raw/master/rmm-conference.bib",
+    "https://raw.github.com/mor1/rmm-bibs/master/rmm-conference.bib",
     function (data) {
         console.log(data);
     });
