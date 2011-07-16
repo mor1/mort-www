@@ -37,6 +37,7 @@ var papers = (function () {
         promises.push(
             $.Deferred(
                 function (promise) {
+/*
                     $.yql('select * from html where url=@url and xpath=@xpath',
                           {
                               'url': url,
@@ -46,6 +47,7 @@ var papers = (function () {
                               parse(data.query.results.pre.content);
                               promise.resolve();
                           });
+ */
                 }
             ).promise()
         );
@@ -79,7 +81,7 @@ var papers = (function () {
 })();
 
 $.getJSON(
-    "https://raw.github.com/mor1/rmm-bibs/master/rmm-conference.bib",
+    "https://github.com/mor1/rmm-bibs/raw/master/rmm-conference.bib",
     function (data) {
         console.log(data);
     });
