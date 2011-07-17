@@ -1,3 +1,17 @@
-{ "Richard Mortier": "http://www.cs.nott.ac.uk/~rmm/",
-  "Jon Crowcroft": "http://www.cl.cam.ac.uk/~jac22/"
+{ 
+  "Richard Mortier": "http://www.cs.nott.ac.uk/~rmm/",
+  "Derek McAuley": "http://www.cs.nott.ac.uk/~drm/",
+  "Tom Rodden": "http://www.cs.nott.ac.uk/~tar/",
+  "Chris Greenhalgh": "http://www.mrl.nott.ac.uk/~cmg/",
+  "Tom Lodge": "http://www.cs.nott.ac.uk/~txl/",
+  "Kevin Glover": "http://www.nottingham.ac.uk/computerscience/people/kevin.glover",
+  "Martin Flintham": "http://www.crg.cs.nott.ac.uk/~mdf/",
+  
+  "Jon Crowcroft": "http://www.cl.cam.ac.uk/~jac22/",
+  "Steven Hand": "http://www.cl.cam.ac.uk/~smh22/",  
+  "Anil Madhavapeddy": "http://anil.recoil.org/",
+
+  "Paul Barham": "http://research.microsoft.com/en-us/people/pbar/",
+  "Rebecca Isaacs": "http://research.microsoft.com/en-us/people/risaacs/"
+
 }

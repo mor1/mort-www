@@ -3,6 +3,7 @@ layout: default
 section: papers
 title: papers
 parent: mort
+js: [jquery.tmpl, papers]
 ---
 
 [Visit my github BibTeX repo][r] for up-to-date citation details.
@@ -15,4 +16,15 @@ parent: mort
 Publications
 ============
 
-<script type="text/javascript" src="{{ site.url_root }}js/papers.js"> </script>
+<div id="entries">
+Loading...
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    var au = SITE_ROOT+"research/papers/authors.json";
+    var pu = SITE_ROOT+"research/papers/papers.json";
+    papers.fetch(au, pu).render("#entries")
+});
+</script>
+

@@ -543,13 +543,43 @@ img.maruku-png { }
 }
 
 /* paper entries */
-.entry {
-    padding-bottom: 2ex;
+#entries {
+    line-height: 95%;
 }
 
-.entry .title {
+#entries .year {
+    float: left;
+    font-weight: bold;
+    font-size: 150%;
+    border: 1px dotted #DDDDDD; 
+    border-left: none;
+    border-top: none;
+    padding: 0 1ex 0.5ex 0;
+}
+
+#entries .paper {
+    font-size: 85%;
+    padding: 1ex 1em;
+    margin: 1ex 0 1ex 5em;
+    background: #F5F5FA; 
+    -moz-border-radius: 6px; 
+    -webkit-border-radius: 6px; 
+}
+
+#entries .paper .title {
     font-weight: bold;
 }
-.entry .authors {
+#entries .paper .author {
     font-style: italic;
 }
+#entries .paper span.links {
+    font-variant: small-caps;
+}
+
+div.paper_entry { padding-left: 8px; padding: 4px; margin: 3px; margin-bottom: 5px; background: #F5F5FA; 
+                  -moz-border-radius: 6px; -webkit-border-radius: 6px; font-size: 90%; }
+div.paper_entry:hover { color: #000000; background-color: #DDEEFF; text-decoration: none; }
+div.paper_links { padding-top: 5px;}
+a.paper_link { font-size:75%; background: #EEEEFF; color: #444444; border-width: 1px; border-color: #CCCCCC; border-style: solid; -moz-border-radius: 3px; -webkit-border-radius: 3px; padding: 1px; font-family: tahoma, sans-serif; font-weight: light; font-size: 90%; }
+a.paper_link:hover { background: #DEDEFF; font-size: 90%; }
+div.paper_linkbar { padding-top: 5px; font-family: georgia, tahoma, sans-serif; font-variant: small-caps; font-size: 90%; text-align: left; }
