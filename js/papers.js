@@ -1,4 +1,4 @@
-/* Copyright (C) 2010 Richard Mortier <mort@cantab.net>.  All Rights
+/* Copyright (C) 2011 Richard Mortier <mort@cantab.net>.  All Rights
  * Reserved.
  *
  * This program is free software; you can redistribute it and/or
@@ -33,27 +33,56 @@ var papers = (function () {
         return '<a href="'+u+'">'+ x +'</a>';
     };
 
+    var code = function (m) {
+        switch (m) {
+        case "January": return "01";
+        case "February": return "02";
+        case "March": return "03";
+        case "April": return "04";
+        case "May": return "05";
+        case "June": return "06";
+        case "July": return "07";
+        case "August": return "08";
+        case "September": return "09";
+        case "October": return "10";
+        case "November": return "11";
+        case "December": return "12";
+        default: return "00";
+        }
+    };
+
     var entry = function (e) {
         var authors = e.author.map(function (a, _) {
-            var name = a.replace(/\b(\w)\w+ /, "$1. ").replace(/(\w\.) (\w\.)/, "$1$2").replace(/(\w\.) (\w\.)/, "$1$2");
+            var name = a.replace(/\b(\w)\w+ /, "$1. ");
+            name = name.replace(/(\w\.) (\w\.)/, "$1$2");
+            name = name.replace(/(\w\.) (\w\.)/, "$1$2");
             
             if (a in _authors) name = link(name, _authors[a]);
-            return span("author", name)            
+            return span("author", name);
         });
         var venue = (function (e) {
-            switch (e._venue) {
-            case "workshop": 
-            case "conference":
-                return e.booktitle; break;
-
+            switch (e._type) {
+            case "inproceedings": 
+                return e.booktitle+", "+(e.month?e.month+" ":"")+e.year; 
+            case "article":
+                return e.journal+", "+e.volume+"("+e.number+"):"+e.pages;
+            case "inbook":
+                return e.title+" "+e.chapter+", "+e.publisher;
+            case "techreport":
+                return e.number+", "+e.institution;
+            case "patent":
+                return e.number+", "+e.note;
             }
+            return "";
         })(e);
         var links = "links: ";
+        var tags = "tags: ";
         return div("paper", 
                    (span("title", e.title)+'<br>'
                     +authors.join(", ")+'<br>'
                     +span("venue", venue)+'<br>'
-                    +span("links", links)
+                    +span("links", links)+"&nbsp;"
+                    +span("tags", tags)
                    ));
     };
     
@@ -78,24 +107,33 @@ var papers = (function () {
         },
 
         render: function (tgt) {
-            var entries = {}, years = [];;
+            var entries = {}, yms = [];
             $.when.apply(null, _promises).then(function () {
                 $(tgt).html('');
 
-                $.each(_papers.records, function (_, e) {
+                $.each(_papers.records, function (k,e) { 
                     var y = e['year'];
-                    if (!entries[y]) entries[y] = [];
-                    entries[y].push(e);
+                    var m = (e['month']? code(e['month'].split(" ")[0]) : "00");
+                    var k = y+"-"+m;
+                    
+                    if (!entries[k]) entries[k] = [];
+                    entries[k].push(e);
                 });
                 
-                for (var y in entries) years.push(y);
-                years.sort().reverse();
+                for (var ym in entries) yms.push(ym);
+                yms.sort().reverse();
                 
-                $.each(years, function (i, y) { 
-                    $(tgt).append(div("year", y));
-                    $.each(entries[y], function (i, e) {
-                        $(tgt).append(entry(e));
+                var py = null;
+                $.each(yms, function (i, ym) { 
+                    var y = ym.split("-")[0];
+                    if (py === null || y != py) {
+                        $(tgt).append(div("year", y, "y-"+y));
+                        py = y;
+                    }
+                    $.each(entries[ym], function (i, e) {
+                        $(tgt).append(entry(entries[ym][i]));
                     });
+                
                 });
             });
         }

@@ -544,20 +544,21 @@ img.maruku-png { }
 
 /* paper entries */
 #entries {
-    line-height: 95%;
+    overflow:auto;
+    height: auto;
+    border-left: 1px dotted #DDDDDD; 
 }
 
 #entries .year {
     float: left;
     font-weight: bold;
     font-size: 150%;
-    border: 1px dotted #DDDDDD; 
-    border-left: none;
-    border-top: none;
+    border-top: 1px dotted #DDDDDD; 
     padding: 0 1ex 0.5ex 0;
 }
 
 #entries .paper {
+    line-height: 95%;
     font-size: 85%;
     padding: 1ex 1em;
     margin: 1ex 0 1ex 5em;
@@ -566,14 +567,20 @@ img.maruku-png { }
     -webkit-border-radius: 6px; 
 }
 
-#entries .paper .title {
+#entries .paper span.title {
     font-weight: bold;
 }
-#entries .paper .author {
+#entries .paper span.author {
     font-style: italic;
+    font-weight: normal;
 }
 #entries .paper span.links {
     font-variant: small-caps;
+    font-weight: normal;
+}
+#entries .paper span.tags {
+    font-variant: small-caps;
+    font-weight: normal;
 }
 
 div.paper_entry { padding-left: 8px; padding: 4px; margin: 3px; margin-bottom: 5px; background: #F5F5FA; 
