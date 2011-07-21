@@ -547,25 +547,48 @@ img.maruku-png { }
     overflow:auto;
     height: auto;
     border-left: 1px dotted #DDDDDD; 
+    border-top: 1px dotted #DDDDDD;
 }
+#entries .break {
+    clear: both;
+    width: 100%;
+    padding-top: 1ex;
+    border-bottom: 1px dotted #DDDDDD;
 
+}
 #entries .year {
     float: left;
     font-weight: bold;
     font-size: 150%;
-    border-top: 1px dotted #DDDDDD; 
-    padding: 0 1ex 0.5ex 0;
+    padding: 0.5ex 1ex 0.5ex 0.5em;
 }
-
 #entries .paper {
-    line-height: 95%;
-    font-size: 85%;
-    padding: 1ex 1em;
-    margin: 1ex 0 1ex 5em;
-    background: #F5F5FA; 
-    -moz-border-radius: 6px; 
-    -webkit-border-radius: 6px; 
+    line-height: 110%;
+    font-size: 80%;
+    padding: 1ex 0.5em;
+    margin: 0.5ex 0 1ex 5.5em;
+    background: #F5F5FA;
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
 }
+#entries .paper:hover { color: #000000; background-color: #DDEEFF; }
+
+/*
+#entries .conference {background: #F5F5FA;}
+#entries .conference:hover {color: #000000; background-color: #F5F5FA;}
+
+#entries .workshop {background: #AAF5FA;}
+#entries .workshop:hover {color: #000000; background-color: #AAF5FA;}
+
+#entries .journal {background: #AAAAFA;}
+#entries .journal:hover {color: #000000; background-color: #AAAAFA;}
+
+#entries .techreport {background: #11AAFF;}
+#entries .techreport:hover {color: #000000; background-color: #11AAFA;}
+
+#entries .patent {background: #AA11FF;}
+#entries .patent:hover {color: #000000; background-color: #AA11FA;}
+*/
 
 #entries .paper span.title {
     font-weight: bold;
@@ -574,19 +597,16 @@ img.maruku-png { }
     font-style: italic;
     font-weight: normal;
 }
-#entries .paper span.links {
-    font-variant: small-caps;
-    font-weight: normal;
-}
-#entries .paper span.tags {
-    font-variant: small-caps;
-    font-weight: normal;
+
+#entries .paper .linkbar {
+    padding-top: 5px; 
+    font-family: georgia, tahoma, sans-serif;
+    font-variant: small-caps; 
+    font-size: 90%; 
+    text-align: left; 
 }
 
-div.paper_entry { padding-left: 8px; padding: 4px; margin: 3px; margin-bottom: 5px; background: #F5F5FA; 
-                  -moz-border-radius: 6px; -webkit-border-radius: 6px; font-size: 90%; }
-div.paper_entry:hover { color: #000000; background-color: #DDEEFF; text-decoration: none; }
-div.paper_links { padding-top: 5px;}
-a.paper_link { font-size:75%; background: #EEEEFF; color: #444444; border-width: 1px; border-color: #CCCCCC; border-style: solid; -moz-border-radius: 3px; -webkit-border-radius: 3px; padding: 1px; font-family: tahoma, sans-serif; font-weight: light; font-size: 90%; }
-a.paper_link:hover { background: #DEDEFF; font-size: 90%; }
-div.paper_linkbar { padding-top: 5px; font-family: georgia, tahoma, sans-serif; font-variant: small-caps; font-size: 90%; text-align: left; }
+#entries .paper .linkbar span.links {
+    text-align: right;
+    float: right;
+}

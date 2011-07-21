@@ -71,19 +71,19 @@ var papers = (function () {
             case "techreport":
                 return e.number+", "+e.institution;
             case "patent":
-                return e.number+", "+e.note;
+                return e.number;
             }
             return "";
         })(e);
         var links = "links: ";
         var tags = "tags: ";
-        return div("paper", 
+        return div("paper "+e._venue, 
                    (span("title", e.title)+'<br>'
                     +authors.join(", ")+'<br>'
-                    +span("venue", venue)+'<br>'
-                    +span("links", links)+"&nbsp;"
-                    +span("tags", tags)
-                   ));
+                    +span("venue", venue)+'. '+(e.note?e.note:'')+'<br>'
+                    +div("linkbar", (span("tags", tags)
+                                     +span("links", links)
+                                    ))));
     };
     
     var me = {
@@ -123,17 +123,19 @@ var papers = (function () {
                 for (var ym in entries) yms.push(ym);
                 yms.sort().reverse();
                 
-                var py = null;
+                var oy = null, last = false;
                 $.each(yms, function (i, ym) { 
                     var y = ym.split("-")[0];
-                    if (py === null || y != py) {
+                    if (oy === null || y != oy) {
+                        if (oy != null)
+                            $(tgt).append(div('break',''));
                         $(tgt).append(div("year", y, "y-"+y));
-                        py = y;
+                        oy = y;
                     }
                     $.each(entries[ym], function (i, e) {
-                        $(tgt).append(entry(entries[ym][i]));
+                        var h = entry(entries[ym][i]);
+                        $(tgt).append(h);
                     });
-                
                 });
             });
         }
