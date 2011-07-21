@@ -30,7 +30,7 @@ var papers = (function () {
     var div = function (cl, x, id) { return wrap("div", x, cl, id); };
     var span = function (cl, x) { return wrap("span", x, cl); };
     var link = function (x, u) { 
-        return '<a href="'+u+'">'+ x +'</a>';
+        return wrap("span", '<a href="'+u+'">'+ x +'</a>', x);
     };
 
     var code = function (m) {
@@ -76,13 +76,15 @@ var papers = (function () {
             return "";
         })(e);
         var links = "links: ";
+        if ("url" in e) links += link("pdf", e.url);
+        if ("doi" in e) links += link("doi", e.doi);
         var tags = "tags: ";
         return div("paper "+e._venue, 
                    (span("title", e.title)+'<br>'
                     +authors.join(", ")+'<br>'
                     +span("venue", venue)+'. '+(e.note?e.note:'')+'<br>'
-                    +div("linkbar", (span("tags", tags)
-                                     +span("links", links)
+                    +div("linkbar", (span("links", links)+'&nbsp;&nbsp;'
+                                     +span("tags", tags)
                                     ))));
     };
     

@@ -606,7 +606,37 @@ img.maruku-png { }
     text-align: left; 
 }
 
+#entries .paper span.pdf {
+    background: #EEEEFF; 
+    color: #444444; 
+    border: 1px solid #CCCCCC; 
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    padding: 0px 2px 1px;
+    font-family: tahoma, sans-serif; 
+    font-weight: light; 
+}
+#entries .paper span.pdf:hover {
+    background: #DEDEFF; 
+}
+
+#entries .paper span.doi {
+    background: #EEEEFF; 
+    color: #444444; 
+    border: 1px solid #CCCCCC; 
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    padding: 0px 2px 1px;
+    font-family: tahoma, sans-serif; 
+    font-weight: light; 
+}
+#entries .paper span.doi:hover {
+    background: #DEDEFF; 
+}
+
+/*
 #entries .paper .linkbar span.links {
     text-align: right;
     float: right;
 }
+*/
