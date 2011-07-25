@@ -25,8 +25,8 @@ Loading...
 
 <script type="text/javascript">
 $(document).ready(function () {
-    var au = SITE_ROOT+"research/papers/authors.json";
-    var pu = SITE_ROOT+"research/papers/papers.json";
+    var au = SITE_ROOT+"papers/authors.json";
+    var pu = SITE_ROOT+"papers/papers.json";
     papers.fetch(au, pu).render("#entries")
 });
 </script>
