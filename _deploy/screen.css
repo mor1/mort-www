@@ -29,11 +29,6 @@ p { margin: 0 0 1.5em 0; text-align: justify; }
 
 a { text-decoration: none; color: #339; }
 a:hover { text-decoration: underline; color: #33f; }
-/*
-a.pdf:before { 
-	margin-right: 1em;
-	content: url(/files/css/icon_pdf.gif); }
-*/
 
 h1,h2,h3,h4 { 
 	line-height:1em; 
@@ -67,7 +62,6 @@ sup { line-height: 1ex; }
 
 #page, #disqus_thread {
 	background: white;
-/*	background-image: url(grid.png); */
 	padding: 3em 3em 1.5em 3em;
 	border: 1px solid #ccc;
 }
@@ -540,4 +534,129 @@ img.maruku-png { }
 :link.pdf { 
     padding-right: 18px; 
     background: url(@SITE_ROOT@img/icon-pdf.gif) top right no-repeat; 
+}
+
+/* paper entries */
+h1#publications {
+    float: left;
+}
+#tool {
+    font-style: italic;
+    font-weight: light;
+    font-size: 80%;
+    text-align: right;
+    float: right;
+    clear: right;
+    overflow: auto;
+}
+
+#entries {
+    overflow:auto;
+    height: auto;
+    clear: both;
+    border-left: 1px dotted #DDDDDD; 
+    border-top: 1px dotted #DDDDDD;
+}
+#entries .break {
+    clear: both;
+    width: 100%;
+    padding-top: 1ex;
+    border-bottom: 1px dotted #DDDDDD;
+
+}
+#entries .year {
+    float: left;
+    font-weight: bold;
+    font-size: 150%;
+    padding: 0.5ex 1ex 0.5ex 0.5em;
+}
+#entries .paper {
+    line-height: 110%;
+    font-size: 80%;
+    padding: 1ex 0.5em;
+    margin: 0.5ex 0 1ex 5.5em;
+    background: #F5F5FA;
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+}
+#entries .paper:hover { color: #000000; background-color: #DDEEFF; }
+
+/*
+#entries .conference {background: #F5F5FA;}
+#entries .conference:hover {color: #000000; background-color: #F5F5FA;}
+
+#entries .workshop {background: #AAF5FA;}
+#entries .workshop:hover {color: #000000; background-color: #AAF5FA;}
+
+#entries .journal {background: #AAAAFA;}
+#entries .journal:hover {color: #000000; background-color: #AAAAFA;}
+
+#entries .techreport {background: #11AAFF;}
+#entries .techreport:hover {color: #000000; background-color: #11AAFA;}
+
+#entries .patent {background: #AA11FF;}
+#entries .patent:hover {color: #000000; background-color: #AA11FA;}
+*/
+
+#entries .paper span.title {
+    font-weight: bold;
+}
+#entries .paper span.author {
+    font-style: italic;
+    font-weight: normal;
+}
+
+#entries .paper .linkbar {
+    padding-top: 5px; 
+    font-family: georgia, tahoma, sans-serif;
+    font-variant: small-caps; 
+    font-size: 90%; 
+    text-align: left; 
+}
+#entries .paper span.links {
+    margin: 0 1ex;
+}
+#entries .paper span.tags {
+    margin: 0 1ex;
+}
+entries .paper span.issn {
+    padding: 0 1ex;
+}
+
+
+#entries .paper span.url {
+    border: 1px solid #CCCCCC; 
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    padding: 0px 2px 1px;
+    margin: 0 0.5ex 0 0;
+    font-family: tahoma, sans-serif; 
+    font-weight: light; 
+}
+#entries .paper span.pdf{
+    background: #EEEEFF; 
+    color: #444444; 
+}
+#entries .paper span.pdf:hover {
+    background: #DEDEFF; 
+}
+
+#entries .paper span.html{
+    background: #EEEEFF; 
+    color: #444444; 
+}
+#entries .paper span.html:hover {
+    background: #DEDEFF; 
+}
+
+#entries .paper span.doi {
+    background: #EEEEFF; 
+    color: #444444; 
+}
+#entries .paper span.doi:hover {
+    background: #DEDEFF; 
+}
+#entries .paper span.tag {
+    font-variant: normal;
+    text-transform: lowercase;
 }
