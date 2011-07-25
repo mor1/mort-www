@@ -80,10 +80,10 @@ num: *print number in selection of useful bases*<br>
 skrype: *parse and print Skype `.dbb` logfiles*<br>
 tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
 
-[UoN][]
+[UoN](http://github.com/mor1/uon/)
 -------
 
-tt: *module timetables*
+tt: *module timetables*<br>
 reg: *module registrations*
 
 
