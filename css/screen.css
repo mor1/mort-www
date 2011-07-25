@@ -543,9 +543,23 @@ img.maruku-png { }
 }
 
 /* paper entries */
+h1#publications {
+    float: left;
+}
+#tool {
+    font-style: italic;
+    font-weight: light;
+    font-size: 80%;
+    text-align: right;
+    float: right;
+    clear: right;
+    overflow: auto;
+}
+
 #entries {
     overflow:auto;
     height: auto;
+    clear: both;
     border-left: 1px dotted #DDDDDD; 
     border-top: 1px dotted #DDDDDD;
 }
@@ -605,38 +619,44 @@ img.maruku-png { }
     font-size: 90%; 
     text-align: left; 
 }
+#entries .paper span.tag {
+    font-variant: normal;
+    text-transform: lowercase;
+}
 
-#entries .paper span.pdf {
-    background: #EEEEFF; 
-    color: #444444; 
+#entries .paper span.url {
     border: 1px solid #CCCCCC; 
     -moz-border-radius: 3px; 
     -webkit-border-radius: 3px; 
     padding: 0px 2px 1px;
+    margin: 0 0.5ex;
     font-family: tahoma, sans-serif; 
     font-weight: light; 
 }
+#entries .paper span.tags {
+    margin-left: 1ex;
+}
+
+#entries .paper span.pdf{
+    background: #EEEEFF; 
+    color: #444444; 
+}
 #entries .paper span.pdf:hover {
+    background: #DEDEFF; 
+}
+
+#entries .paper span.html{
+    background: #EEEEFF; 
+    color: #444444; 
+}
+#entries .paper span.html:hover {
     background: #DEDEFF; 
 }
 
 #entries .paper span.doi {
     background: #EEEEFF; 
     color: #444444; 
-    border: 1px solid #CCCCCC; 
-    -moz-border-radius: 3px; 
-    -webkit-border-radius: 3px; 
-    padding: 0px 2px 1px;
-    font-family: tahoma, sans-serif; 
-    font-weight: light; 
 }
 #entries .paper span.doi:hover {
     background: #DEDEFF; 
 }
-
-/*
-#entries .paper .linkbar span.links {
-    text-align: right;
-    float: right;
-}
-*/

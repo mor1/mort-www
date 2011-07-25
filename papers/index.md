@@ -12,9 +12,12 @@ js: [jquery.tmpl, papers]
 [r]: http://github.com/mor1/rmm-bibs
 [e]: mailto:richard.mortier@nottingham.ac.uk
 
++--
 
 Publications
 ============
+
+=--
 
 <div id="entries">
 Loading...
