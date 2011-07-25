@@ -71,7 +71,7 @@ Miscellaneous Scripts
 =======
 
 bberry: *parse RIM Blackberry backup (.IPD) files, extracting contacts*<br>
-bib2html: *convert BibTeX files to JSON/HTML*<br>
+bib2json: *convert BibTeX files to JSON*<br>
 cal: *replacement for Unix `cal` command: similar output, more options*<br>
 ghpy: *wrapper for GitHub REST API; currently can retrieve private collaborators*<br>
 ip2as: *lookup the AS owning an IP address*<br>
@@ -79,6 +79,13 @@ jsonpretty: *pretty print JSON from `stdin`*<br>
 num: *print number in selection of useful bases*<br>
 skrype: *parse and print Skype `.dbb` logfiles*<br>
 tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
+
+[UoN][]
+-------
+
+tt: *module timetables*
+reg: *module registrations*
+
 
 [Gawk/Awk][awk]
 ========
