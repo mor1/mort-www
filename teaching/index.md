@@ -92,6 +92,7 @@ am not responsible for any of the content linked.
 Programming
 ===========
 
++ [10 papers every programmer should read at least twice](http://blog.fogus.me/2011/09/08/10-technical-papers-every-programmer-should-read-at-least-twice/)
 + [Freely available programming books](http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books)
 + [How to Design Programs](http://htdp.org/2003-09-26/Book/)
 + [Clever Algorithms: Nature-Inspired Programming Recipes](http://www.cleveralgorithms.com/) 
@@ -101,16 +102,27 @@ Programming
 + [If you think you're a Java programmer, just read this](http://chaosinmotion.com/blog/?p=622).  Please.
 + [What every C programmer should know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html),
   followed by especially [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
-+ [Learn Python the Hard Way](http://learnpythonthehardway.org/)
-+ [Learn C the Hard Way](http://learncodethehardway.org/)
-+ [Learn Perl in about 2 hours 30 minutes](http://qntm.org/files/perl/perl.html)
-+ [Learn Prolog Now](http://cs.union.edu/~striegnk/learn-prolog-now/lpnpage.php?pageid=online) 
 + [Coding Kata](http://codekata.pragprog.com/2007/01/code_kata_backg.html)
 + [The Art of Assembly Language Programming](http://www.arl.wustl.edu/~lockwood/class/cs306/books/artofasm/toc.html) 
 + [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 + [Let's build a compiler!](http://compilers.iecc.com/crenshaw/) _per_ <http://prog21.dadgum.com/30.html>
 + [Small Memory Software](http://www.cix.co.uk/~smallmemory/) with
   [online PDF copy](http://www.cix.co.uk/~smallmemory/book.html) available
++ [Modern GPU](http://www.moderngpu.com/)
++ [Quake2 source code review](http://fabiensanglard.net/quake2/index.php)
++ [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
+  
+
+Tutorials
+---------
+
++ [Learn Python the Hard Way](http://learnpythonthehardway.org/)
++ [Learn C the Hard Way](http://learncodethehardway.org/)
++ [Learn Perl in about 2 hours 30 minutes](http://qntm.org/files/perl/perl.html)
++ [Learn Prolog Now](http://cs.union.edu/~striegnk/learn-prolog-now/lpnpage.php?pageid=online) 
++ [Common Lisp: A Gentle Introduction to Symbolic Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html) 
++ [Learn You A Haskell for a Great Good](http://learnyouahaskell.com/chapters)
++ [Learn You Some Erlang for Great Good](http://learnyousomeerlang.com/)
 
 Javascript
 ----------
@@ -122,16 +134,16 @@ Javascript
 + [Mastering Node](https://github.com/visionmedia/masteringnode/)
 + [JavaScript Language Advanced Tips 'n' Tricks](http://code.google.com/p/jslibs/wiki/JavascriptTips)
 + [Javascript Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/), mini-book
-
++ [Crockford on Javascript](http://yuiblog.com/crockford/)
 
 Functional Programming
 ----------------------
 
-+ [Common Lisp: A Gentle Introduction to Symbolic Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html) 
-+ [The Scheme Programming Language](http://scheme.com/tspl4/)
 + [Try F#](http://tryfs.net/)
-+ [Learn You A Haskell for a Great Good](http://learnyouahaskell.com/chapters)
++ [Real World Haskell](http://book.realworldhaskell.org/)
++ [Try Erlang](http://www.tryerlang.org/)
 + [The implementation of functional programming languages](http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/) 
++ [The Scheme Programming Language](http://scheme.com/tspl4/)
 
 Objective-C
 -----------
@@ -153,6 +165,8 @@ Probability and Statisics
 
 + [Think Stats](http://www.greenteapress.com/thinkstats/)
 + [Computer Vision Models](http://computervisionmodels.blogspot.com/)
++ [Information Theory, Inference and Learning Algorithms](http://www.inference.phy.cam.ac.uk/mackay/itila/) 
+
 
 Machine Learning
 ----------------
@@ -212,6 +226,7 @@ Operating Systems
 + [UNIX kernel sources, 1st edition](http://code.google.com/p/unix-jun72/)
 + [DOSManDrivel](http://dosmandrivel.blogspot.com/), the blog of Tim
   Paterson, original author of DOS.
++ [ForthOS](http://www.forthos.org/)
 
 Performance
 -----------

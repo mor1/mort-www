@@ -525,6 +525,7 @@ img.maruku-png { }
 	font-size: 100%;
 	line-height: 1.43em;
     margin-top: 1ex;
+    font-style: italic;
 }
 
 :link.external { 
