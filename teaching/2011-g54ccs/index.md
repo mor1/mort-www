@@ -8,21 +8,24 @@ parent: teaching &laquo; mort
 G54CCS - Connected Computing at Scale
 =====================================
 
-**Details to follow.**
-
-If you have any questions or errata for my parts of the
-course, or for these web pages, please [mail me][mail].
+I co-convene this module with [Dr. Martin Flintham][mdf].  If you have
+any questions or errata for my parts of the course, or for these web
+pages, please [mail me][mail].  
 
 [mail]: mailto:richard.mortier@nottingham.ac.uk?subject=g54ccs
 [rmm]: http://www.cs.nott.ac.uk/~rmm/
+[mdf]: http://www.cs.nott.ac.uk/~mdf/
+[mdf-ccs]: http://www.cs.nott.ac.uk/~mdf/teaching_G54CCS.html
+                                                      
 
 +-- {.section}
 Topics
 ======
 
 The concepts and challenges associated with modern cloud and mobile
-computing platforms, and their development and use, including: The
-technical distinctions between software / platforms / infrastructures
+computing platforms, and their development and use, including:<br />
++-- {.summarise .hidden}
+The technical distinctions between software/platforms/infrastructures
 "as a service"; The basics of current state-of-the-art cloud platform
 implementation technologies; Technical approaches to scalability; The
 risks and opportunities of cloud and mobile platforms; The impact of
@@ -30,6 +33,110 @@ mobile device resource and network limitations and availability;
 Practical constraints imposed by mobile/cloud dataflow architectures,
 and relationship to mobile telephony; The impact of market penetration
 and platform ecologies; Mechanisms for application purchase and
-deployment, and associated business models.  
+deployment, and associated business models. 
+=-- {.summarise .hidden}
 
-=-- 
+Admin
+=====
+
++-- {.summarise .hidden}
++ [Computer Science module list](http://www4.nottingham.ac.uk/ugstudy/module-information.php?code=021006&mod_year=optional&modcode=022256)
++ [Official module catalog entry](http://modulecatalogue.nottingham.ac.uk/Nottingham/asp/moduledetails.asp?crs_id=022256&year_id=000111)
+
+The module involves lectures (1/week) and a series of unassesed _but
+compulsory_ lab exercises (1 session/week).  Lectures are given at
+0900 Mondays, A25 Business School South.  Lab sessions are 1100-1200
+Thursdays, C11/B52 Computer Science.  Due to pressure of numbers, we
+are attempting to schedule a second lab session.  Assessment is by
+exam only, one paper.  There are no set texts for this module; links
+to pertinent material will be provided as the module progresses. 
+            
+=-- {.summarise .hidden}
+=-- {.section}
+
+Lectures
+--------
+
+Lecture notes made available here for teaching purposes only.
+
+Some good general background material is available at
+<http://ds.informatik.rwth-aachen.de/teaching/ws0910/cloud_computing>. 
+
++-- {.section}
++-- {.summarise .visible}
+[Lecture 1][lec01] **Housekeeping**
+----
+Given by [Dr. Flintham][mdf-ccs].  Due to excessive numbers, this
+lecture was limited to housekeeping/admin information only, and was
+cut short. 
+
+
+[Lecture 2][lec02] **The Cloud**
+----
+Given by [Dr. Flintham][mdf-ccs].  This lecture introduces cloud
+computing, its evolution, and the three main variants today (SaaS,
+PaaS, IaaS).
+
+
+[Lecture 3](./lectures/03-datacenters.pdf) **Datacenters**
+----
++-- {.twocol-list}
++ Types of Cloud
++ From Datacenter to Blade
++ Achieving Scale
++ Homogeneity
++ Reliability
++ Physical Constraints
+
+<br />
+=-- {.twocol-list}
+
+### Related:
+
+<p> </p>
+
+<!--
+[Lecture 4](./lectures/04-computation.pdf) **Computation**
+----
++-- {.twocol-list}
++ Booting a PC
++ The Operating System
++ Resource Management
++ Multiplexing
++ Isolation
++ Virtualization
+
+<br />
+=-- {.twocol-list}
+
+### Related:
+
+<p> </p>
+
+
+[Lecture 5](./lectures/05-networking.pdf) **Networking**
+----
++-- {.twocol-list}
++ stuff
+
+<br />
+=-- {.twocol-list}
+
+### Related:
+
+<p> </p>
+
+[Lecture 6](./lectures/06-storage.pdf) **Storage**
+----
++-- {.twocol-list}
++ stuff
+
+<br />
+=-- {.twocol-list}
+--> 
+
+=-- {.summarise .visible}
+=-- {.section}
+
+[lec01]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture01_handouts.pdf
+[lec02]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture02_handouts.pdf
