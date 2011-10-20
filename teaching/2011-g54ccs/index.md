@@ -141,6 +141,9 @@ PaaS, IaaS).
 Labs
 ----
 
+Some background notes, including some common "gotchas" are available at
+<http://www.cs.nott.ac.uk/~rmm/teaching/2011-g54ccs/labs/README.pdf>. 
+
 +-- {.section}
 +-- {.summarise .visible}
 
@@ -155,6 +158,11 @@ in Python.  The app returns a simple static "Hello World!" page.
 
 Making the page more dynamic, and introducing more simple Python
 syntax.
+
+[Lab 3](./labs/03-calc.pdf) **Simple Calculator**
+---
+
+Adding support for the user to pass parameters into your application.
 
 =-- {.summarise .visible}
 =-- {.section}
