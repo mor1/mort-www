@@ -138,5 +138,27 @@ PaaS, IaaS).
 =-- {.summarise .visible}
 =-- {.section}
 
+Labs
+----
+
++-- {.section}
++-- {.summarise .visible}
+
+[Lab 1][lab01] **Introducing GAE**
+---
+
+A basic introduction to developing Google App Engine web applications
+in Python.  The app returns a simple static "Hello World!" page.
+
+[Lab 2](./labs/02-python.pdf) **Some Python**
+---
+
+Making the page more dynamic, and introducing more simple Python
+syntax.
+
+=-- {.summarise .visible}
+=-- {.section}
+
 [lec01]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture01_handouts.pdf
 [lec02]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture02_handouts.pdf
+[lab01]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lab01.pdf
