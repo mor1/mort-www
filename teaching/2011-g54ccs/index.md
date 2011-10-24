@@ -92,19 +92,18 @@ PaaS, IaaS).
 =-- {.twocol-list}
 
 ### Related:
+[Data center density hits the wall?](http://bit.ly/qCsjsJ)
 
 <p> </p>
 
-<!--
-[Lecture 4](./lectures/04-computation.pdf) **Computation**
+[Lecture 4](./lectures/04-virtualization.pdf) **Virtualization**
 ----
 +-- {.twocol-list}
-+ Booting a PC
++ Why Virtualization?
++ Abstraction & Layering
 + The Operating System
-+ Resource Management
-+ Multiplexing
-+ Isolation
-+ Virtualization
++ Virutalization
++ Benefits
 
 <br />
 =-- {.twocol-list}
@@ -114,6 +113,7 @@ PaaS, IaaS).
 <p> </p>
 
 
+<!--
 [Lecture 5](./lectures/05-networking.pdf) **Networking**
 ----
 +-- {.twocol-list}
