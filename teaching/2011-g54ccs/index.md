@@ -159,12 +159,12 @@ in Python.  The app returns a simple static "Hello World!" page.
 Making the page more dynamic, and introducing more simple Python
 syntax.
 
-[Lab 3](./labs/03-calc.pdf) **Simple Calculator**
+[Lab 3](./labs/03-calc.pdf) **A Calculator**
 ---
 
 Adding support for the user to pass parameters into your application.
 
-[Lab 4](./labs/04-state.pdf) **Stateful Counter**
+[Lab 4](./labs/04-state.pdf) **Counting**
 ---
 
 Using the storage backend, templates and `POST`.
