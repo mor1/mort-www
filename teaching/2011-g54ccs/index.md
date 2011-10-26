@@ -164,6 +164,11 @@ syntax.
 
 Adding support for the user to pass parameters into your application.
 
+[Lab 4](./labs/04-state.pdf) **Stateful Counter**
+---
+
+Using the storage backend, templates and `POST`.
+
 =-- {.summarise .visible}
 =-- {.section}
 
