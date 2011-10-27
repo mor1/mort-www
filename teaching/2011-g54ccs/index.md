@@ -109,6 +109,8 @@ PaaS, IaaS).
 =-- {.twocol-list}
 
 ### Related:
+[Why we moved off the cloud](http://bit.ly/sd8C5e)
+[When "clever" goes wrong](http://bit.ly/rhdpGJ)
 
 <p> </p>
 
@@ -133,6 +135,11 @@ PaaS, IaaS).
 
 <br />
 =-- {.twocol-list}
+
+### Related:
+[Eventually Consistent](http://bit.ly/qSIpxP)
+
+<p> </p>
 --> 
 
 =-- {.summarise .visible}
