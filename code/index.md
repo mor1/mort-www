@@ -78,6 +78,8 @@ ip2as: *lookup the AS owning an IP address*<br>
 jsonpretty: *pretty print JSON from `stdin`*<br>
 num: *print number in selection of useful bases*<br>
 skrype: *parse and print Skype `.dbb` logfiles*<br>
+slots: *compute number of people that can make each slot of a set of available
+times*<br>
 tdump2txt: *filter to pretty print `tcpdump -x` output*<br>
 
 [UoN](http://github.com/mor1/uon/)
