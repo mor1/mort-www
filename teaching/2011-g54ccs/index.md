@@ -115,19 +115,25 @@ PaaS, IaaS).
 <p> </p>
 
 
-<!--
 [Lecture 5](./lectures/05-networking.pdf) **Networking**
 ----
 +-- {.twocol-list}
-+ stuff
++ Network hierarchy
++ Network resources
++ Security
++ Addressing
++ Routing & Forwarding
++ Naming
 
 <br />
 =-- {.twocol-list}
 
 ### Related:
+[Current AT&T network latency](http://ipnetwork.bgtmo.ip.att.net/pws/network_delay.html)
 
 <p> </p>
 
+<!--
 [Lecture 6](./lectures/06-storage.pdf) **Storage**
 ----
 +-- {.twocol-list}
