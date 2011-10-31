@@ -1,6 +1,6 @@
 ---
 layout: default
-section: papers
+section: research
 title: papers
 parent: mort
 js: [jquery.tmpl, papers]

@@ -15,6 +15,8 @@ from mixed reality urban games to use of bio-sensing in TV production
 to infrastructure support for tracking physical objects ranging from
 tableware to smart buildings.  
 
+For a complete list of my publications, [click here](../papers/).
+
 +-- {.section}
 
 [Dataware](http://perscon.net/overview/dataware.html)
