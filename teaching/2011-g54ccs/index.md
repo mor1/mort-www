@@ -93,6 +93,8 @@ PaaS, IaaS).
 
 ### Related:
 [Data center density hits the wall?](http://bit.ly/qCsjsJ)
+[Amazon's James Hamilton on How to Build a Better Datacenter](http://bit.ly/uIPD9S)
+[James Hamilton's blog](http://bit.ly/tsvZIb)
 
 <p> </p>
 
@@ -111,6 +113,7 @@ PaaS, IaaS).
 ### Related:
 [Why we moved off the cloud](http://bit.ly/sd8C5e)
 [When "clever" goes wrong](http://bit.ly/rhdpGJ)
+[HP/Calxeda ARM servers](http://engt.co/sqGJLx)
 
 <p> </p>
 
