@@ -136,20 +136,25 @@ PaaS, IaaS).
 
 <p> </p>
 
-<!--
 [Lecture 6](./lectures/06-storage.pdf) **Storage**
 ----
 +-- {.twocol-list}
-+ stuff
++ Storage
++ Disk evolution
++ Abstractions
++ SQL vs. NoSQL
++ Tradeoffs
++ Scale: Facebook Messaging
 
 <br />
 =-- {.twocol-list}
 
 ### Related:
 [Eventually Consistent](http://bit.ly/qSIpxP)
+[Storage infrastructure behind Facebook Messages](http://bit.ly/rt2csc)
+at [HPTPS 2011](http://bit.ly/vx7JYx)
 
 <p> </p>
---> 
 
 =-- {.summarise .visible}
 =-- {.section}
