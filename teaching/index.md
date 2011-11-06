@@ -87,7 +87,7 @@ am not responsible for any of the content linked.
 + [The Euler Archive](http://www.math.dartmouth.edu/~euler/)
 + [How To Criticize Computer Scientists](http://www.cs.purdue.edu/homes/dec/essay.criticize.html)
 + [Elements of Computing Systems](http://diycomputerscience.com/courses/course/the-elements-of-computing-systems)
-  
++ [Knuth's Computer Musings](http://scpd.stanford.edu/knuth/index.jsp)  
 
 Programming
 ===========
