@@ -213,6 +213,7 @@ Networking
   without all the screen rubbish. 
 + [Brief tutorial to raw sockets programming](http://mixter.void.ru/rawip.html)
 + [Computer Networking: Principles, Protocols and Practice](http://inl.info.ucl.ac.be/CNP3) 
++ [Networking Conference Statistics](http://www.cs.ucsb.edu/~almeroth/conf/stats/)
 
 Operating Systems
 -----------------
@@ -227,7 +228,8 @@ Operating Systems
 + [DOSManDrivel](http://dosmandrivel.blogspot.com/), the blog of Tim
   Paterson, original author of DOS.
 + [ForthOS](http://www.forthos.org/)
-
++ [How bzImage gets created](http://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-November/003906.html)
+  
 Performance
 -----------
 
