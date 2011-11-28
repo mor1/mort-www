@@ -156,6 +156,24 @@ at [HPTPS 2011](http://bit.ly/vx7JYx)
 
 <p> </p>
 
+[Lecture 7][lec07] **Map Reduce**
+----
+Given by [Dr. Flintham][mdf-ccs].  This lecture introduces cloud software
+development, taking _Map Reduce_ as an example big data processing technique..
+
+
+[Lecture 8][lec08] **Ajax and REST**
+----
+Given by [Dr. Flintham][mdf-ccs].  This lecture continues with cloud software
+development, looking at highly interactive web applications.
+
+
+[Lecture 9][lec09] **Separation of Concerns**
+----
+Given by [Dr. Flintham][mdf-ccs].  This lecture continues with cloud
+development paradigms and the need for separation of concerns in particular.
+
+
 =-- {.summarise .visible}
 =-- {.section}
 
@@ -190,9 +208,32 @@ Adding support for the user to pass parameters into your application.
 
 Using the storage backend, templates and `POST`.
 
+[Lab 5](./labs/05-guestbook.pdf) **Guestbook**
+---
+
+An more open-ended exercise, consolidating material from labs 1--4 by building
+a simple guestbook web application.
+
+[Lab 6](./labs/06-tickets.pdf) **Tickets**
+---
+
+Introducing _tickets_, a means to get a server-generated token to identify
+interaction with the webservice at some granularity.
+
+[Lab 7](./labs/07-mashup.pdf) **External Services**
+---
+
+Using the _[Twitter Search API](http://search.twitter.com/)_, a simple example
+of how to build a GAE application that makes use of a third-party webservice.
+
+
 =-- {.summarise .visible}
 =-- {.section}
 
+
 [lec01]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture01_handouts.pdf
 [lec02]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture02_handouts.pdf
+[lec07]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture07_handouts.pdf
+[lec08]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture08_handouts.pdf
+[lec09]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture09_handouts.pdf
 [lab01]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lab01.pdf
