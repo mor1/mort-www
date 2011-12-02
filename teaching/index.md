@@ -128,7 +128,8 @@ Python
 ------
 
 + [A Python Optimization Anecdote](http://tech.dropbox.com/?p=89)
-+ [Programming Language Development: the last 5 years](http://blog.fogus.me/201+ [Code Like a Pythonista: Idiomatic Python](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
++ [Programming Language Development: the last 5 years](http://blog.fogus.me/2011/10/18/programming-language-development-the-past-5-years/)
++ [Code Like a Pythonista: Idiomatic Python](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
 
 Javascript
 ----------
