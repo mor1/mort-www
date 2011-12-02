@@ -111,7 +111,7 @@ Programming
 + [Modern GPU](http://www.moderngpu.com/)
 + [Quake2 source code review](http://fabiensanglard.net/quake2/index.php)
 + [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
-  
+1/10/18/programming-language-development-the-past-5-years/)
 
 Tutorials
 ---------
@@ -124,6 +124,12 @@ Tutorials
 + [Learn You A Haskell for a Great Good](http://learnyouahaskell.com/chapters)
 + [Learn You Some Erlang for Great Good](http://learnyousomeerlang.com/)
 
+Python
+------
+
++ [A Python Optimization Anecdote](http://tech.dropbox.com/?p=89)
++ [Programming Language Development: the last 5 years](http://blog.fogus.me/201+ [Code Like a Pythonista: Idiomatic Python](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
+
 Javascript
 ----------
 
@@ -135,7 +141,9 @@ Javascript
 + [JavaScript Language Advanced Tips 'n' Tricks](http://code.google.com/p/jslibs/wiki/JavascriptTips)
 + [Javascript Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/), mini-book
 + [Crockford on Javascript](http://yuiblog.com/crockford/)
-
++ [Automated Cross-browser Javascript Testing](http://www.catonmat.net/blog/announcing-testling/)
++ [Smooth Coffeescript](http://autotelicum.github.com/Smooth-CoffeeScript/SmoothCoffeeScript.html)
+  
 Functional Programming
 ----------------------
 
@@ -144,6 +152,8 @@ Functional Programming
 + [Try Erlang](http://www.tryerlang.org/)
 + [The implementation of functional programming languages](http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/) 
 + [The Scheme Programming Language](http://scheme.com/tspl4/)
++ [RECURSIVE FUNCTIONS OF SYMBOLIC EXPRESSIONS AND THEIR COMPUTATION BY MACHINE (Part I)](http://www-formal.stanford.edu/jmc/recursive.html)
+  -- the original paper on LISP
 
 Objective-C
 -----------
@@ -175,6 +185,7 @@ Machine Learning
 + [Mining of Massive Datasets](http://infolab.stanford.edu/~ullman/pub/book.pdf) (book)
 + [ML Demos](http://mldemos.epfl.ch/)
 + [Stanford Machine Learning class](http://www.ml-class.org/)
++ [CMU Machine Learning class](http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml)
 
 Graph Theory
 ------------
