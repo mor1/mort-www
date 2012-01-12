@@ -1,12 +1,12 @@
-
 #                                 Call for Papers
 
 #                Workshop on Measurements Up and Down the STack
 ##                    In conjunction with ACM SIGCOMM 2012
 
-###                  August 13 or 17, 2012, Helsinki, Finland
+###                  August 17, 2012, Helsinki, Finland
 
-<http://www.cs.nott.ac.uk/~rmm/research/2012-wmust/>  
+<http://conferences.sigcomm.org/sigcomm/2012/wmust.php>  
+<http://conferences.sigcomm.org/sigcomm/2012/wmust.html>  
 <http://www.cs.nott.ac.uk/~rmm/research/2012-wmust/cfp.txt>  
 <http://www.cs.nott.ac.uk/~rmm/research/2012-wmust/cfp.pdf> 
 
@@ -51,6 +51,7 @@ the program committee. Submissions must follow the formatting guidelines at
 <http://conferences.sigcomm.org/sigcomm/2012/>. Authors of accepted papers are
 expected to present their papers at the workshop. Submissions must be original
 work not under review at any other workshop, conference, or journal.
+**Detailed instructions how to submit your paper will be posted soon.**
 
 ### Important Dates: 
 
@@ -58,7 +59,7 @@ work not under review at any other workshop, conference, or journal.
 + Full paper submission: 6 April, 2012
 + Acceptance notification: 16 May, 2012 
 + Camera-ready: 1 June, 2012
-+ Workshop Date: 13 or 17 August, 2012 
++ Workshop Date: 17 August, 2012 
 
 ### PC Co-chairs:
 
