@@ -56,8 +56,10 @@ include the authors' names and affiliations for single-blind peer reviewing by
 the program committee. Submissions must follow the formatting guidelines at
 <http://conferences.sigcomm.org/sigcomm/2012/>. Authors of accepted papers are
 expected to present their papers at the workshop. Submissions must be original
-work not under review at any other workshop, conference, or journal.
-**Detailed instructions how to submit your paper will be posted soon.**
+work not under review at any other workshop, conference, or journal. Papers
+should be submitted via the
+[submission site](http://conferences.noise.gatech.edu/WMUST2012/),
+<http://conferences.noise.gatech.edu/WMUST2012/>.
 
 ### Important Dates: 
 

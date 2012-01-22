@@ -112,6 +112,8 @@ Programming
 + [Quake2 source code review](http://fabiensanglard.net/quake2/index.php)
 + [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
 1/10/18/programming-language-development-the-past-5-years/)
++ [Rob Pike's Notes on Programming in C](http://doc.cat-v.org/bell_labs/pikestyle)
+  
 
 Tutorials
 ---------
@@ -130,6 +132,7 @@ Python
 + [A Python Optimization Anecdote](http://tech.dropbox.com/?p=89)
 + [Programming Language Development: the last 5 years](http://blog.fogus.me/2011/10/18/programming-language-development-the-past-5-years/)
 + [Code Like a Pythonista: Idiomatic Python](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
++ [Unfortunate Python](http://excess.org/article/2011/12/unfortunate-python/)
 
 Javascript
 ----------
@@ -164,7 +167,7 @@ Objective-C
 + [Learning Cocoa with Objective-C](http://commons.oreilly.com/wiki/index.php/Learning_Cocoa_with_Objective-C) 
 + [The Objective-C programming language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html) 
 + [Objective-C for Java programmers](http://www.informit.com/articles/article.aspx?p=1568732) 
-
++ [Learn how to write iOS apps](http://ashfurrow.com/2011/12/learn-how-to-write-ios-apps/)
 
 Mathematics
 ===========
@@ -187,7 +190,9 @@ Machine Learning
 + [ML Demos](http://mldemos.epfl.ch/)
 + [Stanford Machine Learning class](http://www.ml-class.org/)
 + [CMU Machine Learning class](http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml)
-
++ [Introduction to Machine Learning, 2nd ed.](http://www.cmpe.boun.edu.tr/~ethem/i2ml2e/index.html)
+  
+  
 Graph Theory
 ------------
 
@@ -262,5 +267,6 @@ Databases
 ---------
 
 + [Stanford Database class](http://www.db-class.org/)
++ [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/)
 
 =--
