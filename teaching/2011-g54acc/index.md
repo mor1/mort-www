@@ -51,6 +51,33 @@ Lecture notes made available here for teaching purposes only.
 <br />
 =-- {.twocol-list}
 
+[Lecture 2](./lectures/02-InternetProtocol.pdf) **Internet Protocol**
+-----------
++-- {.twocol-list}
++ IP over Ethernet
++ ARP
++ Alternatives
++ Fragmentation
++ Reassembly
++ Loss
+
+<br />
+=-- {.twocol-list}
+
+[Lecture 3](./lectures/03-AddressingRouting.pdf) **Addressing & Routing**
+-----------
++-- {.twocol-list}
++ Addressing
++ Address management
++ Routing vs. forwarding
++ Longest prefix match
++ Link state routing
++ Distance vector routing
+
+<br />
+=-- {.twocol-list}
+
+
 =-- {.summarise .visible}
 =-- {.section}
 
@@ -164,7 +191,7 @@ Top-Down Approach
 A Systems Approach
 ------------------
 
-[Computer Networks - A Systems Approach, 4th Edition][systemsapproach]
+[Computer Networks -- A Systems Approach, 4th Edition][systemsapproach]
 by [Larry L. Peterson][peterson] and [Bruce S. Davie][davie], Morgan
 Kaufmann, 2007.
 
@@ -309,20 +336,15 @@ Related Courses
 Miscellaneous
 -------------
 
-+ Several of the major network-vendor websites have informative data sheets,
-  product specs and manuals. Among the major players are [Cisco][] [Juniper][]
-  [Extreme][] [Avaya][] and [Brocade][].
+Several of the major network-vendor websites have informative data sheets,
+product specs and manuals. Among the major players are [Cisco][] [Juniper][]
+[Extreme][] [Avaya][] and [Brocade][].
 
 [cisco]: http://cisco.com/
 [juniper]: http://juniper.com/
 [extreme]: http://extremenetworks.com/
 [avaya]: http://avaya.com/
 [brocade]: http://brocade.com/
-
-+ [routergod.com][routergod] is a bit of fun -- "The Online Magazine for Cisco
-  Professionals Since 1998"...
-
-[routergod]: http://routergod.com/
 
 =-- {.summarise .hidden}
 =-- {.section}
