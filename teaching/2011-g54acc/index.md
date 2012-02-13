@@ -78,6 +78,104 @@ Lecture notes made available here for teaching purposes only.
 =-- {.twocol-list}
 
 
+[Lecture 4](./lectures/04-Multiplexing.pdf) **Multiplexing**
+-----------
++-- {.twocol-list}
++ Simplex _vs_. duplex
++ SDM, WDM, TDM
++ STM, PTM, ATM
++ A simple stochastic process
++ CDMA
++ Direct sequence
+
+<br />
+=-- {.twocol-list}
+
+
+<!--
+[Lecture 5](./lectures/05-Physical.pdf) **Physical**
+-----------
++-- {.twocol-list}
+    
+<br />
+=-- {.twocol-list}
+-->
+
+[Lecture 5](./lectures/05-Physical.pdf) **Physical**
+-----------
++-- {.twocol-list}
++ Modulation & detection
++ QAM constellations
++ Scramblers
++ Block codes
++ Error detection
++ CRCs
+
+<br />
+=-- {.twocol-list}
+
+
+[Lecture 6](./lectures/06-Optical.pdf) **Optical**
+-----------
++-- {.twocol-list}
++ Optical fibres
++ Impact
++ Multimode _vs_. single-mode
++ Attenuation
++ WDM
++ Regeneration & Amplification
+
+<br />
+=-- {.twocol-list}
+
+
+[Lecture 7](./lectures/07-Switching.pdf) **Switching**
+-----------
++-- {.twocol-list}
++ Types of switching element
++ First/Second/Third generations
++ Crossbars
++ Multistage switches
++ Buffering
++ Blocking
+
+<br />
+=-- {.twocol-list}
+
+[Lecture 8](./lectures/08-Ethernet.pdf) **Ethernet**
+-----------
++-- {.twocol-list}
++ Pure and slotted Aloha
++ Efficiency
++ Bridges _vs_. hubs _vs_. switches
++ Spanning Tree Protocol
++ Buffering
++ Extensions
+
+<br />
+=-- {.twocol-list}
+
+### Related:
+[Tutorial on Bridges, Routers, Switches, Oh My!](http://www.nanog.org/meetings/nanog34/presentations/perlman.routers.pdf)
+([cached](./material/perlman.routers.pdf)) 
+
+
+[Lecture 9](./lectures/09-ATM.pdf) **ATM**
+-----------
++-- {.twocol-list}
++ B-ISDN
++ Small, fixed-size cells
++ Virtual circuits
++ Quality-of-Service
++ ATM _vs_. IP
++ ADSL
+
+<br />
+=-- {.twocol-list}
+
+
+
+
 =-- {.summarise .visible}
 =-- {.section}
 
