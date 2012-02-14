@@ -53,7 +53,7 @@ I am currently available for consultancy and selected development work.
 Contact
 =======
 
-I am in office C12A in the [Nottingham Geospatial Building][map].  I can
+I am in office C12B in the [Nottingham Geospatial Building][map].  I can
 be contacted by email (preferred) at
 <mailto:richard.mortier@nottingham.ac.uk>, or by phone on +44 115 823
 2552.  I am online at [mynameise][], [twitter][], [github][], [linkedin][], and
