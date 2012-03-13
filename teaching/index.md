@@ -120,6 +120,7 @@ Tutorials
 
 + [Learn Python the Hard Way](http://learnpythonthehardway.org/)
 + [Learn C the Hard Way](http://learncodethehardway.org/)
++ [Learn Regex the Hard Way](http://regex.learncodethehardway.org/book/)
 + [Learn Perl in about 2 hours 30 minutes](http://qntm.org/files/perl/perl.html)
 + [Learn Prolog Now](http://cs.union.edu/~striegnk/learn-prolog-now/lpnpage.php?pageid=online) 
 + [Common Lisp: A Gentle Introduction to Symbolic Computation](http://www.cs.cmu.edu/~dst/LispBook/index.html) 
@@ -146,8 +147,10 @@ Javascript
 + [Javascript Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/), mini-book
 + [Crockford on Javascript](http://yuiblog.com/crockford/)
 + [Automated Cross-browser Javascript Testing](http://www.catonmat.net/blog/announcing-testling/)
-+ [Smooth Coffeescript](http://autotelicum.github.com/Smooth-CoffeeScript/SmoothCoffeeScript.html)
-  
++ [Smooth CoffeeScript](http://autotelicum.github.com/Smooth-CoffeeScript/SmoothCoffeeScript.html)
++ [Iced CoffeScript](http://maxtaco.github.com/coffee-script/)
++ [d3 Tutorial](http://bost.ocks.org/mike/d3/workshop/)
+
 Functional Programming
 ----------------------
 
@@ -180,7 +183,7 @@ Probability and Statisics
 + [Think Stats](http://www.greenteapress.com/thinkstats/)
 + [Computer Vision Models](http://computervisionmodels.blogspot.com/)
 + [Information Theory, Inference and Learning Algorithms](http://www.inference.phy.cam.ac.uk/mackay/itila/) 
-
++ [Bayes' Theorem, illustrated](http://lesswrong.com/lw/2b0/bayes_theorem_illustrated_my_way)
 
 Machine Learning
 ----------------
@@ -246,6 +249,7 @@ Operating Systems
   Paterson, original author of DOS.
 + [ForthOS](http://www.forthos.org/)
 + [How bzImage gets created](http://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-November/003906.html)
++ [Top 10 DTrace scripts for OSX](http://dtrace.org/blogs/brendan/2011/10/10/top-10-dtrace-scripts-for-mac-os-x/)  
   
 Performance
 -----------

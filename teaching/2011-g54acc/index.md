@@ -174,6 +174,19 @@ Lecture notes made available here for teaching purposes only.
 =-- {.twocol-list}
 
 
+[Lecture 10](./lectures/10-Transport.pdf) **Transport: Basic**
+------------
++-- {.twocol-list}
++ Transport layer
++ Port numbers
++ UDP, header & pseudo-header
++ TCP setup & teardown
++ TCP state machine
++ Priority & precedence 
++ Reliability
+
+<br />
+=-- {.twocol-list}
 
 
 =-- {.summarise .visible}
