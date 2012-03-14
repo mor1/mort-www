@@ -174,7 +174,7 @@ Lecture notes made available here for teaching purposes only.
 =-- {.twocol-list}
 
 
-[Lecture 10](./lectures/10-Transport.pdf) **Transport: Basic**
+[Lecture 10](./lectures/10-Transport.pdf) **Transport**
 ------------
 +-- {.twocol-list}
 + Transport layer
@@ -184,6 +184,22 @@ Lecture notes made available here for teaching purposes only.
 + TCP state machine
 + Priority & precedence 
 + Reliability
+
+<br />
+=-- {.twocol-list}
+
+
+[Lecture 11](./lectures/11-Reliability.pdf) **Reliability**
+------------
++-- {.twocol-list}
++ Achieving reliability
++ Stop 'n' Wait
++ ARQ
++ Congestion collapse
++ Congestion control
++ TCP variants
++ ECN
++ TCP friendliness
 
 <br />
 =-- {.twocol-list}
