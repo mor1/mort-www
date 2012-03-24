@@ -88,6 +88,7 @@ am not responsible for any of the content linked.
 + [How To Criticize Computer Scientists](http://www.cs.purdue.edu/homes/dec/essay.criticize.html)
 + [Elements of Computing Systems](http://diycomputerscience.com/courses/course/the-elements-of-computing-systems)
 + [Knuth's Computer Musings](http://scpd.stanford.edu/knuth/index.jsp)  
++ [24/192 music downloads](http://people.xiph.org/~xiphmont/demo/neil-young.html)
 
 Programming
 ===========
@@ -134,6 +135,7 @@ Python
 + [Programming Language Development: the last 5 years](http://blog.fogus.me/2011/10/18/programming-language-development-the-past-5-years/)
 + [Code Like a Pythonista: Idiomatic Python](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
 + [Unfortunate Python](http://excess.org/article/2011/12/unfortunate-python/)
++ [Python Magic Methods](http://www.rafekettler.com/magicmethods.html)
 
 Javascript
 ----------
@@ -250,6 +252,7 @@ Operating Systems
 + [ForthOS](http://www.forthos.org/)
 + [How bzImage gets created](http://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-November/003906.html)
 + [Top 10 DTrace scripts for OSX](http://dtrace.org/blogs/brendan/2011/10/10/top-10-dtrace-scripts-for-mac-os-x/)  
++ [Introduction to text manipulation on UNIX systems](http://www.ibm.com/developerworks/aix/library/au-unixtext/index.html)
   
 Performance
 -----------
