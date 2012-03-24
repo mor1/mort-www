@@ -33,9 +33,9 @@ teaching-related material.
 
 =--
 
-[2011-projects]: 2011-projects/
-[2011-g54acc]: 2011-g54acc/
-[2011-g54ccs]: 2011-g54ccs/
+[2011-projects]: projects/2011
+[2011-g54acc]: g54acc/2011
+[2011-g54ccs]: g54ccs/2011
 
 
 2010
@@ -54,8 +54,8 @@ teaching-related material.
 [Third-year/Masters project suggestions][2010-projects].
 =--
 
-[2010-projects]: 2010-projects/
-[2010-g54acc]: 2010-g54acc/
+[2010-projects]: projects/2010
+[2010-g54acc]: g54acc/2010
 
 
 
