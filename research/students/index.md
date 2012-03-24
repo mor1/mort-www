@@ -18,17 +18,17 @@ Training Centre here at Nottingham.
 Current
 -------
 
-Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom].
-Investigating ... 
+Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom]. 
+Securing the domestic network.
  
-Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. Investigating
-... 
+Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. 
+Understanding consent in ubiquitous computing.
 
 Jianhua Shao (2010), co-supervised with [Dr. George Kuk][george].
-Investigating ... 
+Investigating markets in personal data.
 
-Robert Spencer (2011), co-supervised with [Prof. Tom Rodden][tom].
-Investigating ...
+Robert Spencer (2011), co-supervised with [Prof. Tom Rodden][tom]. 
+History and reconciliation in domestic network configuration.
 
 [tom]: http://www.cs.nott.ac.uk/~tar/
 [george]: http://nottingham.ac.uk/
