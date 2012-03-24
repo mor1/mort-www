@@ -8,12 +8,14 @@ parent: mort
 Research
 ========
 
-The breadth of the Horizon Digital Economy Research programme of work
-means that I'm involved to a greater or lesser extent in a wide range
-of projects.  I list my primary projects below, but others span topics
-from mixed reality urban games to use of bio-sensing in TV production
-to infrastructure support for tracking physical objects ranging from
-tableware to smart buildings.  
+The breadth of the Horizon Digital Economy Research programme of work means
+that I'm involved to a greater or lesser extent in a wide range of projects,
+including supervising several excellent [students][]. I list my primary
+projects below, but others span topics from mixed reality urban games to use
+of bio-sensing in TV production to infrastructure support for tracking
+physical objects ranging from tableware to smart buildings.
+
+[students]: students/
 
 For a complete list of my publications, [click here](../papers/).
 

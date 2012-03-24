@@ -8,8 +8,9 @@ parent: mort
 Teaching
 ========
 
-This page serves merely as an index to relevant online
-teaching-related material.
+This page serves merely as an index to relevant online teaching-related
+material. For information about Ph.D. supervision, see
+[my research pages](../research/students/).
 
 2011
 ----
