@@ -64,6 +64,14 @@ Lecture notes made available here for teaching purposes only.
 <br />
 =-- {.twocol-list}
 
+### Related:
+
+[Impact of offload](http://www.informatics.sussex.ac.uk/research/projects/ngn/slides/msn10talks/watson-stack.pdf)
+    ([cached](../2010/material/watson-stack.pdf)),
+[IPv6 transition](http://ccr.sigcomm.org/drupal/?q=node/622)
+    ([cached](../2010/material/p18-2v40n3e-guerinA.pdf))
+
+
 [Lecture 3](./lectures/03-AddressingRouting.pdf) **Addressing & Routing**
 -----------
 +-- {.twocol-list}
@@ -76,6 +84,15 @@ Lecture notes made available here for teaching purposes only.
 
 <br />
 =-- {.twocol-list}
+
+### Related:
+[OpenFlow](http://openflow.org/),
+[OpenVSwitch](http://openvswitch.org/),
+[NoX](http://noxrepo.org/),
+[PyRT](http://github.com/mor1/pyrt/),
+McQuillan *et al*,
+[An overview of the new routing algorithm for the ARPANET](http://dx.doi.org/10.1145/205447.205453) 
+        ([cached](../2010/material/p54-mcquillan.pdf))
 
 
 [Lecture 4](./lectures/04-Multiplexing.pdf) **Multiplexing**
@@ -188,6 +205,11 @@ Lecture notes made available here for teaching purposes only.
 <br />
 =-- {.twocol-list}
 
+### Related: 
+[Scalable Stream Transport](http://ccr.sigcomm.org/online/?q=node/272)
+        ([cached](../2010/material/fp240-ford.pdf))
+
+
 
 [Lecture 11](./lectures/11-Reliability.pdf) **Reliability**
 ------------
@@ -204,6 +226,43 @@ Lecture notes made available here for teaching purposes only.
 <br />
 =-- {.twocol-list}
 
+
+### Related: 
+[TCP congestion control survey](http://dx.doi.org/10.1109/SURV.2010.042710.00114) 
+        ([cached](../2010/material/Host-to-host%20congestion%20control%20for%20TCP.pdf))
+[TCP
+visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
+[TCP/IP protocol sequence diagrams](http://www.eventhelix.com/EventStudio/tcp_ip_sequence_diagrams/)
+[TCP Flow Control Tutorial](http://www.ipam.ucla.edu/publications/cntut/cntut_1497.ppt)
+     ([cached](../2010/material/cntut_1497.ppt))
+
+
+[Lecture 12](./lectures/12-Connecting.pdf) **Connecting**
+------------
++-- {.twocol-list}
++ IP Quality of Service
++ ToS, DiffServe, IntServ
++ NAT: why & how
++ Full & Restricted Cone NAT
++ Symmetric NAT
++ End-to-End & Middleboxes
++ Extending TCP
+
+<br />
+=-- {.twocol-list}
+
+### Related:
+[End-to-end argument](http://doi.acm.org/10.1145/357401.357402) 
+        ([cached](../2010/material/p277-saltzer.pdf))
+
+
+
+[Lecture 13](./lectures/13-Naming.pdf) **Naming**
+------------
++-- {.twocol-list}
+
+<br />
+=-- {.twocol-list}
 
 =-- {.summarise .visible}
 =-- {.section}
