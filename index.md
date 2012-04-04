@@ -67,14 +67,18 @@ be contacted by email (preferred) at
 [mynameise]: http://eee.am/mort
 
 
+<!-- seems broken currently, so removing for now
+
 [Twitter][]
 =======
 
-<script type="text/javascript" src="{{site.url_root}}js/twitter-blogger.js"> </script>
+<script type="text/javascript" src="{{site.url_root}}js/twitter-blogger.js"> 
+</script>
 
 *Contacting Twitter...*{:#twitter_update_list}
 
-<script type="text/javascript"
-        src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=3"> </script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=3">
+</script>
+-->
 
 =--
