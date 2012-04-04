@@ -109,15 +109,6 @@ McQuillan *et al*,
 =-- {.twocol-list}
 
 
-<!--
-[Lecture 5](./lectures/05-Physical.pdf) **Physical**
------------
-+-- {.twocol-list}
-    
-<br />
-=-- {.twocol-list}
--->
-
 [Lecture 5](./lectures/05-Physical.pdf) **Physical**
 -----------
 +-- {.twocol-list}

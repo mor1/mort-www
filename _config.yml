@@ -6,10 +6,12 @@ analytics_id: UA-15796259-1
 #url_root: /~rmm/
 #analytics_id: UA-15796259-2
 
+safe: true
 auto: false
 pygments: true
 markdown: maruku
 exclude: _deploy
+lsi: false
 
 maruku:
     use_divs: true
