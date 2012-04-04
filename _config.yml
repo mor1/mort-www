@@ -1,16 +1,12 @@
-## github
+## default to github/localhost settings
 url_root: /
 analytics_id: UA-15796259-1
-
-## cs.nott
-#url_root: /~rmm/
-#analytics_id: UA-15796259-2
 
 safe: true
 auto: false
 pygments: true
 markdown: maruku
-exclude: _deploy
+exclude: _less
 lsi: false
 
 maruku:
