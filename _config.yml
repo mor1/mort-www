@@ -5,7 +5,7 @@ analytics_id: UA-15796259-1
 safe: true
 auto: false
 pygments: true
-markdown: rdiscount
+markdown: maruku
 exclude: _less
 lsi: false
 
