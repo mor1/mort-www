@@ -251,6 +251,14 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 [Lecture 13](./lectures/13-Naming.pdf) **Naming**
 ------------
 +-- {.twocol-list}
++ DNS components
++ DNS hierarchy
++ DNS protocol
++ Resource records
++ Recursion _vs_. iteration
++ Label compression
++ Load balancing
++ DNSSEC outline
 
 <br />
 =-- {.twocol-list}
