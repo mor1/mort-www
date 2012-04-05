@@ -38,6 +38,7 @@ Completed
 ---------
 
 [Dr. Hamed Haddadi](http://www.eecs.qmul.ac.uk/~hamed/), UCL. Graduated 2008.
-Dissertation titled "". Invited to join Hamed's supervision team while I was
-at Microsoft, my co-supervisors were Drs. Andrew W. Moore and Miguel Rio.
+Dissertation titled "Topological Characteristics of IP Networks". Invited to
+join Hamed's supervision team while I was at Microsoft, my co-supervisors were
+Drs. Andrew W. Moore and Miguel Rio.
 
