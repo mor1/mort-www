@@ -31,7 +31,7 @@ Robert Spencer (2011), co-supervised with [Prof. Tom Rodden][tom].
 History and reconciliation in domestic network configuration.
 
 [tom]: http://www.cs.nott.ac.uk/~tar/
-[george]: http://nottingham.ac.uk/
+[george]: http://www.nottingham.ac.uk/business/LIZGK.html
 
 
 Completed
