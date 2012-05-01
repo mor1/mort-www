@@ -70,6 +70,7 @@ Lecture notes made available here for teaching purposes only.
     ([cached](../2010/material/watson-stack.pdf)),
 [IPv6 transition](http://ccr.sigcomm.org/drupal/?q=node/622)
     ([cached](../2010/material/p18-2v40n3e-guerinA.pdf))
+[Google's IPv6 transition](./material/Babiker.pdf)
 
 
 [Lecture 3](./lectures/03-AddressingRouting.pdf) **Addressing & Routing**
@@ -262,6 +263,46 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 
 <br />
 =-- {.twocol-list}
+
+
+
+[Lecture 14](./lectures/14-Internetworking.pdf) **Internetworking**
+------------
++-- {.twocol-list}
++ Inter-domain Routing
++ BGPv4
++ Autonomous Systems
++ Sessions & Updates
++ Path Attributes
++ Consistency
++ Scaling
+<br />
+=-- {.twocol-list}
+
+### Related: 
+[Level3 vs. Cogent depeering](http://bit.ly/KxJRvv)
+
+[YouTube hijacking: Case study](http://bit.ly/JK4MYv)
+    ([video](http://www.youtube.com/watch?v=IzLPKuAOe50))
+
+[Peering DB](http://www.peeringdb.com/)
+
+
+<!--
+[Lecture 15](./lectures/15-Application.pdf) **Application**
+------------
++-- {.twocol-list}
+<br />
+=-- {.twocol-list}
+
+
+ 
+[Lecture 16](./lectures/16-Programming.pdf) **Programming**
+------------
++-- {.twocol-list}
+<br />
+=-- {.twocol-list}
+-->
 
 =-- {.summarise .visible}
 =-- {.section}
