@@ -283,26 +283,28 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 [Level3 vs. Cogent depeering](http://bit.ly/KxJRvv)
 
 [YouTube hijacking: Case study](http://bit.ly/JK4MYv)
-    ([video](http://www.youtube.com/watch?v=IzLPKuAOe50))
+    ([video](http://bit.ly/Il2jXX))
 
-[Peering DB](http://www.peeringdb.com/)
+[Peering DB](http://bit.ly/JG5SoZ)
 
 
-<!--
-[Lecture 15](./lectures/15-Application.pdf) **Application**
+
+[Lecture 15](./lectures/15-Applications.pdf) **Applications**
 ------------
 +-- {.twocol-list}
++ Session, Presentation Layers
++ Client/Server, Peer-to-Peer
++ HTTP
++ Handling State
++ Pipelining
++ TLS
++ XMPP
++ BOSH
+
 <br />
 =-- {.twocol-list}
 
 
- 
-[Lecture 16](./lectures/16-Programming.pdf) **Programming**
-------------
-+-- {.twocol-list}
-<br />
-=-- {.twocol-list}
--->
 
 =-- {.summarise .visible}
 =-- {.section}
