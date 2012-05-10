@@ -21,6 +21,12 @@ material. For information about Ph.D. supervision, see
 
 [Material related to the level 4 Advanced Computer Communications course.][2011-g54acc]
 
+Past papers
+-----------
+
++ [2010, first sit](g54acc/exams/2010-firstsit.pdf)
++ [2010, resit](g54acc/exams/2010-resit.pdf)
+
 [G54CCS][2011-g54ccs]
 ======
 
