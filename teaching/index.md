@@ -12,58 +12,42 @@ This page serves merely as an index to relevant online teaching-related
 material. For information about Ph.D. supervision, see
 [my research pages](../research/students/).
 
-2011
-----
-
 +-- {.section}
-[G54ACC][2011-g54acc]
+
+Projects
+========
+
+Third year/Master's (M.Sci., M.I.T., M.M.I.T.) project suggestions.
+
+[2012](projects/2012)
+| [2011](projects/2011)
+| [2010](projects/2010)
+
+
+G54ACC
 ======
 
-[Material related to the level 4 Advanced Computer Communications course.][2011-g54acc]
+Material related to the level 4 Advanced Computer Communications course.
+
+[2011](g54acc/2011)
+| [2010](g54acc/2010)
 
 Past papers
 -----------
 
-+ [2010, first sit](g54acc/exams/2010-firstsit.pdf)
-+ [2010, resit](g54acc/exams/2010-resit.pdf)
+2010 ---
+[first sit](g54acc/exams/2010-firstsit.pdf),
+[resit](g54acc/exams/2010-resit.pdf)
 
-[G54CCS][2011-g54ccs]
+
+G54CCS
 ======
 
-[Material related to the level 4 Connected Computing at Scale course.][2011-g54ccs]
+Material related to the level 4 Connected Computing at Scale course.
 
+[2011](g54ccs/2011)
 
-[Projects][2011-projects]
-========
-
-[Third-year/Masters project suggestions][2011-projects].
-
-=--
-
-[2011-projects]: projects/2011
-[2011-g54acc]: g54acc/2011
-[2011-g54ccs]: g54ccs/2011
-
-
-2010
-----
-
-+-- {.section}
-[G54ACC][2010-g54acc]
-======
-
-[Material related to the level 4 Advanced Computer Communications course][2010-g54acc].
-
-
-[Projects][2010-projects]
-========
-
-[Third-year/Masters project suggestions][2010-projects].
-=--
-
-[2010-projects]: projects/2010
-[2010-g54acc]: g54acc/2010
-
+=-- {.section}
 
 
 General
