@@ -305,6 +305,19 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 =-- {.twocol-list}
 
 
+[Lecture 16](./lectures/16-Programming.pdf) **Programming**
+------------
++-- {.twocol-list}
++ Berkeley Sockets
++ Endianness
++ Web RPC
++ RESTful Web Services
++ Cloud Computing Flavours
+
+<br />
+=-- {.twocol-list}
+
+
 
 =-- {.summarise .visible}
 =-- {.section}
