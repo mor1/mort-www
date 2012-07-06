@@ -21,6 +21,9 @@ Current
 Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom]. 
 Securing the domestic network.
  
+Marjan Falahrastegar (2012) at Queen Mary, University of London, co-supervised
+with [Prof. Steve Uligh][uligh] and [Dr. Hamed Haddadi][hamed].
+ 
 Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. 
 Understanding consent in ubiquitous computing.
 
@@ -30,15 +33,15 @@ Investigating markets in personal data.
 Robert Spencer (2011), co-supervised with [Prof. Tom Rodden][tom]. 
 History and reconciliation in domestic network configuration.
 
-[tom]: http://www.cs.nott.ac.uk/~tar/
-[george]: http://www.nottingham.ac.uk/business/LIZGK.html
-
-
 Completed
 ---------
 
-[Dr. Hamed Haddadi](http://www.eecs.qmul.ac.uk/~hamed/), UCL. Graduated 2008.
-Dissertation titled "Topological Characteristics of IP Networks". Invited to
-join Hamed's supervision team while I was at Microsoft, my co-supervisors were
-Drs. Andrew W. Moore and Miguel Rio.
+[Dr. Hamed Haddadi][hamed], UCL. Graduated 2008. Dissertation titled
+"Topological Characteristics of IP Networks". Invited to join Hamed's
+supervision team while I was at Microsoft, my co-supervisors were Drs. Andrew
+W. Moore and Miguel Rio.
 
+[hamed]: http://www.eecs.qmul.ac.uk/~hamed/
+[uligh]: http://www.eecs.qmul.ac.uk/~steve/
+[tom]: http://www.cs.nott.ac.uk/~tar/
+[george]: http://www.nottingham.ac.uk/business/LIZGK.html
