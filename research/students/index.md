@@ -22,7 +22,7 @@ Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom].
 Securing the domestic network.
  
 Marjan Falahrastegar (2012) at Queen Mary, University of London, co-supervised
-with [Prof. Steve Uligh][uligh] and [Dr. Hamed Haddadi][hamed].
+with [Prof. Steve Uhlig][uhlig] and [Dr. Hamed Haddadi][hamed].
  
 Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. 
 Understanding consent in ubiquitous computing.
@@ -42,6 +42,6 @@ supervision team while I was at Microsoft, my co-supervisors were Drs. Andrew
 W. Moore and Miguel Rio.
 
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
-[uligh]: http://www.eecs.qmul.ac.uk/~steve/
+[uhlig]: http://www.eecs.qmul.ac.uk/~steve/
 [tom]: http://www.cs.nott.ac.uk/~tar/
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
