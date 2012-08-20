@@ -266,5 +266,5 @@ Databases
 
 + [Stanford Database class](http://www.db-class.org/)
 + [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/)
-
++ [Mining of Massive Datasets](http://i.stanford.edu/~ullman/mmds.html)(book)
 =--
