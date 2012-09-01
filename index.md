@@ -56,8 +56,8 @@ Contact
 I am either in office C13 in the [School of Computer Science][cs] or (now)
 occasionally in C12B in the [Nottingham Geospatial Building][map]. I can be
 contacted by email (preferred) at <mailto:richard.mortier@nottingham.ac.uk>,
-or by phone on +44 115 823 2552 (_once my phone is actually moved to the new
-office_). I am online at [about.me][], [cardcloud][], [twitter][], [github][],
+or by phone on +44 115 823 2552 (once my phone is actually moved to the new
+office). I am online at [about.me][], [cardcloud][], [twitter][], [github][],
 [linkedin][], and [facebook][]. My Erd&#x0151;s number appears to be 3.
 
 [map]: http://www.nottingham.ac.uk/cgs/about/howtofindus.aspx#Map
