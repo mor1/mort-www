@@ -65,7 +65,7 @@ office). I am online at [about.me][], [cardcloud][], [twitter][], [github][],
 [github]: http://github.com/mor1
 [linkedin]: http://linkedin.com/in/richardmortier
 [facebook]: http://facebook.com/richard.mortier
-[mynameise]: http://cardcloud.com/mort
+[cardcloud]: http://cardcloud.com/mort
 [about.me]: http://about.me/mort
 
 
