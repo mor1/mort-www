@@ -53,18 +53,20 @@ I am currently available for consultancy and selected development work.
 Contact
 =======
 
-I am in office C12B in the [Nottingham Geospatial Building][map].  I can
-be contacted by email (preferred) at
-<mailto:richard.mortier@nottingham.ac.uk>, or by phone on +44 115 823
-2552.  I am online at [mynameise][], [twitter][], [github][], [linkedin][], and
-[facebook][].  My Erd&#x0151;s number appears to be 3.
+I am either in office C13 in the [School of Computer Science][cs] or (now)
+occasionally in C12B in the [Nottingham Geospatial Building][map]. I can be
+contacted by email (preferred) at <mailto:richard.mortier@nottingham.ac.uk>,
+or by phone on +44 115 823 2552 (_once my phone is actually moved to the new
+office_). I am online at [about.me][], [cardcloud][], [twitter][], [github][],
+[linkedin][], and [facebook][]. My Erd&#x0151;s number appears to be 3.
 
 [map]: http://www.nottingham.ac.uk/cgs/about/howtofindus.aspx#Map
 [twitter]: http://twitter.com/mort___
 [github]: http://github.com/mor1
 [linkedin]: http://linkedin.com/in/richardmortier
 [facebook]: http://facebook.com/richard.mortier
-[mynameise]: http://eee.am/mort
+[mynameise]: http://cardcloud.com/mort
+[about.me]: http://about.me/mort
 
 
 <!-- seems broken currently, so removing for now
