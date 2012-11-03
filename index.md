@@ -13,15 +13,15 @@ parent: mort
 Hello!
 ======
 
-I'm Richard Mortier or, more commonly, **mort**.  I'm one of the
-Horizon Transitional Fellows in Computer Science at the [Horizon
-Institute][horizon], based here in the [University of
-Nottingham][nottingham] [School of Computer Science][cs].
+I'm Richard Mortier or, more commonly, **mort**. I'm one of the Horizon
+Transitional Fellows in Computer Science at the [Horizon Institute][horizon],
+based here in the [University of Nottingham][nottingham]
+[School of Computer Science][cs]. I'm also a founding member of the [School's][cs] [Networked Systems Group][nsg].
 
 [horizon]: https://www.horizon.ac.uk/
 [nottingham]: http://www.nottingham.ac.uk/
 [cs]: http://www.cs.nott.ac.uk/
-
+[nsg]: http://nsg.cs.nott.ac.uk/
 
 +-- {.section}
 
