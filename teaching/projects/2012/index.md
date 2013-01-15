@@ -5,7 +5,7 @@ title: 2012 projects
 parent: teaching &laquo; mort
 ---
 
-Project Proposals---2012
+Project Proposals---Academic year 2012/2013
 ========================
 
 If you're a third-year or masters student at University of Nottingham
