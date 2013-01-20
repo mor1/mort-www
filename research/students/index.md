@@ -18,6 +18,8 @@ Training Centre here at Nottingham.
 Current
 -------
 
+Sultan Almani (2012), co-supervised with [Prof. Derek McAuley][mac].
+
 Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom]. 
 Securing the domestic network.
  
@@ -45,3 +47,4 @@ W. Moore and Miguel Rio.
 [uhlig]: http://www.eecs.qmul.ac.uk/~steve/
 [tom]: http://www.cs.nott.ac.uk/~tar/
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
+[mac]: http://www.cs.nott.ac.uk/~drm/
