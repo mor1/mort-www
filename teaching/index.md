@@ -67,22 +67,21 @@ am not responsible for any of the content linked.
 + [CS51: Introduction to Computer Science II: Abstraction and Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
 + [6.006: Introduction to Algorithms](http://courses.csail.mit.edu/6.006/spring11/notes.shtml) (MIT)
 + [An entrance exam, MIT, 1869](http://libraries.mit.edu/archives/exhibits/exam/index.html) 
-+ [Mathematics, the most misunderstood subject](http://www.fordham.edu/academics/programs_at_fordham_/mathematics_departme/what_math/index.asp).
-  Quite relevant to computer science (and probably other similarly
-  "academic" subjects too).
-+ [A Mathematician's Apology](http://www.math.ualberta.ca/mss/)
-  ([cached](./material/GHHardy-AMathematiciansApology.pdf)),
-  G.H. Hardy
++ [Mathematics, the most misunderstood subject](http://www.fordham.edu/academics/programs_at_fordham_/mathematics_departme/what_math/index.asp). Quite relevant to computer science (and probably other similarly "academic" subjects too).
++ [A Mathematician's Apology](http://www.math.ualberta.ca/mss/) ([cached](./material/GHHardy-AMathematiciansApology.pdf)), G.H. Hardy
 + [How to Write More Clearly, Think More Clearly, and Learn Complex Material More Easily](./material/WriteThinkLearn.pdf) (local copy)
 + [Seven selected Information Visualization papers](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers) 
-+ [Colo(u)r wheels](http://blog.asmartbear.com/color-wheels.html) and
-  from that, for more detail 
-  [Light and the eye](http://www.handprint.com/HP/WCL/color1.html) 
++ [Colo(u)r wheels](http://blog.asmartbear.com/color-wheels.html) and from that, for more detail [Light and the eye](http://www.handprint.com/HP/WCL/color1.html) 
 + [The Euler Archive](http://www.math.dartmouth.edu/~euler/)
 + [How To Criticize Computer Scientists](http://www.cs.purdue.edu/homes/dec/essay.criticize.html)
 + [Elements of Computing Systems](http://diycomputerscience.com/courses/course/the-elements-of-computing-systems)
 + [Knuth's Computer Musings](http://scpd.stanford.edu/knuth/index.jsp)  
 + [24/192 music downloads](http://people.xiph.org/~xiphmont/demo/neil-young.html)
++ [Natural Language Processing for the Working Programmer](http://nlpwp.org/book/)
++ [Security Engineering](http://www.cl.cam.ac.uk/~rja14/book.html), Ross Anderson
++ [Hacking the Xbox](http://nostarch.com/xboxfree), Andrew "bunnie" Huang
++ [Formal Methods](https://www.scss.tcd.ie/Andrew.Butterfield/Teaching/CS4003/), Andrew Butterfield, TCD
++ [Denotational Semantics: A Methodology for Language Development](http://people.cis.ksu.edu/~schmidt/text/densem.html), David Schmidt, Kansas State University (book)
 
 Programming
 ===========
@@ -95,20 +94,18 @@ Programming
 + [Bit twiddling](http://graphics.stanford.edu/~seander/bithacks.html)
 + [Parsing Techniques - A Practical Guide](http://www.few.vu.nl/~dick/PTAPG.html)
 + [If you think you're a Java programmer, just read this](http://chaosinmotion.com/blog/?p=622).  Please.
-+ [What every C programmer should know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html),
-  followed by especially [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
++ [What every C programmer should know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html), followed by especially [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
 + [Coding Kata](http://codekata.pragprog.com/2007/01/code_kata_backg.html)
 + [The Art of Assembly Language Programming](http://www.arl.wustl.edu/~lockwood/class/cs306/books/artofasm/toc.html) 
 + [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 + [Let's build a compiler!](http://compilers.iecc.com/crenshaw/) _per_ <http://prog21.dadgum.com/30.html>
-+ [Small Memory Software](http://www.cix.co.uk/~smallmemory/) with
-  [online PDF copy](http://www.cix.co.uk/~smallmemory/book.html) available
++ [Small Memory Software](http://www.cix.co.uk/~smallmemory/) with [online PDF copy](http://www.cix.co.uk/~smallmemory/book.html) available
 + [Modern GPU](http://www.moderngpu.com/)
 + [Quake2 source code review](http://fabiensanglard.net/quake2/index.php)
 + [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
 1/10/18/programming-language-development-the-past-5-years/)
 + [Rob Pike's Notes on Programming in C](http://doc.cat-v.org/bell_labs/pikestyle)
-  
++ [Semantics of Programming Languages](https://www.scss.tcd.ie/Matthew.Hennessy/slexternal/resources/sembookWiley.pdf), Hennesey (book, out-of-print, online copy)
 
 Tutorials
 ---------
@@ -155,8 +152,7 @@ Functional Programming
 + [Try Erlang](http://www.tryerlang.org/)
 + [The implementation of functional programming languages](http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/) 
 + [The Scheme Programming Language](http://scheme.com/tspl4/)
-+ [RECURSIVE FUNCTIONS OF SYMBOLIC EXPRESSIONS AND THEIR COMPUTATION BY MACHINE (Part I)](http://www-formal.stanford.edu/jmc/recursive.html)
-  -- the original paper on LISP
++ [RECURSIVE FUNCTIONS OF SYMBOLIC EXPRESSIONS AND THEIR COMPUTATION BY MACHINE (Part I)](http://www-formal.stanford.edu/jmc/recursive.html) -- the original paper on LISP
 
 Objective-C
 -----------
@@ -196,10 +192,8 @@ Graph Theory
 ------------
 
 + [Graph Theory](http://diestel-graph-theory.com/), Reinhard Diestel (book)
-+ [Graph Theory with Applications](http://www.ecp6.jussieu.fr/pageperso/bondy/books/gtwa/gtwa.html),
-  J.A. Bondy and U.S.R. Murty (book) 
-+ [Spectral Graph Theory](http://www.math.ucsd.edu/~fan/research/revised.html), Fan
-  Chung (book chapters) 
++ [Graph Theory with Applications](http://www.ecp6.jussieu.fr/pageperso/bondy/books/gtwa/gtwa.html), J.A. Bondy and U.S.R. Murty (book) 
++ [Spectral Graph Theory](http://www.math.ucsd.edu/~fan/research/revised.html), Fan Chung (book chapters) 
 + [Graph Theory Resource Page](http://www.mongoosemetrics.com/phone-articles/graph-theory-resource-page.php) 
 
 Calculus
@@ -217,16 +211,11 @@ Networking
 ----------
 
 + [The TCP/IP Guide](http://www.tcpipguide.com/free/index.htm), Charles M. Kozierok
-+ [Mathematical Foundations of Computer Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking), 
-  S. Keshav
-+ [Applets](http://wps.aw.com/aw_kurose_network_5/111/28536/7305314.cw/index.html)
-  for
-  [Computer Networking: A Top-Down Approach](http://www.aw-bc.com/kurose_ross/)
++ [Mathematical Foundations of Computer Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking), S. Keshav
++ [Applets](http://wps.aw.com/aw_kurose_network_5/111/28536/7305314.cw/index.html) for [Computer Networking: A Top-Down Approach](http://www.aw-bc.com/kurose_ross/)
 + [Telephone line audio interface circuits](http://www.epanorama.net/circuits/teleinterface.html)
 + [Smartphone traffic impact on battery and networks](https://labs.ericsson.com/developer-community/blog/smartphone-traffic-impact-battery-and-networks)
-+ [Overview of 4G and LTE wireless systems](http://host.comsoc.org/freetutorial/anritsu4/anritsu4.html). Or
-  [go right to it](http://host.comsoc.org/freetutorial/anritsu4/Myung/sun_tut8.htm)
-  without all the screen rubbish. 
++ [Overview of 4G and LTE wireless systems](http://host.comsoc.org/freetutorial/anritsu4/anritsu4.html). Or [go right to it](http://host.comsoc.org/freetutorial/anritsu4/Myung/sun_tut8.htm) without all the screen rubbish. 
 + [Brief tutorial to raw sockets programming](http://mixter.void.ru/rawip.html)
 + [Computer Networking: Principles, Protocols and Practice](http://inl.info.ucl.ac.be/CNP3) 
 + [Networking Conference Statistics](http://www.cs.ucsb.edu/~almeroth/conf/stats/)
@@ -241,18 +230,16 @@ Operating Systems
 + [Gustavo Duarte blog: Internals](http://duartes.org/gustavo/blog/category/internals)
 + [Bootstrapping a compiler from nothing](http://homepage.ntlworld.com/edmund.grimley-evans/bcompiler.html) 
 + [UNIX kernel sources, 1st edition](http://code.google.com/p/unix-jun72/)
-+ [DOSManDrivel](http://dosmandrivel.blogspot.com/), the blog of Tim
-  Paterson, original author of DOS.
++ [DOSManDrivel](http://dosmandrivel.blogspot.com/), the blog of Tim Paterson, original author of DOS.
 + [ForthOS](http://www.forthos.org/)
 + [How bzImage gets created](http://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-November/003906.html)
-+ [Top 10 DTrace scripts for OSX](http://dtrace.org/blogs/brendan/2011/10/10/top-10-dtrace-scripts-for-mac-os-x/)  
++ [Top 10 DTrace scripts for OSX](http://dtrace.org/blogs/brendan/2011/10/10/top-10-dtrace-scripts-for-mac-os-x/) 
 + [Introduction to text manipulation on UNIX systems](http://www.ibm.com/developerworks/aix/library/au-unixtext/index.html)
   
 Performance
 -----------
 
-+ [Quantitative System Performance](http://www.cs.washington.edu/homes/lazowska/qsp/)
-  (book) 
++ [Quantitative System Performance](http://www.cs.washington.edu/homes/lazowska/qsp/) (book) 
 + [Fundamental laws of computer system performance](http://doi.acm.org/10.1145/800200.806196) (paper) 
 + [Numbers Everyone Should Know](http://highscalability.com/numbers-everyone-should-know) 
 
@@ -270,4 +257,5 @@ Databases
 + [Stanford Database class](http://www.db-class.org/)
 + [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/)
 + [Mining of Massive Datasets](http://i.stanford.edu/~ullman/mmds.html)(book)
+
 =--
