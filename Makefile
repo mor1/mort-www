@@ -15,7 +15,6 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
 # USA.
 
-.DEFAULT: test
 .PHONY: clean css site js test deploy
 
 GH_ROOT=/
@@ -28,6 +27,9 @@ MIRROR = rsync -rvz --rsh=ssh --delete
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
+site: css js
+	$(JEKYLL)
+
 clean:
 	$(RM) -r _site css/screen.css
 	$(RM) $(JSS)
@@ -36,9 +38,6 @@ clean:
 css: css/screen.css
 css/screen.css: _less/screen.css
 	sed 's!@SITE_ROOT@!${GH_ROOT}!g' _less/screen.css >| css/screen.css
-
-site: css js
-	$(JEKYLL)
 
 js: $(JSS)
 
