@@ -3,7 +3,7 @@ layout: default
 section: research
 title: papers
 parent: mort
-js: [jquery.tmpl, papers]
+js: [papers]
 ---
 
 [Visit my github BibTeX repo][r] for up-to-date citation details.
