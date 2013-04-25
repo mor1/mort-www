@@ -16,25 +16,34 @@
 # USA.
 
 .DEFAULT: test
-.PHONY: test clean deploy css
+.PHONY: clean css site js test deploy
 
 GH_ROOT=/
 CS_ROOT=/~rmm/
 
+COFFEE = coffee
 JEKYLL = jekyll
 MIRROR = rsync -rvz --rsh=ssh --delete
 
+COFFEES = $(notdir $(wildcard _coffee/*.coffee))
+JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
+
 clean:
 	$(RM) -r _site css/screen.css
+	$(RM) $(JSS)
 	git checkout -- _config.yml css/screen.css
 
-css:
+css: css/screen.css
+css/screen.css: _less/screen.css
 	sed 's!@SITE_ROOT@!${GH_ROOT}!g' _less/screen.css >| css/screen.css
 
-test: css
+site: css js
+js: $(JSS)
+
+test: site
 	$(JEKYLL) --auto --serve
 
-deploy:
+deploy: site
 	sed 's!@SITE_ROOT@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
 	sed -i '' 's!url_root: /!url_root: ${CS_ROOT}!;\
 	 	s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
@@ -42,3 +51,6 @@ deploy:
 	$(JEKYLL)
 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
 	git checkout -- _config.yml css/screen.css
+
+js/%.js: _coffee/%.coffee
+	$(COFFEE) -c -o js $< 
