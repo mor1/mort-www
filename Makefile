@@ -38,6 +38,8 @@ css/screen.css: _less/screen.css
 	sed 's!@SITE_ROOT@!${GH_ROOT}!g' _less/screen.css >| css/screen.css
 
 site: css js
+	$(JEKYLL)
+
 js: $(JSS)
 
 test: site
