@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
+    </title>
+
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% endif %}
+
+    <meta name="author" content="{{ site.author }}" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <link rel="stylesheet" media="screen" href="/css/{{ page.stylesheet }}"
+          type="text/css" />
+ 
+    <script src="/js/jquery-1.9.1.min.js"> </script>
+    <script src="/js/bootstrap.min.js"> </script>  
+  
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      {{ content }}
+    </div>
+
+    {% for script in page.js %}
+        <script src="{{site.url_root}}js/{{ script }}.js"></script>
+    {% endfor %}
+    
+    {% if site.google_analytics %}
+    <!-- google analytics async -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '{{ site.google_analytics.account }}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+      var ga = document.createElement('script'); 
+      ga.type = 'text/javascript'; ga.async = true;
+      ga.src = 
+        ('https:' == document.location.protocol 
+        ? 'https://ssl' 
+        : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    {% endif %}
+
+  </body>
+</html>
