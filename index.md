@@ -68,19 +68,4 @@ office). I am online at [about.me][], [cardcloud][], [twitter][], [github][],
 [cardcloud]: http://cardcloud.com/mort
 [about.me]: http://about.me/mort
 
-
-<!-- seems broken currently, so removing for now
-
-[Twitter][]
-=======
-
-<script type="text/javascript" src="{{site.url_root}}js/twitter-blogger.js"> 
-</script>
-
-*Contacting Twitter...*{:#twitter_update_list}
-
-<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mort___.json?callback=twitterCallback2&count=3">
-</script>
--->
-
 =--
