@@ -1,8 +1,8 @@
 ---
 layout: plain
-stylesheet: courses.css
+stylesheet: [bootstrap,courses]
 title: programmes
-js: [courses,]
+js: [courses]
 ---
 
 This page collates the course specifications for the various degree programmes run by the School of Computer Science. _It is provided for guidance only, and should **not** be treated as definitive_.

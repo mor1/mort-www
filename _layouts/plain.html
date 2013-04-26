@@ -21,9 +21,11 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-    <link rel="stylesheet" media="screen" href="/css/{{ page.stylesheet }}"
+    {% for css in page.stylesheet %}
+    <link rel="stylesheet" media="screen" href="/css/{{ css }}.css"
           type="text/css" />
- 
+    {% endfor %}
+    
     <script src="/js/jquery-1.9.1.min.js"> </script>
     <script src="/js/bootstrap.min.js"> </script>  
   
