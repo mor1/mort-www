@@ -31,7 +31,12 @@ wrap = (tag, x, cl, id) ->
 div = (cl, x, id) -> wrap "div", x, cl, id
 span = (cl, x, id) -> wrap "span", x, cl
 link = (cl, x, u) -> wrap "span", "<a href='#{u}'>#{x}</a>", cl
-
+h2 = (s) -> wrap "h2", s
+abbrev = (s) -> s
+  .replace(/Bachelor of Science/i, "BSc")
+  .replace(/Master in Science/i, "MSc")
+  .replace(/with (Joint )*Honours/i, "(Hons)")
+  
 courses = 
   fetch: (url) ->
     _promises.push $.Deferred (promise) -> 
@@ -42,14 +47,17 @@ courses =
  
   render: (tgt) ->
     $.when.apply(null, _promises).then =>
-
       $(tgt).html('')
       for course in _data
+        modules = ("#{module.code}" for module in course.modules.part_q.c)
 
-        
-        
         $(tgt).after div "course",
-          (link "title", course.title, course.url),
+          (h2 ("#{link 'title', abbrev course.title, course.url}
+            <br />
+            #{wrap 'small', "#{course.type}, #{course.mode}"}")) +
+          (div "aims", course.aims) +
+          modules.toString()
+          ,
           course.code
 
           
