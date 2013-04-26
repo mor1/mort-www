@@ -1,6 +1,6 @@
 ---
 layout: plain
-stylesheet: [bootstrap,courses]
+stylesheet: [courses]
 title: programmes
 js: [courses]
 ---
