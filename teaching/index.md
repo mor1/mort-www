@@ -103,7 +103,7 @@ Programming
 + [Modern GPU](http://www.moderngpu.com/)
 + [Quake2 source code review](http://fabiensanglard.net/quake2/index.php)
 + [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
-1/10/18/programming-language-development-the-past-5-years/)
++ [Programming language development: the past 5 years](http://blog.fogus.me/2011/10/18/programming-language-development-the-past-5-years/)
 + [Rob Pike's Notes on Programming in C](http://doc.cat-v.org/bell_labs/pikestyle)
 + [Semantics of Programming Languages](https://www.scss.tcd.ie/Matthew.Hennessy/slexternal/resources/sembookWiley.pdf), Hennesey (book, out-of-print, online copy)
 
