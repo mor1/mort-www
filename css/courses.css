@@ -1,3 +1,6 @@
-.course {
-    border: red solid 1px;
+.course tr,
+.course th {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 0;
 }
