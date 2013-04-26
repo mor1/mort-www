@@ -106,10 +106,10 @@ courses =
 
         modules = """
           <div class="row-fluid"><div class="span12">
-            #{part "Qualifying Year", course.modules.part_q}
-            #{part "Year 1", course.modules.part_i}
-            #{part "Year 2", course.modules.part_ii}
-            #{part "Year 3", course.modules.part_iii}
+            #{part "Year 1", course.modules.part_q}
+            #{part "Year 2", course.modules.part_i}
+            #{part "Year 3", course.modules.part_ii}
+            #{part "Year 4", course.modules.part_iii}
           </div></div>
         """
         
