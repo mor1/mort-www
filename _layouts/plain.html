@@ -22,17 +22,17 @@
         <![endif]-->
 
     <link rel="stylesheet" media="screen" type="text/css" 
-          href="/css/bootstrap.min.css" />
+          href="{{ site.url_root }}css/bootstrap.min.css" />
     <link rel="stylesheet" media="screen" type="text/css"
-          href="/css/bootstrap-responsive.min.css" />
+          href="{{ site.url_root }}css/bootstrap-responsive.min.css" />
           
     {% for css in page.stylesheet %}
     <link rel="stylesheet" media="screen" type="text/css"
-          href="/css/{{ css }}.css" />
+          href="{{ site.url_root }}css/{{ css }}.css" />
     {% endfor %}
     
-    <script src="/js/jquery-1.9.1.min.js"> </script>
-    <script src="/js/bootstrap.min.js"> </script>  
+    <script src="{{ site.url_root }}js/jquery-1.9.1.min.js"> </script>
+    <script src="{{ site.url_root }}js/bootstrap.min.js"> </script>  
   
   </head>
 
