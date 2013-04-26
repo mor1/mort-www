@@ -41,10 +41,10 @@ css/screen.css: _less/screen.css
 
 js: $(JSS)
 
-test: site
+test: css js
 	$(JEKYLL) --auto --serve
 
-deploy: site
+deploy: css js
 	sed 's!@SITE_ROOT@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
 	sed -i '' 's!url_root: /!url_root: ${CS_ROOT}!;\
 	 	s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
