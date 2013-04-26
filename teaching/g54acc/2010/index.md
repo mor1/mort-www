@@ -143,20 +143,6 @@ JC-EXCHGE-B.LT1.
 <br />
 =-- {.twocol-list}
 
-<!--
-Lectures 7 & 8. **Wireless**
-----------------------------
-+-- {.twocol-list}
-+ Mobile & 802.11
-+ Coding
-+ Radio issues
-+ Timing, movements and slots
-+ Channels
-
-<br />
-=-- {.twocol-list}
--->
-
 =-- {.summarise .visible}
 
 -----------
