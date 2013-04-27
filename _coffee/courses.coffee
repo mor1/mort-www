@@ -43,9 +43,11 @@ abbrev = (s) -> s
   .replace(/with (Joint )*Honours/i, "(Hons)<br />")
   
 tabbed = (content...) ->
-  tabs = (content.map ([title, label, _unused]) ->
+  tabs = (content.map ([title, label, content]) ->
+    if content?
       li (tab "#{title}", "##{label}")).join("\n")
   panes = (content.map ([title, label, content]) ->
+    if content?
       div "tab-pane fade", content, label).join("\n")
   
   div "tabbable tabs", 
@@ -63,15 +65,12 @@ module = (m) ->
     <td>#{m.title}</td>
   </tr>"""
 
-part = (t, p) ->
+part = (p) ->
   if (p.c.length == 0 && p.o.length == 0)
     ""
   else
     """
     <table class="table">
-      <thead><tr>
-          <th colspan="2"><p>#{t}</p></th>
-      </tr></thead>
       <tbody>
         <table class="table table-striped span6">
           <thead><tr><th colspan="2"><p class="text-center">compulsory</p></th></tr></thead>
@@ -108,22 +107,29 @@ courses =
         """
         aims = div "aims", course.aims.replace(/|/g, "")
 
-        modules = """
-          <div class="row-fluid"><div class="span12">
-            #{part "Year 1", course.modules.part_q}
-            #{part "Year 2", course.modules.part_i}
-            #{part "Year 3", course.modules.part_ii}
-            #{part "Year 4", course.modules.part_iii}
-          </div></div>
-        """
+        modules = (ms) ->
+          if ms.o.length > 0 || ms.c.length > 0
+            """
+            <div class="row-fluid"><div class="span12">
+              #{part ms}
+            </div></div>
+          """
         
         $(tgt).append div "course",
           "<hr />" +
           div "row-fluid",
             (div "span3", title) +
             (div "span9",
-              (tabbed ["aims", "#{code}-aims", aims],
-                ["modules", "#{code}-modules", modules])
+              (tabbed [ "aims", "#{code}-aims", aims ],
+                [ "year 1", "#{code}-1-modules",
+                  modules course.modules.part_q ],
+                [ "year 2", "#{code}-2-modules",
+                  modules course.modules.part_i ],
+                [ "year 3", "#{code}-3-modules",
+                  modules course.modules.part_ii ],
+                [ "year 4", "#{code}-4-modules",
+                  modules course.modules.part_iii ]               
+              )
             )
           course.code
     @
