@@ -23,36 +23,41 @@ self = exports ? this
 _promises = []
 _data = null
 
-wrap = (tag, s, cl, id) ->
+## rendering helpers
+wrap = (tag, s, {cl, id}) ->
   cl = if cl? then "class='#{cl}'" else ""
   id = if id? then "id='#{id}'" else ""
   "<#{tag} #{id} #{cl}>#{s}</#{tag}>"
 
-div = (cl, s, id) -> wrap "div", s, cl, id
-span = (cl, s) -> wrap "span", s, cl
-ul = (cl, lis) -> wrap "ul", lis, cl
-li = (s) -> wrap "li", s
-hd = (n, s) -> wrap "h#{n}", s
+div = (o, s) -> wrap "div", s, o
+span = (o, s) -> wrap "span", s, o
+ul = (o, lis) -> wrap "ul", lis, o
+li = (o, s) -> wrap "li", s, o
+hd = (n, o, s) -> wrap "h#{n}", s, o
 
 link = (s, u) -> """<a href="#{u}">#{s}</a>"""
 tab = (s, u) -> """<a href="#{u}" data-toggle="tab">#{s}</a>"""
 
+## increase legibility
 abbrev = (s) -> s
   .replace(/Bachelor of Science/i, "BSc")
   .replace(/Master in Science/i, "MSc")
   .replace(/with (Joint )*Honours/i, "(Hons)<br />")
-  
+
+## take a set of triples and render to tabbed panes
 tabbed = (content...) ->
   tabs = (content.map ([title, label, content]) ->
     if content?
-      li (tab "#{title}", "##{label}")).join("\n")
+      li {},
+        (tab "#{title}", "##{label}")).join("\n")
   panes = (content.map ([title, label, content]) ->
     if content?
-      div "tab-pane fade", content, label).join("\n")
+      div {cl:"tab-pane fade", id:label},
+        content).join("\n")
   
-  div "tabbable tabs", 
-    (ul "nav nav-tabs", tabs) +
-    (div "tab-content", panes)
+  div {cl:"tabbable tabs"}, 
+    (ul {cl:"nav nav-tabs"}, tabs) +
+    (div {cl:"tab-content"}, panes)
 
 module = (m) ->
   code = if m.url? and m.url.length > 0 then link m.code, m.url else m.code
@@ -63,7 +68,8 @@ module = (m) ->
       #{code}<br />(<em>#{m.credits}&nbsp;credits</em>)
     </td>
     <td>#{m.title}</td>
-  </tr>"""
+  </tr>
+  """
 
 part = (p) ->
   if (p.c.length == 0 && p.o.length == 0)
@@ -115,11 +121,11 @@ courses =
             </div></div>
           """
         
-        $(tgt).append div "course",
+        $(tgt).append div {cl:"course"},
           "<hr />" +
-          div "row-fluid",
-            (div "span3", title) +
-            (div "span9",
+          div {cl:"row-fluid"},
+            (div {cl:"span3"}, title) +
+            (div {cl:"span9"},
               (tabbed [ "aims", "#{code}-aims", aims ],
                 [ "year 1", "#{code}-1-modules",
                   modules course.modules.part_q ],
