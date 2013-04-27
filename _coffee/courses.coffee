@@ -52,9 +52,14 @@ tabbed = (content...) ->
     (ul "nav nav-tabs", tabs) +
     (div "tab-content", panes)
 
-module = (m) -> """
+module = (m) ->
+  code = if m.url? and m.url.length > 0 then link m.code, m.url else m.code
+    
+  """
   <tr>
-    <td>#{m.code}<br />(<em>#{m.credits}&nbsp;credits</em>)</td>
+    <td>
+      #{code}<br />(<em>#{m.credits}&nbsp;credits</em>)
+    </td>
     <td>#{m.title}</td>
   </tr>"""
 
@@ -79,7 +84,6 @@ part = (t, p) ->
       </tbody>
     </table>
     """
-    
 
 courses = 
   fetch: (url) ->
