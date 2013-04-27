@@ -24,15 +24,25 @@ _promises = []
 _data = null
 
 ## rendering helpers
-wrap = (tag, s, {cl, id}) ->
+wrap = (tag, s, {cl, id, colspan}) ->
   cl = if cl? then "class='#{cl}'" else ""
   id = if id? then "id='#{id}'" else ""
-  "<#{tag} #{id} #{cl}>#{s}</#{tag}>"
+  colspan = if colspan? then "colspan='#{colspan}'" else ""
+  "<#{tag} #{id} #{cl} #{colspan}>#{s}</#{tag}>"
 
 div = (o, s) -> wrap "div", s, o
 span = (o, s) -> wrap "span", s, o
 ul = (o, lis) -> wrap "ul", lis, o
 li = (o, s) -> wrap "li", s, o
+p = (o, s) -> wrap "p", s, o
+
+table = (o, s) -> wrap "table", s, o
+tbody = (o, s) -> wrap "tbody", s, o
+thead = (o, s) -> wrap "thead", s, o
+th = (o, s) -> wrap "th", s, o
+tr = (o, s) -> wrap "tr", s, o
+td = (o, s) -> wrap "td", s, o
+
 hd = (n, o, s) -> wrap "h#{n}", s, o
 
 link = (s, u) -> """<a href="#{u}">#{s}</a>"""
@@ -53,43 +63,46 @@ tabbed = (content...) ->
   panes = (content.map ([title, label, content]) ->
     if content?
       div {cl:"tab-pane fade", id:label},
-        content).join("\n")
+        content
+    ).join("\n")
   
   div {cl:"tabbable tabs"}, 
-    (ul {cl:"nav nav-tabs"}, tabs) +
-    (div {cl:"tab-content"}, panes)
+    (ul {cl:"nav nav-tabs"}, tabs) \
+    + (div {cl:"tab-content"}, panes)
 
 module = (m) ->
   code = if m.url? and m.url.length > 0 then link m.code, m.url else m.code
-    
-  """
-  <tr>
-    <td>
-      #{code}<br />(<em>#{m.credits}&nbsp;credits</em>)
-    </td>
-    <td>#{m.title}</td>
-  </tr>
-  """
+  tr {},
+    (td {},
+      "#{code}<br />(<em>#{m.credits}&nbsp;credits</em>)") +
+    (td {},
+      "#{m.title}")
 
-part = (p) ->
-  if (p.c.length == 0 && p.o.length == 0)
+part = (pt) ->
+  if (pt.c.length == 0 && pt.o.length == 0)
     ""
   else
-    """
-    <table class="table">
-      <tbody>
-        <table class="table table-striped span6">
-          <thead><tr><th colspan="2"><p class="text-center">compulsory</p></th></tr></thead>
-          <tbody>#{(p.c.map ((m) -> (module m))).join("")}</tbody>
-        </table>
-        <table class="table table-striped span5">
-          <thead><tr><th colspan="2"><p class="text-center">optional</p></th></tr></thead>
-          <tbody>#{(p.o.map ((m) -> (module m))).join("")}</tbody>
-        </table>
-      </tbody>
-    </table>
-    """
-
+    table {cl:"table"},
+      (tbody {},
+        (table {cl:"table table-striped span6"},
+          (thead {},
+            (tr {},
+              (th {colspan: 2},
+                (p {cl:"text-center"}, "compulsory")))) \
+          +
+          (tbody {},        
+            """#{(pt.c.map ((m) -> (module m))).join("")}""")) \
+        +
+        (table {cl:"table table-striped span5"},
+          (thead {},
+            (tr {},
+              (th {colspan: 2},
+                (p {cl:"text-center"}, "optional")))) \
+          +
+          (tbody {},        
+            """#{(pt.o.map ((m) -> (module m))).join("")}"""))
+      )
+       
 courses = 
   fetch: (url) ->
     _promises.push $.Deferred (promise) -> 
@@ -104,22 +117,21 @@ courses =
       for course in _data
         code = course.code
 
-        title = """
-        <p class="lead">
-          #{link (abbrev course.title), course.url}
-          <br />
-          <p class="muted">#{course.type}, #{course.mode}</p>
-        </p>
-        """
+        title = p {cl: "lead"},
+          (link (abbrev course.title), course.url) \
+          +
+          "<br />" \
+          +
+          (p {cl:"muted"},
+            """#{course.type}, #{course.mode}""")
+        
         aims = div "aims", course.aims.replace(/|/g, "")
 
         modules = (ms) ->
           if ms.o.length > 0 || ms.c.length > 0
-            """
-            <div class="row-fluid"><div class="span12">
-              #{part ms}
-            </div></div>
-          """
+            div {cl:"row-fluid"},
+              (div {cl:"span12"},
+                "#{part ms}")
         
         $(tgt).append div {cl:"course"},
           "<hr />" +
