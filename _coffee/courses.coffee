@@ -102,6 +102,9 @@ part = (pt) ->
           (tbody {},        
             """#{(pt.o.map ((m) -> (module m))).join("")}"""))
       )
+
+is_4yearug = (c) ->
+  c?.modules.part_iii.o.length != 0 || c?.modules.part_iii.c.length != 0
        
 courses = 
   fetch: (url) ->
@@ -124,7 +127,7 @@ courses =
           +
           (p {cl:"muted"},
             """#{course.type}, #{course.mode}""")
-        
+        title = title.replace(/MSc/, "MSci") if is_4yearug course
         aims = div "aims", course.aims.replace(/|/g, "")
 
         modules = (ms) ->
