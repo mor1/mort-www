@@ -35,6 +35,7 @@ span = (o, s) -> wrap "span", s, o
 ul = (o, lis) -> wrap "ul", lis, o
 li = (o, s) -> wrap "li", s, o
 p = (o, s) -> wrap "p", s, o
+small = (o, s) -> wrap "small", s, o
 
 table = (o, s) -> wrap "table", s, o
 tbody = (o, s) -> wrap "tbody", s, o
@@ -51,8 +52,8 @@ tab = (s, u) -> """<a href="#{u}" data-toggle="tab">#{s}</a>"""
 ## increase legibility
 abbrev = (s) -> s
   .replace(/Bachelor of Science/i, "BSc")
-  .replace(/Master in Science/i, "MSc")
-  .replace(/with (Joint )*Honours/i, "(Hons)<br />")
+  .replace(/Master (in|of) Science/i, "MSc")
+  .replace(/with (Joint )*Honours/i, "(Hons)")
 
 ## take a set of triples and render to tabbed panes
 tabbed = (content...) ->
@@ -76,7 +77,7 @@ module = (m) ->
     (td {},
       "#{code}<br />(<em>#{m.credits}&nbsp;credits</em>)") +
     (td {},
-      "#{m.title}")
+      """#{m.title}<small class="muted"> <em>#{m.taught}</em></small>""")
 
 part = (pt) ->
   if (pt.c.length == 0 && pt.o.length == 0)
@@ -120,13 +121,11 @@ courses =
       for course in _data
         code = course.code
 
-        title = p {cl: "lead"},
-          (link (abbrev course.title), course.url) \
-          +
-          "<br />" \
-          +
-          (p {cl:"muted"},
-            """#{course.type}, #{course.mode}""")
+        title = hd 2, {},
+          """#{code}, #{link (abbrev course.title), course.url}"""
+          #  +
+          # p {cl:"muted"}, """#{course.type}, #{course.mode}"""
+
         title = title.replace(/MSc/, "MSci") if is_4yearug course
         aims = div "aims", course.aims.replace(/|/g, "")
 
@@ -139,8 +138,8 @@ courses =
         $(tgt).append div {cl:"course"},
           "<hr />" +
           div {cl:"row-fluid"},
-            (div {cl:"span3"}, title) +
-            (div {cl:"span9"},
+            (div {cl:"span11 offset1"},
+              (title +
               (tabbed [ "aims", "#{code}-aims", aims ],
                 [ "year 1", "#{code}-1-modules",
                   modules course.modules.part_q ],
