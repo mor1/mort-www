@@ -167,7 +167,9 @@ courses =
                   modules course.modules.part_ii ],
                 [ "year 4", "#{code}-4-modules",
                   modules course.modules.part_iii ]               
-              )
+                [ "modules", "#{code}-pg-modules",
+                  modules course.modules.part_pg ]               
+              ))
             )
           course.code
     @
