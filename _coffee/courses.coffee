@@ -80,9 +80,27 @@ module = (m) ->
       """#{m.title}<small class="muted"> <em>#{m.taught}</em></small>""")
 
 part = (pt) ->
+  cmp = (x,y) ->
+    switch
+      when x.taught == y.taught then 0
+      
+      when x.taught == "Full Year" then -1
+      when y.taught == "Full Year" then 1
+
+      when x.taught == "Autumn" then -1
+      when y.taught == "Autumn" then 1
+      
+      when x.taught == "Spring" then -1
+      when y.taught == "Spring" then 1
+      
+      when x.taught == "Summer" then -1
+      when y.taught == "Summer" then 1
+  
   if (pt.c.length == 0 && pt.o.length == 0)
     ""
   else
+    oms = pt.o.sort(cmp)
+    cms = pt.c.sort(cmp)
     table {cl:"table"},
       (tbody {},
         (table {cl:"table table-striped span6"},
@@ -92,7 +110,7 @@ part = (pt) ->
                 (p {cl:"text-center"}, "compulsory")))) \
           +
           (tbody {},        
-            """#{(pt.c.map ((m) -> (module m))).join("")}""")) \
+            """#{(cms.map ((m) -> (module m))).join("")}""")) \
         +
         (table {cl:"table table-striped span5"},
           (thead {},
@@ -101,7 +119,7 @@ part = (pt) ->
                 (p {cl:"text-center"}, "optional")))) \
           +
           (tbody {},        
-            """#{(pt.o.map ((m) -> (module m))).join("")}"""))
+            """#{(oms.map ((m) -> (module m))).join("")}"""))
       )
 
 is_4yearug = (c) ->
