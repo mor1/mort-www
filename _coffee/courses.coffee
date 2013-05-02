@@ -77,7 +77,9 @@ module = (m) ->
     (td {},
       "#{code}<br />(<em>#{m.credits}&nbsp;credits</em>)") +
     (td {},
-      """#{m.title}<small class="muted"> <em>#{m.taught}</em></small>""")
+      """#{m.title}""") +
+    (td {},
+      """<small class="muted"><em>#{m.taught}</em></small>""") 
 
 part = (pt) ->
   cmp = (x,y) ->
@@ -96,31 +98,35 @@ part = (pt) ->
       when x.taught == "Summer" then -1
       when y.taught == "Summer" then 1
   
-  if (pt.c.length == 0 && pt.o.length == 0)
+  if (pt.c.length == 0 && pt.o.length == 0 && pt.a.length == 0)
     ""
   else
-    oms = pt.o.sort(cmp)
-    cms = pt.c.sort(cmp)
     table {cl:"table"},
-      (tbody {},
-        (table {cl:"table table-striped span6"},
+      (if pt.c.length == 0 then "" else
+        (tbody {},
+          (table {cl:"table table-striped span4"},
+            (thead {},
+              (tr {},
+                (th {colspan: 3},
+                  (p {cl:"text-center"}, "compulsory")))) +
+            (tbody {},        
+              """#{(pt.c.sort(cmp).map ((m) -> (module m))).join("")}""")))) +
+      (if pt.o.length == 0 then "" else
+        (table {cl:"table table-striped span4"},
           (thead {},
             (tr {},
-              (th {colspan: 2},
-                (p {cl:"text-center"}, "compulsory")))) \
-          +
+              (th {colspan: 3},
+                (p {cl:"text-center"}, "optional")))) +
           (tbody {},        
-            """#{(cms.map ((m) -> (module m))).join("")}""")) \
-        +
-        (table {cl:"table table-striped span5"},
+            """#{(pt.o.sort(cmp).map ((m) -> (module m))).join("")}"""))) +
+      (if pt.a.length == 0 then "" else
+        (table {cl:"table table-striped span3"},
           (thead {},
             (tr {},
-              (th {colspan: 2},
-                (p {cl:"text-center"}, "optional")))) \
-          +
+              (th {colspan: 3},
+                (p {cl:"text-center"}, "alternative")))) +
           (tbody {},        
-            """#{(oms.map ((m) -> (module m))).join("")}"""))
-      )
+            """#{(pt.a.sort(cmp).map ((m) -> (module m))).join("")}""")))
 
 is_4yearug = (c) ->
   c?.modules.part_iii.o.length != 0 || c?.modules.part_iii.c.length != 0
@@ -139,7 +145,7 @@ courses =
       for course in _data
         code = course.code
 
-        title = hd 2, {},
+        title = hd 3, {},
           """#{code}, #{link (abbrev course.title), course.url}"""
           #  +
           # p {cl:"muted"}, """#{course.type}, #{course.mode}"""
@@ -150,8 +156,7 @@ courses =
         modules = (ms) ->
           if ms.o.length > 0 || ms.c.length > 0
             div {cl:"row-fluid"},
-              (div {cl:"span12"},
-                "#{part ms}")
+              "#{part ms}"
         
         $(tgt).append div {cl:"course"},
           "<hr />" +
