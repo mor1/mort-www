@@ -11,9 +11,8 @@ This page collates the course specifications for the various degree programmes o
 _It is provided for guidance only, and should **not** be treated as definitive_.
 =--
 
-
 <div id="courses">
-Loading...
+  Loading...
 </div>
 
 

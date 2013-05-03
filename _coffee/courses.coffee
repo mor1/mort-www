@@ -20,15 +20,18 @@
 
 self = exports ? this
 
+String::upcase = -> @toUpperCase()
+
 _promises = []
 _data = null
 
 ## rendering helpers
-wrap = (tag, s, {cl, id, colspan}) ->
+wrap = (tag, s, {cl, id, colspan, literal}) ->
   cl = if cl? then "class='#{cl}'" else ""
   id = if id? then "id='#{id}'" else ""
   colspan = if colspan? then "colspan='#{colspan}'" else ""
-  "<#{tag} #{id} #{cl} #{colspan}>#{s}</#{tag}>"
+  literal = if literal? then literal else ""
+  "<#{tag} #{id} #{cl} #{colspan} #{literal}>#{s}</#{tag}>"
 
 div = (o, s) -> wrap "div", s, o
 span = (o, s) -> wrap "span", s, o
@@ -36,6 +39,7 @@ ul = (o, lis) -> wrap "ul", lis, o
 li = (o, s) -> wrap "li", s, o
 p = (o, s) -> wrap "p", s, o
 small = (o, s) -> wrap "small", s, o
+button = (o, s) -> wrap "button", s, o
 
 table = (o, s) -> wrap "table", s, o
 tbody = (o, s) -> wrap "tbody", s, o
@@ -97,14 +101,16 @@ part = (pt) ->
       
       when x.taught == "Summer" then -1
       when y.taught == "Summer" then 1
-  
+
+      else 0
+      
   if (pt.c.length == 0 && pt.o.length == 0 && pt.a.length == 0)
     ""
   else
-    table {cl:"table"},
+    table {cl:"table table-condensed"},
       (if pt.c.length == 0 then "" else
         (tbody {},
-          (table {cl:"table table-striped span4"},
+          (table {cl:"table table-striped table-condensed span4"},
             (thead {},
               (tr {},
                 (th {colspan: 3},
@@ -112,7 +118,7 @@ part = (pt) ->
             (tbody {},        
               """#{(pt.c.sort(cmp).map ((m) -> (module m))).join("")}""")))) +
       (if pt.o.length == 0 then "" else
-        (table {cl:"table table-striped span4"},
+        (table {cl:"table table-striped table-condensed span4"},
           (thead {},
             (tr {},
               (th {colspan: 3},
@@ -120,7 +126,7 @@ part = (pt) ->
           (tbody {},        
             """#{(pt.o.sort(cmp).map ((m) -> (module m))).join("")}"""))) +
       (if pt.a.length == 0 then "" else
-        (table {cl:"table table-striped span3"},
+        (table {cl:"table table-striped table-condensed span3"},
           (thead {},
             (tr {},
               (th {colspan: 3},
@@ -143,13 +149,21 @@ courses =
     $.when.apply(null, _promises).then =>
       $(tgt).html('')
       for course in _data
-        code = course.code
+        code = course.code.upcase()
 
         title = hd 3, {},
-          """#{code}, #{link (abbrev course.title), course.url}"""
-          #  +
-          # p {cl:"muted"}, """#{course.type}, #{course.mode}"""
-
+          (button {
+             class:"btn btn-small badge-info",
+             literal:
+               """style="margin-right:1.5em;" type="button",
+              data-toggle="collapse", data-target="##{code}" """
+             },
+             "+"
+          ) +
+          """#{code}, #{link (abbrev course.title), course.url} """ +
+          small {cl:"muted"},
+            """#{course.type}, #{course.mode}"""
+          
         title = title.replace(/MSc/, "MSci") if is_4yearug course
         aims = div "aims", course.aims.replace(/|/g, "")
 
@@ -157,26 +171,24 @@ courses =
           if ms.o.length > 0 || ms.c.length > 0
             div {cl:"row-fluid"},
               "#{part ms}"
-        
-        $(tgt).append div {cl:"course"},
-          "<hr />" +
-          div {cl:"row-fluid"},
+
+        $(tgt).append div {cl:"row-fluid"},
             (div {cl:"span11 offset1"},
               (title +
-              (tabbed [ "aims", "#{code}-aims", aims ],
-                [ "year 1", "#{code}-1-modules",
-                  modules course.modules.part_q ],
-                [ "year 2", "#{code}-2-modules",
-                  modules course.modules.part_i ],
-                [ "year 3", "#{code}-3-modules",
-                  modules course.modules.part_ii ],
-                [ "year 4", "#{code}-4-modules",
-                  modules course.modules.part_iii ]               
-                [ "modules", "#{code}-pg-modules",
-                  modules course.modules.part_pg ]               
-              ))
+              (div {cl:"collapse", id:"#{code}"},
+                (tabbed [ "aims", "#{code}-aims", aims ],
+                  [ "year 1", "#{code}-1-modules",
+                    modules course.modules.part_q ],
+                  [ "year 2", "#{code}-2-modules",
+                    modules course.modules.part_i ],
+                  [ "year 3", "#{code}-3-modules",
+                    modules course.modules.part_ii ],
+                  [ "year 4", "#{code}-4-modules",
+                    modules course.modules.part_iii ]               
+                  [ "modules", "#{code}-pg-modules",
+                    modules course.modules.part_pg ]               
+                )))
             )
-          course.code
     @
 
 self.courses = courses
