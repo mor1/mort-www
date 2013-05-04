@@ -151,7 +151,7 @@ courses =
       for course in _data
         code = course.code.upcase()
 
-        title = hd 3, {},
+        title = hd 4, {},
           (button {
              class:"btn btn-small badge-info",
              literal:
@@ -173,7 +173,7 @@ courses =
               "#{part ms}"
 
         $(tgt).append div {cl:"row-fluid"},
-            (div {cl:"span11 offset1"},
+            (div {cl:"span10 offset1"},
               (title +
               (div {cl:"collapse", id:"#{code}"},
                 (tabbed [ "aims", "#{code}-aims", aims ],
