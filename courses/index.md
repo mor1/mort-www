@@ -5,10 +5,8 @@ title: programmes, 2013/14
 js: [courses]
 ---
 
-+-- {.lead}
-This page collates the course specifications for the various degree programmes offered by the School of Computer Science during 2013/14. 
-
-_It is provided for guidance only, and should **not** be treated as definitive_.
++-- {.lead} 
+This page collates course specifications for the various programmes of study offered by the School of Computer Science during 2013/14. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link. 
 =--
 
 <div id="courses">
