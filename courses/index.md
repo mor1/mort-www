@@ -46,6 +46,10 @@ This page collates course specifications for the various programmes of study off
   </small>
 </div>
 
+
+<div class="clearfix"> </div>
+
+
 <div id="courses">
   Loading...
 </div>
