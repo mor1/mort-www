@@ -90,7 +90,7 @@ module = (m) ->
     when "GV" then "lightblue"
     when "IS" then "brown"
     else ""
-  console.log m.theme, colour
+
   badge = if m.theme? then small {},
       (span {cl:"badge #{colour}", literal:'style="letter-spacing:1px"'},
         "#{m.theme}")
