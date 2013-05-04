@@ -40,6 +40,7 @@ li = (o, s) -> wrap "li", s, o
 p = (o, s) -> wrap "p", s, o
 small = (o, s) -> wrap "small", s, o
 button = (o, s) -> wrap "button", s, o
+em = (o, s) -> wrap "em", s, o
 
 table = (o, s) -> wrap "table", s, o
 tbody = (o, s) -> wrap "tbody", s, o
@@ -77,16 +78,32 @@ tabbed = (content...) ->
 
 module = (m) ->
   code = if m.url? and m.url.length > 0 then link m.code, m.url else m.code
+  colour = switch m.theme
+    when "SE" then "red"
+    when "FCS" then "blue"
+    when "OSA" then "teal"
+    when "P" then "purple"
+    when "NCC" then "orange"
+    when "AI" then "green"
+    when "HCI" then "pink"
+    when "MO" then "grey"
+    when "GV" then "lightblue"
+    when "IS" then "brown"
+    else ""
+  console.log m.theme, colour
+  badge = if m.theme? then small {},
+      (span {cl:"badge #{colour}", literal:'style="letter-spacing:1px"'},
+        "#{m.theme}")
+    else ""
   (tr {},
-    (td {}, "#{code}") +
-    (td {colspan: 2}, """#{m.title}""")
-  ) +
-  (tr {},
-    (td {}, "&nbsp;") +
-    (td {}, (small {cl:"muted"}, "<em>#{m.credits}&nbsp;credits</em>")) +
-    (td {}, (small {cl:"muted"}, "<em>#{m.taught}</em>"))
-  )
-
+    (td {}, "#{code}<br />#{badge}") +
+    (td {colspan: 2},
+      "#{m.title}<br />"+
+      (small {cl:"muted pull-right"},
+        (em {}, "#{m.taught}, #{m.credits}&nbsp;credits"))
+    )
+  ) 
+  
 part = (pt) ->
   cmp = (x,y) ->
     switch

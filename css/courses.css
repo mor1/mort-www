@@ -4,3 +4,19 @@
   padding-bottom: 0;
   padding-top: 0;
 }
+
+/* as per world-of-warcraft, apparently 
+   cf. <http://gamedev.stackexchange.com/questions/46463/is-there-an-optimum-set-of-colors-for-10-players>
+   */
+.red { background-color: red; }
+.blue { background-color: blue; }
+.teal { background-color: teal; }
+.purple { background-color: purple; }
+.yellow { background-color: yellow; }
+.orange { background-color: orange; }
+.green { background-color: green; }
+.pink { background-color: pink; }
+.grey { background-color: grey; }
+.lightblue { background-color: lightblue; }
+.darkgreen { background-color: darkgreen; }
+.brown { background-color: brown; }
