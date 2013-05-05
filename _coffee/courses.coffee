@@ -107,7 +107,14 @@ module = (m) ->
 part = (pt) ->
   cmp = (x,y) ->
     switch
-      when x.taught == y.taught then 0
+      when x.taught == y.taught
+        if x.theme?
+          if y.theme?
+            x.theme.localeCompare y.theme
+          else
+            -1
+        else
+          if y.theme? then 1 else 0
       
       when x.taught == "Full Year" then -1
       when y.taught == "Full Year" then 1
@@ -121,7 +128,7 @@ part = (pt) ->
       when x.taught == "Summer" then -1
       when y.taught == "Summer" then 1
 
-      else 0
+      else x.theme.localeCompare y.attr
       
   if (pt.c.length == 0 && pt.o.length == 0 && pt.a.length == 0)
     ""
