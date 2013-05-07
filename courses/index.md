@@ -12,6 +12,11 @@ This page collates course specifications for the various programmes of study off
 <div class="offset1 span10">
   <small class="muted">
     <table class="table table-condensed table-striped">
+      <caption class="lead">
+        <strong>
+          Key to Computer Science Teaching Themes
+        </strong>
+      </caption>
       <tbody>
         <tr>
           <td><span class="badge red">SE</span></td>
