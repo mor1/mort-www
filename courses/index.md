@@ -15,7 +15,7 @@ Note that all single honours BSc programmes currently have a common year 1 (G400
 
 <div class="offset1 span10">
   <small class="muted">
-    <table class="table table-condensed table-striped">
+     <table class="table table-condensed table-striped">
       <caption class="lead">
         <strong>
           Key to Computer Science Teaching Themes
@@ -27,28 +27,34 @@ Note that all single honours BSc programmes currently have a common year 1 (G400
           <td>Software Engineering</td>
           <td><span class="badge blue">FCS</span></td>
           <td>Foundations of Computer Science</td>
-          <td><span class="badge teal">OSA</span></td>
-          <td>Operating Systems &amp; Architecture</td>
         </tr>
         <tr>
-          <td><span class="badge purple">P</span></td>
+          <td><span class="badge purple">PR</span></td>
           <td>Programming</td>
           <td><span class="badge orange">NCC</span></td>
           <td>Net-Centric Computing</td>
-          <td><span class="badge green">AI</span></td>
-          <td>Artificial Intelligence</td>
         </tr>
         <tr>
-          <td><span class="badge pink">HCI</span></td>
-          <td>Human-Computer Interaction</td>
           <td><span class="badge grey">MO</span></td>
           <td>Modelling &amp; Optimisation</td>
           <td><span class="badge lightblue">GV</span></td>
           <td>Graphics &amp; Vision</td>
         </tr>
+        <tr>
+          <td><span class="badge green">AI</span></td>
+          <td>Artificial Intelligence</td>
+          <td><span class="badge pink">HCI</span></td>
+          <td>Human-Computer Interaction</td>
+        </tr>
+        <tr>
+          <td><span class="badge brown">PJ</span></td>
+          <td>Projects</td>
+           <td><span class="badge teal">OSA</span></td>
+          <td>Operating Systems &amp; Architecture</td>
+       </tr>
       </tbody>
     </table>
-  </small>
+ </small>
 </div>
 
 

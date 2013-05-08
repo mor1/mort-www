@@ -83,13 +83,13 @@ module = (m) ->
     when "SE" then "red"
     when "FCS" then "blue"
     when "OSA" then "teal"
-    when "P" then "purple"
+    when "PR" then "purple"
     when "NCC" then "orange"
     when "AI" then "green"
     when "HCI" then "pink"
     when "MO" then "grey"
     when "GV" then "lightblue"
-    when "IS" then "brown"
+    when "PJ" then "brown"
     else ""
 
   badge = if m.theme? then small {},
