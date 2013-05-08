@@ -5,7 +5,7 @@ title: programmes, 2013/14
 js: [courses]
 ---
 
-# Undergraduate Taught Programmes <small>School of Computer Science</small>
+# Undergraduate Taught Programmes<br /><small>School of Computer Science</small>
 
 
 +-- {.lead .span10 .offset1} 
