@@ -42,10 +42,6 @@ This page collates course specifications for the various programmes of study off
           <td><span class="badge lightblue">GV</span></td>
           <td>Graphics &amp; Vision</td>
         </tr>
-        <tr>
-          <td><span class="badge brown">IS</span></td>
-          <td colspan="5">Intelligent Systems</td>
-        </tr>
       </tbody>
     </table>
   </small>
