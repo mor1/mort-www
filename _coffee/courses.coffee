@@ -63,15 +63,15 @@ abbrev = (s) -> s
 
 ## take a set of triples and render to tabbed panes
 tabbed = (content...) ->
-  tabs = (content.map ([title, label, content]) ->
+  tabs = ($.map(content, ([title, label, content]) ->
     if content?
       li {},
-        (tab "#{title}", "##{label}")).join("\n")
-  panes = (content.map ([title, label, content]) ->
+        (tab "#{title}", "##{label}")).join("\n"))
+  panes = ($.map(content, ([title, label, content]) ->
     if content?
       div {cl:"tab-pane fade", id:label},
         content
-    ).join("\n")
+    ).join("\n"))
   
   div {cl:"tabbable tabs"}, 
     (ul {cl:"nav nav-tabs"}, tabs) \
@@ -142,7 +142,7 @@ part = (pt) ->
                 (th {colspan: 3},
                   (p {cl:"text-center"}, "compulsory")))) +
             (tbody {},        
-               """#{(pt.c.sort(cmp).map ((m) -> (module m))).join("")}"""))) +
+               """#{($.map(pt.c.sort(cmp), ((m) -> (module m))).join(""))}"""))) +
         (if pt.o.length == 0 then "" else
           (table {cl:"table table-striped table-condensed span4"},
             (thead {},
@@ -150,7 +150,7 @@ part = (pt) ->
                 (th {colspan: 3},
                   (p {cl:"text-center"}, "optional")))) +
             (tbody {},        
-              """#{(pt.o.sort(cmp).map ((m) -> (module m))).join("")}"""))) +
+              """#{($.map(pt.o.sort(cmp), ((m) -> (module m))).join(""))}"""))) +
         (if pt.a.length == 0 then "" else
           (table {cl:"table table-striped table-condensed span4"},
             (thead {},
@@ -158,8 +158,8 @@ part = (pt) ->
                 (th {colspan: 3},
                   (p {cl:"text-center"}, "alternative")))) +
             (tbody {},        
-              """#{(pt.a.sort(cmp).map ((m) -> (module m))).join("")}""")))
-      )
+              """#{($.map(pt.a.sort(cmp), (m) -> (module m)).join(""))}""")))
+      ) 
         
 is_4yearug = (c) ->
   c?.modules.part_iii.o.length != 0 || c?.modules.part_iii.c.length != 0
