@@ -33,12 +33,6 @@ This page collates course specifications for the various Postgraduate Taught Pro
           <td>Net-Centric Computing</td>
         </tr>
         <tr>
-          <td><span class="badge grey">MO</span></td>
-          <td>Modelling &amp; Optimisation</td>
-          <td><span class="badge lightblue">GV</span></td>
-          <td>Graphics &amp; Vision</td>
-        </tr>
-        <tr>
           <td><span class="badge green">AI</span></td>
           <td>Artificial Intelligence</td>
           <td><span class="badge pink">HCI</span></td>
@@ -47,9 +41,13 @@ This page collates course specifications for the various Postgraduate Taught Pro
         <tr>
           <td><span class="badge brown">PJ</span></td>
           <td>Projects</td>
-           <td><span class="badge teal">OSA</span></td>
+          <td><span class="badge teal">OSA</span></td>
           <td>Operating Systems &amp; Architecture</td>
        </tr>
+        <tr>
+          <td><span class="badge grey">MO</span></td>
+          <td>Modelling &amp; Optimisation</td>
+        </tr>
       </tbody>
     </table>
  </small>
