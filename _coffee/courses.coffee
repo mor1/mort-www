@@ -201,11 +201,39 @@ courses =
 
         kis_widget = """<iframe id="unistats-widget-frame"
           title="Unistats KIS Widget"
-          src="http://widget.unistats.ac.uk/Widget/10007154/#{code}/Horizontal/Large/en-GB"
+          src="http://widget.unistats.ac.uk/Widget/10007154/#{code}/vertical/Small/en-GB"
           scrolling="no"
-          style="overflow: hidden; border: 0px none transparent; width: 800px; height: 160px;">
+          style="overflow: hidden; border: 0px none transparent; width: 190px; height: 500px;">
         </iframe>
         """
+
+        kis_text = (hd 5, {}, "Key Information Sets (KIS)")+
+          (p {},
+            """
+            KIS is an initiative that the government has introduced to allow
+            you to compare different courses and universities.
+            """) +
+          (hd 5, {}, "How to use KIS data") +        
+          (p {},
+            """
+            We advise you consider KIS data alongside other factors,
+            such as detailed course content, school or department reputation,
+            study abroad opportunities, time spent in industry, available
+            facilities to help you plan your career and the research interests
+            of staff. Open days are an excellent opportunity to find out this
+            information so come armed with questions when you visit.
+            """)+
+          (p {},
+            """
+            Graduate destinations and average starting salaries are collected
+            six months after graduation. These don't take into account that
+            some students travel after university, carry out voluntary work or
+            study for a postgraduate degree. They also don't account for
+            earning potential over the life-span of a career or show how
+            quickly a graduate may have accelerated their salary from the
+            initial starting point.
+            """)
+        
 
         $(tgt).append div {cl:"row-fluid"},
             (div {cl:"span11 offset1"},
@@ -223,7 +251,10 @@ courses =
                   [ "modules", "#{code}-pg-modules",
                     modules course.modules.part_pg ],
                   [ "kis", "#{code}-kis",
-                    (div {cl:"kis-widget"}, kis_widget) ]
+                    (div {cl:"kis row-fluid span12"},
+                      (div {cl:"kis-widget span3"}, kis_widget)+
+                      (div {cl:"kis-text offset1 span6"}, kis_text)
+                      ) ]
                 )))
             )
       
