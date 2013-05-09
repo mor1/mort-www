@@ -199,6 +199,14 @@ courses =
             div {cl:"row-fluid"},
               "#{part ms}"
 
+        kis_widget = """<iframe id="unistats-widget-frame"
+          title="Unistats KIS Widget"
+          src="http://widget.unistats.ac.uk/Widget/10007154/#{code}/Horizontal/Large/en-GB"
+          scrolling="no"
+          style="overflow: hidden; border: 0px none transparent; width: 800px; height: 160px;">
+        </iframe>
+        """
+
         $(tgt).append div {cl:"row-fluid"},
             (div {cl:"span11 offset1"},
               (title +
@@ -211,9 +219,11 @@ courses =
                   [ "year 3", "#{code}-3-modules",
                     modules course.modules.part_ii ],
                   [ "year 4", "#{code}-4-modules",
-                    modules course.modules.part_iii ]               
+                    modules course.modules.part_iii ],               
                   [ "modules", "#{code}-pg-modules",
-                    modules course.modules.part_pg ]               
+                    modules course.modules.part_pg ],
+                  [ "kis", "#{code}-kis",
+                    (div {cl:"kis-widget"}, kis_widget) ]
                 )))
             )
       
