@@ -236,7 +236,7 @@ courses =
         
 
         $(tgt).append div {cl:"row-fluid"},
-            (div {cl:"span11 offset1"},
+            (div {cl:"span10 offset1"},
               (title +
               (div {cl:"collapse", id:"#{code}"},
                 (tabbed [ "aims", "#{code}-aims", aims ],
@@ -252,8 +252,8 @@ courses =
                     modules course.modules.part_pg ],
                   [ "kis", "#{code}-kis",
                     (div {cl:"kis row-fluid span12"},
-                      (div {cl:"kis-widget span3"}, kis_widget)+
-                      (div {cl:"kis-text offset1 span6"}, kis_text)
+                      (div {cl:"kis-widget span5"}, kis_widget)+
+                      (div {cl:"kis-text span7"}, kis_text)
                       ) ]
                 )))
             )
