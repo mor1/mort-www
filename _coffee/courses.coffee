@@ -134,32 +134,25 @@ part = (pt) ->
   if (pt.c.length == 0 && pt.o.length == 0 && pt.a.length == 0)
     ""
   else
+    os = pt.o.concat(pt.a)
     (div {cl:"row-fluid span12"},
-        (if pt.c.length == 0 then "" else
-          (table {cl:"table table-striped table-condensed span4"},
-            (thead {},
-              (tr {},
-                (th {colspan: 3},
-                  (p {cl:"text-center"}, "compulsory")))) +
-            (tbody {},        
-               """#{($.map(pt.c.sort(cmp), ((m) -> (module m))).join(""))}"""))) +
-        (if pt.o.length == 0 then "" else
-          (table {cl:"table table-striped table-condensed span4"},
-            (thead {},
-              (tr {},
-                (th {colspan: 3},
-                  (p {cl:"text-center"}, "optional")))) +
-            (tbody {},        
-              """#{($.map(pt.o.sort(cmp), ((m) -> (module m))).join(""))}"""))) +
-        (if pt.a.length == 0 then "" else
-          (table {cl:"table table-striped table-condensed span4"},
-            (thead {},
-              (tr {},
-                (th {colspan: 3},
-                  (p {cl:"text-center"}, "alternative")))) +
-            (tbody {},        
-              """#{($.map(pt.a.sort(cmp), (m) -> (module m)).join(""))}""")))
-      ) 
+      (if pt.c.length == 0 then "" else
+        (table {cl:"table table-striped table-condensed span6"},
+          (thead {},
+            (tr {},
+              (th {colspan: 3},
+                (p {cl:"text-center"}, "compulsory")))) +
+          (tbody {},        
+            """#{($.map(pt.c.sort(cmp), ((m) -> module m)).join(""))}"""))) +
+      (if pt.o.length == 0 then "" else
+        (table {cl:"table table-striped table-condensed span6"},
+          (thead {},
+            (tr {},
+              (th {colspan: 3},
+                (p {cl:"text-center"}, "optional")))) +
+          (tbody {},
+            """#{($.map(os.sort(cmp), ((m) -> module m)).join(""))}""")))
+    )
         
 is_4yearug = (c) ->
   c?.modules.part_iii.o.length != 0 || c?.modules.part_iii.c.length != 0
