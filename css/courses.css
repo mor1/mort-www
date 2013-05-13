@@ -20,3 +20,7 @@
 .lightblue { background-color: lightblue; }
 .darkgreen { background-color: darkgreen; }
 .brown { background-color: brown; }
+
+li {
+    line-height: 24px; 
+}
