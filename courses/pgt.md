@@ -46,7 +46,7 @@ This page collates course specifications for the various Postgraduate Taught Pro
        </tr>
         <tr>
           <td><span class="badge grey">MO</span></td>
-          <td>Modelling &amp; Optimisation</td>
+          <td colspan="3">Modelling &amp; Optimisation</td>
         </tr>
       </tbody>
     </table>
