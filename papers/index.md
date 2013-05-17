@@ -24,8 +24,8 @@ Loading...
 </div>
 
 <script type="text/javascript">
-$(document).ready(function () {
+  $(document).ready(function () {
     papers.fetch("./authors.json", "./papers.json").render("#entries")
-});
+  });
 </script>
 
