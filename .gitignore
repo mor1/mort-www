@@ -1,6 +1,5 @@
 .DS_Store
 _site
-_less
 _coffee/*.js
 js/courses.js
 js/tt.js

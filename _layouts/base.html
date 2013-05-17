@@ -12,18 +12,17 @@
     <meta name="description" content="Richard Mortier's home pages" />
     <meta name="copyright" content="Copyright (C) 2010 Richard Mortier" />
 
-    <link rel="start" href="{{ site.url_root }}" />
+    <link rel="start" href="{{ site.baseurl }}" />
 
     {% if page.keywords %}
     <meta name="keywords" content="{{ page.keywords }}" />
     {% endif %}
     
-    <link rel="stylesheet" href="{{ site.url_root }}css/syntax.css" type="text/css" />
-    <link rel="stylesheet" href="{{ site.url_root }}css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="{{site.baesurl}}css/syntax.css" type="text/css" />
+    <link rel="stylesheet" href="{{site.baseurl}}css/screen.css" type="text/css" />
 
-    <script type="text/javascript" src="{{site.url_root}}js/jquery-1.9.1.min.js"> </script>
-    <script type="text/javascript" src="{{site.url_root}}js/iconise.js"> </script>
-    <script>var SITE_ROOT="{{ site.url_root }}";</script>
+    <script type="text/javascript" src="{{site.baseurl}}js/jquery-1.9.1.min.js"> </script>
+    <script type="text/javascript" src="{{site.baseurl}}js/iconise.js"> </script>
   </head>
 
   <body id="{{ page.section }}">
@@ -33,7 +32,7 @@
     </div>
 
     {% for script in page.js %}
-        <script src="{{site.url_root}}js/{{ script }}.js"></script>
+        <script src="{{site.baseurl}}js/{{ script }}.js"></script>
     {% endfor %}
 
     <script type="text/javascript">

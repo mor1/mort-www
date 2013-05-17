@@ -22,17 +22,17 @@
         <![endif]-->
 
     <link rel="stylesheet" media="screen" type="text/css" 
-          href="{{ site.url_root }}css/bootstrap.min.css" />
+          href="{{site.baseurl}}css/bootstrap.min.css" />
     <link rel="stylesheet" media="screen" type="text/css"
-          href="{{ site.url_root }}css/bootstrap-responsive.min.css" />
+          href="{{site.baseurl}}css/bootstrap-responsive.min.css" />
           
     {% for css in page.stylesheet %}
     <link rel="stylesheet" media="screen" type="text/css"
-          href="{{ site.url_root }}css/{{ css }}.css" />
+          href="{{site.baseurl}}css/{{ css }}.css" />
     {% endfor %}
     
-    <script src="{{ site.url_root }}js/jquery-1.9.1.min.js"> </script>
-    <script src="{{ site.url_root }}js/bootstrap.min.js"> </script>  
+    <script src="{{site.baseurl}}js/jquery-1.9.1.min.js"> </script>
+    <script src="{{site.baseurl}}js/bootstrap.min.js"> </script>  
   
   </head>
 
@@ -42,7 +42,7 @@
     </div>
 
     {% for script in page.js %}
-        <script src="{{site.url_root}}js/{{script}}.js"></script>
+        <script src="{{site.baseurl}}js/{{script}}.js"></script>
     {% endfor %}
     
     {% if site.google_analytics %}

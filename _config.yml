@@ -1,17 +1,6 @@
-## default to github/localhost settings
-url_root: /
-analytics_id: UA-15796259-1
-
 safe: true
-auto: false
-pygments: true
-markdown: maruku
-exclude: _less
+exclude: [_less, _coffee]
 lsi: false
 
-maruku:
-    use_divs: true
-    use_tex: true
-    png_engine: blahtex
-    png_dir: img/latex/
-    png_url: /img/latex/
+baseurl: /
+analytics_id: UA-15796259-1

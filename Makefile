@@ -28,7 +28,7 @@ COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 site: css js
-	$(JEKYLL)
+	$(JEKYLL) build
 
 clean:
 	$(RM) -r _site css/screen.css
@@ -37,16 +37,17 @@ clean:
 
 css: css/screen.css
 css/screen.css: _less/screen.css
-	sed 's!@SITE_ROOT@!${GH_ROOT}!g' _less/screen.css >| css/screen.css
+	sed 's!@BASEURL@!${GH_ROOT}!g' _less/screen.css >| css/screen.css
 
 js: $(JSS)
 
 test: css js
-	$(JEKYLL) --auto --serve
+	$(JEKYLL) build 
+	$(JEKYLL) serve --watch
 
 deploy: css js
-	sed 's!@SITE_ROOT@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
-	sed -i '' 's!url_root: /!url_root: ${CS_ROOT}!;\
+	sed 's!@BASEURL@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
+	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;\
 	 	s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
                 _config.yml
 	$(JEKYLL)

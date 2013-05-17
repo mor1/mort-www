@@ -531,11 +531,11 @@ img.maruku-png { }
 
 :link.external { 
     padding-right: 13px; 
-    background: url(@SITE_ROOT@img/external.png) top right no-repeat; 
+    background: url(@BASEURL@img/external.png) top right no-repeat; 
 }
 :link.pdf { 
     padding-right: 18px; 
-    background: url(@SITE_ROOT@img/icon-pdf.gif) top right no-repeat; 
+    background: url(@BASEURL@img/icon-pdf.gif) top right no-repeat; 
 }
 
 /* paper entries */
