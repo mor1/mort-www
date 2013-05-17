@@ -49,7 +49,7 @@ deploy: css js
 	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;\
 	 	s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
                 _config.yml
-	$(JEKYLL)
+	$(JEKYLL) build
 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
 	git checkout -- _config.yml css/screen.css
 
