@@ -42,7 +42,6 @@ css/screen.css: _less/screen.css
 js: $(JSS)
 
 test: css js
-	$(JEKYLL) build 
 	$(JEKYLL) serve --watch
 
 deploy: css js
