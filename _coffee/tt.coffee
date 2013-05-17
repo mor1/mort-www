@@ -84,32 +84,49 @@ tt =
     
     $.when.apply(null, _promises).then =>
       $(tgt).html('')
+
       for module in _data.modules
         .filter((m) -> 'code' of m)
         .filter((m) -> m.code.match('^G[56]'))
+        .filter((m) -> m.activities.length > 0)
         .sort(cmp) 
         
           code = module.code.toUpperCase()
-          title = div {}, "#{link code, module.url}, #{module.title}"
+          title = hd 4, {},
+            (button {
+              cl:"btn btn-small badge-info",
+              literal: """
+                style="margin-right:1.5em;" type="button",
+                data-toggle="collapse", data-target="##{code}"
+                """
+              },
+             "+"
+            ) +
+            "#{link code, module.url}, #{module.title}"
 
-          activities = $(module.activities).sort((x, y) ->
-            ## order activities by day of week
-            d = days.indexOf(x['day']) - days.indexOf(y['day'])
-            switch
-              when d < 0 then -1
-              when d > 0 then 1
-              else
-                switch
-                  when x['start'] < y['start'] then -1
-                  when x['start'] > y['start'] then 1
-                  else 0
-            ).map (i, a) =>
-              "#{a['code']} #{a['day'][0..2]}" +
-              " #{a['start']}--#{a['end']}" +
-              " #{a['room']} #{format_weeks(a['weeks'])}"
+          activities = div {cl:"collapse", id:"#{code}"}, 
+            (table {cl:"table table-striped table-condensed span10 offset1"},
+              (tbody {},
+                ($(module.activities).sort((x, y) ->
+                  ## order activities by day of week
+                  d = days.indexOf(x['day']) - days.indexOf(y['day'])
+                  switch
+                    when d < 0 then -1
+                    when d > 0 then 1
+                    else
+                      switch
+                        when x['start'] < y['start'] then -1
+                        when x['start'] > y['start'] then 1
+                        else 0
+                  ).map((i, a) =>
+                    (tr {},
+                      (td {},
+                        ("#{a['code']} #{a['day'][0..2]}" +
+                        " #{a['start']}--#{a['end']}" +
+                        " #{a['room']} #{format_weeks(a['weeks'])}")))
+                  ).toArray().join(""))))
 
-          $(tgt).append div {},
-            title + $(activities).toArray().join("<br />")
+          $(tgt).append (div {cl:"row-fluid"}, (title + activities))
      
       $(tgt).append (div {cl:"well well-small text-right"},
         (footer {},

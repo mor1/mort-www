@@ -7,6 +7,7 @@ js: [tt]
 
 # Module Timetable<br /><small>School of Computer Science</small>
 
+
 <div id="tt">
   Loading...
 </div>
