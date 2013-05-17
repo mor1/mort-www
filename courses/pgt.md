@@ -64,6 +64,6 @@ This page collates course specifications for the various Postgraduate Taught Pro
 
 <script type="text/javascript">
   $(window).load(function () {
-    window.courses.fetch('./pgt.json').render("#courses");
+    window.courses.fetch('../pgt.json').render("#courses");
   });
 </script>

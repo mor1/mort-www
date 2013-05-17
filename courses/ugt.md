@@ -70,6 +70,6 @@ Note that:
 
 <script type="text/javascript">
   $(window).load(function () {
-    window.courses.fetch('./ugt.json').render("#courses");
+    window.courses.fetch('../ugt.json').render("#courses");
   });
 </script>

@@ -7,13 +7,13 @@ js: [tt]
 
 # Module Timetable<br /><small>School of Computer Science</small>
 
-<div id="ttx">
+<div id="tt">
   Loading...
 </div>
 
 
 <script type="text/javascript">
   $(window).load(function () {
-    window.tt.fetch('./tt.json').render("#ttx");
+    window.tt.fetch('../tt.json').render("#tt");
   });
 </script>
