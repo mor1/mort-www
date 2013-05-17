@@ -196,7 +196,6 @@ courses =
           course.modules.part_pg.o.length +
           course.modules.part_pg.a.length > 0)
           
-        console.log is_pg
         if not is_pg
           kis_widget = """<iframe id="unistats-widget-frame"
             title="Unistats KIS Widget"
