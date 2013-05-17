@@ -1,6 +1,7 @@
 safe: true
 exclude: [_less, _coffee]
 lsi: false
+permalink: pretty
 
 baseurl: /
 analytics_id: UA-15796259-1
