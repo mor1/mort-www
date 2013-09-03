@@ -30,6 +30,7 @@ Admin
 =====
 
 +-- {.summarise .hidden}
+
 + [Computer Science module list](http://www.nottingham.ac.uk/ugstudy/modules.php?code=000319)
 + [Official module catalog entry](http://modulecatalogue.nottingham.ac.uk/Nottingham/asp/ModuleDetails.asp?crs_id=021237&year_id=000110)
 + [Reading list](http://www.nottingham.ac.uk/is/gateway/readinglists/local/displaylist?module=G54ACC)
@@ -39,8 +40,11 @@ Admin
 
 [g53acc]: http://www.cs.nott.ac.uk/~drm/G53ACC/index.html
 [g52ccn]: http://www.cs.nott.ac.uk/~mvr/G52CCN/
-=-- {.summarise .hidden}
-=-- {.section}
+
+=--
+
+=-- 
+
 
 Lectures
 --------
@@ -67,7 +71,7 @@ JC-EXCHGE-B.LT1.
 + MPLS (e.g., 21CN)
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 2 & 3](./lectures/ip-and-down/02mux.pdf)  **Multiplexing**
@@ -79,7 +83,7 @@ JC-EXCHGE-B.LT1.
 + CDMA
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 4 & 5](./lectures/ip-and-down/03phy.pdf) **Physical**
@@ -90,7 +94,7 @@ JC-EXCHGE-B.LT1.
 + Error correction/detection
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 6](./lectures/ip-and-down/04optical.pdf) **Optical**
@@ -102,7 +106,7 @@ JC-EXCHGE-B.LT1.
 + WDM
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 7 & 8](./lectures/ip-and-down/05ether.pdf) **Ethernet**
@@ -114,7 +118,7 @@ JC-EXCHGE-B.LT1.
 + CGE, DCE
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 9] (./lectures/ip-and-down/06adsl.pdf) **ADSL**
@@ -128,7 +132,7 @@ JC-EXCHGE-B.LT1.
 + History and modern day
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lectures 10] (./lectures/ip-and-down/07switch.pdf) **Switching**
@@ -141,9 +145,11 @@ JC-EXCHGE-B.LT1.
 + NPUs
 
 <br />
-=-- {.twocol-list}
+=--
 
-=-- {.summarise .visible}
+=--
+
+=--
 
 -----------
 
@@ -151,6 +157,8 @@ IP and Up
 =========
 
 Lectured by [me][rmm], Mondays, 17.00--18.00 in JC-BSSOUTH-A25.
+
++-- {.section}
 
 +-- {.summarise .visible}
 
@@ -166,7 +174,7 @@ Lectured by [me][rmm], Mondays, 17.00--18.00 in JC-BSSOUTH-A25.
 + Alternatives
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 
@@ -190,7 +198,7 @@ Lectured by [me][rmm], Mondays, 17.00--18.00 in JC-BSSOUTH-A25.
 + Alternatives
 
 <br />
-=-- {.twocol-list}
+=--
 
 <p> </p>
 
@@ -214,7 +222,7 @@ McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](ht
 + TCP flow control
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related: 
 [Scalable Stream Transport](http://ccr.sigcomm.org/online/?q=node/272)
@@ -232,7 +240,7 @@ McQuillan *et al*, [An overview of the new routing algorithm for the ARPANET](ht
 + Multimedia and TCP fairness
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related: 
 [TCP congestion control survey](http://dx.doi.org/10.1109/SURV.2010.042710.00114) 
@@ -255,7 +263,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + QOS: IntServ, DiffServ
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [End-to-end argument](http://doi.acm.org/10.1145/357401.357402) 
@@ -277,7 +285,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + Active networks
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [Sample HTTP trace](http://www.rogerclarke.com/II/IPrimerhttp-dump.html)
@@ -298,7 +306,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + An hypothetical network management system
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [NANOG](http://nanog.org/)
@@ -317,7 +325,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + Cloud computing
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 
@@ -346,8 +354,7 @@ SOAP!](http://thecoffman.com/2011/01/please-drop-the-soap/)
 + TLS/SSL/HTTPS
 
 <br />
-=-- {.twocol-list}
-
+=--
 
 <p> </p>
 
@@ -365,7 +372,7 @@ SOAP!](http://thecoffman.com/2011/01/please-drop-the-soap/)
 
 <br />
 
-=-- {.twocol-list}
+=--
 
 <p> </p>
 
@@ -379,27 +386,28 @@ SOAP!](http://thecoffman.com/2011/01/please-drop-the-soap/)
 
 <br />
 
-=-- {.twocol-list}
+=--
 
 <p> </p>
 
-=-- {.summarise .hidden}
+=--
 
------------
-
-=-- {.section}
-
+=-- 
 
 
 Lab Exercises
 -------------
 
+
++-- {.summarise .hidden}
+
 Note that these are not assessed, but are intended for your education
 only.  As a result, I place no constraint on which programming
 language you select for any of the programming exercises.  Go wild!
 
-+-- {.summarise .hidden}
+
 +-- {.section}
+
     
 Exercise 1.  **Tools**
 ----------------------
@@ -477,19 +485,23 @@ support N=64, 32, 16.
 References: [RFC4122](http://ietf.org/rfc/rfc4122.txt),
 [RFC4648](http://ietf.org/rfc/rfc4648.txt). 
 
-=-- {.summarise .hidden}
-=-- {.section}
+=--
+
+=--
+
 
 Books
 -----
 
 +-- {.summarise .hidden}
+
 Many of the following assume some knowledge of the C programming
 language.  No individual book is followed directly, but all of these
 contain excellent background information, related content, and
 extension work.
 
 +-- {.section}
+
 
 General
 =======
@@ -603,18 +615,22 @@ different specific platforms).
 [interconnections]: http://portal.acm.org/citation.cfm?id=316181
 [algorithmics]: http://www.elsevier.com/wps/find/bookdescription.cws_home/704109/description
 
-=-- {.section}
-=-- {.summarise .hidden}
+=-- 
+
+=--
+
 
 External Links
 --------------
 
 +-- {.summarise .hidden}
+
 Note that these take you away from University of Nottingham pages.  I
 am not responsible for any of the content linked.  They generally
 contain material relevant to the topics covered.
 
 +-- {.section}
+
 Internet Administration
 -----------------------
 
@@ -671,5 +687,7 @@ Miscellaneous
 
 [routergod]: http://routergod.com/
 
-=-- {.section}
-=-- {.summarise .hidden}
+=-- 
+
+=--
+

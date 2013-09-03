@@ -27,8 +27,8 @@ Admin
 + [G52CCN][], the prerequisite course for this one
 
 [g52ccn]: http://www.cs.nott.ac.uk/~mvr/G52CCN/
-=-- {.summarise .hidden}
-=-- {.section}
+=--
+=--
 
 +-- {.section}
 Lectures
@@ -49,7 +49,7 @@ Lecture notes made available here for teaching purposes only.
 + Layering and encapsulation
 
 <br />
-=-- {.twocol-list}
+=--
 
 [Lecture 2](./lectures/02-InternetProtocol.pdf) **Internet Protocol**
 -----------
@@ -62,7 +62,7 @@ Lecture notes made available here for teaching purposes only.
 + Loss
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 
@@ -84,7 +84,7 @@ Lecture notes made available here for teaching purposes only.
 + Distance vector routing
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [OpenFlow](http://openflow.org/),
@@ -107,7 +107,7 @@ McQuillan *et al*,
 + Direct sequence
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 5](./lectures/05-Physical.pdf) **Physical**
@@ -121,7 +121,7 @@ McQuillan *et al*,
 + CRCs
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 6](./lectures/06-Optical.pdf) **Optical**
@@ -135,7 +135,7 @@ McQuillan *et al*,
 + Regeneration & Amplification
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 7](./lectures/07-Switching.pdf) **Switching**
@@ -149,7 +149,7 @@ McQuillan *et al*,
 + Blocking
 
 <br />
-=-- {.twocol-list}
+=--
 
 [Lecture 8](./lectures/08-Ethernet.pdf) **Ethernet**
 -----------
@@ -162,7 +162,7 @@ McQuillan *et al*,
 + Extensions
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [Tutorial on Bridges, Routers, Switches, Oh My!](http://www.nanog.org/meetings/nanog34/presentations/perlman.routers.pdf)
@@ -180,7 +180,7 @@ McQuillan *et al*,
 + ADSL
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 10](./lectures/10-Transport.pdf) **Transport**
@@ -195,7 +195,7 @@ McQuillan *et al*,
 + Reliability
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related: 
 [Scalable Stream Transport](http://ccr.sigcomm.org/online/?q=node/272)
@@ -216,7 +216,7 @@ McQuillan *et al*,
 + TCP friendliness
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 ### Related: 
@@ -241,7 +241,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + Extending TCP
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [End-to-end argument](http://doi.acm.org/10.1145/357401.357402) 
@@ -262,7 +262,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + DNSSEC outline
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 
@@ -277,7 +277,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + Consistency
 + Scaling
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related: 
 [Level3 vs. Cogent depeering](http://bit.ly/KxJRvv)
@@ -302,7 +302,7 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + BOSH
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 [Lecture 16](./lectures/16-Programming.pdf) **Programming**
@@ -315,12 +315,12 @@ visualization](http://research.swtch.com/2010/12/visualizing-tcp.html)
 + Cloud Computing Flavours
 
 <br />
-=-- {.twocol-list}
+=--
 
 
 
-=-- {.summarise .visible}
-=-- {.section}
+=--
+=--
 
 
 +-- {.section}
@@ -408,8 +408,8 @@ Suggestions
 References: [PyRT](http://github.com/mor1/pyrt)
 
 
-=-- {.summarise .hidden}
-=-- {.section}
+=--
+=--
 
 
 +-- {.section}
@@ -525,8 +525,8 @@ different specific platforms).
 [interconnections]: http://portal.acm.org/citation.cfm?id=316181
 [algorithmics]: http://www.elsevier.com/wps/find/bookdescription.cws_home/704109/description
 
-=-- {.summarise .hidden}
-=-- {.section}
+=--
+=--
 
 +-- {.section}
 External Links
@@ -587,5 +587,5 @@ product specs and manuals. Among the major players are [Cisco][] [Juniper][]
 [avaya]: http://avaya.com/
 [brocade]: http://brocade.com/
 
-=-- {.summarise .hidden}
-=-- {.section}
+=--
+=--

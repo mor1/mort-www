@@ -34,7 +34,7 @@ Practical constraints imposed by mobile/cloud dataflow architectures,
 and relationship to mobile telephony; The impact of market penetration
 and platform ecologies; Mechanisms for application purchase and
 deployment, and associated business models. 
-=-- {.summarise .hidden}
+=--
 
 Admin
 =====
@@ -51,8 +51,8 @@ are attempting to schedule a second lab session.  Assessment is by
 exam only, one paper.  There are no set texts for this module; links
 to pertinent material will be provided as the module progresses. 
             
-=-- {.summarise .hidden}
-=-- {.section}
+=--
+=--
 
 Lectures
 --------
@@ -89,7 +89,7 @@ PaaS, IaaS).
 + Physical Constraints
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [Data center density hits the wall?](http://bit.ly/qCsjsJ)
@@ -108,7 +108,7 @@ PaaS, IaaS).
 + Benefits
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [Why we moved off the cloud](http://bit.ly/sd8C5e)
@@ -129,7 +129,7 @@ PaaS, IaaS).
 + Naming
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [Current AT&T network latency](http://ipnetwork.bgtmo.ip.att.net/pws/network_delay.html)
@@ -147,7 +147,7 @@ PaaS, IaaS).
 + Scale: Facebook Messaging
 
 <br />
-=-- {.twocol-list}
+=--
 
 ### Related:
 [Eventually Consistent](http://bit.ly/qSIpxP)
@@ -174,8 +174,8 @@ Given by [Dr. Flintham][mdf-ccs].  This lecture continues with cloud
 development paradigms and the need for separation of concerns in particular.
 
 
-=-- {.summarise .visible}
-=-- {.section}
+=--
+=--
 
 Labs
 ----
@@ -227,8 +227,8 @@ Using the _[Twitter Search API](http://search.twitter.com/)_, a simple example
 of how to build a GAE application that makes use of a third-party webservice.
 
 
-=-- {.summarise .visible}
-=-- {.section}
+=--
+=--
 
 
 [lec01]: http://www.cs.nott.ac.uk/~mdf/g54ccs/g54ccs_lecture01_handouts.pdf
