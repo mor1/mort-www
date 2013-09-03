@@ -51,7 +51,7 @@ Material related to the level 4 Connected Computing at Scale course.
 
 [2011](g54ccs/2011)
 
-=-- {.section}
+=--
 
 
 General
@@ -220,6 +220,7 @@ Networking
 + [Brief tutorial to raw sockets programming](http://mixter.void.ru/rawip.html)
 + [Computer Networking: Principles, Protocols and Practice](http://inl.info.ucl.ac.be/CNP3) 
 + [Networking Conference Statistics](http://www.cs.ucsb.edu/~almeroth/conf/stats/)
++ [Wireless Networking in the Developing World, 3rd Edition](http://wndw.net/)
 
 Operating Systems
 -----------------
