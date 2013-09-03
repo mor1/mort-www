@@ -80,16 +80,17 @@ tabbed = (content...) ->
 module = (m) ->
   code = if m.url? and m.url.length > 0 then link m.code, m.url else m.code
   colour = switch m.theme
-    when "SE" then "red"
-    when "FCS" then "blue"
-    when "OSA" then "teal"
-    when "PR" then "purple"
-    when "NCC" then "orange"
-    when "AI" then "green"
-    when "HCI" then "pink"
-    when "MO" then "grey"
-    when "GV" then "lightblue"
-    when "PJ" then "brown"
+    # http://gamedev.stackexchange.com/questions/46463/is-there-an-optimum-set-of-colors-for-10-players
+    when "SE" then "red"        # FF0000
+    when "FCS" then "blue"      # 0000FF
+    when "OSA" then "teal"      # 008080
+    when "PR" then "purple"     # 800080
+    when "NCC" then "orange"    # FFA500
+    when "AI" then "green"      # 00FF00
+    when "HCI" then "pink"      # FAAFBE
+    when "MO" then "grey"       # 736F6E
+    when "GV" then "lightblue"  # ADD8E6
+    when "PJ" then "brown"      # A52A2A
     else ""
 
   badge = if m.theme? then small {},
