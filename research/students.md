@@ -23,6 +23,10 @@ Sultan Almani (2012), co-supervised with [Prof. Derek McAuley][mac].
 Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom]. 
 Securing the domestic network.
  
+Liz Dowthwaite (2012), co-supervised with [Dr. Robert Houghton][rob]. 
+Social networks around web comics.
+
+
 Marjan Falahrastegar (2012) at Queen Mary, University of London, co-supervised
 with [Prof. Steve Uhlig][uhlig] and [Dr. Hamed Haddadi][hamed].
  
@@ -34,6 +38,8 @@ Investigating markets in personal data.
 
 Robert Spencer (2011), co-supervised with [Prof. Tom Rodden][tom]. 
 History and reconciliation in domestic network configuration.
+
+
 
 Completed
 ---------
@@ -48,3 +54,4 @@ W. Moore and Miguel Rio.
 [tom]: http://www.cs.nott.ac.uk/~tar/
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
 [mac]: http://www.cs.nott.ac.uk/~drm/
+[rob]: http://www.nottingham.ac.uk/engineering/people/robert.houghton
