@@ -27,7 +27,7 @@ MIRROR = rsync -rvz --rsh=ssh --delete
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
-site: css js
+site: css js papers/papers.json
 	$(JEKYLL) build
 
 clean:
@@ -52,6 +52,12 @@ deploy: css js
 	$(JEKYLL) build
 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
 	git checkout -- _config.yml css/screen.css
+
+papers/papers.json: $(wildcard ~/research/papers/my-bibs/rmm-*.bib)
+	~/src/python-scripts.git/bib2json.py \
+	  -s ~/research/papers/my-bibs/strings.bib \
+	  ~/research/papers/my-bibs/rmm-[cjptw]*.bib \
+	 >| papers/papers.json
 
 js/%.js: _coffee/%.coffee
 	$(COFFEE) -c -o js $< 
