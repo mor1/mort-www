@@ -18,14 +18,13 @@ Training Centre here at Nottingham.
 Current
 -------
 
-Sultan Almani (2012), co-supervised with [Prof. Derek McAuley][mac].
+Sultan Alanazi (2012), co-supervised with [Prof. Derek McAuley][mac]. Recommendation systems using rich personal data.
 
 Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom]. 
 Securing the domestic network.
  
 Liz Dowthwaite (2012), co-supervised with [Dr. Robert Houghton][rob]. 
 Social networks around web comics.
-
 
 Marjan Falahrastegar (2012) at Queen Mary, University of London, co-supervised
 with [Prof. Steve Uhlig][uhlig] and [Dr. Hamed Haddadi][hamed].
@@ -46,7 +45,7 @@ Completed
 
 [Dr. Hamed Haddadi][hamed], UCL. Graduated 2008. Dissertation titled
 "Topological Characteristics of IP Networks". Invited to join Hamed's
-supervision team while I was at Microsoft, my co-supervisors were Drs. Andrew
+supervision team while I was at Microsoft, my co-supervisors were Drs Andrew
 W. Moore and Miguel Rio.
 
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
