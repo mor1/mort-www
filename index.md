@@ -53,12 +53,7 @@ I am currently available for consultancy and selected development work.
 Contact
 =======
 
-I am either in office C13 in the [School of Computer Science][cs] or (now)
-occasionally in C12B in the [Nottingham Geospatial Building][map]. I can be
-contacted by email (preferred) at <mailto:richard.mortier@nottingham.ac.uk>,
-or by phone on +44 115 823 2552 (once my phone is actually moved to the new
-office). I am online at [about.me][], [cardcloud][], [twitter][], [github][],
-[linkedin][], and [facebook][]. My Erd&#x0151;s number appears to be 3.
+I am either in office C13 in the [School of Computer Science][cs] or (now) occasionally in C12B in the [Nottingham Geospatial Building][map]. I can be contacted by email (preferred) at <mailto:richard.mortier@nottingham.ac.uk>, or by phone on +44 115 823 2552. I am online at [about.me][], [cardcloud][], [twitter][], [github][], [linkedin][], and [facebook][]. My Erd&#x0151;s number appears to be 3.
 
 [map]: uk/maps?q=Horizon&hl=en&sll=52.951846,-1.183863&sspn=0.011002,0.017724&t=k&hq=Horizon&z=16
 [twitter]: http://twitter.com/mort___
