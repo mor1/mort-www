@@ -44,7 +44,7 @@ js: $(JSS)
 test: css js
 	$(JEKYLL) serve --watch
 
-deploy: css js
+deploy: js
 	sed 's!@BASEURL@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
 	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;\
 	 	s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
