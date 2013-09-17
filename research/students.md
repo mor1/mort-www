@@ -32,6 +32,8 @@ with [Prof. Steve Uhlig][uhlig] and [Dr. Hamed Haddadi][hamed].
 Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. 
 Understanding consent in ubiquitous computing.
 
+Dominic Price (2013), co-supervised with [Prof. Chris Greenhalgh][chris].
+
 Jianhua Shao (2010), co-supervised with [Dr. George Kuk][george].
 Investigating markets in personal data.
 
@@ -54,3 +56,4 @@ W. Moore and Miguel Rio.
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
 [mac]: http://www.cs.nott.ac.uk/~drm/
 [rob]: http://www.nottingham.ac.uk/engineering/people/robert.houghton
+[chris]: http://www.mrl.nott.ac.uk/~cmg/
