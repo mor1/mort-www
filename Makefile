@@ -32,7 +32,7 @@ site: css js papers/papers.json
 
 clean:
 	$(RM) -r _site css/screen.css
-	$(RM) $(JSS)
+	$(RM) $(JSS) $(wildcard _coffee/*.js)
 	git checkout -- _config.yml css/screen.css
 
 css: css/screen.css
