@@ -15,6 +15,6 @@ js: [tt]
 
 <script type="text/javascript">
   $(window).load(function () {
-    window.tt.fetch('../tt.json').render("#tt");
+    window.tt.fetch('../modules.json').render("#tt");
   });
 </script>
