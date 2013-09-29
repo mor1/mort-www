@@ -26,7 +26,11 @@ line {
 }
 
 text.active {
-  fill: red;
+  font-weight: bold;
+}
+
+text.inactive {
+  fill: #BBB;
 }
 
 body {

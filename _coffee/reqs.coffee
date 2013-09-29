@@ -84,8 +84,21 @@ reqs =
                 .attr("height", x.rangeBand())
                 .style("fill", (d) -> switch d.z
                   when 1 then "orange"
-                  when 2 then "red"))
-
+                  when 2 then "red")
+                .on("mouseover", (p) ->
+                  d3.selectAll(".row text")
+                    .classed("active", (d, i) -> i == p.y)
+                    .classed("inactive", (d, i) -> i != p.y)
+                  d3.selectAll(".column text")
+                    .classed("active", (d, i) -> i == p.x)
+                    .classed("inactive", (d, i) -> i != p.x)
+                  ) 
+                .on("mouseout", () ->
+                  d3.selectAll("text")
+                    .classed("active", false)
+                    .classed("inactive", false)
+                  ))
+                
       row.append("line")
         .attr("x2", width)
 
