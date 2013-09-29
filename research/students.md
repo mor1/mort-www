@@ -23,18 +23,20 @@ Sultan Alanazi (2012), co-supervised with [Prof. Derek McAuley][mac]. Recommenda
 Anthony Brown (2010), co-supervised with [Prof. Tom Rodden][tom]. 
 Securing the domestic network.
  
-Liz Dowthwaite (2012), co-supervised with [Dr. Robert Houghton][rob]. 
+Liz Dowthwaite (2012), co-supervised with [Dr Robert Houghton][rob]. 
 Social networks around web comics.
 
 Marjan Falahrastegar (2012) at Queen Mary, University of London, co-supervised
-with [Prof. Steve Uhlig][uhlig] and [Dr. Hamed Haddadi][hamed].
+with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].
  
 Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. 
 Understanding consent in ubiquitous computing.
 
+Stephen Luland (2013), co-supervised with [Prof. Derek McAuley][mac].
+
 Dominic Price (2013), co-supervised with [Prof. Chris Greenhalgh][chris].
 
-Jianhua Shao (2010), co-supervised with [Dr. George Kuk][george].
+Jianhua Shao (2010), co-supervised with [Dr George Kuk][george].
 Investigating markets in personal data.
 
 Robert Spencer (2011), co-supervised with [Prof. Tom Rodden][tom]. 
@@ -45,7 +47,7 @@ History and reconciliation in domestic network configuration.
 Completed
 ---------
 
-[Dr. Hamed Haddadi][hamed], UCL. Graduated 2008. Dissertation titled
+[Dr Hamed Haddadi][hamed], UCL. Graduated 2008. Dissertation titled
 "Topological Characteristics of IP Networks". Invited to join Hamed's
 supervision team while I was at Microsoft, my co-supervisors were Drs Andrew
 W. Moore and Miguel Rio.
