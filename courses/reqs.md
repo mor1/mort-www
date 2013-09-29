@@ -3,6 +3,7 @@ layout: plain
 stylesheet: [courses]
 title: programmes, 2013/14
 js: [d3.v3.min, reqs]
+ns: ['xmlns:xlink="http://www.w3.org/1999/xlink"']
 ---
 
 <style>

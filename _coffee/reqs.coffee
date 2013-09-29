@@ -102,12 +102,15 @@ reqs =
       row.append("line")
         .attr("x2", width)
 
-      row.append("text")
-        .attr("x", -6)
-        .attr("y", x.rangeBand() / 2)
-        .attr("dy", ".32em")
-        .attr("text-anchor", "end")
-        .text((d, i) -> nodes[i].code)
+      row.append("svg:a")
+          .attr("target", "_blank")
+          .attr("xlink:xlink:href", (d, i) -> nodes[d[i].x].url)
+        .append("text")
+          .attr("x", -6)
+          .attr("y", x.rangeBand() / 2)
+          .attr("dy", ".32em")
+          .attr("text-anchor", "end")
+          .text((d, i) -> nodes[i].code)
 
       column = svg.selectAll(".column")
           .data(matrix)
@@ -118,12 +121,15 @@ reqs =
       column.append("line")
         .attr("x1", -width);
 
-      column.append("text")
-        .attr("x", 6)
-        .attr("y", x.rangeBand() / 2)
-        .attr("dy", ".32em")
-        .attr("text-anchor", "start")
-        .text((d, i) -> nodes[i].code)
+      column.append("svg:a")
+          .attr("target", "_blank")
+          .attr("xlink:xlink:href", (d, i) -> nodes[i].url)
+        .append("text")
+          .attr("x", 6)
+          .attr("y", x.rangeBand() / 2)
+          .attr("dy", ".32em")
+          .attr("text-anchor", "start")
+          .text((d, i) -> nodes[i].code)
 
 
   # Hive: (tgt) ->
