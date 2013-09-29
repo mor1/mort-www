@@ -31,7 +31,7 @@ reqs =
       .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .style("margin-left", "#{-margin.left}PX")
+        .style("margin-left", "#{-margin.left}px")
       .append("g")
         .attr("transform", "translate(#{margin.left}, #{margin.top})")
 
@@ -62,25 +62,22 @@ reqs =
         .attr("height", height);
 
       row = svg.selectAll(".row")
-          ## the data we're plotting: the matrix
-          .data(matrix) 
+          .data(matrix)
         .enter().append("g")
-          ## each row translated on the y-axis ~ its range
           .attr("class", "row")
           .attr("transform", (d, i) -> "translate(0,#{x(i)})")
           .each(
-            (row) -> cell = d3.select(this).selectAll(".cell")
+            (row) ->
+              cell = d3.select(this).selectAll(".cell")
                 .data(row.filter((d) -> d.z))
               .enter().append("rect")
-                ## turn the selected cells black
                 .attr("class", "cell")
                 .attr("x", (d) -> x(d.x))
                 .attr("width", x.rangeBand())
                 .attr("height", x.rangeBand())
-                .style("fill", "red")
-                .style("fill-opacity", (d) -> switch d.z
-                  when 1 then 0.3
-                  when 2 then 1))
+                .style("fill", (d) -> switch d.z
+                  when 1 then "green"
+                  when 2 then "red"))
 
       row.append("line")
         .attr("x2", width)
@@ -107,8 +104,6 @@ reqs =
         .attr("dy", ".32em")
         .attr("text-anchor", "start")
         .text((d, i) -> nodes[i].code)
-        
- 
 
 
   # Hive: (tgt) ->
