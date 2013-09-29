@@ -36,7 +36,7 @@ body {
 </style>
 
 <div id="reqs">
-  Loading...
+  <p>Loading...</p>
 </div>
 
 <script type="text/javascript">

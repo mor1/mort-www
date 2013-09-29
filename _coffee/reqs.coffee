@@ -27,14 +27,15 @@ reqs =
  
     x = d3.scale.ordinal().rangeBands([0, width], 0.1, 0)
 
+    d3.select("#{tgt} > p").remove()
+    
     svg = d3.select(tgt)
-      .append("svg")
+      .insert("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .style("margin-left", "#{-margin.left}px")
       .append("g")
         .attr("transform", "translate(#{margin.left}, #{margin.top})")
-
+      
     d3.json "../modules.json", (modules) ->
       matrix = []
       nodes = modules.modules
@@ -82,7 +83,7 @@ reqs =
                 .attr("width", x.rangeBand())
                 .attr("height", x.rangeBand())
                 .style("fill", (d) -> switch d.z
-                  when 1 then "green"
+                  when 1 then "orange"
                   when 2 then "red"))
 
       row.append("line")
