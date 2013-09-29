@@ -43,7 +43,9 @@ reqs =
       n = nodes.length
  
       x.domain(d3.range(n))
-
+      unseen = {}
+      d3.range(n).forEach (_, i) -> unseen[i] = 0 
+      
       index = {}
       nodes.forEach (v, i) ->
         index[v.code] = i
@@ -53,9 +55,13 @@ reqs =
       nodes.forEach (v, i) ->
         v.coreqs.filter((v) -> v of index).forEach (o, j) ->          
           matrix[i][index[o]].z = 1
+          delete unseen[i] if i of unseen
+          delete unseen[index[o]] if index[o] of unseen
         v.prereqs.filter((v) -> v of index).forEach (o, j) ->
           matrix[i][index[o]].z = 2
-            
+          delete unseen[i] if i of unseen
+          delete unseen[index[o]] if index[o] of unseen
+
       svg.append("rect")
         .attr("class", "background")
         .attr("width", width)
