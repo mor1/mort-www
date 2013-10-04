@@ -104,7 +104,8 @@ reqs =
 
       row.append("svg:a")
           .attr("target", "_blank")
-          .attr("xlink:xlink:href", (d, i) -> nodes[d[i].x].url)
+          ## HACK why do we need to duplicate the namespace?
+          .attr("xlink:xlink:href", (d, i) -> nodes[i].url)
         .append("text")
           .attr("x", -6)
           .attr("y", x.rangeBand() / 2)
