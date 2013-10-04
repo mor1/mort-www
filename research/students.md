@@ -32,7 +32,7 @@ with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].
 Ewa Luger (2009), co-supervised with [Prof. Tom Rodden][tom]. 
 Understanding consent in ubiquitous computing.
 
-Stephen Luland (2013), co-supervised with [Prof. Derek McAuley][mac].
+Steven Luland (2013), co-supervised with [Prof. Derek McAuley][mac].
 
 Dominic Price (2013), co-supervised with [Prof. Chris Greenhalgh][chris].
 
@@ -54,8 +54,8 @@ W. Moore and Miguel Rio.
 
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
 [uhlig]: http://www.eecs.qmul.ac.uk/~steve/
-[tom]: http://www.cs.nott.ac.uk/~tar/
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
-[mac]: http://www.cs.nott.ac.uk/~drm/
 [rob]: http://www.nottingham.ac.uk/engineering/people/robert.houghton
-[chris]: http://www.mrl.nott.ac.uk/~cmg/
+[tom]: http://www.cs.nott.ac.uk/~tar/
+[mac]: http://www.cs.nott.ac.uk/~drm/
+[chris]: http://www.cs.nott.ac.uk/~cmg/
