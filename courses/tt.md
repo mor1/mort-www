@@ -1,7 +1,7 @@
 ---
 layout: plain
 stylesheet: [courses]
-title: timetable, 2012/13
+title: timetable, 2013/14
 js: [tt]
 ---
 
