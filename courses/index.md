@@ -14,6 +14,8 @@ Note that:
 + all single honours BSc programmes _except GN42 Computer Science and Management Studies_ (i.e., G400, G4G7, G601) currently have a common year 1; and
 + the single honours MSci programmes (G404, G4G1) follow the same course structures as their respective BSc programmes (G400, G4G7) for years 1 & 2.
 
+[Please contact me](mailto:richard.mortier@nottingham.ac.uk) with any queries.
+
 =--
 
 <div class="offset1 span10">

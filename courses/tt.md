@@ -7,6 +7,13 @@ js: [tt]
 
 # Module Timetable<br /><small>School of Computer Science</small>
 
++-- {.lead .span10 .offset1}
+
+Simple collation of timetable entries for CS modules. Not definitive -- consult the University Timetable for definitive details.
+
+[Please contact me](mailto:richard.mortier@nottingham.ac.uk) with any queries.
+
+=--
 
 <div id="tt">
   Loading...
