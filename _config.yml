@@ -2,6 +2,7 @@ safe: true
 exclude: [_less, _coffee]
 lsi: false
 permalink: pretty
+pygments: true
 
 baseurl: /
 analytics_id: UA-15796259-1
