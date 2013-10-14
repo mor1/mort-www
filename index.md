@@ -5,9 +5,9 @@ title: home
 parent: mort
 ---
 
-<img class='inset right' 
-     src='{{site.baseurl}}img/mort.png' 
-     title='Richard Mortier' 
+<img class='inset right'
+     src='{{site.baseurl}}img/mort.png'
+     title='Richard Mortier'
      alt='Photo of Richard Mortier' height='100px' />
 
 Hello!
@@ -29,7 +29,9 @@ And, for the first time, the beginnings of a simple blog:
   {% for post in site.posts limit: 5 %}
     <li>
       {{ post.date | date: "%Y-%m-%d" }}
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ site.baseurl }}{{ post.url | remove_first:'/' }}">
+        {{ post.title }}
+      </a>
     </li>
   {% endfor %}
 </ul>
@@ -38,7 +40,7 @@ And, for the first time, the beginnings of a simple blog:
 
 
 Expertise
-========= 
+=========
 
 My [research](research) spans a range of topics, all with a networked
 systems angle.  I have worked on topics from distributed system
