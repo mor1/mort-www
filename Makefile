@@ -1,4 +1,4 @@
-# Copyright (C) 2012 Richard Mortier <mort@cantab.net>.  
+# Copyright (C) 2012 Richard Mortier <mort@cantab.net>.
 # All Rights Reserved.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -47,8 +47,8 @@ test: css js
 deploy: js
 	sed 's!@BASEURL@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
 	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;\
-	 	s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
-                _config.yml
+		s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
+				_config.yml
 	$(JEKYLL) build
 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
 	git checkout -- _config.yml css/screen.css
@@ -60,4 +60,4 @@ papers/papers.json: $(wildcard ~/research/papers/my-bibs/rmm-*.bib)
 	 >| papers/papers.json
 
 js/%.js: _coffee/%.coffee
-	$(COFFEE) -c -o js $< 
+	$(COFFEE) -c -o js $<
