@@ -23,6 +23,17 @@ based here in the [University of Nottingham][nottingham]
 [cs]: http://www.cs.nott.ac.uk/
 [nsg]: http://nsg.cs.nott.ac.uk/
 
+And, for the first time, the beginnings of a simple blog:
+
+<ul>
+  {% for post in site.posts limit: 5 %}
+    <li>
+      {{ post.date | date: "%Y-%m-%d" }}
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 +-- {.section}
 
 
