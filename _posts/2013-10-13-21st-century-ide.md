@@ -3,15 +3,21 @@ title: A 21st Century IDE
 layout: default
 ---
 
-# A 21st Century IDE
+# A 21st Century IDE<br /><small>Merlin, Tuareg and <code>ocp-indent</code></small>
 
 I finally decided to sit down and get the shiny new [merlin][] mode for OCaml working with my emacs configuration. Basically, really rather simple in the end although (in the usual fashion!) I did end up spending considerable time tweaking various other customisations...
+
+Most of the information below is based on the following sources:
+
++ <http://github.com/def-lkb/merlin#emacs-interface>
++ <http://zheng.li/buzzlogs-ocaml/2013/08/23/irc.html>
++ <http://www.ocamlpro.com/blog/2013/03/18/monthly-03.html>
 
 Before we begin, install `merlin`:
 
     $ opam install merlin
 
-The complete [commit][] change is in my [github][] account (combined with a large cleanup of various other aborted OCaml configurations). Breaking it down a bit, first setup some paths: where to find `ocp-indent`,  `merlin.el` for `merlin-mode`, and the `ocamlmerlin` command itself.
+The complete [commit][] change is in my [github][] account (combined with a large cleanup of various other aborted OCaml configurations). Breaking it down a bit, first setup some paths: where to find `ocp-indent`,  `merlin.el` for `merlin-mode`, and the `ocamlmerlin` command itself. Note that this relies on the current state of `opam`, so when you start `emacs` be sure to have selected the `opam` compiler-switch that you installed the `merlin` package into, above.
 
 {% highlight common-lisp %}
 ;; ocp-indent
@@ -35,7 +41,7 @@ The complete [commit][] change is in my [github][] account (combined with a larg
 (autoload 'merlin-mode "merlin" "Merlin mode" t)
 {% endhighlight %}
 
-Now the meat: when we select `tuareg-mode`, use `ocp-indent` to indent lines, turn on `merlin` auto-complete, and finally set a couple of local key bindings so that I can fix up `merlin` to not conflict with my neurologically-hardwired navigation keys.
+Now the meat: when we select `tuareg-mode`, use `ocp-indent` to indent lines, turn on `merlin` auto-complete, and finally set a couple of local key bindings so that I can fix up `merlin` to not conflict with my now-neurologically-hardwired navigation keys.
 
 {% highlight common-lisp %}
 (add-hook 'tuareg-mode-hook
