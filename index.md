@@ -29,7 +29,7 @@ And, for the first time, the beginnings of a simple blog:
   {% for post in site.posts limit: 5 %}
     <li>
       {{ post.date | date: "%Y-%m-%d" }}
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
