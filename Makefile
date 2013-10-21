@@ -53,10 +53,10 @@ deploy: js
 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
 	git checkout -- _config.yml css/screen.css
 
-papers/papers.json: $(wildcard ~/research/papers/my-bibs/rmm-*.bib)
-	~/src/python-scripts.git/bib2json.py \
-	  -s ~/research/papers/my-bibs/strings.bib \
-	  ~/research/papers/my-bibs/rmm-[cjptw]*.bib \
+papers/papers.json: $(wildcard ~/me/bibs/rmm-*.bib)
+	~/src/python-scripts/bib2json.py \
+	  -s ~/me/bibs/strings.bib \
+	  ~/me/bibs/rmm-[cjptw]*.bib \
 	 >| papers/papers.json
 
 js/%.js: _coffee/%.coffee
