@@ -22,7 +22,7 @@ CS_ROOT=/~rmm/
 
 COFFEE = coffee
 JEKYLL = jekyll --trace
-MIRROR = rsync -rvz --rsh=ssh --delete
+MIRROR = rsync -rvz --rsh=ssh --delete --progress
 
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
