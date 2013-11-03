@@ -15,7 +15,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
 # USA.
 
-.PHONY: clean css site js test deploy
+.PHONY: clean css site js test deploy papers
 
 GH_ROOT=/
 CS_ROOT=/~rmm/
@@ -27,7 +27,7 @@ MIRROR = rsync -rvz --rsh=ssh --delete
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
-site: css js papers/papers.json
+site: css js papers
 	$(JEKYLL) build
 
 clean:
@@ -46,17 +46,18 @@ test: css js
 
 deploy: js
 	sed 's!@BASEURL@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
-	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;\
+	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;					\
 		s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
-				_config.yml
+			_config.yml
 	$(JEKYLL) build
 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
 	git checkout -- _config.yml css/screen.css
 
+papers: papers/papers.json
 papers/papers.json: $(wildcard ~/me/bibs/rmm-*.bib)
-	~/src/python-scripts/bib2json.py \
-	  -s ~/me/bibs/strings.bib \
-	  ~/me/bibs/rmm-[cjptw]*.bib \
+	~/src/python-scripts/bib2json.py			\
+	  -s ~/me/bibs/strings.bib					\
+	  ~/me/bibs/rmm-[cjptwu]*.bib				\
 	 >| papers/papers.json
 
 js/%.js: _coffee/%.coffee
