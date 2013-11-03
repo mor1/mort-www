@@ -21,7 +21,7 @@ GH_ROOT=/
 CS_ROOT=/~rmm/
 
 COFFEE = coffee
-JEKYLL = jekyll
+JEKYLL = jekyll --trace
 MIRROR = rsync -rvz --rsh=ssh --delete
 
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
