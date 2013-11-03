@@ -1,7 +1,7 @@
 ---
 layout: plain
 stylesheet: [courses]
-title: programmes, 2013/14
+title: undergraduate programmes, 2013/14
 js: [courses]
 ---
 
