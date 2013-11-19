@@ -179,11 +179,17 @@ theme_summary = (ms) ->
   for m in ms.part_q.o
     summary.O0[m.theme] += parseInt(m.credits, 10)
     summary.O0.t += parseInt(m.credits, 10)
+  for m in ms.part_q.a
+    summary.O0[m.theme] += parseInt(m.credits, 10)
+    summary.O0.t += parseInt(m.credits, 10)
 
   for m in ms.part_i.c
     summary.C1[m.theme] += parseInt(m.credits, 10)
     summary.C1.t += parseInt(m.credits, 10)
   for m in ms.part_i.o
+    summary.O1[m.theme] += parseInt(m.credits, 10)
+    summary.O1.t += parseInt(m.credits, 10)
+  for m in ms.part_i.a
     summary.O1[m.theme] += parseInt(m.credits, 10)
     summary.O1.t += parseInt(m.credits, 10)
 
@@ -193,6 +199,9 @@ theme_summary = (ms) ->
   for m in ms.part_ii.o
     summary.O2[m.theme] += parseInt(m.credits, 10)
     summary.O2.t += parseInt(m.credits, 10)
+  for m in ms.part_ii.a
+    summary.O2[m.theme] += parseInt(m.credits, 10)
+    summary.O2.t += parseInt(m.credits, 10)
 
   for m in ms.part_iii.c
     summary.C3[m.theme] += parseInt(m.credits, 10)
@@ -200,11 +209,17 @@ theme_summary = (ms) ->
   for m in ms.part_iii.o
     summary.O3[m.theme] += parseInt(m.credits, 10)
     summary.O3.t += parseInt(m.credits, 10)
+  for m in ms.part_iii.a
+    summary.O3[m.theme] += parseInt(m.credits, 10)
+    summary.O3.t += parseInt(m.credits, 10)
 
   for m in ms.part_pg.c
     summary.C4[m.theme] += parseInt(m.credits, 10)
     summary.C4.t += parseInt(m.credits, 10)
   for m in ms.part_pg.o
+    summary.O4[m.theme] += parseInt(m.credits, 10)
+    summary.O4.t += parseInt(m.credits, 10)
+  for m in ms.part_pg.a
     summary.O4[m.theme] += parseInt(m.credits, 10)
     summary.O4.t += parseInt(m.credits, 10)
 
