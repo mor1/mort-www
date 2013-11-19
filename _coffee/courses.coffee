@@ -55,6 +55,20 @@ hd = (n, o, s) -> wrap "h#{n}", s, o
 link = (s, u) -> """<a href="#{u}">#{s}</a>"""
 tab = (s, u) -> """<a href="#{u}" data-toggle="tab">#{s}</a>"""
 
+themes = {
+  # http://gamedev.stackexchange.com/questions/46463/is-there-an-optimum-set-of-colors-for-10-players
+  SE: "red",        # FF0000
+  FCS: "blue",      # 0000FF
+  OSA: "teal",      # 008080
+  PR: "purple",     # 800080
+  NCC: "orange",    # FFA500
+  AI: "green",      # 00FF00
+  HCI: "pink",      # FAAFBE
+  MO: "grey",       # 736F6E
+  GV: "lightblue",  # ADD8E6
+  PJ: "brown",      # A52A2A
+  }
+
 ## increase legibility
 abbrev = (s) -> s
   .replace(/Bachelor of Science/i, "BSc")
@@ -79,19 +93,7 @@ tabbed = (content...) ->
 
 module = (m) ->
   code = if m.url? and m.url.length > 0 then link m.code, m.url else m.code
-  colour = switch m.theme
-    # http://gamedev.stackexchange.com/questions/46463/is-there-an-optimum-set-of-colors-for-10-players
-    when "SE" then "red"        # FF0000
-    when "FCS" then "blue"      # 0000FF
-    when "OSA" then "teal"      # 008080
-    when "PR" then "purple"     # 800080
-    when "NCC" then "orange"    # FFA500
-    when "AI" then "green"      # 00FF00
-    when "HCI" then "pink"      # FAAFBE
-    when "MO" then "grey"       # 736F6E
-    when "GV" then "lightblue"  # ADD8E6
-    when "PJ" then "brown"      # A52A2A
-    else ""
+  colour = if themes[m.theme] then themes[m.theme] else ""
 
   badge = if m.theme? then small {},
       (span {cl:"badge #{colour}", literal:'style="letter-spacing:1px"'},
@@ -158,6 +160,132 @@ part = (pt) ->
 is_4yearug = (c) ->
   c?.modules.part_iii.o.length != 0 || c?.modules.part_iii.c.length != 0
 
+theme_summary = (ms) ->
+  summary = {
+    C0: {t:0}, O0: {t:0},
+    C1: {t:0}, O1: {t:0},
+    C2: {t:0}, O2: {t:0},
+    C3: {t:0}, O3: {t:0},
+    C4: {t:0}, O4: {t:0},
+  }
+
+  for t of themes
+    for k of summary
+      summary[k][t] = 0
+
+  for m in ms.part_q.c
+    summary.C0[m.theme] += parseInt(m.credits, 10)
+    summary.C0.t += parseInt(m.credits, 10)
+  for m in ms.part_q.o
+    summary.O0[m.theme] += parseInt(m.credits, 10)
+    summary.O0.t += parseInt(m.credits, 10)
+
+  for m in ms.part_i.c
+    summary.C1[m.theme] += parseInt(m.credits, 10)
+    summary.C1.t += parseInt(m.credits, 10)
+  for m in ms.part_i.o
+    summary.O1[m.theme] += parseInt(m.credits, 10)
+    summary.O1.t += parseInt(m.credits, 10)
+
+  for m in ms.part_ii.c
+    summary.C2[m.theme] += parseInt(m.credits, 10)
+    summary.C2.t += parseInt(m.credits, 10)
+  for m in ms.part_ii.o
+    summary.O2[m.theme] += parseInt(m.credits, 10)
+    summary.O2.t += parseInt(m.credits, 10)
+
+  for m in ms.part_iii.c
+    summary.C3[m.theme] += parseInt(m.credits, 10)
+    summary.C3.t += parseInt(m.credits, 10)
+  for m in ms.part_iii.o
+    summary.O3[m.theme] += parseInt(m.credits, 10)
+    summary.O3.t += parseInt(m.credits, 10)
+
+  for m in ms.part_pg.c
+    summary.C4[m.theme] += parseInt(m.credits, 10)
+    summary.C4.t += parseInt(m.credits, 10)
+  for m in ms.part_pg.o
+    summary.O4[m.theme] += parseInt(m.credits, 10)
+    summary.O4.t += parseInt(m.credits, 10)
+
+  format = (k, v) ->
+    (span {cl:"badge #{themes[k]}", literal:'style="letter-spacing:1px"'},
+      "#{k}: #{v}")
+
+  (small {cl: "muted"},
+    (table {cl: "table table-condensed table-striped"},
+      (thead {}, "") +
+      (tbody {},
+        (tr {},
+          (if summary.C0.t == 0 then "" else
+            (td {}, "Year 1") +
+            (td {}, "compulsory") +
+            (td {},
+              (format k, summary.C0[k] for k of themes when summary.C0[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.O0.t == 0 then "" else
+            (td {}, "") +
+            (td {}, "optional") +
+            (td {},
+              (format k, summary.O0[k] for k of themes when summary.O0[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.C1.t == 0 then "" else
+            (td {}, "Year 2") +
+            (td {}, "compulsory") +
+            (td {},
+              (format k, summary.C1[k] for k of themes when summary.C1[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.O1.t == 0 then "" else
+            (td {}, "") +
+            (td {}, "optional") +
+            (td {},
+              (format k, summary.O1[k] for k of themes when summary.O1[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.C2.t == 0 then "" else
+            (td {}, "Year 3") +
+            (td {}, "compulsory") +
+            (td {},
+              (format k, summary.C2[k] for k of themes when summary.C2[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.O2.t == 0 then "" else
+            (td {}, "") +
+            (td {}, "optional") +
+            (td {},
+              (format k, summary.O2[k] for k of themes when summary.O2[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.C3.t == 0 then "" else
+            (td {}, "Year 4") +
+            (td {}, "compulsory") +
+            (td {},
+              (format k, summary.C3[k] for k of themes when summary.C3[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.O3.t == 0 then "" else
+            (td {}, "Year 4") +
+            (td {}, "optional") +
+            (td {},
+              (format k, summary.O3[k] for k of themes when summary.O3[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.C4.t == 0 then "" else
+            (td {}, "compulsory") +
+            (td {},
+              (format k, summary.C4[k] for k of themes when summary.C4[k] > 0).join(" ")
+              ))) +
+        (tr {},
+          (if summary.O4.t == 0 then "" else
+            (td {}, "optional") +
+            (td {},
+              (format k, summary.O4[k] for k of themes when summary.O4[k] > 0).join(" ")
+              )))
+      )))
+
 courses =
   fetch: (url) ->
     _promises.push $.Deferred (promise) ->
@@ -186,7 +314,9 @@ courses =
             """#{course.type}, #{course.mode}"""
 
         title = title.replace(/MSc/, "MSci") if is_4yearug course
-        aims = div "aims", course.aims.replace(/|/g, "")
+        aims = div "aims",
+          course.aims.replace(/|/g, "") +
+          (theme_summary course.modules)
 
         modules = (ms) ->
           if ms.o.length > 0 || ms.c.length > 0
