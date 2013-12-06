@@ -1,9 +1,4 @@
----
-title: A 21st Century IDE
-layout: default
----
-
-# A 21st Century IDE<br /><small>Merlin, Tuareg and <code>ocp-indent</code></small>
+# <small>Merlin, Tuareg and <code>ocp-indent</code></small>
 
 I finally decided to sit down and get the shiny new [merlin][] mode for OCaml working with my emacs configuration. Basically, really rather simple in the end although (in the usual fashion!) I did end up spending considerable time tweaking various other customisations...
 
@@ -19,47 +14,41 @@ Before we begin, install `merlin`:
 
 The complete [commit][] change is in my [github][] account (combined with a large cleanup of various other aborted OCaml configurations). Breaking it down a bit, first setup some paths: where to find `ocp-indent`,  `merlin.el` for `merlin-mode`, and the `ocamlmerlin` command itself. Note that this relies on the current state of `opam`, so when you start `emacs` be sure to have selected the `opam` compiler-switch that you installed the `merlin` package into, above.
 
-{% highlight common-lisp %}
-;; ocp-indent
-(load-file (concat
-            (substring (shell-command-to-string "opam config var prefix") 0 -1)
-            "/share/typerex/ocp-indent/ocp-indent.el"
-            ))
+    ;; ocp-indent
+    (load-file (concat
+                (substring (shell-command-to-string "opam config var prefix") 0 -1)
+                "/share/typerex/ocp-indent/ocp-indent.el"
+                ))
 
-;; merlin-mode
-(push (concat
-       (substring (shell-command-to-string "opam config var share") 0 -1)
-       "/emacs/site-lisp"
-       )
-      load-path)
+    ;; merlin-mode
+    (push (concat
+           (substring (shell-command-to-string "opam config var share") 0 -1)
+           "/emacs/site-lisp"
+           )
+          load-path)
 
-(setq merlin-command
-      (concat
-       (substring (shell-command-to-string "opam config var bin") 0 -1)
-       "/ocamlmerlin"
-       ))
-(autoload 'merlin-mode "merlin" "Merlin mode" t)
-{% endhighlight %}
+    (setq merlin-command
+          (concat
+           (substring (shell-command-to-string "opam config var bin") 0 -1)
+           "/ocamlmerlin"
+           ))
+    (autoload 'merlin-mode "merlin" "Merlin mode" t)
 
 Now the meat: when we select `tuareg-mode`, use `ocp-indent` to indent lines, turn on `merlin` auto-complete, and finally set a couple of local key bindings so that I can fix up `merlin` to not conflict with my now-neurologically-hardwired navigation keys.
 
-{% highlight common-lisp %}
-(add-hook 'tuareg-mode-hook
-          '(lambda ()
-             (merlin-mode)
-             (setq indent-line-function 'ocp-indent-line)
-             (setq merlin-use-auto-complete-mode t)
-             (local-set-key (kbd "C-S-<up>") 'merlin-type-enclosing-go-up)
-             (local-set-key (kbd "C-S-<down>") 'merlin-type-enclosing-go-down)
-             ))
-{% endhighlight %}
+    (add-hook 'tuareg-mode-hook
+              '(lambda ()
+                 (merlin-mode)
+                 (setq indent-line-function 'ocp-indent-line)
+                 (setq merlin-use-auto-complete-mode t)
+                 (local-set-key (kbd "C-S-<up>") 'merlin-type-enclosing-go-up)
+                 (local-set-key (kbd "C-S-<down>") 'merlin-type-enclosing-go-down)
+                 ))
 
 Finally, do the usual to use `tuareg-mode` for OCaml/F# editing.
 
-{% highlight common-lisp %}
-(push'("\\.ml[iylp]?" . tuareg-mode) auto-mode-alist)
-(push '("\\.fs[ix]?" . tuareg-mode) auto-mode-alist)
-{% endhighlight %}
+    (push'("\\.ml[iylp]?" . tuareg-mode) auto-mode-alist)
+    (push '("\\.fs[ix]?" . tuareg-mode) auto-mode-alist)
 
 And that's it!
 
