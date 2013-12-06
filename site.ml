@@ -23,38 +23,6 @@ open Cohttp_lwt_unix
 let log = Printf.printf
 let startswith str pfx = String.(sub str 0 (length pfx)) = pfx
 
-(*
-
-  blog [landing page]
-  + posts...
-
-  research
-  + papers
-  + students
-  + for applicants
-
-  codes
-  + personal github
-  + github organisations
-
-  about
-  + teaching: moodle pointers, links
-  + expertise
-
-  sidebar [lh margin]
-  + contact: online, office
-  + navmenu: full
-
-  sidebar [rh margin]
-  + recent posts
-
-  footer
-  + copyright
-  + top-of-page
-  + navmenu: top-level only
-
-*)
-
 let callback conn_id ?body req =
   let open Server in
 
