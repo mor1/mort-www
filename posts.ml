@@ -65,7 +65,13 @@ let page =
     )
   in
   let title = config.Blog.title ^ " | myths & legends" in
-  let body = Foundation.body ~title ~content in
+  let headers =
+    <:html<
+      <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
+      <script src="/js/highlight.pack.js"> </script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    >> in
+  let body = Foundation.body ~title ~headers ~content in
   Foundation.page ~body
 
 let post path =
@@ -97,6 +103,13 @@ let post path =
   in
   let body =
     let title = config.title ^ " | " ^ e.subject in
-    Foundation.body ~title ~content
+    let headers =
+      <:html<
+        <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
+        <script src="/js/highlight.pack.js"> </script>
+        <script>hljs.initHighlightingOnLoad();</script>
+      >>
+    in
+    Foundation.body ~title ~headers ~content
   in
   Foundation.page ~body
