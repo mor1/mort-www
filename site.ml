@@ -21,21 +21,28 @@ open Lwt
 open Cohttp_lwt_unix
 
 let log = Printf.printf
-let startswith str pfx = String.(sub str 0 (length pfx)) = pfx
 
 let callback conn_id ?body req =
   let open Server in
 
-  let path =  Uri.path (Request.uri req) in
+  let uri = Request.uri req in
+  let path =  Uri.path uri in
   log "# path:'%s'\n%!" path;
 
-  match path with
-  | "" | "/" | "/blog" | "/blog/" ->
+  let cpts = Re_str.(split (regexp "/") path) in
+  match List.filter (fun e -> e <> "") cpts with
+  | [] | [ "blog" ] ->
     respond_string ~status:`OK ~body:Posts.page ()
 
-  | path ->
-    if startswith path "/blog/" then
-      respond_string ~status:`OK ~body:(Posts.post path) ()
-    else
-      let fname = resolve_file ~docroot:"site/store" ~uri:(Request.uri req) in
-      respond_file ~fname ()
+  | "blog" :: tl ->
+    respond_string ~status:`OK ~body:(Posts.post path) ()
+
+  | [ "papers" ] ->
+    respond_string ~status:`OK ~body:Page.papers ()
+
+  | [ "about" ] ->
+    respond_string ~status:`OK ~body:Page.about ()
+
+  | _ ->
+    let fname = resolve_file ~docroot:"site/store" ~uri in
+    respond_file ~fname ()
