@@ -17,99 +17,31 @@
  *)
 
 open Cowabloga
-open Cow
-open Lwt
 
 module Authors = struct
-  let mort = {
-    Atom.name = "Richard Mortier";
-    uri       = Some "http://mort.io/";
-    email     = Some "mort@cantab.net";
+  let mort = Cow.Atom.({
+      name = "Richard Mortier";
+      uri = Some "http://mort.io/";
+      email = Some "mort@cantab.net";
+    })
+end
+
+let t = Blog.Entry.([
+    { updated = Date.date (2013, 10, 14, 10, 46);
+      author = Authors.mort;
+      subject = "A 21st Century IDE";
+      body = "posts/21st-century-ide.md";
+      permalink = "/blog/2013/10/13/21st-century-ide/";
+    };
+  ])
+
+let feed =
+  let open Config in
+  let title = title ^ " | myths & legends" in
+  let read_entry f = read_store "" f in
+  { Blog.title;
+    subtitle = None;
+    base_uri;
+    rights = Some "All rights reserved";
+    read_entry
   }
-end
-
-module Entries = struct
-  let t =
-    let open Cowabloga in
-    [ { Blog.updated = Date.date (2013, 10, 14, 10, 46);
-        author = Authors.mort;
-        subject = "A 21st Century IDE";
-        body = "posts/21st-century-ide.md";
-
-        (* XXX permalink will have /blog/ prepended due to embedded string
-           fragments throughout lib/blog.ml; fix later though *)
-        permalink = "2013/10/13/21st-century-ide/";
-      };
-    ]
-end
-
-let read_entry ent =
-  match_lwt Store.read ent with
-  | None -> return <:html<$str:"???"$>>
-  | Some b ->
-    let string_of_stream s = Lwt_stream.to_list s >|= Cstruct.copyv in
-    lwt str = string_of_stream b in
-    return (Markdown_omd.of_string str)
-
-let config = Config.({ Blog.title; subtitle; base_uri; rights; read_entry })
-
-let page =
-  let posts = Lwt_unix.run (Blog.entries_to_html config Entries.t) in
-  let content =
-    let sidebar =
-      let recent_posts = Blog.recent_posts config Entries.t in
-      Blog_template.Sidebar.t ~title:"recent posts" ~content:recent_posts
-    in
-    Config.(
-      Blog_template.t ~title ~subtitle ~nav_links ~sidebar ~posts ~copyright ()
-    )
-  in
-  let title = config.Blog.title ^ " | myths & legends" in
-  let headers =
-    <:html<
-      <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
-      <script src="/js/highlight.pack.js"> </script>
-      <script>hljs.initHighlightingOnLoad();</script>
-    >> in
-  let body = Foundation.body ~title ~headers ~content in
-  Foundation.page ~body
-
-let post path =
-  let open Blog in
-  let e = List.find
-      (fun e ->
-         let pl = String.length "/blog/" in
-         e.permalink = String.(sub path pl ((length path)-pl))
-      )
-      Entries.t
-  in
-  let content =
-    let content = Lwt_unix.run (read_entry e.body) in
-    let date = Date.html_of_date e.updated in
-    let author =
-      let open Cow.Atom in
-      (e.author.name,
-       Uri.of_string (match e.author.uri with Some x -> x | None -> ""))
-    in
-    let title = (e.subject, Uri.of_string ("/blog/" ^ e.permalink)) in
-    (Blog_template.post ~title ~author ~date ~content)
-  in
-  let sidebar = <:html< >> in
-
-  let content = Config.(
-      Blog_template.t
-        ~title ~subtitle ~nav_links ~sidebar ~posts:content ~copyright ()
-    )
-  in
-  let body =
-    let title = config.title ^ " | " ^ e.subject in
-    let headers =
-      <:html<
-        <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
-        <script src="/js/highlight.pack.js"> </script>
-        <script>hljs.initHighlightingOnLoad();</script>
-      >>
-    in
-    Foundation.body ~title ~headers ~content
-  in
-  Foundation.page ~body

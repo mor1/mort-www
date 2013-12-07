@@ -24,17 +24,10 @@ module T = struct
     title: string;
     heading: Html.t;
     copyright: string;
-    jss: string list;
+    trailer: Html.t;
   }
 
-  let render ~config ~content =
-    let jss = List.map
-        (fun js ->
-           let js = "/js/" ^ js ^ ".js" in
-           <:html< <script src=$str:js$> </script> >>
-        )
-        config.jss
-    in
+  let render ~config ~body =
     <:html<
       <!-- header -->
       <div class="row">
@@ -44,13 +37,13 @@ module T = struct
       </div>
       <!-- end header -->
 
-      <!-- page content -->
+      <!-- page body -->
       <div class="row">
         <div class="large-9 columns" role="content">
-          $content$
+          $body$
         </div>
       </div>
-      <!-- end page content -->
+      <!-- end page body -->
 
       <!-- page footer -->
       <footer class="row">
@@ -66,38 +59,118 @@ module T = struct
       <!-- end page footer -->
 
       <!-- finally, trailer asset loading -->
-      <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
-      <script src="/js/highlight.pack.js"> </script>
-      <script>hljs.initHighlightingOnLoad();</script>
-
-      $list:jss$
+      $config.trailer$
       <!-- end trailer -->
     >>
 
 end
 
-let page ~title ~heading ~copyright ~jss ~f =
-  let content = Lwt_unix.run
-      (match_lwt Store.read ("pages/" ^ f) with
-       | None -> return <:html<$str:"???"$>>
-       | Some  b ->
-         let string_of_stream s = Lwt_stream.to_list s >|= Cstruct.copyv in
-         lwt str = string_of_stream b in
-         return (Markdown_omd.of_string str)
-      )
-  in
+let page ~title ~heading ~copyright ~trailer ~content =
   let content =
-    T.(render { title; heading; copyright; jss } content)
+    let body = Lwt_unix.run content in
+    let open T in
+    let config = { title; heading; copyright; trailer } in
+    render config body
   in
   Foundation.(page ~body:(body ~title ~headers:[] ~content))
 
-let about =
+let read_page f = Config.read_store "pages/" f
+
+let about () =
   let open Config in
   let title = title ^ " | about" in
-  page ~title ~heading ~copyright ~jss:[] ~f:"about.md"
+  let content = read_page "about.md" in
+  page ~title ~heading ~copyright ~trailer:[] ~content
 
-let papers =
+let papers () =
+  let trailer =
+    let jss = List.map
+        (fun js ->
+           let js = "/js/" ^ js ^ ".js" in
+           <:html< <script src=$str:js$> </script> >>
+        )
+        [ "jquery-1.9.1.min"; "papers"; "load-papers" ]
+    in
+    <:html< $list:jss$ >>
+  in
   let open Config in
   let title = title ^ " | papers" in
-  let jss = [ "jquery-1.9.1.min"; "papers"; "load-papers" ] in
-  page ~title ~heading ~copyright ~jss ~f:"papers.md"
+  let content = read_page "papers.md" in
+  page ~title ~heading ~copyright ~trailer ~content
+
+let syntax_highlighting =
+  <:html<
+    <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
+    <script src="/js/highlight.pack.js"> </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  >>
+
+let posts () =
+  let open Config in
+  let content = Blog.to_html Posts.feed Posts.t in
+  let trailer = syntax_highlighting in
+  let title = Posts.feed.Blog.title in
+  page ~title ~heading ~copyright ~trailer ~content
+
+let post path () =
+  let open Config in
+  let open Blog in
+  let entry = List.find (fun e -> e.Entry.permalink = path) Posts.t in
+  let content =
+    lwt content = Posts.feed.read_entry entry.Entry.body in
+    let date = Date.html_of_date entry.Entry.updated in
+    let author =
+      let open Cow.Atom in
+      Entry.(
+        entry.author.name,
+        Uri.of_string (match entry.author.uri with Some x -> x | None -> "")
+      )
+    in
+    let title = Entry.(entry.subject, Uri.of_string entry.permalink) in
+    return (Blog_template.post ~title ~author ~date ~content)
+  in
+  let trailer = syntax_highlighting in
+  let title = title ^ " | " ^ entry.Entry.subject in
+  page ~title ~heading ~copyright ~trailer ~content
+
+(*
+let post path =
+  let open Blog in
+  let e = List.find
+      (fun e ->
+         let pl = String.length "/blog/" in
+         e.permalink = String.(sub path pl ((length path)-pl))
+      )
+      Entries.t
+  in
+  let content =
+    let content = Lwt_unix.run (read_entry e.body) in
+    let date = Date.html_of_date e.updated in
+    let author =
+      let open Cow.Atom in
+      (e.author.name,
+       Uri.of_string (match e.author.uri with Some x -> x | None -> ""))
+    in
+    let title = (e.subject, Uri.of_string ("/blog/" ^ e.permalink)) in
+    (Blog_template.post ~title ~author ~date ~content)
+  in
+  let sidebar = <:html< >> in
+
+  let content = Config.(
+      Blog_template.t
+        ~title ~subtitle ~nav_links ~sidebar ~posts:content ~copyright ()
+    )
+  in
+  let body =
+    let title = config.title ^ " | " ^ e.subject in
+    let headers =
+      <:html<
+        <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
+        <script src="/js/highlight.pack.js"> </script>
+        <script>hljs.initHighlightingOnLoad();</script>
+      >>
+    in
+    Foundation.body ~title ~headers ~content
+  in
+  Foundation.page ~body
+*)

@@ -32,16 +32,16 @@ let callback conn_id ?body req =
   let cpts = Re_str.(split (regexp "/") path) in
   match List.filter (fun e -> e <> "") cpts with
   | [] | [ "blog" ] ->
-    respond_string ~status:`OK ~body:Posts.page ()
+    respond_string ~status:`OK ~body:(Page.posts ()) ()
 
   | "blog" :: tl ->
-    respond_string ~status:`OK ~body:(Posts.post path) ()
+    respond_string ~status:`OK ~body:(Page.post path ()) ()
 
   | [ "papers" ] ->
-    respond_string ~status:`OK ~body:Page.papers ()
+    respond_string ~status:`OK ~body:(Page.papers ()) ()
 
   | [ "about" ] ->
-    respond_string ~status:`OK ~body:Page.about ()
+    respond_string ~status:`OK ~body:(Page.about ()) ()
 
   | _ ->
     let fname = resolve_file ~docroot:"site/store" ~uri in

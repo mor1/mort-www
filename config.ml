@@ -15,18 +15,21 @@
  *
  *)
 
-let copyright = "2009-2013 Richard Mortier"
+let copyright = "2009--2013 Richard Mortier"
 let title = "mort's mythopoeia"
 let heading =
   <:html<
-    <h1>
-      $str:title$<br />
+    <h1>$str:title$<br />
       <small>because everyone needs a presence, right?</small>
     </h1>
   >>
 
 let base_uri = "http://localhost:8081"
 let rights = Some "All rights reserved"
+
+let read_store prefix f =
+  Printf.printf "[r] prefix:'%s' f:'%s'\n%!" prefix f;
+  Cowabloga.Blog.read_content Store.read prefix f
 
 let nav_links =
   let uri = Uri.of_string in
