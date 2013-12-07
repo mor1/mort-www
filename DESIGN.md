@@ -16,6 +16,7 @@ about
 + teaching: moodle pointers, links
 + expertise
 
+----
 
 header
 + indent past margin
