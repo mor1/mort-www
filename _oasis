@@ -13,4 +13,6 @@ Executable my_site
   Custom: true
   CompiledObject: best
   Install: false
-  BuildDepends: cohttp.lwt, cowabloga, cow.syntax, cstruct, mirage, lwt.syntax
+  BuildDepends:
+    omd, cow, cow.syntax, cowabloga, 
+    cohttp.lwt, lwt.syntax, cstruct, mirage
