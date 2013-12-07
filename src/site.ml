@@ -47,5 +47,5 @@ let callback conn_id ?body req =
     respond_string ~status:`OK ~body:(Page.about ()) ()
 
   | _ ->
-    let fname = resolve_file ~docroot:"site/store" ~uri in
+    let fname = resolve_file ~docroot:"src/store" ~uri in
     respond_file ~fname ()
