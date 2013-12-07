@@ -1,5 +1,13 @@
 _build/
-*.native
+dist/
+
+setup.bin
+setup.data
 setup.log
+
+*.byte
+*.docdir
+*.native
+*.swp
 
 src/store.ml
