@@ -19,9 +19,11 @@ let copyright = "2009--2013 Richard Mortier"
 let title = "mort's mythopoeia"
 let heading =
   <:html<
-    <h1>$str:title$<br />
+    <a href="/">
+      <h1>$str:title$<br />
       <small>because everyone needs a presence, right?</small>
-    </h1>
+      </h1>
+    </a>
   >>
 
 let base_uri = "http://localhost:8081"
