@@ -19,41 +19,85 @@ open Cowabloga
 open Cow
 open Lwt
 
-let page ~title ~jss ~content =
-  let headers =
+module T = struct
+  type t = {
+    title: string;
+    heading: Html.t;
+    copyright: string;
+    jss: string list;
+  }
+
+  let render ~config ~content =
     let jss = List.map
         (fun js ->
            let js = "/js/" ^ js ^ ".js" in
            <:html< <script src=$str:js$> </script> >>
         )
-        jss
+        config.jss
     in
     <:html<
+      <!-- header -->
+      <div class="row">
+        <div class="large-12 columns">
+          $config.heading$
+        </div>
+      </div>
+      <!-- end header -->
+
+      <!-- page content -->
+      <div class="row">
+        <div class="large-9 columns" role="content">
+          $content$
+        </div>
+      </div>
+      <!-- end page content -->
+
+      <!-- page footer -->
+      <footer class="row">
+        <div class="large-12 columns">
+          <hr />
+          <div class="row">
+            <div class="large-6 columns">
+              <p>Copyright &copy; $str:config.copyright$</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- end page footer -->
+
+      <!-- finally, trailer asset loading -->
       <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
       <script src="/js/highlight.pack.js"> </script>
       <script>hljs.initHighlightingOnLoad();</script>
 
       $list:jss$
+      <!-- end trailer -->
     >>
-  in
-  Foundation.(page ~body:(body ~title ~headers ~content))
 
-let read_file f =
-  Lwt_unix.run
-    (match_lwt Store.read ("pages/" ^ f) with
-     | None -> return <:html<$str:"???"$>>
-     | Some  b ->
-       let string_of_stream s = Lwt_stream.to_list s >|= Cstruct.copyv in
-       lwt str = string_of_stream b in
-       return (Markdown_omd.of_string str)
-    )
+end
+
+let page ~title ~heading ~copyright ~jss ~f =
+  let content = Lwt_unix.run
+      (match_lwt Store.read ("pages/" ^ f) with
+       | None -> return <:html<$str:"???"$>>
+       | Some  b ->
+         let string_of_stream s = Lwt_stream.to_list s >|= Cstruct.copyv in
+         lwt str = string_of_stream b in
+         return (Markdown_omd.of_string str)
+      )
+  in
+  let content =
+    T.(render { title; heading; copyright; jss } content)
+  in
+  Foundation.(page ~body:(body ~title ~headers:[] ~content))
 
 let about =
-  let title = Config.title ^ " | about" in
-  let content = <:html< $read_file "about.md"$ >> in
-  page ~title ~jss:[] ~content
+  let open Config in
+  let title = title ^ " | about" in
+  page ~title ~heading ~copyright ~jss:[] ~f:"about.md"
 
 let papers =
-  let title = Config.title ^ " | papers" in
-  let content = <:html< $read_file "papers.md"$ >> in
-  page ~title ~jss:["papers"] ~content
+  let open Config in
+  let title = title ^ " | papers" in
+  let jss = [ "jquery-1.9.1.min"; "papers"; "load-papers" ] in
+  page ~title ~heading ~copyright ~jss ~f:"papers.md"

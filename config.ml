@@ -15,9 +15,16 @@
  *
  *)
 
-let copyright = <:html<2009-2013 Richard Mortier>>
+let copyright = "2009-2013 Richard Mortier"
 let title = "mort's mythopoeia"
-let subtitle = Some "because everyone needs a presence, right?"
+let heading =
+  <:html<
+    <h1>
+      $str:title$<br />
+      <small>because everyone needs a presence, right?</small>
+    </h1>
+  >>
+
 let base_uri = "http://localhost:8081"
 let rights = Some "All rights reserved"
 
