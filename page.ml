@@ -132,3 +132,8 @@ let post path () =
   let trailer = syntax_highlighting in
   let title = title ^ " | " ^ entry.Entry.subject in
   page ~title ~heading ~copyright ~trailer ~content
+
+let feed () =
+  let open Config in
+  let feed = Lwt_unix.run (Blog.to_atom Posts.feed Posts.t) in
+  Xml.to_string (Atom.xml_of_feed feed)

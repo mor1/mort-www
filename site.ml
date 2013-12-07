@@ -34,6 +34,9 @@ let callback conn_id ?body req =
   | [] | [ "blog" ] ->
     respond_string ~status:`OK ~body:(Page.posts ()) ()
 
+  | [ "blog"; "atom.xml" ] ->
+    respond_string ~status:`OK ~body:(Page.feed ()) ()
+
   | "blog" :: tl ->
     respond_string ~status:`OK ~body:(Page.post path ()) ()
 

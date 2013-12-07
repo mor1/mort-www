@@ -42,6 +42,7 @@ let feed =
   { Blog.title;
     subtitle = None;
     base_uri;
+    id = "/blog";
     rights = Some "All rights reserved";
     read_entry
   }
