@@ -31,16 +31,28 @@ module T = struct
     <:html<
       <!-- header -->
       <div class="row">
-        <div class="large-12 columns">
+        <div class="small-10 small-offset-2 columns">
           $config.heading$
         </div>
       </div>
+      <hr />
       <!-- end header -->
 
       <!-- page body -->
       <div class="row">
-        <div class="large-9 columns" role="content">
+        <div data-magellan-expedition="fixed">
+          <ul class="side-nav">
+            <li data-magellan-arrival="build"><a href="#build">Build with HTML</a></li>
+            <li data-magellan-arrival="js"><a href="#js">Arrival 2</a></li>
+          </ul>
+        </div>
+
+        <div class="small-8 small-offset-2 columns" role="content">
           $body$
+        </div>
+
+        <div class="small-2 columns" role="sidebar">
+          <p>sidebar</p>
         </div>
       </div>
       <!-- end page body -->
@@ -60,10 +72,25 @@ module T = struct
 
       <!-- finally, trailer asset loading -->
       $config.trailer$
+
       <!-- end trailer -->
     >>
 
 end
+
+let trailer =
+  <:html<
+    <script src="/js/jquery.js"> </script>
+    <script src="/js/foundation.min.js"> </script>
+    <script src="/js/init.js"> </script>
+  >>
+
+let syntax_highlighting =
+  <:html<
+    <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
+    <script src="/js/highlight.pack.js"> </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  >>
 
 let page ~title ~heading ~copyright ~trailer ~content =
   let content =
@@ -91,24 +118,17 @@ let papers () =
         )
         [ "jquery-1.9.1.min"; "papers"; "load-papers" ]
     in
-    <:html< $list:jss$ >>
+    trailer @ <:html< $list:jss$ >>
   in
   let open Config in
   let title = title ^ " | papers" in
   let content = read_page "papers.md" in
   page ~title ~heading ~copyright ~trailer ~content
 
-let syntax_highlighting =
-  <:html<
-    <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
-    <script src="/js/highlight.pack.js"> </script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  >>
-
 let posts () =
   let open Config in
   let content = Blog.to_html Posts.feed Posts.t in
-  let trailer = syntax_highlighting in
+  let trailer = trailer @ syntax_highlighting in
   let title = Posts.feed.Blog.title in
   page ~title ~heading ~copyright ~trailer ~content
 
@@ -129,7 +149,7 @@ let post path () =
     let title = Entry.(entry.subject, Uri.of_string entry.permalink) in
     return (Blog_template.post ~title ~author ~date ~content)
   in
-  let trailer = syntax_highlighting in
+  let trailer = trailer @ syntax_highlighting in
   let title = title ^ " | " ^ entry.Entry.subject in
   page ~title ~heading ~copyright ~trailer ~content
 
