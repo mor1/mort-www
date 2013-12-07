@@ -1,0 +1,16 @@
+OASISFormat: 0.3
+Name:        mirage-mort
+Version:     0.1
+Synopsis:    My website using Cowabloga
+Authors:     Richard Mortier
+License:     GPL
+Plugins:     META (0.3), DevFiles (0.3)
+BuildTools:  ocamlbuild
+
+Executable my_site
+  Path: src
+  MainIs: serve.ml
+  Custom: true
+  CompiledObject: best
+  Install: false
+  BuildDepends: cohttp.lwt, cowabloga, cow.syntax, cstruct, mirage, lwt.syntax
