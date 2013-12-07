@@ -26,7 +26,7 @@ let callback conn_id ?body req =
   let open Server in
 
   let uri = Request.uri req in
-  let path =  Uri.path uri in
+  let path = Uri.path uri in
   log "# path:'%s'\n%!" path;
 
   let cpts = Re_str.(split (regexp "/") path) in
