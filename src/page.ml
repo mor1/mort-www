@@ -93,9 +93,9 @@ let recent_posts feed n =
     in
     subn [] entries n
   in
-  List.map (fun e ->
+  recent |> List.rev |> List.map (fun e ->
       Entry.(e.subject, Uri.of_string (permalink feed e))
-    ) recent
+    )
 
 let trailer =
   <:html<

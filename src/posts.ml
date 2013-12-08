@@ -33,7 +33,13 @@ let t = Blog.Entry.([
       body = "posts/21st-century-ide.md";
       permalink = "/blog/2013/10/13/21st-century-ide/";
     };
-  ])
+    { updated = Date.date (2013, 12, 09, 10, 10);
+      author = Authors.mort;
+      subject = "A Brave New World";
+      body = "posts/a-brave-new-world.md";
+      permalink = "/blog/2013/12/09/a-brave-new-world/";
+    };
+  ]) |> List.sort Blog.Entry.compare
 
 let feed =
   let open Config in
