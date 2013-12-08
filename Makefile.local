@@ -20,7 +20,7 @@
 
 distclean: ## overrides default oasis rule
 	$(SETUP) -distclean $(DISTCLEANFLAGS)
-	$(RM) src/store.ml
+	$(RM) src/store.ml src/#store.ml src/.#store.ml serve.native
 
 
 build: setup.data src/store.ml ## overrides default oasis rule
