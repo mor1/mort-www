@@ -39,8 +39,6 @@ module T = struct
       <div class="row top-bar">
         <div class="small-10 small-offset-1 columns" data-magellan-expedition="fixed">
           <ul class="sub-nav">
-            <li data-magellan-arrival="blog"><a href="/blog">Blog</a></li>
-            <li data-magellan-arrival="research"><a href="/research">Research</a></li>
             <li data-magellan-arrival="papers"><a href="/papers">Papers</a></li>
             <li data-magellan-arrival="codes"><a href="/codes">Codes</a></li>
             <li data-magellan-arrival="about"><a href="/about">About</a></li>
