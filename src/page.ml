@@ -24,6 +24,7 @@ module T = struct
     title: string;
     heading: Html.t;
     copyright: Html.t;
+    sidebar: Html.t;
     trailer: Html.t;
   }
 
@@ -54,8 +55,8 @@ module T = struct
           $body$
         </div>
 
-        <div class="small-2 columns" role="sidebar">
-          <p>sidebar</p>
+        <div class="small-3 columns" role="sidebar">
+          $config.sidebar$
         </div>
       </div>
       <!-- end page body -->
@@ -81,6 +82,22 @@ module T = struct
     >>
 
 end
+
+let recent_posts feed n =
+  let open Blog in
+  let entries = List.sort Entry.compare Posts.t in
+  let recent =
+    let rec subn acc l i = match l, i with
+      | _, 0
+      | [], _ -> acc
+
+      | h::t, i -> subn (h :: acc) t (i-1)
+    in
+    subn [] entries n
+  in
+  List.map (fun e ->
+      Entry.(e.subject, Uri.of_string (permalink feed e))
+    ) recent
 
 let trailer =
   <:html<
