@@ -23,7 +23,7 @@ module T = struct
   type t = {
     title: string;
     heading: Html.t;
-    copyright: string;
+    copyright: Html.t;
     trailer: Html.t;
   }
 
@@ -31,23 +31,26 @@ module T = struct
     <:html<
       <!-- header -->
       <div class="row">
-        <div class="small-10 small-offset-2 columns">
+        <div class="small-12 columns">
           $config.heading$
         </div>
       </div>
-      <hr />
+      <div class="row top-bar">
+        <div class="small-10 small-offset-1 columns" data-magellan-expedition="fixed">
+          <ul class="sub-nav">
+            <li data-magellan-arrival="blog"><a href="/blog">Blog</a></li>
+            <li data-magellan-arrival="research"><a href="/research">Research</a></li>
+            <li data-magellan-arrival="papers"><a href="/papers">Papers</a></li>
+            <li data-magellan-arrival="codes"><a href="/codes">Codes</a></li>
+            <li data-magellan-arrival="about"><a href="/about">About</a></li>
+          </ul>
+        </div>
+      </div>
       <!-- end header -->
 
       <!-- page body -->
       <div class="row">
-        <div data-magellan-expedition="fixed">
-          <ul class="side-nav">
-            <li data-magellan-arrival="build"><a href="#build">Build with HTML</a></li>
-            <li data-magellan-arrival="js"><a href="#js">Arrival 2</a></li>
-          </ul>
-        </div>
-
-        <div class="small-8 small-offset-2 columns" role="content">
+        <div class="small-8 small-offset-1 columns" role="content">
           $body$
         </div>
 
@@ -60,11 +63,13 @@ module T = struct
       <!-- page footer -->
       <footer class="row">
         <div class="large-12 columns">
-          <hr />
           <div class="row">
-            <div class="large-6 columns">
-              <p>Copyright &copy; $str:config.copyright$</p>
+            <div class="small-12 columns text-right">
+              <small>
+                <em>Copyright &copy; $config.copyright$</em>
+              </small>
             </div>
+            <hr />
           </div>
         </div>
       </footer>
@@ -72,7 +77,6 @@ module T = struct
 
       <!-- finally, trailer asset loading -->
       $config.trailer$
-
       <!-- end trailer -->
     >>
 
@@ -106,8 +110,9 @@ let read_page f = Config.read_store "pages/" f
 let about () =
   let open Config in
   let title = title ^ " | about" in
+  let trailer = trailer @ syntax_highlighting in
   let content = read_page "about.md" in
-  page ~title ~heading ~copyright ~trailer:[] ~content
+  page ~title ~heading ~copyright ~trailer ~content
 
 let papers () =
   let trailer =

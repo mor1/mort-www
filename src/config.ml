@@ -15,13 +15,17 @@
  *
  *)
 
-let copyright = "2009--2013 Richard Mortier"
+let copyright =
+  <:html<
+      2009&mdash;2013 Richard Mortier
+  >>
+
 let title = "mort's mythopoeia"
 let heading =
   <:html<
     <a href="/">
       <h1>$str:title$<br />
-      <small>because everyone needs a presence, right?</small>
+        <small>because everyone needs a presence, right?</small>
       </h1>
     </a>
   >>

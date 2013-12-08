@@ -1,7 +1,32 @@
-[data-magellan-expedition] {
-    min-width: 16.66667%;
-    width: 16.66667%;
-    max-width: 16.66667%;
-    z-index: 0;
-    margin-left: 1em;
+/* */
+.top-bar [data-magellan-expedition] {
+    min-width: 66.66667%;
+    width: 66.66667%;
+    max-width: 66.66667%;
+    z-index: 50;
 }
+
+pre>code {
+  font-size: 0.65rem;
+  font-weight: normal;
+  overflow-x: scroll;
+}
+
+footer div.text-right {
+  background: #eee;
+  padding: 1ex 0;
+}
+
+/*
+html {
+  font-size: 80%;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+p {
+    font-size: 1.4rem;
+}
+*/
