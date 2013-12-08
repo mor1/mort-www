@@ -63,7 +63,7 @@ module T = struct
       <footer class="row">
         <div class="large-12 columns">
           <div class="row">
-            <div class="small-12 columns text-right">
+            <div class="small-12 columns text-right" role="copyright">
               <small>
                 <em>Copyright &copy; $config.copyright$</em>
               </small>

@@ -42,7 +42,7 @@ pre>code {
   overflow-x: scroll;
 }
 
-footer div.text-right {
+footer div.text-right[role="copyright"] {
   background: #eee;
-  padding: 1ex 0;
+  padding: 1ex 1em 1ex 0;
 }
