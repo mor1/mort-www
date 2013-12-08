@@ -37,11 +37,18 @@ module T = struct
         </div>
       </div>
       <div class="row top-bar">
-        <div class="small-10 small-offset-1 columns" data-magellan-expedition="fixed">
+        <div class="small-10 small-offset-1 columns"
+             data-magellan-expedition="fixed">
           <ul class="sub-nav">
-            <li data-magellan-arrival="papers"><a href="/papers">Papers</a></li>
-            <li data-magellan-arrival="codes"><a href="/codes">Codes</a></li>
-            <li data-magellan-arrival="about"><a href="/about">About</a></li>
+            <li data-magellan-arrival="research">
+              <a href="/research">Research</a>
+            </li>
+            <li data-magellan-arrival="teaching">
+              <a href="/teaching">Teaching</a>
+            </li>
+            <li data-magellan-arrival="me">
+              <a href="/me">Me</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -126,14 +133,21 @@ let page ~title ~heading ~copyright ~trailer ~content =
 
 let read_page f = Config.read_store "pages/" f
 
-let about () =
+let teaching () =
   let open Config in
-  let title = subtitle " | about" in
+  let title = subtitle " | teaching" in
   let trailer = trailer @ syntax_highlighting in
-  let content = read_page "about.md" in
+  let content = read_page "teaching.md" in
   page ~title ~heading ~copyright ~trailer ~content
 
-let papers () =
+let me () =
+  let open Config in
+  let title = subtitle " | me" in
+  let trailer = trailer @ syntax_highlighting in
+  let content = read_page "me.md" in
+  page ~title ~heading ~copyright ~trailer ~content
+
+let research () =
   let trailer =
     let jss = List.map
         (fun js ->
@@ -145,8 +159,8 @@ let papers () =
     trailer @ <:html< $list:jss$ >>
   in
   let open Config in
-  let title = subtitle " | papers" in
-  let content = read_page "papers.md" in
+  let title = subtitle " | research" in
+  let content = read_page "research.md" in
   page ~title ~heading ~copyright ~trailer ~content
 
 let posts () =

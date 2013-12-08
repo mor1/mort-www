@@ -40,11 +40,14 @@ let callback conn_id ?body req =
   | "blog" :: tl ->
     respond_string ~status:`OK ~body:(Page.post path ()) ()
 
-  | [ "papers" ] ->
-    respond_string ~status:`OK ~body:(Page.papers ()) ()
+  | [ "research" ] ->
+    respond_string ~status:`OK ~body:(Page.research ()) ()
 
-  | [ "about" ] ->
-    respond_string ~status:`OK ~body:(Page.about ()) ()
+  | [ "teaching" ] ->
+    respond_string ~status:`OK ~body:(Page.teaching ()) ()
+
+  | [ "me" ] ->
+    respond_string ~status:`OK ~body:(Page.me ()) ()
 
   | _ ->
     let fname = resolve_file ~docroot:"store" ~uri in
