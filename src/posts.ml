@@ -37,7 +37,7 @@ let t = Blog.Entry.([
 
 let feed =
   let open Config in
-  let title = title ^ " | myths & legends" in
+  let title = Cow.Html.to_string title in
   let read_entry f = read_store "" f in
   { Blog.title;
     subtitle = None;

@@ -96,11 +96,15 @@ let syntax_highlighting =
     <script>hljs.initHighlightingOnLoad();</script>
   >>
 
+let subtitle s =
+  Cow.Html.to_string <:html< $Config.title$ $str:s$ >>
+
 let page ~title ~heading ~copyright ~trailer ~content =
   let content =
     let body = Lwt_unix.run content in
+    let sidebar = Blog_template.side_nav (recent_posts Posts.feed 10) in
     let open T in
-    let config = { title; heading; copyright; trailer } in
+    let config = { title; heading; copyright; sidebar; trailer } in
     render config body
   in
   Foundation.(page ~body:(body ~title ~headers:[] ~content))
@@ -109,7 +113,7 @@ let read_page f = Config.read_store "pages/" f
 
 let about () =
   let open Config in
-  let title = title ^ " | about" in
+  let title = subtitle " | about" in
   let trailer = trailer @ syntax_highlighting in
   let content = read_page "about.md" in
   page ~title ~heading ~copyright ~trailer ~content
@@ -126,7 +130,7 @@ let papers () =
     trailer @ <:html< $list:jss$ >>
   in
   let open Config in
-  let title = title ^ " | papers" in
+  let title = subtitle " | papers" in
   let content = read_page "papers.md" in
   page ~title ~heading ~copyright ~trailer ~content
 
@@ -134,7 +138,7 @@ let posts () =
   let open Config in
   let content = Blog.to_html Posts.feed Posts.t in
   let trailer = trailer @ syntax_highlighting in
-  let title = Posts.feed.Blog.title in
+  let title = subtitle " | blog" in
   page ~title ~heading ~copyright ~trailer ~content
 
 let post path () =
@@ -155,7 +159,7 @@ let post path () =
     return (Blog_template.post ~title ~author ~date ~content)
   in
   let trailer = trailer @ syntax_highlighting in
-  let title = title ^ " | " ^ entry.Entry.subject in
+  let title = subtitle (" | blog | " ^ entry.Entry.subject) in
   page ~title ~heading ~copyright ~trailer ~content
 
 let feed () =

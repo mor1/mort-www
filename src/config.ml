@@ -15,16 +15,13 @@
  *
  *)
 
-let copyright =
-  <:html<
-      2009&mdash;2013 Richard Mortier
-  >>
+let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
+let title = <:html< mort&rsquo;s mythopoeia >>
 
-let title = "mort's mythopoeia"
 let heading =
   <:html<
     <a href="/">
-      <h1>$str:title$<br />
+      <h1>$title$<br />
         <small>because everyone needs a presence, right?</small>
       </h1>
     </a>
@@ -36,11 +33,3 @@ let rights = Some "All rights reserved"
 let read_store prefix f =
   Printf.printf "[r] prefix:'%s' f:'%s'\n%!" prefix f;
   Cowabloga.Blog.read_content Store.read prefix f
-
-let nav_links =
-  let uri = Uri.of_string in
-  [
-    "home",    uri "/";
-    "blog",    uri "/blog";
-    "contact", uri "/contact"
-  ]
