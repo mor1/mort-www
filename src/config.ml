@@ -15,21 +15,49 @@
  *
  *)
 
-let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
-let title = <:html< mort&rsquo;s mythopoeia >>
+open Mirage
 
-let heading =
-  <:html<
-    <a href="/">
-      <h1>$title$<br />
-        <small>because everyone needs a presence, right?</small>
-      </h1>
-    </a>
-  >>
+let (|>) x f = f x
 
-let base_uri = "http://localhost:8081"
-let rights = Some "All rights reserved"
+(* set Unix `FS_MODE` to fat for FAT and block device storage; anything else gives
+   crunch static filesystem *)
 
-let read_store prefix f =
-  Printf.printf "[r] prefix:'%s' f:'%s'\n%!" prefix f;
-  Cowabloga.Blog.read_content Store.read prefix f
+let mode =
+  try (
+    match String.lowercase (Unix.getenv "FS_MODE") with
+    | "fat" -> `Fat
+    | _     -> `Crunch
+  ) with Not_found -> `Crunch
+
+let fs_drivers = function
+  | `Crunch ->
+    let open KV_RO in
+    [ { name = "assets"; dirname = "../store/assets" };
+      { name = "data";   dirname = "../store/data"   };
+      { name = "pages";  dirname = "../store/pages"  };
+      { name = "posts";  dirname = "../store/posts"  };
+    ]
+    |> List.map (fun kvro -> Driver.KV_RO kvro)
+
+  | `Fat ->
+    let open Block in
+    [ { name = "assets"; filename = "assets.img"; read_only = true };
+      { name = "data";   filename = "data.img";   read_only = true };
+      { name = "pages";  filename = "pages.img";  read_only = true };
+      { name = "posts";  filename = "posts.img";  read_only = true };
+    ]
+    |> List.map (fun b ->
+        Driver.Fat_KV_RO { Fat_KV_RO.name = b.name; block = b }
+      )
+
+let http =
+  Driver.HTTP {
+    HTTP.port  = 80;
+    address    = None;
+    ip         = IP.local Network.Tap0;
+  }
+
+let () =
+  Job.register [
+    "Site.Main", [Driver.console; http] @ (fs_drivers mode)
+  ]
