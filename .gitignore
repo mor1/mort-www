@@ -1,13 +1,7 @@
-_build/
-dist/
+src/_build
 
-setup.bin
-setup.data
-setup.log
+src/Makefile
+src/main.ml
 
-*.byte
-*.docdir
-*.native
-*.swp
-
-src/store.ml
+## un-ignore this once edited
+src/main.xl
