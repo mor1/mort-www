@@ -119,7 +119,7 @@ let syntax_highlighting =
   >>
 
 let subtitle s =
-  Cow.Html.to_string <:html< $Config.title$ $str:s$ >>
+  Cow.Html.to_string <:html< $Site.title$ $str:s$ >>
 
 let page ~title ~heading ~copyright ~trailer ~content =
   let content =

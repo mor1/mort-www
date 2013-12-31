@@ -26,23 +26,26 @@ module Authors = struct
     })
 end
 
-let t = Blog.Entry.([
-    { updated = Date.date (2013, 10, 14, 10, 46);
-      author = Authors.mort;
-      subject = "A 21st Century IDE";
-      body = "posts/21st-century-ide.md";
-      permalink = "/blog/2013/10/13/21st-century-ide/";
-    };
-    { updated = Date.date (2013, 12, 09, 10, 10);
-      author = Authors.mort;
-      subject = "A Brave New World";
-      body = "posts/a-brave-new-world.md";
-      permalink = "/blog/2013/12/09/a-brave-new-world/";
-    };
-  ]) |> List.sort Blog.Entry.compare
+let t =
+  Blog.Entry.([
+      { updated = Date.date (2013, 10, 14, 10, 46);
+        author = Authors.mort;
+        subject = "A 21st Century IDE";
+        body = "posts/21st-century-ide.md";
+        permalink = "/blog/2013/10/13/21st-century-ide/";
+      };
+      { updated = Date.date (2013, 12, 09, 10, 10);
+        author = Authors.mort;
+        subject = "A Brave New World";
+        body = "posts/a-brave-new-world.md";
+        permalink = "/blog/2013/12/09/a-brave-new-world/";
+      };
+    ])
+  |> List.sort Blog.Entry.compare
 
+(*
 let feed =
-  let open Config in
+  let open Site in
   let title = Cow.Html.to_string title in
   let read_entry f = read_store "" f in
   { Blog.title;
@@ -52,3 +55,4 @@ let feed =
     rights = Some "All rights reserved";
     read_entry
   }
+*)

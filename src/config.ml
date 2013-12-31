@@ -19,8 +19,9 @@ open Mirage
 
 let (|>) x f = f x
 
-(* set Unix `FS_MODE` to fat for FAT and block device storage; anything else gives
-   crunch static filesystem *)
+(* set Unix `FS_MODE` to fat for FAT and block device storage; anything else
+   gives crunch static filesystem
+*)
 
 let mode =
   try (
@@ -62,5 +63,5 @@ let () =
   add_to_ocamlfind_libraries ["cow.syntax"; "cowabloga"];
 
   Job.register [
-    "Site.Main", [Driver.console; http] @ (fs_drivers mode)
+    "Unikernel.Main", [Driver.console; http] @ (fs_drivers mode)
   ]
