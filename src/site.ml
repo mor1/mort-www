@@ -16,39 +16,103 @@
  *
  *)
 
-open Cowabloga
-open Lwt
-open Cohttp_lwt_unix
+open Mirage_types.V1
 
 let log = Printf.printf
 
-let callback conn_id ?body req =
-  let open Server in
+module Config = struct
 
-  let uri = Request.uri req in
-  let path = Uri.path uri in
-  log "# path:'%s'\n%!" path;
+  let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
+  let title = <:html< mort&rsquo;s mythopoeia >>
 
-  let cpts = Re_str.(split (regexp "/") path) in
-  match List.filter (fun e -> e <> "") cpts with
-  | [] | [ "blog" ] ->
-    respond_string ~status:`OK ~body:(Page.posts ()) ()
+  let heading =
+    <:html<
+      <a href="/">
+        <h1>$title$<br />
+          <small>because everyone needs a presence, right?</small>
+        </h1>
+      </a>
+    >>
 
-  | [ "blog"; "atom.xml" ] ->
-    respond_string ~status:`OK ~body:(Page.feed ()) ()
+  let base_uri = "http://localhost:8081"
+  let rights = Some "All rights reserved"
 
-  | "blog" :: tl ->
-    respond_string ~status:`OK ~body:(Page.post path ()) ()
+  let read_store prefix f =
+    Printf.printf "[r] prefix:'%s' f:'%s'\n%!" prefix f;
+    Cowabloga.Blog.read_content Store.read prefix f
 
-  | [ "research" ] ->
-    respond_string ~status:`OK ~body:(Page.research ()) ()
+end
 
-  | [ "teaching" ] ->
-    respond_string ~status:`OK ~body:(Page.teaching ()) ()
+module Main
+         (C: CONSOLE) (HTTP: Cohttp_lwt.Server)
+         (ASSETS: KV_RO) (DATA: KV_RO) (PAGES: KV_RO) (POSTS: KV_RO) = struct
 
-  | [ "me" ] ->
-    respond_string ~status:`OK ~body:(Page.me ()) ()
+  let start c http assets data pages posts =
 
-  | _ ->
-    let fname = resolve_file ~docroot:"store" ~uri in
-    respond_file ~fname ()
+    let read_assets name =
+      ASSETS.size assets name
+      >>= function
+      | `Error (ASSETS.Unknown_key _) -> fail (Failure ("read " ^ name))
+      | `Ok size ->
+        AaSETS.read assets name 0 (Int64.to_int size)
+        >>= function
+        | `Error (ASSETS.Unknown_key _) -> fail (Failure ("read " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
+    in
+
+    let read_data name =
+      DATA.size data name
+      >>= function
+      | `Error (DATA.Unknown_key _) -> fail (Failure ("read " ^ name))
+      | `Ok size ->
+        DATA.read data name 0 (Int64.to_int size)
+        >>= function
+        | `Error (DATA.Unknown_key _) -> fail (Failure ("read " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
+    in
+
+    let read_pages name =
+      PAGES.size pages name
+      >>= function
+      | `Error (PAGES.Unknown_key _) -> fail (Failure ("read " ^ name))
+      | `Ok size ->
+        ASSETS.read pages name 0 (Int64.to_int size)
+        >>= function
+        | `Error (PAGES.Unknown_key _) -> fail (Failure ("read " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
+    in
+
+    let read_posts name =
+      POSTS.size posts name
+      >>= function
+      | `Error (POSTS.Unknown_key _) -> fail (Failure ("read " ^ name))
+      | `Ok size ->
+        POSTS.read posts name 0 (Int64.to_int size)
+        >>= function
+        | `Error (POSTS.Unknown_key _) -> fail (Failure ("read " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
+    in
+
+    let callback conn_id ?body req =
+      let path = Uri.path (HTTP.Request.uri req) in
+      let cpts =
+        let rec aux = function
+          | [] | [""] -> []
+          | hd::tl -> hd :: aux tl
+        in
+        path
+        |> Re_str.(split_delim (regexp_string "/"))
+        |> aux
+      in
+      C.log_s c (Printf.sprintf "URL: %s" path)
+      >> try_lwt
+        lwt body = read_asset path in
+        HTTP.respond_string ~status:`OK ~body ()
+      with exn -> dispatch req cpts
+    in
+    let conn_closed conn_id () =
+      Printf.eprintf "conn %s closed\n%!" (HTTP.string_of_conn_id conn_id)
+    in
+    http { Server.callback = callback; conn_closed }
+
+end
