@@ -18,12 +18,13 @@
 module Config = struct
   let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
   let title = <:html< mort&rsquo;s mythopoeia >>
+  let subtitle = <:html< because everyone needs a presence, right? >>
 
   let heading =
     <:html<
       <a href="/">
         <h1>$title$<br />
-          <small>because everyone needs a presence, right?</small>
+          <small>$subtitle$</small>
         </h1>
       </a>
     >>

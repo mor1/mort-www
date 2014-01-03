@@ -86,11 +86,11 @@ let dispatch unik request =
     log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (Page.posts unik.get_post)
 
-(*
   | [ "blog"; "atom.xml" ] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.atom (Blog.feed ())
+    unik.http_respond_ok ~headers:Headers.atom (Page.feed unik.get_post)
 
+(*
   | "blog" :: tl ->
     log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (Blog.post path)

@@ -115,6 +115,11 @@ let posts readf =
   lwt body = Blog.to_html feed Posts.t in
   return (render ~title ~highlight:true body)
 
+let feed readf =
+  let feed = Posts.feed (fun name -> readf ~name) in
+  lwt feed = Blog.to_atom feed Posts.t in
+  return (Xml.to_string (Atom.xml_of_feed feed))
+
 (*
 
 let post path () =
@@ -153,11 +158,6 @@ let recent_posts feed n =
   recent |> List.rev |> List.map (fun e ->
       Entry.(e.subject, Uri.of_string (permalink feed e))
     )
-
-let feed () =
-  let open Config in
-  let feed = Lwt_unix.run (Blog.to_atom Posts.feed Posts.t) in
-  Xml.to_string (Atom.xml_of_feed feed)
 
 let research () =
   let trailer =

@@ -32,13 +32,13 @@ let t =
         author = Authors.mort;
         subject = "A 21st Century IDE";
         body = "21st-century-ide.md";
-        permalink = "/blog/2013/10/13/21st-century-ide/";
+        permalink = "/2013/10/13/21st-century-ide/";
       };
       { updated = Date.date (2013, 12, 09, 10, 10);
         author = Authors.mort;
         subject = "A Brave New World";
         body = "a-brave-new-world.md";
-        permalink = "/blog/2013/12/09/a-brave-new-world/";
+        permalink = "/2013/12/09/a-brave-new-world/";
       };
     ])
   |> List.sort Blog.Entry.compare
@@ -46,7 +46,7 @@ let t =
 let feed read_entry =
   let open Site.Config in
   { Atom_feed.title = Cow.Html.to_string Site.Config.title;
-    subtitle = Some (Cow.Html.to_string Site.Config.heading);
+    subtitle = Some (Cow.Html.to_string Site.Config.subtitle);
     base_uri;
     id = "/blog";
     rights;
