@@ -19,21 +19,30 @@ open Cowabloga
 open Cow
 open Lwt
 
-module T = struct
-  type t = {
-    title: string;
-    heading: Html.t;
-    copyright: Html.t;
-    sidebar: Html.t;
-    trailer: Html.t;
-  }
+let subtitle s =
+  Cow.Html.to_string <:html< $Site.Config.title$ | $str:s$ >>
 
-  let render ~config ~body =
+let render
+      ?title
+      ?(heading=Site.Config.heading)
+      ?(copyright=Site.Config.copyright)
+      ?(headers=[])
+      ?sidebar
+      ?trailer
+      body
+  =
+  let title = match title with
+    | None -> Cow.Html.to_string Site.Config.title
+    | Some t -> t
+  in
+  let sidebar = match sidebar with None -> <:html< >> | Some h -> h in
+  let trailer = match trailer with None -> <:html< >> | Some h -> h in
+  let content =
     <:html<
       <!-- header -->
       <div class="row">
         <div class="small-12 columns">
-          $config.heading$
+          $heading$
         </div>
       </div>
       <div class="row top-bar">
@@ -61,7 +70,7 @@ module T = struct
         </div>
 
         <div class="small-3 columns" role="sidebar">
-          $config.sidebar$
+          $sidebar$
         </div>
       </div>
       <!-- end page body -->
@@ -72,7 +81,7 @@ module T = struct
           <div class="row">
             <div class="small-12 columns text-right" role="copyright">
               <small>
-                <em>Copyright &copy; $config.copyright$</em>
+                <em>Copyright &copy; $copyright$</em>
               </small>
             </div>
             <hr />
@@ -82,11 +91,23 @@ module T = struct
       <!-- end page footer -->
 
       <!-- finally, trailer asset loading -->
-      $config.trailer$
+      $trailer$
       <!-- end trailer -->
     >>
+  in
+  let body = Foundation.body
+               ~highlight:"/css/highlight/solarized_light.css"
+               ~title ~headers ~content
+               ()
+  in
+  Foundation.page ~body
 
-end
+let static readf page =
+  let title = subtitle page in
+  let heading = <:html< $str:page$ >> in
+  lwt md = readf ~name:(page ^ ".md") in
+  let body = Cow.Markdown.of_string md in
+  return (render ~title ~heading body)
 
 let recent_posts feed n =
   let open Blog in
@@ -104,46 +125,10 @@ let recent_posts feed n =
       Entry.(e.subject, Uri.of_string (permalink feed e))
     )
 
-let trailer =
-  <:html<
-    <script src="/js/jquery.js"> </script>
-    <script src="/js/foundation.min.js"> </script>
-    <script src="/js/init.js"> </script>
-  >>
-
-let syntax_highlighting =
-  <:html<
-    <link rel="stylesheet" href="/css/highlight/solarized_light.css"> </link>
-    <script src="/js/highlight.pack.js"> </script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  >>
-
-let subtitle s =
-  Cow.Html.to_string <:html< $Site.Config.title$ $str:s$ >>
-
-let page ~title ~heading ~copyright ~trailer ~content =
-  let content =
-    let body = Lwt_unix.run content in
-    let sidebar = <:html< <p>sidebar</p> >> (* Blog_template.side_nav (recent_posts Posts.feed
-                                10) *) in
-    let open T in
-    let config = { title; heading; copyright; sidebar; trailer } in
-    render config body
-  in
-  Foundation.(page ~body:(body ~title ~headers:[] ~content))
+(*
 
 let read_page f = return <:html< <p>read_page $str:f$</p> >> (*  Config.read_store "pages/" f *)
 
-let me () =
-  let open Site in
-  let title = subtitle " | me" in
-  let trailer = trailer @ syntax_highlighting in
-  let content = read_page "me.md" in
-  let heading = <:html< me >> in
-  let copyright = <:html< copyright >> in
-  return (page ~title ~heading ~copyright ~trailer ~content)
-
-(*
 
 let teaching () =
   let open Site in
@@ -197,7 +182,7 @@ let post path () =
   let title = subtitle (" | blog | " ^ entry.Entry.subject) in
   page ~title ~heading ~copyright ~trailer ~content
 
-(* 
+(*
 let feed () =
   let open Config in
   let feed = Lwt_unix.run (Blog.to_atom Posts.feed Posts.t) in
