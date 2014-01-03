@@ -27,6 +27,7 @@ let render
       ?(heading=Site.Config.heading)
       ?(copyright=Site.Config.copyright)
       ?(headers=[])
+      ?(highlight=false)
       ?sidebar
       ?trailer
       body
@@ -96,71 +97,25 @@ let render
       <!-- end trailer -->
     >>
   in
-  let body = Foundation.body
-               ~highlight:"/css/highlight/solarized_light.css"
-               ~title ~headers ~content
-               ()
+  let highlight =
+    if highlight then Some "/css/highlight/solarized_light.css" else None
   in
+  let body = Foundation.body ?highlight ~title ~headers ~content () in
   Foundation.page ~body
 
 let static readf page =
   let title = subtitle page in
   let heading = <:html< $str:(String.capitalize page)$ >> in
-  lwt md = readf ~name:(page ^ ".md") in
-  let body = Cow.Markdown.of_string md in
+  lwt body = readf ~name:(page ^ ".md") in
   return (render ~title ~heading body)
 
-let recent_posts feed n =
-  let open Blog in
-  let entries = List.sort Entry.compare Posts.t in
-  let recent =
-    let rec subn acc l i = match l, i with
-      | _, 0
-      | [], _ -> acc
-
-      | h::t, i -> subn (h :: acc) t (i-1)
-    in
-    subn [] entries n
-  in
-  recent |> List.rev |> List.map (fun e ->
-      Entry.(e.subject, Uri.of_string (permalink feed e))
-    )
+let posts readf =
+  let title = subtitle "blog" in
+  let feed = Posts.feed (fun name -> readf ~name) in
+  lwt body = Blog.to_html feed Posts.t in
+  return (render ~title ~highlight:true body)
 
 (*
-
-let read_page f = return <:html< <p>read_page $str:f$</p> >> (*  Config.read_store "pages/" f *)
-
-
-let teaching () =
-  let open Site in
-  let title = subtitle " | teaching" in
-  let trailer = trailer @ syntax_highlighting in
-  let content = read_page "teaching.md" in
-  let heading = <:html< teaching >> in
-  page ~title ~heading ~copyright ~trailer ~content
-
-let research () =
-  let trailer =
-    let jss = List.map
-        (fun js ->
-           let js = "/js/" ^ js ^ ".js" in
-           <:html< <script src=$str:js$> </script> >>
-        )
-        [ "jquery-1.9.1.min"; "papers"; "load-papers" ]
-    in
-    trailer @ <:html< $list:jss$ >>
-  in
-  let open Site in
-  let title = subtitle " | research" in
-  let content = read_page "research.md" in
-  page ~title ~heading ~copyright ~trailer ~content
-
-let posts () =
-  let open Site in
-  let content = return <:html< blog_posts >> (* Blog.to_html Posts.feed Posts.t *) in
-  let trailer = trailer @ syntax_highlighting in
-  let title = subtitle " | blog" in
-  page ~title ~heading ~copyright ~trailer ~content
 
 let post path () =
   let open Site in
@@ -183,10 +138,41 @@ let post path () =
   let title = subtitle (" | blog | " ^ entry.Entry.subject) in
   page ~title ~heading ~copyright ~trailer ~content
 
-(*
+let recent_posts feed n =
+  let open Blog in
+  let entries = List.sort Entry.compare Posts.t in
+  let recent =
+    let rec subn acc l i = match l, i with
+      | _, 0
+      | [], _ -> acc
+
+      | h::t, i -> subn (h :: acc) t (i-1)
+    in
+    subn [] entries n
+  in
+  recent |> List.rev |> List.map (fun e ->
+      Entry.(e.subject, Uri.of_string (permalink feed e))
+    )
+
 let feed () =
   let open Config in
   let feed = Lwt_unix.run (Blog.to_atom Posts.feed Posts.t) in
   Xml.to_string (Atom.xml_of_feed feed)
-*)
+
+let research () =
+  let trailer =
+    let jss = List.map
+        (fun js ->
+           let js = "/js/" ^ js ^ ".js" in
+           <:html< <script src=$str:js$> </script> >>
+        )
+        [ "jquery-1.9.1.min"; "papers"; "load-papers" ]
+    in
+    trailer @ <:html< $list:jss$ >>
+  in
+  let open Site in
+  let title = subtitle " | research" in
+  let content = read_page "research.md" in
+  page ~title ~heading ~copyright ~trailer ~content
+
 *)

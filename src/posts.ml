@@ -31,28 +31,25 @@ let t =
       { updated = Date.date (2013, 10, 14, 10, 46);
         author = Authors.mort;
         subject = "A 21st Century IDE";
-        body = "posts/21st-century-ide.md";
+        body = "21st-century-ide.md";
         permalink = "/blog/2013/10/13/21st-century-ide/";
       };
       { updated = Date.date (2013, 12, 09, 10, 10);
         author = Authors.mort;
         subject = "A Brave New World";
-        body = "posts/a-brave-new-world.md";
+        body = "a-brave-new-world.md";
         permalink = "/blog/2013/12/09/a-brave-new-world/";
       };
     ])
   |> List.sort Blog.Entry.compare
 
-(*
-let feed =
-  let open Site in
-  let title = Cow.Html.to_string title in
-  let read_entry f = read_store "" f in
-  { Blog.title;
-    subtitle = None;
+let feed read_entry =
+  let open Site.Config in
+  { Atom_feed.title = Cow.Html.to_string Site.Config.title;
+    subtitle = Some (Cow.Html.to_string Site.Config.heading);
     base_uri;
     id = "/blog";
-    rights = Some "All rights reserved";
+    rights;
+    author = Some Authors.mort;
     read_entry
   }
-*)

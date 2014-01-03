@@ -20,12 +20,12 @@ open Lwt
 (** Represents the (stateless) {! Unikernel} as the set of permitted Mirage
     Driver interactions. *)
 type t = {
-  log: msg:string -> unit;                 (** Console logging *)
+  log: msg:string -> unit;              (** Console logging *)
 
-  get_asset: name:string -> string Lwt.t;  (** Read static asset *)
-  get_page: name:string -> string Lwt.t;   (** Read page *)
-  get_papers: name:string -> string Lwt.t; (** Access papers data *)
-  get_blog: name:string -> string Lwt.t;   (** Read blog posts *)
+  get_asset: name:string -> string Lwt.t;    (** Read static asset *)
+  get_papers: name:string -> string Lwt.t;   (** Access papers data *)
+  get_page: name:string -> Cow.Html.t Lwt.t; (** Read page *)
+  get_post: name:string -> Cow.Html.t Lwt.t; (** Read blog posts *)
 
   http_respond_ok: ?headers:(string*string) list
     -> string Lwt.t
@@ -81,6 +81,20 @@ let dispatch unik request =
     log_ok path;
     let [p] = p in
     unik.http_respond_ok ~headers:Headers.xhtml (static p)
+
+  | [ "blog" ] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.xhtml (Page.posts unik.get_post)
+
+(*
+  | [ "blog"; "atom.xml" ] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.atom (Blog.feed ())
+
+  | "blog" :: tl ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.xhtml (Blog.post path)
+*)
 
   | _ ->
     try_lwt

@@ -20,13 +20,13 @@ open Lwt
 
 module Main
          (C: CONSOLE) (HTTP: Cohttp_lwt.Server)
-         (ASSETS: KV_RO) (PAPERS: KV_RO) (PAGES: KV_RO) (BLOG: KV_RO) = struct
+         (ASSETS: KV_RO) (PAPERS: KV_RO) (PAGES: KV_RO) (POSTS: KV_RO) = struct
 
   (** Functor that produces a structure representing a unikernel given the
       driver structures specified in [config.ml]. Instantiated via e.g.,
       {! Lwt_unix.run} or as a Xen VM. *)
 
-  let start c http assets papers pages blog =
+  let start c http assets papers pages posts =
     (** Unikernel entry point. *)
 
     (** First, project all the required methods we'll need from the Mirage
@@ -61,7 +61,7 @@ module Main
         PAGES.read pages name 0 (Int64.to_int size)
         >>= function
         | `Error (PAGES.Unknown_key _) -> fail (Failure ("get_page " ^ name))
-        | `Ok bufs -> return (Cstruct.copyv bufs)
+        | `Ok bufs -> return (Cow.Markdown.of_string (Cstruct.copyv bufs))
     in
 
     let get_papers ~name =
@@ -75,21 +75,21 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_blog ~name =
-      BLOG.size blog name
+    let get_post ~name =
+      POSTS.size posts name
       >>= function
-      | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog size " ^ name))
+      | `Error (POSTS.Unknown_key _) -> fail (Failure ("get_post size " ^ name))
       | `Ok size ->
-        BLOG.read blog name 0 (Int64.to_int size)
+        POSTS.read posts name 0 (Int64.to_int size)
         >>= function
-        | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog " ^ name))
-        | `Ok bufs -> return (Cstruct.copyv bufs)
+        | `Error (POSTS.Unknown_key _) -> fail (Failure ("get_post " ^ name))
+        | `Ok bufs -> return (Cow.Markdown.of_string (Cstruct.copyv bufs))
     in
 
     let callback conn_id ?body req =
       let unik = {
         Dispatch.log = (fun ~msg -> C.log c msg);
-        get_asset; get_page; get_papers; get_blog;
+        get_asset; get_papers; get_page; get_post;
         http_respond_ok; http_respond_notfound;
         http_uri;
       } in
