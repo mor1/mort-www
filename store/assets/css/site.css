@@ -37,12 +37,12 @@
 }
 
 pre>code {
-  font-size: 0.65rem;
-  font-weight: normal;
-  overflow-x: scroll;
+    font-size: 0.65rem;
+    font-weight: normal;
+    overflow-x: scroll;
 }
 
 footer div.text-right[role="copyright"] {
-  background: #eee;
-  padding: 1ex 1em 1ex 0;
+    background: #eee;
+    padding: 1ex 1em 1ex 0;
 }
