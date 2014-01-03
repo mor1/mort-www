@@ -33,7 +33,7 @@ let fs_drivers = function
   | `Crunch ->
     let open KV_RO in
     [ { name = "assets"; dirname = "../store/assets" };
-      { name = "papers";   dirname = "../store/papers"   };
+      { name = "papers"; dirname = "../store/papers" };
       { name = "pages";  dirname = "../store/pages"  };
       { name = "posts";  dirname = "../store/posts"  };
     ]
