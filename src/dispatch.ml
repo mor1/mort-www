@@ -58,6 +58,7 @@ end
 let dispatch unik request =
   let sp = Printf.sprintf in
   let static page = Page.static unik.get_page page in
+  let log_ok path = unik.log (sp "200 GET %s" path) in
 
   let uri = unik.http_uri ~request in
   let path = Uri.path uri in
@@ -73,11 +74,11 @@ let dispatch unik request =
 
   match List.filter (fun e -> e <> "") cpts with
   | [] ->
-    unik.log (sp "200 GET %s" path);
+    log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (static "me")
 
   | ([ "me" ] as p) | ([ "research" ] as p) | ([ "teaching" ] as p) ->
-    unik.log (sp "200 GET %s" path);
+    log_ok path;
     let [p] = p in
     unik.http_respond_ok ~headers:Headers.xhtml (static p)
 
