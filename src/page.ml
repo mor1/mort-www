@@ -119,32 +119,38 @@ let syntax_highlighting =
   >>
 
 let subtitle s =
-  Cow.Html.to_string <:html< $Site.title$ $str:s$ >>
+  Cow.Html.to_string <:html< $Site.Config.title$ $str:s$ >>
 
 let page ~title ~heading ~copyright ~trailer ~content =
   let content =
     let body = Lwt_unix.run content in
-    let sidebar = Blog_template.side_nav (recent_posts Posts.feed 10) in
+    let sidebar = <:html< <p>sidebar</p> >> (* Blog_template.side_nav (recent_posts Posts.feed
+                                10) *) in
     let open T in
     let config = { title; heading; copyright; sidebar; trailer } in
     render config body
   in
   Foundation.(page ~body:(body ~title ~headers:[] ~content))
 
-let read_page f = Config.read_store "pages/" f
-
-let teaching () =
-  let open Config in
-  let title = subtitle " | teaching" in
-  let trailer = trailer @ syntax_highlighting in
-  let content = read_page "teaching.md" in
-  page ~title ~heading ~copyright ~trailer ~content
+let read_page f = return <:html< <p>read_page $str:f$</p> >> (*  Config.read_store "pages/" f *)
 
 let me () =
-  let open Config in
+  let open Site in
   let title = subtitle " | me" in
   let trailer = trailer @ syntax_highlighting in
   let content = read_page "me.md" in
+  let heading = <:html< me >> in
+  let copyright = <:html< copyright >> in
+  return (page ~title ~heading ~copyright ~trailer ~content)
+
+(*
+
+let teaching () =
+  let open Site in
+  let title = subtitle " | teaching" in
+  let trailer = trailer @ syntax_highlighting in
+  let content = read_page "teaching.md" in
+  let heading = <:html< teaching >> in
   page ~title ~heading ~copyright ~trailer ~content
 
 let research () =
@@ -158,24 +164,24 @@ let research () =
     in
     trailer @ <:html< $list:jss$ >>
   in
-  let open Config in
+  let open Site in
   let title = subtitle " | research" in
   let content = read_page "research.md" in
   page ~title ~heading ~copyright ~trailer ~content
 
 let posts () =
-  let open Config in
-  let content = Blog.to_html Posts.feed Posts.t in
+  let open Site in
+  let content = return <:html< blog_posts >> (* Blog.to_html Posts.feed Posts.t *) in
   let trailer = trailer @ syntax_highlighting in
   let title = subtitle " | blog" in
   page ~title ~heading ~copyright ~trailer ~content
 
 let post path () =
-  let open Config in
+  let open Site in
   let open Blog in
   let entry = List.find (fun e -> e.Entry.permalink = path) Posts.t in
   let content =
-    lwt content = Posts.feed.read_entry entry.Entry.body in
+    lwt content = return <:html< posts_feed_content >> in (* Posts.feed.read_entry  entry.Entry.body in *)
     let date = Date.html_of_date entry.Entry.updated in
     let author =
       let open Cow.Atom in
@@ -191,7 +197,10 @@ let post path () =
   let title = subtitle (" | blog | " ^ entry.Entry.subject) in
   page ~title ~heading ~copyright ~trailer ~content
 
+(* 
 let feed () =
   let open Config in
   let feed = Lwt_unix.run (Blog.to_atom Posts.feed Posts.t) in
   Xml.to_string (Atom.xml_of_feed feed)
+*)
+*)
