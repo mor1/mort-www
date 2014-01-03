@@ -2,4 +2,7 @@ PKG lwt
 PKG cow
 PKG cowabloga
 PKG mirage
+PKG mirage-types
+PKG mirage-http-unix
+PKG cohttp
 REC
