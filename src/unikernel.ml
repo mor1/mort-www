@@ -18,19 +18,94 @@
 open Mirage_types.V1
 open Lwt
 
+
+(** Represents the (stateless) {! Unikernel} as the set of permitted Mirage
+    Driver interactions. *)
+type t = {
+  log: string -> unit Lwt.t;          (** Console logging *)
+
+  get_asset: string -> string Lwt.t;  (** Read static asset *)
+  get_page: string -> string Lwt.t;   (** Read page *)
+  get_papers: string -> string Lwt.t; (** Access papers data *)
+  get_blog: string -> string Lwt.t;   (** Read blog posts *)
+
+  http_respond_ok: (string*string) list
+    -> string Lwt.t
+    -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
+  (**  *)
+
+  http_uri: Cohttp.Request.t -> Uri.t;
+}
+
+module Headers = struct
+  (* http://www.iana.org/assignments/media-types/ *)
+
+  let xhtml = ["content-type", "text/html; charset=UTF-8"]
+  let css = ["content-type", "text/css; charset=UTF-8"]
+
+  let atom = ["content-type", "application/atom+xml; charset=UTF-8"]
+  let javascript = ["content-type", "application/javascript; charset=UTF-8"]
+
+  let png = ["content-type", "image/png"]
+  let jpeg = ["content-type", "image/jpeg"]
+
+end
+
+let dispatch unik req =
+  let path = req |> unik.http_uri |> Uri.path in
+  let cpts =
+    let rec aux = function
+      | [] | [""] -> []
+      | hd::tl -> hd :: aux tl
+    in
+    path
+    |> Re_str.(split_delim (regexp_string "/"))
+    |> aux
+  in
+  unik.log (Printf.sprintf "URL: %s" path)
+  >>
+  match List.filter (fun e -> e <> "") cpts with
+  | []
+  | [ "me" ] -> unik.http_respond_ok [] (Page.me ())
+
+(*
+    | [ "blog" ] -> http_respond ~body:(Page.posts ())
+    | [ "research" ] -> http_respond ~body:(Page.research ())
+    | [ "teaching" ] -> http_respond ~body:(Page.teaching ())
+
+    | [ "blog"; "atom.xml" ] -> http_respond ~headers ~body:(Page.feed ())
+
+    | "blog" :: tl ->
+      respond_string ~status:`OK ~body:(Page.post path ()) ()
+
+
+    | _ ->
+      let fname = resolve_file ~docroot:"store" ~uri in
+      respond_file ~fname ()
+*)
+
 module Main
          (C: CONSOLE) (HTTP: Cohttp_lwt.Server)
-         (ASSETS: KV_RO) (DATA: KV_RO) (PAGES: KV_RO) (POSTS: KV_RO) = struct
+         (ASSETS: KV_RO) (PAGES: KV_RO) (PAPERS: KV_RO) (BLOG: KV_RO) = struct
 
-  type unik = {
-    log: string -> unit Lwt.t;
-    get_asset: string -> string Lwt.t;
-    get_data: string -> string Lwt.t;
-    get_page: string -> string Lwt.t;
-    get_post: string -> string Lwt.t;
-  }
+  (** Functor that produces a structure representing a unikernel given the
+      driver structures specified in [config.ml]. Instantiated via e.g.,
+      {! Lwt_unix.run} or as a Xen VM. *)
 
-  let start c http assets data pages posts =
+  let start c http assets pages papers blog =
+    (** Unikernel entry point. *)
+
+    (** First, project all the required methods we'll need from the Mirage
+        Driver modules. *)
+
+    let http_respond_ok headers body =
+      body >>= fun body ->
+      let status = `OK in
+      let headers = Cohttp.Header.of_list headers in
+      HTTP.respond_string ~headers ~status ~body ()
+    in
+
+    let http_uri request = HTTP.Request.uri request in
 
     let get_asset name =
       ASSETS.size assets name
@@ -43,14 +118,14 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_data name =
-      DATA.size data name
+    let get_papers name =
+      PAPERS.size papers name
       >>= function
-      | `Error (DATA.Unknown_key _) -> fail (Failure ("get_data " ^ name))
+      | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers " ^ name))
       | `Ok size ->
-        DATA.read data name 0 (Int64.to_int size)
+        PAPERS.read papers name 0 (Int64.to_int size)
         >>= function
-        | `Error (DATA.Unknown_key _) -> fail (Failure ("get_data " ^ name))
+        | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers " ^ name))
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
@@ -65,27 +140,29 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_post name =
-      POSTS.size posts name
+    let get_blog name =
+      BLOG.size blog name
       >>= function
-      | `Error (POSTS.Unknown_key _) -> fail (Failure ("get_posts " ^ name))
+      | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog " ^ name))
       | `Ok size ->
-        POSTS.read posts name 0 (Int64.to_int size)
+        BLOG.read blog name 0 (Int64.to_int size)
         >>= function
-        | `Error (POSTS.Unknown_key _) -> fail (Failure ("get_posts " ^ name))
+        | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog " ^ name))
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
     let callback conn_id ?body req =
       let unik = {
-        log = (fun s -> C.log_s c s);
-        get_asset; get_data; get_page; get_post;
+        log = (fun msg -> C.log_s c msg);
+        get_asset; get_page; get_papers; get_blog;
+        http_respond_ok;
+        http_uri;
       } in
-      Dispatch.f unik req
+      dispatch unik req
     in
     let conn_closed conn_id () =
-      Printf.eprintf "conn %s closed\n%!" (HTTP.string_of_conn_id conn_id)
+      Printf.eprintf "conn %s closed\n%!" (Cohttp.Connection.to_string conn_id)
     in
-    http { Server.callback = callback; conn_closed }
+    http { Cohttp_mirage.Server.callback = callback; conn_closed }
 
 end

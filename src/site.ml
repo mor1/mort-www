@@ -15,17 +15,19 @@
  *
  *)
 
-let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
-let title = <:html< mort&rsquo;s mythopoeia >>
+module Config = struct
+  let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
+  let title = <:html< mort&rsquo;s mythopoeia >>
 
-let heading =
-  <:html<
-    <a href="/">
-      <h1>$title$<br />
-        <small>because everyone needs a presence, right?</small>
-      </h1>
-    </a>
-  >>
+  let heading =
+    <:html<
+      <a href="/">
+        <h1>$title$<br />
+          <small>because everyone needs a presence, right?</small>
+        </h1>
+      </a>
+    >>
 
-let base_uri = "http://mort.io"
-let rights = Some "All rights reserved"
+  let base_uri = "http://mort.io"
+  let rights = Some "All rights reserved"
+end
