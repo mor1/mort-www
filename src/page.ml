@@ -40,11 +40,6 @@ let render
   let content =
     <:html<
       <!-- header -->
-      <div class="row">
-        <div class="small-12 columns">
-          $heading$
-        </div>
-      </div>
       <div class="row top-bar">
         <div class="small-10 small-offset-1 columns"
              data-magellan-expedition="fixed">
@@ -62,6 +57,12 @@ let render
         </div>
       </div>
       <!-- end header -->
+
+      <div class="row">
+        <div class="small-11 small-offset-1 columns" role="heading">
+          <h1>$heading$</h1>
+        </div>
+      </div>
 
       <!-- page body -->
       <div class="row">
@@ -104,7 +105,7 @@ let render
 
 let static readf page =
   let title = subtitle page in
-  let heading = <:html< $str:page$ >> in
+  let heading = <:html< $str:(String.capitalize page)$ >> in
   lwt md = readf ~name:(page ^ ".md") in
   let body = Cow.Markdown.of_string md in
   return (render ~title ~heading body)
