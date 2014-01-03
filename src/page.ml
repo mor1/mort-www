@@ -38,23 +38,33 @@ let render
   in
   let sidebar = match sidebar with None -> <:html< >> | Some h -> h in
   let trailer = match trailer with None -> <:html< >> | Some h -> h in
+
+  let navbar =
+    <:html<
+      <ul class="sub-nav">
+        <li data-magellan-arrival="blog">
+          <a href="/blog">Blog</a>
+        </li>
+        <li data-magellan-arrival="research">
+          <a href="/research">Research</a>
+        </li>
+        <li data-magellan-arrival="teaching">
+          <a href="/teaching">Teaching</a>
+        </li>
+        <li data-magellan-arrival="me">
+          <a href="/me">Me</a>
+        </li>
+      </ul>
+    >>
+  in
+
   let content =
     <:html<
       <!-- header -->
       <div class="row top-bar">
         <div class="small-10 small-offset-1 columns"
              data-magellan-expedition="fixed">
-          <ul class="sub-nav">
-            <li data-magellan-arrival="research">
-              <a href="/research">Research</a>
-            </li>
-            <li data-magellan-arrival="teaching">
-              <a href="/teaching">Teaching</a>
-            </li>
-            <li data-magellan-arrival="me">
-              <a href="/me">Me</a>
-            </li>
-          </ul>
+          $navbar$
         </div>
       </div>
       <!-- end header -->
@@ -111,37 +121,29 @@ let static readf page =
 
 let posts readf =
   let title = subtitle "blog" in
-  let feed = Posts.feed (fun name -> readf ~name) in
-  lwt body = Blog.to_html feed Posts.t in
+  lwt body =
+    let feed = Posts.feed (fun name -> readf ~name) in
+    Blog.to_html feed Posts.t
+  in
   return (render ~title ~highlight:true body)
 
 let feed readf =
-  let feed = Posts.feed (fun name -> readf ~name) in
-  lwt feed = Blog.to_atom feed Posts.t in
+  lwt feed =
+    let feed = Posts.feed (fun name -> readf ~name) in
+    Blog.to_atom feed Posts.t
+  in
   return (Xml.to_string (Atom.xml_of_feed feed))
 
-(*
-
-let post path () =
-  let open Site in
-  let open Blog in
-  let entry = List.find (fun e -> e.Entry.permalink = path) Posts.t in
-  let content =
-    lwt content = return <:html< posts_feed_content >> in (* Posts.feed.read_entry  entry.Entry.body in *)
-    let date = Date.html_of_date entry.Entry.updated in
-    let author =
-      let open Cow.Atom in
-      Entry.(
-        entry.author.name,
-        Uri.of_string (match entry.author.uri with Some x -> x | None -> "")
-      )
-    in
-    let title = Entry.(entry.subject, Uri.of_string entry.permalink) in
-    return (Blog_template.post ~title ~author ~date ~content)
+let post readf path =
+  let entry = List.find (fun e -> e.Blog.Entry.permalink = path) Posts.t in
+  let title = subtitle (" | blog | " ^ entry.Blog.Entry.subject) in
+  lwt body =
+    let feed = Posts.feed (fun name -> readf ~name) in
+    Blog.Entry.to_html ~feed ~entry
   in
-  let trailer = trailer @ syntax_highlighting in
-  let title = subtitle (" | blog | " ^ entry.Entry.subject) in
-  page ~title ~heading ~copyright ~trailer ~content
+  return (render ~title ~highlight:true body)
+
+(*
 
 let recent_posts feed n =
   let open Blog in

@@ -32,13 +32,13 @@ let t =
         author = Authors.mort;
         subject = "A 21st Century IDE";
         body = "21st-century-ide.md";
-        permalink = "/2013/10/13/21st-century-ide/";
+        permalink = "/blog/2013/10/13/21st-century-ide/";
       };
       { updated = Date.date (2013, 12, 09, 10, 10);
         author = Authors.mort;
         subject = "A Brave New World";
         body = "a-brave-new-world.md";
-        permalink = "/2013/12/09/a-brave-new-world/";
+        permalink = "/blog/2013/12/09/a-brave-new-world/";
       };
     ])
   |> List.sort Blog.Entry.compare
