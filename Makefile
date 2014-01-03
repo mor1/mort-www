@@ -31,7 +31,7 @@ build: | configure
 	$(MIRAGE) build src/config.ml $(BFLAGS)
 
 run: | build
-	$(MIRAGE) run src/config.ml --$(MODE)
+	$(MIRAGE) run src/config.ml
 
 clean:
 	$(MIRAGE) clean src/config.ml $(BFLAGS)
