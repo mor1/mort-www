@@ -2,6 +2,8 @@ src/_build
 
 src/Makefile
 src/main.ml
+src/main.native
+src/mir-main
 
 ## un-ignore this once edited
 src/main.xl
