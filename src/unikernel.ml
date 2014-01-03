@@ -22,19 +22,19 @@ open Lwt
 (** Represents the (stateless) {! Unikernel} as the set of permitted Mirage
     Driver interactions. *)
 type t = {
-  log: string -> unit Lwt.t;          (** Console logging *)
+  log: msg:string -> unit Lwt.t;          (** Console logging *)
 
-  get_asset: string -> string Lwt.t;  (** Read static asset *)
-  get_page: string -> string Lwt.t;   (** Read page *)
-  get_papers: string -> string Lwt.t; (** Access papers data *)
-  get_blog: string -> string Lwt.t;   (** Read blog posts *)
+  get_asset: name:string -> string Lwt.t;  (** Read static asset *)
+  get_page: name:string -> string Lwt.t;   (** Read page *)
+  get_papers: name:string -> string Lwt.t; (** Access papers data *)
+  get_blog: name:string -> string Lwt.t;   (** Read blog posts *)
 
-  http_respond_ok: (string*string) list
+  http_respond_ok: ?headers:(string*string) list
     -> string Lwt.t
     -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
   (**  *)
 
-  http_uri: Cohttp.Request.t -> Uri.t;
+  http_uri: request:Cohttp.Request.t -> Uri.t;
 }
 
 module Headers = struct
@@ -51,8 +51,8 @@ module Headers = struct
 
 end
 
-let dispatch unik req =
-  let path = req |> unik.http_uri |> Uri.path in
+let dispatch unik request =
+  let path = unik.http_uri ~request |> Uri.path in
   let cpts =
     let rec aux = function
       | [] | [""] -> []
@@ -66,7 +66,7 @@ let dispatch unik req =
   >>
   match List.filter (fun e -> e <> "") cpts with
   | []
-  | [ "me" ] -> unik.http_respond_ok [] (Page.me ())
+  | [ "me" ] -> unik.http_respond_ok (Page.me ())
 
 (*
     | [ "blog" ] -> http_respond ~body:(Page.posts ())
@@ -98,16 +98,16 @@ module Main
     (** First, project all the required methods we'll need from the Mirage
         Driver modules. *)
 
-    let http_respond_ok headers body =
+    let http_respond_ok ?(headers=[]) body =
       body >>= fun body ->
       let status = `OK in
       let headers = Cohttp.Header.of_list headers in
       HTTP.respond_string ~headers ~status ~body ()
     in
 
-    let http_uri request = HTTP.Request.uri request in
+    let http_uri ~request = HTTP.Request.uri request in
 
-    let get_asset name =
+    let get_asset ~name =
       ASSETS.size assets name
       >>= function
       | `Error (ASSETS.Unknown_key _) -> fail (Failure ("get_asset " ^ name))
@@ -118,7 +118,7 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_papers name =
+    let get_papers ~name =
       PAPERS.size papers name
       >>= function
       | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers " ^ name))
@@ -129,7 +129,7 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_page name =
+    let get_page ~name =
       PAGES.size pages name
       >>= function
       | `Error (PAGES.Unknown_key _) -> fail (Failure ("get_page " ^ name))
@@ -140,7 +140,7 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_blog name =
+    let get_blog ~name =
       BLOG.size blog name
       >>= function
       | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog " ^ name))
@@ -153,7 +153,7 @@ module Main
 
     let callback conn_id ?body req =
       let unik = {
-        log = (fun msg -> C.log_s c msg);
+        log = (fun ~msg -> C.log_s c msg);
         get_asset; get_page; get_papers; get_blog;
         http_respond_ok;
         http_uri;
