@@ -30,9 +30,14 @@ type t = {
   http_respond_ok: ?headers:(string*string) list
     -> string Lwt.t
     -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
-  (** Standard HTTP 200 OK aresponse *)
+  (** Standard HTTP 200 OK response *)
+
+  http_respond_notfound: uri:Uri.t
+    -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
+  (** Standard HTTP 404 Not Found *)
 
   http_uri: request:Cohttp.Request.t -> Uri.t;
+  (** Extract URI from request  *)
 }
 
 module Headers = struct
@@ -50,7 +55,8 @@ module Headers = struct
 end
 
 let dispatch unik request =
-  let path = unik.http_uri ~request |> Uri.path in
+  let uri = unik.http_uri ~request in
+  let path = Uri.path uri in
   let cpts =
     let rec aux = function
       | [] | [""] -> []
@@ -65,7 +71,7 @@ let dispatch unik request =
   match List.filter (fun e -> e <> "") cpts with
   | []
   | [ "me" ] -> unik.http_respond_ok (Page.me ())
-
+  | _ -> unik.http_respond_notfound uri
 (*
     | [ "blog" ] -> http_respond ~body:(Page.posts ())
     | [ "research" ] -> http_respond ~body:(Page.research ())
@@ -81,4 +87,3 @@ let dispatch unik request =
       let fname = resolve_file ~docroot:"store" ~uri in
       respond_file ~fname ()
 *)
-

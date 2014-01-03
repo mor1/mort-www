@@ -39,6 +39,11 @@ module Main
       HTTP.respond_string ~headers ~status ~body ()
     in
 
+    let http_respond_notfound ~uri =
+      let status = `Not_found in
+      HTTP.respond_not_found ~uri ()
+    in
+
     let http_uri ~request = HTTP.Request.uri request in
 
     let get_asset ~name =
@@ -89,13 +94,14 @@ module Main
       let unik = {
         Dispatch.log = (fun ~msg -> C.log_s c msg);
         get_asset; get_page; get_papers; get_blog;
-        http_respond_ok;
+        http_respond_ok; http_respond_notfound;
         http_uri;
       } in
       Dispatch.dispatch unik req
     in
     let conn_closed conn_id () =
-      Printf.eprintf "conn %s closed\n%!" (Cohttp.Connection.to_string conn_id)
+      let cid = Cohttp.Connection.to_string conn_id in
+      C.log c (Printf.sprintf "conn %s closed" cid)
     in
     http { Cohttp_mirage.Server.callback = callback; conn_closed }
 
