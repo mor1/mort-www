@@ -20,7 +20,7 @@ open Lwt
 (** Represents the (stateless) {! Unikernel} as the set of permitted Mirage
     Driver interactions. *)
 type t = {
-  log: msg:string -> unit Lwt.t;           (** Console logging *)
+  log: msg:string -> unit;                 (** Console logging *)
 
   get_asset: name:string -> string Lwt.t;  (** Read static asset *)
   get_page: name:string -> string Lwt.t;   (** Read page *)
@@ -30,7 +30,7 @@ type t = {
   http_respond_ok: ?headers:(string*string) list
     -> string Lwt.t
     -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
-  (** Standard HTTP 200 OK response *)
+  (** Standard HTTP 200 OK response (optional headers plus content *)
 
   http_respond_notfound: uri:Uri.t
     -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
@@ -41,7 +41,8 @@ type t = {
 }
 
 module Headers = struct
-  (* http://www.iana.org/assignments/media-types/ *)
+  (** Some default HTTP response types as HTTP headers; taken from
+      http://www.iana.org/assignments/media-types/ *)
 
   let xhtml = ["content-type", "text/html; charset=UTF-8"]
   let css = ["content-type", "text/css; charset=UTF-8"]
@@ -55,6 +56,9 @@ module Headers = struct
 end
 
 let dispatch unik request =
+  let sp = Printf.sprintf in
+  let static page = Page.static unik.get_page page in
+
   let uri = unik.http_uri ~request in
   let path = Uri.path uri in
   let cpts =
@@ -66,12 +70,40 @@ let dispatch unik request =
     |> Re_str.(split_delim (regexp_string "/"))
     |> aux
   in
-  unik.log (Printf.sprintf "URL: %s" path)
-  >>
+
   match List.filter (fun e -> e <> "") cpts with
-  | []
-  | [ "me" ] -> unik.http_respond_ok (Page.me ())
-  | _ -> unik.http_respond_notfound uri
+  | [] ->
+    unik.log (sp "200 GET %s" path);
+    unik.http_respond_ok ~headers:Headers.xhtml (static "me")
+
+  | ([ "me" ] as p) | ([ "research" ] as p) | ([ "teaching" ] as p) ->
+    unik.log (sp "200 GET %s" path);
+    let [p] = p in
+    unik.http_respond_ok ~headers:Headers.xhtml (static p)
+
+  | _ ->
+    try_lwt
+      unik.get_asset path >>= fun body ->
+      unik.log (sp "200 GET %s" path);
+      let headers =
+        let endswith tail str =
+          let l = String.length tail in
+          let i = String.(length str - l) in
+          if i < 0 then false else
+            tail = String.sub str i l
+        in
+
+        if endswith ".js" path then Headers.javascript else
+        if endswith ".css" path then Headers.css else
+        if endswith ".png" path then Headers.png
+        else []
+      in
+      unik.http_respond_ok ~headers (return body)
+
+    with exn ->
+      unik.log (sp "404 GET %s" path);
+      unik.http_respond_notfound uri
+
 (*
     | [ "blog" ] -> http_respond ~body:(Page.posts ())
     | [ "research" ] -> http_respond ~body:(Page.research ())

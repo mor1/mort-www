@@ -20,13 +20,13 @@ open Lwt
 
 module Main
          (C: CONSOLE) (HTTP: Cohttp_lwt.Server)
-         (ASSETS: KV_RO) (PAGES: KV_RO) (PAPERS: KV_RO) (BLOG: KV_RO) = struct
+         (ASSETS: KV_RO) (PAPERS: KV_RO) (PAGES: KV_RO) (BLOG: KV_RO) = struct
 
   (** Functor that produces a structure representing a unikernel given the
       driver structures specified in [config.ml]. Instantiated via e.g.,
       {! Lwt_unix.run} or as a Xen VM. *)
 
-  let start c http assets pages papers blog =
+  let start c http assets papers pages blog =
     (** Unikernel entry point. *)
 
     (** First, project all the required methods we'll need from the Mirage
@@ -39,17 +39,13 @@ module Main
       HTTP.respond_string ~headers ~status ~body ()
     in
 
-    let http_respond_notfound ~uri =
-      let status = `Not_found in
-      HTTP.respond_not_found ~uri ()
-    in
-
+    let http_respond_notfound ~uri = HTTP.respond_not_found ~uri () in
     let http_uri ~request = HTTP.Request.uri request in
 
     let get_asset ~name =
       ASSETS.size assets name
       >>= function
-      | `Error (ASSETS.Unknown_key _) -> fail (Failure ("get_asset " ^ name))
+      | `Error (ASSETS.Unknown_key _) -> fail (Failure ("get_asset size " ^ name))
       | `Ok size ->
         ASSETS.read assets name 0 (Int64.to_int size)
         >>= function
@@ -57,21 +53,10 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let get_papers ~name =
-      PAPERS.size papers name
-      >>= function
-      | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers " ^ name))
-      | `Ok size ->
-        PAPERS.read papers name 0 (Int64.to_int size)
-        >>= function
-        | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers " ^ name))
-        | `Ok bufs -> return (Cstruct.copyv bufs)
-    in
-
     let get_page ~name =
       PAGES.size pages name
       >>= function
-      | `Error (PAGES.Unknown_key _) -> fail (Failure ("get_page " ^ name))
+      | `Error (PAGES.Unknown_key _) -> fail (Failure ("get_page size " ^ name))
       | `Ok size ->
         PAGES.read pages name 0 (Int64.to_int size)
         >>= function
@@ -79,10 +64,21 @@ module Main
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
+    let get_papers ~name =
+      PAPERS.size papers name
+      >>= function
+      | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers size " ^ name))
+      | `Ok size ->
+        PAPERS.read papers name 0 (Int64.to_int size)
+        >>= function
+        | `Error (PAPERS.Unknown_key _) -> fail (Failure ("get_papers " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
+    in
+
     let get_blog ~name =
       BLOG.size blog name
       >>= function
-      | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog " ^ name))
+      | `Error (BLOG.Unknown_key _) -> fail (Failure ("get_blog size " ^ name))
       | `Ok size ->
         BLOG.read blog name 0 (Int64.to_int size)
         >>= function
@@ -92,7 +88,7 @@ module Main
 
     let callback conn_id ?body req =
       let unik = {
-        Dispatch.log = (fun ~msg -> C.log_s c msg);
+        Dispatch.log = (fun ~msg -> C.log c msg);
         get_asset; get_page; get_papers; get_blog;
         http_respond_ok; http_respond_notfound;
         http_uri;
