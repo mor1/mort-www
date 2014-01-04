@@ -81,6 +81,7 @@ tabbed = (content...) ->
     if content?
       li {},
         (tab "#{title}", "##{label}")).join("\n"))
+
   panes = ($.map(content, ([title, label, content]) ->
     if content?
       div {cl:"tab-pane fade", id:label},
