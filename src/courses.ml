@@ -19,21 +19,23 @@ open Lwt
 open Unikernel
 open Cowabloga
 
-let render ~title ~trailer body =
-  let content =
-    <:html<
-      <div class="row">
-        <div class="small-12 columns" role="content">
-          $body$
-        </div>
-      </div>
-      $trailer$
-    >>
-  in
-  let body = Foundation.body ~title ~headers:[] ~content () in
-  Foundation.page ~body
+(* push into Cowabloga.Foundation *)
 
 let page readf scripts md =
+  let render ~title ~trailer body =
+    let content =
+      <:html<
+        <div class="row">
+          <div class="small-12 columns" role="content">
+            $body$
+          </div>
+        </div>
+        $trailer$
+      >>
+    in
+    let body = Foundation.body ~title ~headers:[] ~content () in
+    Foundation.page ~body
+  in
   let trailer = Page.scripts "/courses" scripts in
   let title = Page.subtitle ("courses | " ^ md) in
   lwt body = readf ~name:(md ^ ".md") in
@@ -47,16 +49,20 @@ let dispatch unik cpts =
     return (Cow.Markdown.of_string body)
   in
   match cpts with
+  (* root page is the complete courses list *)
   | [ ] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["courses.js"] "all")
+    unik.http_respond_ok ~headers:Headers.xhtml
+      (page read_md ["courses.js"] "all")
 
+  (* specific pages *)
   | (["ugt"] as p)
   | (["pgt"] as p) ->
     log_ok path;
     (match p with
      | [ p ] ->
-       unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["courses.js"] p)
+       unik.http_respond_ok ~headers:Headers.xhtml
+         (page read_md ["courses.js"] p)
      | _ -> assert false
     )
 
@@ -66,8 +72,10 @@ let dispatch unik cpts =
 
   | ["reqs"] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs")
+    unik.http_respond_ok ~headers:Headers.xhtml
+      (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs")
 
+  (* handle legacy URIs via redirects *)
   | ["index.html"] ->
     unik.http_respond_redirect ~uri:(Uri.of_string "/courses")
   | ["ugt.html"]
@@ -79,6 +87,7 @@ let dispatch unik cpts =
   | ["tt"; "index.html"] ->
     unik.http_respond_redirect ~uri:(Uri.of_string "/courses/tt")
 
+  (* default: assume it's a standard file fetch; break this into Cowabloga.Foundation *)
   | _ ->
     try_lwt
       lwt body = unik.get_courses path in
@@ -93,6 +102,7 @@ let dispatch unik cpts =
 
         if endswith ".js" path then Headers.javascript else
         if endswith ".css" path then Headers.css else
+        if endswith ".json" path then Headers.json else
         if endswith ".png" path then Headers.png
         else []
       in
