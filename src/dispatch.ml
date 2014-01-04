@@ -57,7 +57,6 @@ end
 
 let dispatch unik request =
   let sp = Printf.sprintf in
-  let static page = Page.static unik.get_page page in
   let log_ok path = unik.log (sp "200 GET %s" path) in
 
   let uri = unik.http_uri ~request in
@@ -73,15 +72,7 @@ let dispatch unik request =
   in
 
   match List.filter (fun e -> e <> "") cpts with
-  | [] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (static "me")
-
-  | ([ "me" ] as p) | ([ "research" ] as p) | ([ "teaching" ] as p) ->
-    log_ok path;
-    let [p] = p in
-    unik.http_respond_ok ~headers:Headers.xhtml (static p)
-
+  | []
   | [ "blog" ] ->
     log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (Page.posts unik.get_post)
@@ -94,10 +85,20 @@ let dispatch unik request =
     log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (Page.post unik.get_post path)
 
+  | [ "research" ] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.xhtml (Page.research unik.get_page)
+
+  | ([ "me" ] as p)
+  | ([ "teaching" ] as p) ->
+    log_ok path;
+    let [p] = p in
+    unik.http_respond_ok ~headers:Headers.xhtml (Page.static unik.get_page p)
+
   | _ ->
     try_lwt
-      unik.get_asset path >>= fun body ->
-      unik.log (sp "200 GET %s" path);
+      lwt body = unik.get_asset path in
+      log_ok path;
       let headers =
         let endswith tail str =
           let l = String.length tail in
@@ -116,19 +117,3 @@ let dispatch unik request =
     with exn ->
       unik.log (sp "404 GET %s" path);
       unik.http_respond_notfound uri
-
-(*
-    | [ "blog" ] -> http_respond ~body:(Page.posts ())
-    | [ "research" ] -> http_respond ~body:(Page.research ())
-    | [ "teaching" ] -> http_respond ~body:(Page.teaching ())
-
-    | [ "blog"; "atom.xml" ] -> http_respond ~headers ~body:(Page.feed ())
-
-    | "blog" :: tl ->
-      respond_string ~status:`OK ~body:(Page.post path ()) ()
-
-
-    | _ ->
-      let fname = resolve_file ~docroot:"store" ~uri in
-      respond_file ~fname ()
-*)

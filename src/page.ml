@@ -42,9 +42,6 @@ let render
   let navbar =
     <:html<
       <ul class="sub-nav">
-        <li data-magellan-arrival="blog">
-          <a href="/blog">Blog</a>
-        </li>
         <li data-magellan-arrival="research">
           <a href="/research">Research</a>
         </li>
@@ -113,12 +110,6 @@ let render
   let body = Foundation.body ?highlight ~title ~headers ~content () in
   Foundation.page ~body
 
-let static readf page =
-  let title = subtitle page in
-  let heading = <:html< $str:(String.capitalize page)$ >> in
-  lwt body = readf ~name:(page ^ ".md") in
-  return (render ~title ~heading body)
-
 let posts readf =
   let title = subtitle "blog" in
   lwt body =
@@ -143,6 +134,28 @@ let post readf path =
   in
   return (render ~title ~highlight:true body)
 
+let static readf page =
+  let title = subtitle page in
+  let heading = <:html< $str:(String.capitalize page)$ >> in
+  lwt body = readf ~name:(page ^ ".md") in
+  return (render ~title ~heading body)
+
+let research readf =
+  let trailer =
+    let jss = List.map
+                (fun js ->
+                   let js = "/papers/js/" ^ js in
+                   <:html< <script src=$str:js$> </script> >>
+                )
+                [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
+    in
+    <:html< $list:jss$ >>
+  in
+  let title = subtitle "research" in
+  lwt body = readf ~name:"research.md" in
+  return (render ~title ~trailer body)
+
+
 (*
 
 let recent_posts feed n =
@@ -160,21 +173,5 @@ let recent_posts feed n =
   recent |> List.rev |> List.map (fun e ->
       Entry.(e.subject, Uri.of_string (permalink feed e))
     )
-
-let research () =
-  let trailer =
-    let jss = List.map
-        (fun js ->
-           let js = "/js/" ^ js ^ ".js" in
-           <:html< <script src=$str:js$> </script> >>
-        )
-        [ "jquery-1.9.1.min"; "papers"; "load-papers" ]
-    in
-    trailer @ <:html< $list:jss$ >>
-  in
-  let open Site in
-  let title = subtitle " | research" in
-  let content = read_page "research.md" in
-  page ~title ~heading ~copyright ~trailer ~content
 
 *)
