@@ -31,12 +31,12 @@ sidebar [rh margin, align top with bottom of header]]
 + recent posts
 
 footer
-
-# TODO
-
 + copyright
 + top-of-page
 + navmenu: top-level only
+
+# TODO
+
 + resurrect sidebar of recent blog posts
 + move `Dispatch.Headers` to root module (or to cowabloga?)
 + break out some of `Dispatch.dispatch` -- to cowabloga?
