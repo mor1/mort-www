@@ -57,8 +57,11 @@ body {
   <p>Loading...</p>
 </div>
 
+<script src="/courses/js/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript">
-  $(window).load(function () {
-    window.reqs.matrix("#reqs");
-  });
+  // <![CDATA[
+    $(window).load(function () {
+      window.reqs.matrix('#reqs');
+    });
+  // ]]>
 </script>

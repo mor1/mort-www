@@ -33,8 +33,8 @@ let render ~title ~trailer body =
   let body = Foundation.body ~title ~headers:[] ~content () in
   Foundation.page ~body
 
-let page readf md =
-  let trailer = Page.scripts "/courses" ["courses.js"] in
+let page readf scripts md =
+  let trailer = Page.scripts "/courses" scripts in
   let title = Page.subtitle ("courses | " ^ md) in
   lwt body = readf ~name:(md ^ ".md") in
   return (render ~title ~trailer body)
@@ -49,17 +49,24 @@ let dispatch unik cpts =
   match cpts with
   | [ ] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (page read_md "all")
+    unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["courses.js"] "all")
 
   | (["ugt"] as p)
-  | (["pgt"] as p)
-  | (["tt"] as p) ->
+  | (["pgt"] as p) ->
     log_ok path;
     (match p with
      | [ p ] ->
-       unik.http_respond_ok ~headers:Headers.xhtml (page read_md p)
+       unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["courses.js"] p)
      | _ -> assert false
     )
+
+  | ["tt"] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["tt.js"] "tt")
+
+  | ["reqs"] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs")
 
   | ["index.html"] ->
     unik.http_respond_redirect ~uri:(Uri.of_string "/courses")
@@ -93,4 +100,4 @@ let dispatch unik cpts =
 
     with exn ->
       unik.log (Printf.sprintf "404 GET %s" path);
-      unik.http_respond_notfound (Uri.of_string ("/courses" ^ path))
+      unik.http_respond_notfound (Uri.of_string ("/courses/" ^ path))

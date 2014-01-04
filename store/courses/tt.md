@@ -20,8 +20,11 @@ Simple collation of timetable entries for CS modules. Not definitive -- consult 
 </div>
 
 
+<script src="/courses/js/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript">
-  $(window).load(function () {
-    window.tt.fetch('../modules.json').render("#tt");
-  });
+  // <![CDATA[
+    $(window).load(function () {
+      window.tt.fetch('../data/modules.json').render('#tt');
+    });
+  // ]]>
 </script>

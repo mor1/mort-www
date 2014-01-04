@@ -36,7 +36,7 @@ reqs =
       .append("g")
         .attr("transform", "translate(#{margin.left}, #{margin.top})")
       
-    d3.json "../modules.json", (modules) ->
+    d3.json "../data/modules.json", (modules) ->
       matrix = []
       nodes = modules.modules
         .filter((v) -> v.school == "Computer Science")

@@ -7,7 +7,7 @@ js: [courses]
 
 # Postgraduate Taught Programmes<br /><small>School of Computer Science</small>
 
-+-- {.lead .span10 .offset1} 
++-- {.lead .span10 .offset1}
 
 This page collates course specifications for the various Postgraduate Taught Programmes of study offered by the School of Computer Science during 2013/14. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link.
 
@@ -66,8 +66,11 @@ This page collates course specifications for the various Postgraduate Taught Pro
 </div>
 
 
+<script src="/courses/js/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript">
-  $(window).load(function () {
-    window.courses.fetch('../pgt.json').render("#courses");
-  });
+  // <![CDATA[
+    $(window).load(function () {
+      window.courses.fetch('../data/pgt.json').render('#courses');
+    });
+  // ]]>
 </script>
