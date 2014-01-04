@@ -1,3 +1,11 @@
+# TODO
+
++ resurrect sidebar of recent blog posts
++ move `Dispatch.Headers` to root module (or to cowabloga?)
++ break out some of `Dispatch.dispatch` -- to cowabloga?
++ see if we can shuffle `Dispatch.dispatch` to `Site.dispatch`
++ move current topbar into left-sidebar menu; and make dynamic topbar from page anchors
+
 # Brief notes on site design
 
 blog [landing page]
@@ -34,10 +42,3 @@ footer
 + copyright
 + top-of-page
 + navmenu: top-level only
-
-# TODO
-
-+ resurrect sidebar of recent blog posts
-+ move `Dispatch.Headers` to root module (or to cowabloga?)
-+ break out some of `Dispatch.dispatch` -- to cowabloga?
-+ see if we can shuffle `Dispatch.dispatch` to `Site.dispatch`
