@@ -17,21 +17,7 @@
 
 open Unikernel
 open Lwt
-
-module Headers = struct
-  (** Some default HTTP response types as HTTP headers; taken from
-      http://www.iana.org/assignments/media-types/ *)
-
-  let xhtml = ["content-type", "text/html; charset=UTF-8"]
-  let css = ["content-type", "text/css; charset=UTF-8"]
-
-  let atom = ["content-type", "application/atom+xml; charset=UTF-8"]
-  let javascript = ["content-type", "application/javascript; charset=UTF-8"]
-
-  let png = ["content-type", "image/png"]
-  let jpeg = ["content-type", "image/jpeg"]
-
-end
+open Cowabloga
 
 let dispatch unik request =
   let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in

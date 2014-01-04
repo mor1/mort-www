@@ -1,9 +1,8 @@
 # TODO
 
-+ move `Dispatch.Headers` to root module (or to cowabloga?)
-+ break out some of `Dispatch.dispatch` -- to cowabloga?
-+ see if we can shuffle `Dispatch.dispatch` to `Site.dispatch`
++ break out some of `Dispatch.dispatch` -- to cowabloga? uri?
 + move current topbar into left-sidebar menu; and make dynamic topbar from page anchors
++ finish porting courses
 
 # Brief notes on site design
 
