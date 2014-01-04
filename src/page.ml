@@ -110,13 +110,35 @@ let render
   let body = Foundation.body ?highlight ~title ~headers ~content () in
   Foundation.page ~body
 
+let sidebar =
+  let open Cowabloga.Blog in
+  let content =
+    let entries = List.sort Entry.compare Posts.t in
+    let feed =
+      (* since we don't need the content *)
+      Posts.feed (fun _ -> return <:html< >>)
+    in
+    let recent =
+      let rec subn acc l i = match l, i with
+        | _, 0 | [], _ -> acc
+        | h::t, i      -> subn (h :: acc) t (i-1)
+      in
+      subn [] entries Site.Config.sidebar_limit
+    in
+    (recent |> List.rev |> List.map (fun e ->
+        `link (e.Entry.subject, Uri.of_string (Entry.permalink feed e))
+      ))
+    @ [ `link ("more ...", Uri.of_string "/blog") ]
+  in
+  Cowabloga.Foundation.Sidebar.t ~title:"Posts" ~content
+
 let posts readf =
   let title = subtitle "blog" in
   lwt body =
     let feed = Posts.feed (fun name -> readf ~name) in
     Blog.to_html feed Posts.t
   in
-  return (render ~title ~highlight:true body)
+  return (render ~title ~highlight:true ~sidebar body)
 
 let feed readf =
   lwt feed =
@@ -132,13 +154,13 @@ let post readf path =
     let feed = Posts.feed (fun name -> readf ~name) in
     Blog.Entry.to_html ~feed ~entry
   in
-  return (render ~title ~highlight:true body)
+  return (render ~title ~highlight:true ~sidebar body)
 
 let static readf page =
   let title = subtitle page in
   let heading = <:html< $str:(String.capitalize page)$ >> in
   lwt body = readf ~name:(page ^ ".md") in
-  return (render ~title ~heading body)
+  return (render ~title ~heading ~sidebar body)
 
 let research readf =
   let trailer =
@@ -153,25 +175,4 @@ let research readf =
   in
   let title = subtitle "research" in
   lwt body = readf ~name:"research.md" in
-  return (render ~title ~trailer body)
-
-
-(*
-
-let recent_posts feed n =
-  let open Blog in
-  let entries = List.sort Entry.compare Posts.t in
-  let recent =
-    let rec subn acc l i = match l, i with
-      | _, 0
-      | [], _ -> acc
-
-      | h::t, i -> subn (h :: acc) t (i-1)
-    in
-    subn [] entries n
-  in
-  recent |> List.rev |> List.map (fun e ->
-      Entry.(e.subject, Uri.of_string (permalink feed e))
-    )
-
-*)
+  return (render ~title ~trailer ~sidebar body)
