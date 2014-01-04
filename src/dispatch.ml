@@ -23,7 +23,6 @@ type t = {
   log: msg:string -> unit;              (** Console logging *)
 
   get_asset: name:string -> string Lwt.t;    (** Read static asset *)
-  get_papers: name:string -> string Lwt.t;   (** Access papers data *)
   get_page: name:string -> Cow.Html.t Lwt.t; (** Read page *)
   get_post: name:string -> Cow.Html.t Lwt.t; (** Read blog posts *)
 

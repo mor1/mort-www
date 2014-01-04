@@ -33,7 +33,6 @@ let fs_drivers = function
   | `Crunch ->
     let open KV_RO in
     [ { name = "assets"; dirname = "../store/assets" };
-      { name = "papers"; dirname = "../store/papers" };
       { name = "pages";  dirname = "../store/pages"  };
       { name = "posts";  dirname = "../store/posts"  };
     ]
@@ -42,7 +41,6 @@ let fs_drivers = function
   | `Fat ->
     let open Block in
     [ { name = "assets"; filename = "assets.img"; read_only = true };
-      { name = "papers"; filename = "papers.img"; read_only = true };
       { name = "pages";  filename = "pages.img";  read_only = true };
       { name = "posts";  filename = "posts.img";  read_only = true };
     ]
