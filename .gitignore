@@ -7,3 +7,6 @@ src/mir-main
 
 ## un-ignore this once edited
 src/main.xl
+
+store/courses/js/*.js
+!store/courses/js/d3.*
