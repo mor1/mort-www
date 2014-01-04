@@ -47,6 +47,10 @@ type t = {
     -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
   (** Standard HTTP 404 Not Found *)
 
+  http_respond_redirect: uri:Uri.t
+    -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
+  (** Standard HTTP 302 Found (temporary redirect) *)
+
   http_uri: request:Cohttp.Request.t -> Uri.t;
   (** Extract URI from request  *)
 }

@@ -51,7 +51,7 @@ let dispatch unik request =
     log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (Page.research unik.get_page)
 
-  | "courses" :: tl -> tl |> String.concat "/" |> Courses.dispatch unik
+  | "courses" :: tl -> Courses.dispatch unik tl
 
   | ([ "me" ] as p)
   | ([ "teaching" ] as p) ->

@@ -38,7 +38,7 @@ module Main
       let headers = Cohttp.Header.of_list headers in
       HTTP.respond_string ~headers ~status ~body ()
     in
-
+    let http_respond_redirect ~uri = HTTP.respond_redirect ~uri () in
     let http_respond_notfound ~uri = HTTP.respond_not_found ~uri () in
     let http_uri ~request = HTTP.Request.uri request in
 
@@ -90,7 +90,7 @@ module Main
       let unik = {
         Unikernel.log = (fun ~msg -> C.log c msg);
         get_asset; get_page; get_post; get_courses;
-        http_respond_ok; http_respond_notfound; http_uri;
+        http_respond_ok; http_respond_redirect; http_respond_notfound; http_uri;
       } in
       Site.dispatch unik req
     in

@@ -17,6 +17,23 @@
 
 open Lwt
 
-let dispatch unik path =
-  let body = return (Cow.Html.to_string <:html< COURSES.DISPATCH $str:path$ >>) in
-  unik.Unikernel.http_respond_ok ~headers:[] body
+let dispatch unik cpts =
+  match cpts with
+  | [ ]
+  | ["ugt"]
+  | ["pgt"]
+  | ["tt"] ->
+    let path = String.concat "/" cpts in
+    let body =
+      return (Cow.Html.to_string <:html< COURSES.DISPATCH $str:path$ >>)
+    in
+    unik.Unikernel.http_respond_ok ~headers:[] body
+
+  | ["index.html"] ->
+    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses")
+  | ["ugt"; "index.html"] ->
+    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses/ugt")
+  | ["pgt"; "index.html"] ->
+    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses/pgt")
+  | ["tt"; "index.html"] ->
+    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses/tt")
