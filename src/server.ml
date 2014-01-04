@@ -90,10 +90,9 @@ module Main
       let unik = {
         Unikernel.log = (fun ~msg -> C.log c msg);
         get_asset; get_page; get_post; get_courses;
-        http_respond_ok; http_respond_notfound;
-        http_uri;
+        http_respond_ok; http_respond_notfound; http_uri;
       } in
-      Dispatch.dispatch unik req
+      Site.dispatch unik req
     in
     let conn_closed conn_id () =
       let cid = Cohttp.Connection.to_string conn_id in

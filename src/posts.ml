@@ -44,9 +44,9 @@ let t =
   |> List.sort Blog.Entry.compare
 
 let feed read_entry =
-  let open Site.Config in
-  { Atom_feed.title = Cow.Html.to_string Site.Config.title;
-    subtitle = Some (Cow.Html.to_string Site.Config.subtitle);
+  let open Site_config in
+  { Atom_feed.title = Cow.Html.to_string title;
+    subtitle = Some (Cow.Html.to_string subtitle);
     base_uri;
     id = "/blog";
     rights;

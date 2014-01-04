@@ -20,12 +20,12 @@ open Cow
 open Lwt
 
 let subtitle s =
-  Cow.Html.to_string <:html< $Site.Config.title$ | $str:s$ >>
+  Cow.Html.to_string <:html< $Site_config.title$ | $str:s$ >>
 
 let render
       ?title
-      ?(heading=Site.Config.heading)
-      ?(copyright=Site.Config.copyright)
+      ?(heading=Site_config.heading)
+      ?(copyright=Site_config.copyright)
       ?(headers=[])
       ?(highlight=false)
       ?sidebar
@@ -33,7 +33,7 @@ let render
       body
   =
   let title = match title with
-    | None -> Cow.Html.to_string Site.Config.title
+    | None -> Cow.Html.to_string Site_config.title
     | Some t -> t
   in
   let sidebar = match sidebar with None -> <:html< >> | Some h -> h in
@@ -123,7 +123,7 @@ let sidebar =
         | _, 0 | [], _ -> acc
         | h::t, i      -> subn (h :: acc) t (i-1)
       in
-      subn [] entries Site.Config.sidebar_limit
+      subn [] entries Site_config.sidebar_limit
     in
     (recent |> List.rev |> List.map (fun e ->
         `link (e.Entry.subject, Uri.of_string (Entry.permalink feed e))

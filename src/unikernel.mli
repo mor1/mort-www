@@ -15,15 +15,28 @@
  *
  *)
 
-(** Represents the (stateless) {! Unikernel} as the set of permitted Mirage
-    Driver interactions. *)
-type t = {
-  log: msg:string -> unit;              (** Console logging *)
+open Cow
 
-  get_asset: name:string -> string Lwt.t;    (** Read static asset *)
-  get_page: name:string -> Cow.Html.t Lwt.t; (** Read page *)
-  get_post: name:string -> Cow.Html.t Lwt.t; (** Read blog posts *)
-  get_courses: name:string -> string Lwt.t;  (** Read courses element *)
+(** Represents the static configuration of the {! Unikernel}. *)
+type config = {
+  copyright: Html.t;
+  title: Html.t;
+  subtitle: Html.t;
+  heading: Html.t;
+  base_uri: string;
+  rights: string option;
+  sidebar_limit: int;
+}
+
+(** Represents the {! Unikernel} as the set of permitted Mirage Driver
+    interactions. *)
+type t = {
+  log: msg:string -> unit; (** Console logging *)
+
+  get_asset: name:string -> string Lwt.t;   (** Read static asset *)
+  get_page: name:string -> Html.t Lwt.t;    (** Read page *)
+  get_post: name:string -> Html.t Lwt.t;    (** Read blog posts *)
+  get_courses: name:string -> string Lwt.t; (** Read courses element *)
 
   http_respond_ok: ?headers:(string*string) list
     -> string Lwt.t
