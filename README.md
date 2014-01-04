@@ -2,7 +2,7 @@
 
 + break out some of `Dispatch.dispatch` -- to cowabloga? uri?
 + move current topbar into left-sidebar menu; and make dynamic topbar from page anchors
-+ finish porting courses
++ tidy up all content
 
 # Brief notes on site design
 
