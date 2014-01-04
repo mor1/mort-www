@@ -19,6 +19,18 @@
 all: build
 	@ :
 
+## pre-compile coffeescript for /courses
+COFFEE = coffee
+COFFEES = $(notdir $(wildcard store/courses/coffee/*.coffee))
+JSS = $(patsubst %.coffee,store/courses/js/%.js,$(COFFEES))
+
+store/courses/js/%.js: store/courses/coffee/%.coffee
+	$(COFFEE) -c -o store/courses/js $<
+
+js: $(JSS)
+
+## mirage rules
+
 MIRAGE = mirage
 MODE ?= unix
 FS_MODE ?= crunch
@@ -27,7 +39,7 @@ BFLAGS ?=
 configure:
 	$(MIRAGE) configure src/config.ml $(BFLAGS) --$(MODE)
 
-build: | configure
+build: $(JSS) | configure
 	$(MIRAGE) build src/config.ml $(BFLAGS)
 
 run: | build
@@ -35,3 +47,4 @@ run: | build
 
 clean:
 	$(MIRAGE) clean src/config.ml $(BFLAGS)
+	$(RM) $(JSS)
