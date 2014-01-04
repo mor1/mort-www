@@ -68,9 +68,11 @@ Note that:
   Loading...
 </div>
 
-
+<script src="/courses/js/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript">
-  $(window).load(function () {
-    window.courses.fetch('./courses.json').render("#courses");
-  });
+  // <![CDATA[
+    $(window).load(function () {
+      window.courses.fetch('./data/courses.json').render('#courses');
+    });
+  // ]]>
 </script>

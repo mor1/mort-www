@@ -132,6 +132,16 @@ let sidebar =
   in
   Cowabloga.Foundation.Sidebar.t ~title:"Posts" ~content
 
+let scripts root jss =
+  let jss = jss
+            |> List.map
+                 (fun js ->
+                    let js = root ^ "/js/" ^ js in
+                    <:html< <script src=$str:js$> </script> >>
+                 )
+  in
+  <:html< $list:jss$ >>
+
 let posts readf =
   let title = subtitle "blog" in
   lwt body =
@@ -164,14 +174,7 @@ let static readf page =
 
 let research readf =
   let trailer =
-    let jss = List.map
-                (fun js ->
-                   let js = "/papers/js/" ^ js in
-                   <:html< <script src=$str:js$> </script> >>
-                )
-                [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
-    in
-    <:html< $list:jss$ >>
+    scripts "/papers" [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
   in
   let title = subtitle "research" in
   lwt body = readf ~name:"research.md" in

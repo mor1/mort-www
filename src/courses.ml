@@ -16,24 +16,81 @@
  *)
 
 open Lwt
+open Unikernel
+open Cowabloga
+
+let render ~title ~trailer body =
+  let content =
+    <:html<
+      <div class="row">
+        <div class="small-12 columns" role="content">
+          $body$
+        </div>
+      </div>
+      $trailer$
+    >>
+  in
+  let body = Foundation.body ~title ~headers:[] ~content () in
+  Foundation.page ~body
+
+let page readf md =
+  let trailer = Page.scripts "/courses" ["courses.js"] in
+  let title = Page.subtitle ("courses | " ^ md) in
+  lwt body = readf ~name:(md ^ ".md") in
+  return (render ~title ~trailer body)
 
 let dispatch unik cpts =
+  let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
+  let path = String.concat "/" cpts in
+  let read_md ~name =
+    lwt body = unik.get_courses ~name in
+    return (Cow.Markdown.of_string body)
+  in
   match cpts with
-  | [ ]
-  | ["ugt"]
-  | ["pgt"]
-  | ["tt"] ->
-    let path = String.concat "/" cpts in
-    let body =
-      return (Cow.Html.to_string <:html< COURSES.DISPATCH $str:path$ >>)
-    in
-    unik.Unikernel.http_respond_ok ~headers:[] body
+  | [ ] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.xhtml (page read_md "all")
+
+  | (["ugt"] as p)
+  | (["pgt"] as p)
+  | (["tt"] as p) ->
+    log_ok path;
+    (match p with
+     | [ p ] ->
+       unik.http_respond_ok ~headers:Headers.xhtml (page read_md p)
+     | _ -> assert false
+    )
 
   | ["index.html"] ->
-    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses")
+    unik.http_respond_redirect ~uri:(Uri.of_string "/courses")
+  | ["ugt.html"]
   | ["ugt"; "index.html"] ->
-    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses/ugt")
+    unik.http_respond_redirect ~uri:(Uri.of_string "/courses/ugt")
+  | ["pgt.html"]
   | ["pgt"; "index.html"] ->
-    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses/pgt")
+    unik.http_respond_redirect ~uri:(Uri.of_string "/courses/pgt")
   | ["tt"; "index.html"] ->
-    unik.Unikernel.http_respond_redirect ~uri:(Uri.of_string "/courses/tt")
+    unik.http_respond_redirect ~uri:(Uri.of_string "/courses/tt")
+
+  | _ ->
+    try_lwt
+      lwt body = unik.get_courses path in
+      log_ok path;
+      let headers =
+        let endswith tail str =
+          let l = String.length tail in
+          let i = String.(length str - l) in
+          if i < 0 then false else
+            tail = String.sub str i l
+        in
+
+        if endswith ".js" path then Headers.javascript else
+        if endswith ".css" path then Headers.css else
+        if endswith ".png" path then Headers.png
+        else []
+      in
+      unik.http_respond_ok ~headers (return body)
+
+    with exn ->
+      unik.log (Printf.sprintf "404 GET %s" path);
+      unik.http_respond_notfound (Uri.of_string ("/courses" ^ path))
