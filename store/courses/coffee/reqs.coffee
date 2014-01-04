@@ -1,5 +1,5 @@
 ###
-# 
+#
 # Copyright (C) 2013 Richard Mortier <mort@cantab.net>.
 # All Rights Reserved.
 #
@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along with
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 ###
 
 self = exports ? this
@@ -24,29 +24,29 @@ reqs =
   matrix: (tgt) ->
     margin = {top: 80, right: 0, bottom: 10, left: 80}
     width = height = 960
- 
+
     x = d3.scale.ordinal().rangeBands([0, width], 0.1, 0)
 
     d3.select("#{tgt} > p").remove()
-    
+
     svg = d3.select(tgt)
       .insert("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", "translate(#{margin.left}, #{margin.top})")
-      
+
     d3.json "../data/modules.json", (modules) ->
       matrix = []
       nodes = modules.modules
         .filter((v) -> v.school == "Computer Science")
         .sort((a,b) -> d3.ascending a.code, b.code)
       n = nodes.length
- 
+
       x.domain(d3.range(n))
       unseen = {}
-      d3.range(n).forEach (_, i) -> unseen[i] = 0 
-      
+      d3.range(n).forEach (_, i) -> unseen[i] = 0
+
       index = {}
       nodes.forEach (v, i) ->
         index[v.code] = i
@@ -54,7 +54,7 @@ reqs =
         matrix[i] = d3.range(n).map((j) -> {x: j, y: i, z: 0})
 
       nodes.forEach (v, i) ->
-        v.coreqs.filter((v) -> v of index).forEach (o, j) ->          
+        v.coreqs.filter((v) -> v of index).forEach (o, j) ->
           matrix[i][index[o]].z = 1
           delete unseen[i] if i of unseen
           delete unseen[index[o]] if index[o] of unseen
@@ -92,13 +92,13 @@ reqs =
                   d3.selectAll(".column text")
                     .classed("active", (d, i) -> i == p.x)
                     .classed("inactive", (d, i) -> i != p.x)
-                  ) 
+                  )
                 .on("mouseout", () ->
                   d3.selectAll("text")
                     .classed("active", false)
                     .classed("inactive", false)
                   ))
-                
+
       row.append("line")
         .attr("x2", width)
 
@@ -158,7 +158,7 @@ reqs =
   #     .append("g")
   #       .attr("transform", "translate(#{radius}, #{radius})")
 
-  #   packages = 
+  #   packages =
   #     root: (classes) ->
   #       map = {}
 
@@ -175,7 +175,7 @@ reqs =
 
   #       classes.forEach (d) -> find(d.name, d)
   #       map[""]
-      
+
   #     imports: (nodes) ->
   #       map = {}
   #       imports = []
@@ -186,12 +186,12 @@ reqs =
   #         d.imports?.forEach (i) ->
   #           imports.push {source: map[d.name], target: map[i]}
   #           return
-  #         return  
+  #         return
   #       imports
 
   #   d3.json "../modules.json", (error, classes) ->
   #     csms = classes.modules.filter (v) -> (v.school == "Computer Science)
-      
+
   #     svg.selectAll(".link")
   #         .data(bundle(links))
   #       .enter().append("path")
@@ -212,13 +212,13 @@ reqs =
   #     return
 
 
-      
+
   #   $(tgt).append (div {cl:"well well-small text-right"},
   #     (footer {},
   #       (small {cl:"muted"},
   #         (em {}, "Generated"
   #         ))))
-      
+
   #   @
 
 self.reqs = reqs
