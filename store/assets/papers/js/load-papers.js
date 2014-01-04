@@ -17,5 +17,7 @@
  */
 
 $(document).ready(function () {
-    papers.fetch("./data/authors.json", "./data/papers.json").render("#entries")
+    papers
+        .fetch("./papers/data/authors.json", "./papers/data/papers.json")
+        .render("#entries")
 });
