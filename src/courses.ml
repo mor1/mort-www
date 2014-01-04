@@ -25,16 +25,12 @@ let page readf scripts md =
   let render ~title ~trailer body =
     let content =
       <:html<
-        <div class="row">
-          <div class="small-12 columns" role="content">
-            $body$
-          </div>
-        </div>
+        $body$
         $trailer$
       >>
     in
-    let body = Foundation.body ~title ~headers:[] ~content () in
-    Foundation.page ~body
+    let body = Bootstrap.body ~title ~headers:[] content in
+    Bootstrap.page body
   in
   let trailer = Page.scripts "/courses" scripts in
   let title = Page.subtitle ("courses | " ^ md) in
