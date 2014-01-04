@@ -74,7 +74,7 @@ Note that:
 <script type="text/javascript">
   // <![CDATA[
     $(window).load(function () {
-      window.courses.fetch('../data/ugt.json').render('#courses');
+      window.courses.fetch('/courses/data/ugt.json').render('#courses');
     });
   // ]]>
 </script>

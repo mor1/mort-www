@@ -24,7 +24,7 @@ Simple collation of timetable entries for CS modules. Not definitive -- consult 
 <script type="text/javascript">
   // <![CDATA[
     $(window).load(function () {
-      window.tt.fetch('../data/modules.json').render('#tt');
+      window.tt.fetch('/courses/data/modules.json').render('#tt');
     });
   // ]]>
 </script>

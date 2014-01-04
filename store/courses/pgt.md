@@ -70,7 +70,7 @@ This page collates course specifications for the various Postgraduate Taught Pro
 <script type="text/javascript">
   // <![CDATA[
     $(window).load(function () {
-      window.courses.fetch('../data/pgt.json').render('#courses');
+      window.courses.fetch('/courses/data/pgt.json').render('#courses');
     });
   // ]]>
 </script>

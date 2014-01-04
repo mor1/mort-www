@@ -72,7 +72,7 @@ Note that:
 <script type="text/javascript">
   // <![CDATA[
     $(window).load(function () {
-      window.courses.fetch('./data/courses.json').render('#courses');
+      window.courses.fetch('/courses/data/courses.json').render('#courses');
     });
   // ]]>
 </script>
