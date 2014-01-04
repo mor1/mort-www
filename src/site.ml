@@ -76,6 +76,7 @@ let dispatch unik request =
 
         if endswith ".js" path then Headers.javascript else
         if endswith ".css" path then Headers.css else
+        if endswith ".json" path then Headers.json else
         if endswith ".png" path then Headers.png
         else []
       in
