@@ -35,6 +35,7 @@ let fs_drivers = function
     [ { name = "assets"; dirname = "../store/assets" };
       { name = "pages";  dirname = "../store/pages"  };
       { name = "posts";  dirname = "../store/posts"  };
+      { name = "courses";  dirname = "../store/courses" };
     ]
     |> List.map (fun kvro -> Driver.KV_RO kvro)
 
@@ -43,6 +44,7 @@ let fs_drivers = function
     [ { name = "assets"; filename = "assets.img"; read_only = true };
       { name = "pages";  filename = "pages.img";  read_only = true };
       { name = "posts";  filename = "posts.img";  read_only = true };
+      { name = "courses"; filename = "courses.img"; read_only = true };
     ]
     |> List.map (fun b ->
         Driver.Fat_KV_RO { Fat_KV_RO.name = b.name; block = b }
@@ -60,5 +62,5 @@ let () =
   add_to_ocamlfind_libraries ["cow.syntax"; "cowabloga"];
 
   Job.register [
-    "Unikernel.Main", [Driver.console; http] @ (fs_drivers mode)
+    "Server.Main", [Driver.console; http] @ (fs_drivers mode)
   ]

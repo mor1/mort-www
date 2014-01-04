@@ -16,28 +16,7 @@
  *)
 
 open Lwt
-
-(** Represents the (stateless) {! Unikernel} as the set of permitted Mirage
-    Driver interactions. *)
-type t = {
-  log: msg:string -> unit;              (** Console logging *)
-
-  get_asset: name:string -> string Lwt.t;    (** Read static asset *)
-  get_page: name:string -> Cow.Html.t Lwt.t; (** Read page *)
-  get_post: name:string -> Cow.Html.t Lwt.t; (** Read blog posts *)
-
-  http_respond_ok: ?headers:(string*string) list
-    -> string Lwt.t
-    -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
-  (** Standard HTTP 200 OK response (optional headers plus content *)
-
-  http_respond_notfound: uri:Uri.t
-    -> (Cohttp.Response.t * Cohttp_lwt_body.t) Lwt.t;
-  (** Standard HTTP 404 Not Found *)
-
-  http_uri: request:Cohttp.Request.t -> Uri.t;
-  (** Extract URI from request  *)
-}
+open Unikernel
 
 module Headers = struct
   (** Some default HTTP response types as HTTP headers; taken from
@@ -56,7 +35,7 @@ end
 
 let dispatch unik request =
   let sp = Printf.sprintf in
-  let log_ok path = unik.log (sp "200 GET %s" path) in
+  let log_ok path = unik.Unikernel.log (sp "200 GET %s" path) in
 
   let uri = unik.http_uri ~request in
   let path = Uri.path uri in
@@ -87,6 +66,8 @@ let dispatch unik request =
   | [ "research" ] ->
     log_ok path;
     unik.http_respond_ok ~headers:Headers.xhtml (Page.research unik.get_page)
+
+  | "courses" :: tl -> tl |> String.concat "/" |> Courses.dispatch unik
 
   | ([ "me" ] as p)
   | ([ "teaching" ] as p) ->

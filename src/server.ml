@@ -20,13 +20,13 @@ open Lwt
 
 module Main
          (C: CONSOLE) (HTTP: Cohttp_lwt.Server)
-         (ASSETS: KV_RO) (PAGES: KV_RO) (POSTS: KV_RO) = struct
+         (ASSETS: KV_RO) (PAGES: KV_RO) (POSTS: KV_RO) (COURSES: KV_RO) = struct
 
   (** Functor that produces a structure representing a unikernel given the
       driver structures specified in [config.ml]. Instantiated via e.g.,
       {! Lwt_unix.run} or as a Xen VM. *)
 
-  let start c http assets pages posts =
+  let start c http assets pages posts courses =
     (** Unikernel entry point. *)
 
     (** First, project all the required methods we'll need from the Mirage
@@ -75,11 +75,23 @@ module Main
         | `Ok bufs -> return (Cow.Markdown.of_string (Cstruct.copyv bufs))
     in
 
+    let get_courses ~name =
+      COURSES.size courses name
+      >>= function
+      | `Error (COURSES.Unknown_key _) -> fail (Failure ("get_courses size " ^ name))
+      | `Ok size ->
+        COURSES.read courses name 0 (Int64.to_int size)
+        >>= function
+        | `Error (COURSES.Unknown_key _) -> fail (Failure ("get_courses " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
+    in
+
     let callback conn_id ?body req =
       let unik = {
-        Dispatch.log = (fun ~msg -> C.log c msg);
-        get_asset; get_page; get_post;
-        http_respond_ok; http_respond_notfound; http_uri;
+        Unikernel.log = (fun ~msg -> C.log c msg);
+        get_asset; get_page; get_post; get_courses;
+        http_respond_ok; http_respond_notfound;
+        http_uri;
       } in
       Dispatch.dispatch unik req
     in
