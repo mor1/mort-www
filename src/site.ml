@@ -37,7 +37,7 @@ let dispatch unik request =
   match List.filter (fun e -> e <> "") cpts with
   | [ ] | [ "blog" ] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (Page.posts unik.get_post)
+    unik.http_respond_ok ~headers:Headers.html (Page.posts unik.get_post)
 
   | [ "blog"; "atom.xml" ] ->
     log_ok path;
@@ -45,11 +45,11 @@ let dispatch unik request =
 
   | "blog" :: tl ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (Page.post unik.get_post path)
+    unik.http_respond_ok ~headers:Headers.html (Page.post unik.get_post path)
 
   | [ "research" ] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (Page.research unik.get_page)
+    unik.http_respond_ok ~headers:Headers.html (Page.research unik.get_page)
 
   | "courses" :: tl -> Courses.dispatch unik tl
 
@@ -58,7 +58,7 @@ let dispatch unik request =
     log_ok path;
     (match p with
      | [ p ] ->
-       unik.http_respond_ok ~headers:Headers.xhtml (Page.static unik.get_page p)
+       unik.http_respond_ok ~headers:Headers.html (Page.static unik.get_page p)
      | _ -> assert false
     )
 
