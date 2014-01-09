@@ -21,10 +21,10 @@ physical objects ranging from tableware to smart buildings.
 
 For a complete list of my publications, [click here](../papers/).
 
-+-- {.section}
+<div class="section" media:type="text/omd">
 
-[Dataware](http://perscon.net/overview/dataware.html)
-====
+# [Dataware](http://perscon.net/overview/dataware.html)
+=========
 
 is a framework to enable individuals to give controlled access to
 their personal data for processing by third parties.  This will
@@ -33,8 +33,13 @@ acceptable personal data marketplace.  This work is taking place
 within the context of the [Personal Containers](http://perscon.net/)
 project.  
 
+XXXXX XX
+
 [Homework](http://www.homenetworks.ac.uk/)
-====
+==========================================
+
+XXX
+===
 
 is taking a comprehensive look at the problems users face in
 managing their home network infrastructure.  [We've built a novel
@@ -51,12 +56,11 @@ Code is developed in OCaml on a normal OS such as Linux or MacOS X,
 and then compiled into a fully-standalone, specialised microkernel
 that runs under the Xen hypervisor. 
 
-=--
-
 [e]: mailto:richard.mortier@nottingham.ac.uk
 [ovs]: http://openvswitch.org/
 [nox]: http://noxrepo.org/
 
+</div>
 
 ### Students
 
