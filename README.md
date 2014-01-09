@@ -1,8 +1,8 @@
 # TODO
 
-+ break out some of `Dispatch.dispatch` -- to cowabloga? uri?
-+ move current topbar into left-sidebar menu; and make dynamic topbar from page anchors
 + tidy up all content
+
++ break out some of `Dispatch.dispatch` -- to cowabloga? uri?
 
 # Brief notes on site design
 

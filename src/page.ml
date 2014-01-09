@@ -41,67 +41,97 @@ let render
 
   let navbar =
     <:html<
-      <ul class="sub-nav">
-        <li data-magellan-arrival="research">
-          <a href="/research">Research</a>
-        </li>
-        <li data-magellan-arrival="teaching">
-          <a href="/teaching">Teaching</a>
-        </li>
-        <li data-magellan-arrival="me">
-          <a href="/me">Me</a>
-        </li>
-      </ul>
+      <li><a href="/blog">blog</a></li>
+      <li><a href="/research">research</a></li>
+      <li><a href="/codes">codes</a></li>
+      <li><a href="/me">me</a></li>
     >>
   in
 
   let content =
     <:html<
-      <!-- header -->
-      <div class="row top-bar">
-        <div class="small-10 small-offset-1 columns"
-             data-magellan-expedition="fixed">
+    <div class="fixed">
+    <nav class="top-bar hide-for-small" data-topbar="">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">mort's mythopoeia</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section hide-for-small">
+        <ul class="left">
           $navbar$
-        </div>
-      </div>
-      <!-- end header -->
+        </ul>
+      </section>
+    </nav>
+    </div>
 
-      <div class="row">
-        <div class="small-11 small-offset-1 columns" role="heading">
-          <h1>$heading$</h1>
+    <div class="off-canvas-wrap">
+      <div class="inner-wrap">
+        <div class="fixed">
+          <nav class="tab-bar hide-for-medium hide-for-large">
+            <section class="left-small">
+              <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+            </section>
+            <section class="right tab-bar-section"></section>
+          </nav>
         </div>
-      </div>
 
-      <!-- page body -->
-      <div class="row">
-        <div class="small-8 small-offset-1 columns" role="content">
-          $body$
-        </div>
+        <aside class="left-off-canvas-menu hide-for-medium hide-for-large">
+          <ul class="off-canvas-list">
+            <li><label>mort's mythopoeia</label></li>
+            $navbar$
+          </ul>
+        </aside>
 
-        <div class="small-3 columns" role="sidebar">
-          $sidebar$
-        </div>
-      </div>
-      <!-- end page body -->
+        <section class="main-section">
 
-      <!-- page footer -->
-      <footer class="row">
-        <div class="large-12 columns">
+          <!-- right sidebar -->
           <div class="row">
-            <div class="small-12 columns text-right" role="copyright">
-              <small>
-                <em>Copyright &copy; $copyright$</em>
-              </small>
+            <div class="fixed right-sidebar" style="border: 1px solid red">
+              <div class="small-3 small-offset-9 columns" role="sidebar">
+                $sidebar$
+              </div>
             </div>
-            <hr />
           </div>
-        </div>
-      </footer>
-      <!-- end page footer -->
 
-      <!-- finally, trailer asset loading -->
-      $trailer$
-      <!-- end trailer -->
+          <!-- page heading -->
+          <div class="row">
+            <div class="small-8 small-offset-1 columns" role="heading">
+              <h1>$heading$</h1>
+            </div>
+          </div>
+
+          <!-- page body -->
+          <div class="row">
+            <div class="small-7 small-offset-1 columns" role="content">
+              $body$
+            </div>
+          </div>
+
+          <!-- page footer -->
+          <footer class="row">
+            <div class="large-12 columns">
+              <div class="row">
+                <div class="small-12 columns text-right" role="copyright">
+                  <small>
+                    <em>Copyright &copy; $copyright$</em>
+                  </small>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </footer>
+        </section>
+
+        <!-- close the off-canvas menu -->
+        <a class="exit-off-canvas"> </a>
+
+      </div>
+    </div>
+
+    <!-- finally, trailer asset loading -->
+    $trailer$
     >>
   in
   let highlight =
