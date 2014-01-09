@@ -48,7 +48,7 @@ let dispatch unik cpts =
   (* root page is the complete courses list *)
   | [ ] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml
+    unik.http_respond_ok ~headers:Headers.html
       (page read_md ["courses.js"] "all")
 
   (* specific pages *)
@@ -57,18 +57,18 @@ let dispatch unik cpts =
     log_ok path;
     (match p with
      | [ p ] ->
-       unik.http_respond_ok ~headers:Headers.xhtml
+       unik.http_respond_ok ~headers:Headers.html
          (page read_md ["courses.js"] p)
      | _ -> assert false
     )
 
   | ["tt"] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml (page read_md ["tt.js"] "tt")
+    unik.http_respond_ok ~headers:Headers.html (page read_md ["tt.js"] "tt")
 
   | ["reqs"] ->
     log_ok path;
-    unik.http_respond_ok ~headers:Headers.xhtml
+    unik.http_respond_ok ~headers:Headers.html
       (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs")
 
   (* handle legacy URIs via redirects *)
