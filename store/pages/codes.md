@@ -1,66 +1,37 @@
-## Codes
+# Codes
 
-[Perscon][]
-========
+Most of the code I write is available via my [Github][] account -- pull requests always welcome! -- but I thought I'd collate links to some of the larger codebases I've been involved with as well as some of the Github organisations I'm involved in.
 
-Personal Containers are an experiment in enabling you to collate and
-control your digital footprint.  At the moment the focus is on
-collecting and managing your own data; future goals include developing
-ways to enable others to interact with your data for mutual benefit,
-while still retaining ultimate control yourself.  The code is
-available under the GPLv2.
+[github]: https://github.com/mor1
 
-[perscon]: http://perscon.net/
+## [Dataware][dataware-git]
 
-[Homework][homework-git]
-========
+Developed through [Horizon Digital Economy Research][horizon], Dataware represents a set of prototype services enabling control over access to personal data. Presents data via web services, and controls access via a personal catalogue. Third-parties access personal data by requesting permission via the catalogue, allowing accesses to be audited and managed.
 
-This is an experiment using [Open vSwitch][ovs] and [NoX][] to control
-a wireless Linux access point as part of the wider [Homework][]
-project.  The repository contains snapshots of both Open vSwitch and
-NoX (as `git` *submodules* no less), as well as the Homework specific
-control script which currently provides basic PERMIT/DENY
-functionality based on MAC address and exposed via a simple web
-services interface.
+[dataware-git]: http://github.com/dataware
+[horizon]: http://www.horizon.ac.uk/
+
+## [Homework][homework-git]
+
+Developed during the [Homework][] project, the Homework router reconstructs the home router informed by ethnographic study of home networks 'in the wild'. Uses OpenFlow (Open vSwitch and NOX/POX) to provide novel interrogation, control and policy interfaces to a home router.
 
 [homework-git]: http://github.com/mor1/homework/
-[homework]: http://www.homenetworks.ac.uk/
-[ovs]: http://openvswitch.org/
-[nox]: http://noxrepo.org/
+[homework]: http://homenetworks.ac.uk/
 
-[PyRT][]
-=====
+## [PyRT][pyrt-git]
 
-I developed the Python Routeing Toolkit while at Sprint ATL, who
-released it under the GPLv2.  It comprises code for collecting and
-analysing routeing data.  This package currently collects BGPv4 and
-ISIS, and dumps and parses MRTD files including MRTD TABLE_DUMP files
-(as available from, e.g., RouteViews and RIPE/RIS).  A number of
-utilities for manipulating these dumps are also provided.  Since the
-code on [Sprint's website][pyrt] appears to be orphaned, I have
-created a [github repository here][pyrt-gh] for it.
+I developed the Python Routeing Toolkit while at Sprint ATL, who released it under the GPLv2. It comprises code for collecting and analysing routeing data. This package currently collects BGPv4 and ISIS, and dumps and parses MRTD files including MRTD `TABLE_DUMP` files (as available from, e.g., [RouteViews][] and [RIPE/RIS][ripe-ris]). A number of utilities for manipulating these dumps are also provided. Since the code on [Sprint's website][pyrt] appears to be orphaned, I have created a [github repository here][pyrt-git] for it. I have also subsequently written an [OCaml][ocaml-mrt] MRT dump parser as a learning exercise.
 
-[Karaka][]
-======
+[pyrt-git]: http://github.com/mor1/pyrt/
+[pyrt]: https://research.sprintlabs.com/pyrt/
+[routeviews]: http://www.routeviews.org/
+[ripe-ris]: http://www.ripe.net/data-tools/stats/ris/ris-raw-data
+[ocaml-mrt]: https://github.com/mor1/ocaml-mrt
+
+## [Karaka][karaka-git]
 
 Developed at Vipadia Limited, this is a scalable software system
 implementing a distributed Skype-XMPP gateway released under the
 GPLv2.  Copyright was acquired by Voxeo Corp. in January 2010.
 
-[Python][]
-
-[Scrapers][]
-
-[Gawk/Awk][awk]
-
-[Bash/Sh][sh]
-
-[C][cutils]
-
-[pyrt]: https://research.sprintlabs.com/pyrt/
-[pyrt-gh]: http://github.com/mor1/pyrt/
-[karaka]: http://github.com/mor1/karaka/
-[python]: http://github.com/mor1/python-scripts
-[awk]: http://github.com/mor1/awk-scripts
-[cutils]: http://github.com/mor1/c-utils
-[sh]: http://github.com/mor1/sh-scripts
+[karaka-git]: http://github.com/mor1/karaka/
