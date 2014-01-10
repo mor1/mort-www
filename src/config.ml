@@ -36,6 +36,7 @@ let fs_drivers = function
       { name = "pages";  dirname = "../store/pages"  };
       { name = "posts";  dirname = "../store/posts"  };
       { name = "courses";  dirname = "../store/courses" };
+      { name = "papers";  dirname = "../store/papers" };
     ]
     |> List.map (fun kvro -> Driver.KV_RO kvro)
 
@@ -45,6 +46,7 @@ let fs_drivers = function
       { name = "pages";  filename = "pages.img";  read_only = true };
       { name = "posts";  filename = "posts.img";  read_only = true };
       { name = "courses"; filename = "courses.img"; read_only = true };
+      { name = "papers"; filename = "papers.img"; read_only = true };
     ]
     |> List.map (fun b ->
         Driver.Fat_KV_RO { Fat_KV_RO.name = b.name; block = b }

@@ -47,6 +47,8 @@ let dispatch unik request =
     log_ok path;
     unik.http_respond_ok ~headers:Headers.html (Page.post unik.get_post path)
 
+  | "papers" :: tl -> Papers.dispatch unik tl
+
   | ([ "research" ] as p)
   | ([ "teaching" ] as p)
   | ([ "codes"    ] as p)
