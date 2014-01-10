@@ -17,17 +17,6 @@
 
 open Cow
 
-(** Represents the static configuration of the {! Unikernel}. *)
-type config = {
-  copyright: Html.t;
-  title: Html.t;
-  subtitle: Html.t;
-  heading: Html.t;
-  base_uri: string;
-  rights: string option;
-  sidebar_limit: int;
-}
-
 (** Represents the {! Unikernel} as the set of permitted Mirage Driver
     interactions. *)
 type t = {
