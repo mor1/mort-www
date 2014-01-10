@@ -43,6 +43,7 @@ let render
     <:html<
       <li><a href="/blog">blog</a></li>
       <li><a href="/research">research</a></li>
+      <li><a href="/teaching">teaching</a></li>
       <li><a href="/codes">codes</a></li>
       <li><a href="/me">me</a></li>
     >>
@@ -88,7 +89,7 @@ let render
 
           <!-- right sidebar -->
           <div class="row">
-            <div class="fixed right-sidebar" style="border: 1px solid red">
+            <div class="fixed right-sidebar">
               <div class="small-3 small-offset-9 columns" role="sidebar">
                 $sidebar$
               </div>
@@ -98,7 +99,7 @@ let render
           <!-- page heading -->
           <div class="row">
             <div class="small-8 small-offset-1 columns" role="heading">
-              <h1>$heading$</h1>
+              $heading$
             </div>
           </div>
 
@@ -156,8 +157,8 @@ let sidebar =
       subn [] entries Site_config.sidebar_limit
     in
     (recent |> List.rev |> List.map (fun e ->
-        `link (e.Entry.subject, Uri.of_string (Entry.permalink feed e))
-      ))
+         `link (e.Entry.subject, Uri.of_string (Entry.permalink feed e))
+       ))
     @ [ `link ("more ...", Uri.of_string "/blog") ]
   in
   Cowabloga.Foundation.Sidebar.t ~title:"Posts" ~content
@@ -196,16 +197,8 @@ let post readf path =
   in
   return (render ~title ~highlight:true ~sidebar body)
 
-let static readf page =
+let static trailer readf page =
   let title = subtitle page in
-  let heading = <:html< $str:(String.capitalize page)$ >> in
+  let heading = <:html< >> in
   lwt body = readf ~name:(page ^ ".md") in
-  return (render ~title ~heading ~sidebar body)
-
-let research readf =
-  let trailer =
-    scripts "/papers" [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
-  in
-  let title = subtitle "research" in
-  lwt body = readf ~name:"research.md" in
-  return (render ~title ~trailer ~sidebar body)
+  return (render ~title ~trailer ~heading ~sidebar body)

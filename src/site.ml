@@ -47,20 +47,24 @@ let dispatch unik request =
     log_ok path;
     unik.http_respond_ok ~headers:Headers.html (Page.post unik.get_post path)
 
-  | [ "research" ] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (Page.research unik.get_page)
-
-  | "courses" :: tl -> Courses.dispatch unik tl
-
-  | ([ "me" ] as p)
-  | ([ "teaching" ] as p) ->
+  | ([ "research" ] as p)
+  | ([ "teaching" ] as p)
+  | ([ "codes"    ] as p)
+  | ([ "me"       ] as p) ->
     log_ok path;
     (match p with
      | [ p ] ->
-       unik.http_respond_ok ~headers:Headers.html (Page.static unik.get_page p)
+       let trailer = match p with
+         | "research" ->
+           Page.scripts "/papers"
+             [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
+         | _ -> []
+       in
+       unik.http_respond_ok ~headers:Headers.html (Page.static trailer unik.get_page p)
      | _ -> assert false
     )
+
+  | "courses" :: tl -> Courses.dispatch unik tl
 
   | _ ->
     try_lwt
