@@ -173,32 +173,23 @@ let scripts root jss =
   in
   <:html< $list:jss$ >>
 
-let posts readf =
-  let title = subtitle "blog" in
-  lwt body =
-    let feed = Posts.feed (fun name -> readf ~name) in
-    Blog.to_html feed Posts.t
-  in
-  return (render ~title ~highlight:true ~sidebar body)
-
-let feed readf =
-  lwt feed =
-    let feed = Posts.feed (fun name -> readf ~name) in
-    Blog.to_atom feed Posts.t
-  in
-  return (Xml.to_string (Atom.xml_of_feed feed))
-
-let post readf path =
-  let entry = List.find (fun e -> e.Blog.Entry.permalink = path) Posts.t in
-  let title = subtitle (" | blog | " ^ entry.Blog.Entry.subject) in
-  lwt body =
-    let feed = Posts.feed (fun name -> readf ~name) in
-    Blog.Entry.to_html ~feed ~entry
-  in
-  return (render ~title ~highlight:true ~sidebar body)
-
 let static trailer readf page =
   let title = subtitle page in
   let heading = <:html< >> in
   lwt body = readf ~name:(page ^ ".md") in
   return (render ~title ~trailer ~heading ~sidebar body)
+
+let dispatch unik cpts =
+  let log_ok path = unik.Unikernel.log (Printf.sprintf "200 GET %s" path) in
+  let path = String.concat "/" cpts in
+  let trailer = match cpts with
+    | [ "research" ] ->
+      scripts "/papers" [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
+    | _ -> []
+  in
+  log_ok path;
+  Printf.printf "%s\n%!" (String.concat "; " cpts);
+  let p = List.hd cpts in
+  Unikernel.(
+    unik.http_respond_ok ~headers:Headers.html (static trailer unik.get_page p)
+  )

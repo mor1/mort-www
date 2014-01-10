@@ -16,8 +16,6 @@
  *
  *)
 
-open Cowabloga
-
 module Authors = struct
   let mort = Cow.Atom.({
       name = "Richard Mortier";
@@ -27,25 +25,27 @@ module Authors = struct
 end
 
 let t =
-  Blog.Entry.([
+  let open Cowabloga in
+  let open Cowabloga.Blog in
+  Entry.([
       { updated = Date.date (2013, 10, 14, 10, 46);
         author = Authors.mort;
         subject = "A 21st Century IDE";
         body = "21st-century-ide.md";
-        permalink = "/blog/2013/10/13/21st-century-ide/";
+        permalink = "/2013/10/13/21st-century-ide/";
       };
       { updated = Date.date (2013, 12, 09, 10, 10);
         author = Authors.mort;
         subject = "A Brave New World";
         body = "a-brave-new-world.md";
-        permalink = "/blog/2013/12/09/a-brave-new-world/";
+        permalink = "/2013/12/09/a-brave-new-world/";
       };
     ])
-  |> List.sort Blog.Entry.compare
+  |> List.sort Cowabloga.Blog.Entry.compare
 
 let feed read_entry =
   let open Site_config in
-  { Atom_feed.title = Cow.Html.to_string title;
+  { Cowabloga.Atom_feed.title = Cow.Html.to_string title;
     subtitle = Some (Cow.Html.to_string subtitle);
     base_uri;
     id = "/blog";

@@ -17,7 +17,7 @@
 
 open Unikernel
 open Lwt
-open Cowabloga
+module Headers = Cowabloga.Headers
 
 let dispatch unik request =
   let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
@@ -32,41 +32,19 @@ let dispatch unik request =
     path
     |> Re_str.(split_delim (regexp_string "/"))
     |> aux
+    |> List.filter (fun e -> e <> "")
   in
 
-  match List.filter (fun e -> e <> "") cpts with
-  | [ ] | [ "blog" ] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (Page.posts unik.get_post)
-
-  | [ "blog"; "atom.xml" ] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.atom (Page.feed unik.get_post)
-
-  | "blog" :: tl ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (Page.post unik.get_post path)
-
+  match cpts with
+  | [ ] -> Blog.dispatch unik []
+  | "blog" :: tl -> Blog.dispatch unik tl
   | "papers" :: tl -> Papers.dispatch unik tl
-
-  | ([ "research" ] as p)
-  | ([ "teaching" ] as p)
-  | ([ "codes"    ] as p)
-  | ([ "me"       ] as p) ->
-    log_ok path;
-    (match p with
-     | [ p ] ->
-       let trailer = match p with
-         | "research" ->
-           Page.scripts "/papers"
-             [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
-         | _ -> []
-       in
-       unik.http_respond_ok ~headers:Headers.html (Page.static trailer unik.get_page p)
-     | _ -> assert false
-    )
-
   | "courses" :: tl -> Courses.dispatch unik tl
+
+  | [ "research" ]
+  | [ "teaching" ]
+  | [ "codes" ]
+  | [ "me" ] -> Page.dispatch unik cpts
 
   | _ ->
     try_lwt
@@ -75,7 +53,7 @@ let dispatch unik request =
       let headers =
         let endswith tail str =
           let l = String.length tail in
-          let i = String.(length str - l) in
+          let i = (String.length str) - l in
           if i < 0 then false else
             tail = String.sub str i l
         in
