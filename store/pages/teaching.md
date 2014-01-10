@@ -1,29 +1,13 @@
----
-layout: default
-section: teaching
-title: teaching
-parent: mort
----
+# Teaching
 
-Teaching
-========
+All teaching material at the University of Nottingham is now served out of [moodle][] so this page merely indexes into that. If you are interested in undertaking a Ph.D. with me, see [my research pages](/research#Students).
 
-This page serves merely as an index to relevant online teaching-related
-material. For information about Ph.D. supervision, see
-[my research pages](../research/students/).
+[moodle]: http://moodle.nottingham.ac.uk/
 
-+-- {.section}
 
-Projects
-========
 
-Third year/Master's (M.Sci., M.I.T., M.M.I.T.) project suggestions.
 
-[2013/14](projects/2013)
-| [2012/13](projects/2012)
-| [2011/12](projects/2011)
-| [2010/11](projects/2010)
-
+## Past Material
 
 G54ACC
 ======
@@ -51,11 +35,26 @@ Material related to the level 4 Connected Computing at Scale course.
 
 [2011](g54ccs/2011)
 
+
+## Projects
+
+
+
+Third year/Master's (M.Sci., M.I.T., M.M.I.T.) project suggestions.
+
+[2013/14](projects/2013)
+| [2012/13](projects/2012)
+| [2011/12](projects/2011)
+| [2010/11](projects/2010)
+
+## Links
+
+
+
 =--
 
 
-General
--------
+## Links
 
 Note that these take you away from University of Nottingham pages.  I
 am not responsible for any of the content linked.
