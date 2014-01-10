@@ -1,5 +1,3 @@
-# Mort
-
 I'm Richard Mortier or, more commonly, **mort**. I'm a Horizon Transitional Fellow in Computer Science at the [Horizon Digital Economy Research Institute][horizon] at the [University of Nottingham][nottingham] [School of Computer Science][cs]. I'm also a founding member of the [School's][cs] [Networked Systems Group][nsg].
 
 [horizon]: https://www.horizon.ac.uk/
@@ -49,3 +47,26 @@ Outside work I practice [Wudang Tai Chi Chuan][wudang], and taught for the [Camb
 
 [wudang]: http://www.taichichuan.co.uk/
 [cutccs]: http://www.srcf.ucam.org/cutccs/
+
+## HCard
+
+<div id="hcard-Richard-Mortier" class="vcard">
+  <a class="url fn" href="http://mort.io/">Richard Mortier</a>
+  <div class="org">The University of Nottingham</div>
+  <div class="adr">
+    <div class="street-address">Wollaton Road</div>
+    <span class="locality">Nottingham</span>,
+    <span class="postal-code">NG8 1BB</span>
+    <span class="country-name">UK</span>
+  </div>
+  <div class="tel">+44 115 8232552</div>
+  <a class="email" href="mailto:richard.mortier@nottingham.ac.uk">
+    richard.mortier@nottingham.ac.uk
+  </a>
+  <br />
+  <a class="skype" href="skype:mort___">mort___</a>
+</div>
+
+## Map <small><a href="http://www.openstreetmap.org/?mlat=52.95344&amp;mlon=-1.18752#map=17/52.95344/-1.18752&amp;layers=N">View Larger Map</a></small>
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 1px solid black" src="http://www.openstreetmap.org/export/embed.html?bbox=-1.189892292022705%2C52.951346405967776%2C-1.1851394176483154%2C52.95552844308856&amp;layer=mapnik&amp;marker=52.95343747507741%2C-1.1875158548355103"> </iframe> <br /> 
