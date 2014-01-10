@@ -1,14 +1,7 @@
----
-layout: plain
-stylesheet: [courses]
-title: undergraduate programmes, 2013/14
-js: [courses]
----
-
 # Undergraduate Taught Programmes<br /><small>School of Computer Science</small>
 
+<div media:type="text/omd" class="lead span10 offset1">
 
-+-- {.lead .span10 .offset1}
 This page collates course specifications for the various Undergraduate Taught Programmes of study offered by the School of Computer Science during 2013/14. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link.
 
 Note that:
@@ -17,8 +10,7 @@ Note that:
 
 [Please contact me](mailto:richard.mortier@nottingham.ac.uk) with any queries.
 
-
-=--
+</div>
 
 <div class="offset1 span10">
   <small class="muted">

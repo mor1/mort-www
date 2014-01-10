@@ -2,7 +2,7 @@
 
 <div media:type="text/omd" class="lead span10 offset1">
 
-This page collates course specifications for the various [undergraduate](./ugt/) and [postgraduate](./pgt/) programmes of study offered by the School of Computer Science during 2013/14. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link.
+This page collates course specifications for the various [undergraduate](/courses/ugt/) and [postgraduate](/courses/pgt/) programmes of study offered by the School of Computer Science during 2013/14. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link.
 
 Note that:
 + all single honours BSc programmes _except GN42 Computer Science and Management Studies_ (i.e., G400, G4G7, G601) currently have a common year 1; and

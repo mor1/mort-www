@@ -24,6 +24,16 @@ I am always interested in supervising good final year and Masters projects that 
 [hdi]: http://hdiresearch.org/
 [mail]: mailto:richard.mortier@nottingham.ac.uk
 
+## Computer Science Course Information
+
+One of my School admin roles is Marketing & Outreach. Following repeated requests  from candidates for more detailed information about the courses we offer, I decided to scrape the relevant information (all from publicly visible if obscure) sources and render it into some pages. The results are:
+
++ [Course information](/courses), presenting module, outline timetable and theme information for the degrees we offer.
++ [Module timetables](/courses/tt), detailed per-module timetables for all modules we offer.
++ [Module dependencies](/courses/reqs), a visualisation of module dependency relationships. Each (_x_,_y_)-pixel indicates _x_ `depends-on` _y_; red indicates pre-requisite dependency and orange indicates co-requisite dependency.
+
+__Note that these links are provided for information only and should _not_ be treated as canonical. Contact <admissions@cs.nott.ac.uk> for up-to-date details and advice.__
+
 ## Links
 
 A collection of links to material that I have found interesting, useful or amusing, related (however tangentially) to Computer Science. Please note that these take you away from my pages and so __I am not responsible for their content__.
