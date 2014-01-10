@@ -9,11 +9,11 @@ I am interested in computing infrastructures, specifically networked systems. In
 
 I try to maintain [a complete list of my publications][papers] in addition to the usual sites including [Google Scholar][scholar], [Microsoft Academic][microsoft], [CiteULike][] and the [ACM DL][acm-dl].
 
-[pyrt]:
-[magpie]:
-[anemone]:
-[plutarch]:
-[wsd]:
+[pyrt]: /papers/pdf/imw02-linkfailures.pdf
+[magpie]: /papers/pdf/osdi04-magpie.pdf
+[anemone]: /papers/pdf/usenix06-anemone.pdf
+[plutarch]: /papers/pdf/fdna03-plutarch.pdf
+[wsd]: /papers/pdf/ton10-wsd.pdf
 
 [mirage]: http://openmirage.org/
 [homework]: http://homenetworks.ac.uk/
