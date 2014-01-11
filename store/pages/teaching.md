@@ -1,4 +1,12 @@
-# Teaching
+<div data-magellan-expedition="fixed">
+  <dl class="sub-nav">
+    <dd data-magellan-arrival="Teaching"><a href="#Teaching">top</a></dd>
+    <dd data-magellan-arrival="ComputerScienceCourseInformation"><a href="#ComputerScienceCourseInformation">courses</a></dd>
+    <dd data-magellan-arrival="Links"><a href="#Links">links</a></dd>
+  </dl>
+</div>
+
+<h1 class="clearfix" data-magellan-destination="Teaching" id="Teaching">Teaching</h1>
 
 All teaching material at the University of Nottingham is now served out of [moodle][] so this page merely indexes into that. If you are interested in undertaking a Ph.D. with me, see [my research pages](/research#Students).
 
@@ -24,7 +32,10 @@ I am always interested in supervising good final year and Masters projects that 
 [hdi]: http://hdiresearch.org/
 [mail]: mailto:richard.mortier@nottingham.ac.uk
 
-## Computer Science Course Information
+<h2 data-magellan-destination="ComputerScienceCourseInformation"
+    id="ComputerScienceCourseInformation">
+  Computer Science Course Information
+</h2>
 
 One of my School admin roles is Marketing & Outreach. Following repeated requests  from candidates for more detailed information about the courses we offer, I decided to scrape the relevant information (all from publicly visible if obscure) sources and render it into some pages. The results are:
 
@@ -34,15 +45,17 @@ One of my School admin roles is Marketing & Outreach. Following repeated request
 
 __Note that these links are provided for information only and should _not_ be treated as canonical. Contact <admissions@cs.nott.ac.uk> for up-to-date details and advice.__
 
-## Links
+<h2 data-magellan-destination="Links" id="Links">
+  Links
+</h2>
 
 A collection of links to material that I have found interesting, useful or amusing, related (however tangentially) to Computer Science. Please note that these take you away from my pages and so __I am not responsible for their content__.
 
 <dl class="tabs" data-tab="">
-  <dd class="active"><a href="#links-misc">Misc</a></dd>
-  <dd><a href="#links-programming">Programming</a></dd>
-  <dd><a href="#links-mathematics">Mathematics</a></dd>
-  <dd><a href="#links-systems">Systems</a></dd>
+  <dd class="active"><a href="#links-misc">misc</a></dd>
+  <dd><a href="#links-programming">coding</a></dd>
+  <dd><a href="#links-mathematics">maths</a></dd>
+  <dd><a href="#links-systems">systems</a></dd>
 </dl>
 
 <div media:type="text/omd" class="tabs-content">

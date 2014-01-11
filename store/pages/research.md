@@ -1,4 +1,12 @@
-# Research
+<div data-magellan-expedition="fixed">
+  <dl class="sub-nav">
+    <dd data-magellan-arrival="Research"><a href="#Research">top</a></dd>
+    <dd data-magellan-arrival="Students"><a href="#Students">students</a></dd>
+    <dd data-magellan-arrival="Publications"><a href="#Publications">publications</a></dd>
+  </dl>
+</div>
+
+<h1 class="clearfix" data-magellan-destination="Research" id="Research">Research</h1>
 
 I am interested in computing infrastructures, specifically networked systems. In the past I have done extensive work on topics including [routing behaviour in backbone networks][pyrt], [future network architectures][plutarch], [performance analysis and modelling of distributed systems][magpie], [enterprise network management][anemone], and [analysis of network topologies][wsd]. Most recently I have become interested in interdisciplinary research and particularly the interplay between networked systems and topics that traditionally fall under human-computer interaction. For example,
 
@@ -25,7 +33,7 @@ I try to maintain [a complete list of my publications][papers] in addition to th
 [microsoft]: http://academic.research.microsoft.com/Author/317246/richard-mortier
 [citeulike]: http://www.citeulike.org/search/all?q=author%3A%22richard+mortier%22+author%3A%22r+mortier%22
 
-## Students
+<h2 data-magellan-destination="Students" id="Students">Students</h2>
 
 If you are interested in applying to undertake a Ph.D. with me, before I can consider your request I will need to see the following:
 
@@ -71,7 +79,7 @@ I am fortunate to have worked, and to continue to work, with some excellent stud
 [andrew]: http://www.cl.cam.ac.uk/~awm22/
 [miguel]: https://www.ee.ucl.ac.uk/~mrio/
 
-## Publications
+<h2 data-magellan-destination="Publications" id="Research">Publications</h2>
 
 Full citation details are available in [my github BibTeX repo][r] for up-to-date citation details. Please [contact me][e] if you have any problems obtaining any of these.
 
