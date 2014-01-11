@@ -15,13 +15,13 @@
  *
  *)
 
-let copyright = <:html< 2009&mdash;2013 Richard Mortier >>
+let base_uri = "http://mort.io"
+
+let copyright = <:html< 2009&mdash;2014 Richard Mortier >>
 let title = <:html< mort&rsquo;s mythopoeia >>
 let subtitle = <:html< because everyone needs a presence, right? >>
 let heading =
   <:html< <a href="/"><h1>$title$<br /><small>$subtitle$</small></h1></a> >>
-
-let base_uri = "http://mort.io"
 let rights = Some "All rights reserved"
 
 let sidebar_limit = 10
