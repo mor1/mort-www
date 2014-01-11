@@ -6,7 +6,7 @@ For the curious, or the technically inclined, the site now uses [ZURB Foundation
 
 (And for the sceptical among you, yes, a thing _can_ be neat and yet appear curiously over-engineered at the same time... :)
 
-Improvements I'll be making over the next few weeks include adding commenting support, improving navigation, and richer support for the data pages ([papers](/papers) and [courses](/courses)).
+Improvements I'll be making over the next few weeks include adding commenting support, improving navigation, and richer support for the data pages ([papers](/research#Publications) and [courses](/courses)).
 
 [foundation]: http://foundation.zurb.com/
 [markdown]: http://daringfireball.net/projects/markdown/
