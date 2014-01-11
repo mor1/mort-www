@@ -76,34 +76,34 @@ ul.off-canvas-list li label {
 /* blog dates */
 
 .date {
-  border: 1px solid #999;
-  line-height: 1;
-  width: 3em;
-  position: relative;
-  float: right;
-  margin-right: 15px;
-  text-align: center;
+    border: 1px solid #999;
+    line-height: 1;
+    width: 3em;
+    position: relative;
+    float: right;
+    margin-right: 15px;
+    text-align: center;
 }
 .date .month {
-  text-transform: uppercase;
-  font-size: 0.9em;
-  padding-top: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding-top: 0.3em;
 }
 .date .day {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 .date .year {
-  background-color: #2358B8;
-  color: #FFF;
-  font-size: 0.9em;
-  padding: 0.3em 0;
-  margin-top: 0.3em;
+    background-color: #2358B8;
+    color: #FFF;
+    font-size: 0.9em;
+    padding: 0.3em 0;
+    margin-top: 0.3em;
 }
 .date .hour {
-  display: none;
+    display: none;
 }
 .date .min {
-  display: none;
+    display: none;
 }
 
 /* publications */
@@ -216,4 +216,33 @@ entries .paper span.issn {
 #entries .paper span.tag {
     font-variant: normal;
     text-transform: lowercase;
+}
+
+/* courses */
+
+.course tr,
+.course th {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+/* as per world-of-warcraft, apparently
+   cf. <http://gamedev.stackexchange.com/questions/46463/is-there-an-optimum-set-of-colors-for-10-players>
+   */
+.red       { background-color: red;       }
+.blue      { background-color: blue;      }
+.teal      { background-color: teal;      }
+.purple    { background-color: purple;    }
+.yellow    { background-color: yellow;    }
+.orange    { background-color: orange;    }
+.green     { background-color: green;     }
+.pink      { background-color: pink;      }
+.grey      { background-color: grey;      }
+.lightblue { background-color: lightblue; }
+.darkgreen { background-color: darkgreen; }
+.brown     { background-color: brown;     }
+
+li {
+    line-height: 24px;
 }
