@@ -24,9 +24,8 @@ let (>>>) x f =
   | `Ok x    -> f x
 
 module Main
-         (C: CONSOLE) (HTTP: Cohttp_lwt.Server)
-         (ASSETS: KV_RO) (PAGES: KV_RO)
-         (POSTS: KV_RO) (COURSES: KV_RO) (PAPERS: KV_RO)
+         (C: CONSOLE) (S: Cohttp_lwt.Server) (ASSETS: KV_RO)
+         (PAGES: KV_RO) (POSTS: KV_RO) (COURSES: KV_RO) (PAPERS: KV_RO)
   = struct
 
     (** Functor that produces a structure representing a unikernel given the
@@ -43,11 +42,11 @@ module Main
         body >>= fun body ->
         let status = `OK in
         let headers = Cohttp.Header.of_list headers in
-        HTTP.respond_string ~headers ~status ~body ()
+        S.respond_string ~headers ~status ~body ()
       in
-      let http_respond_redirect ~uri = HTTP.respond_redirect ~uri () in
-      let http_respond_notfound ~uri = HTTP.respond_not_found ~uri () in
-      let http_uri ~request = HTTP.Request.uri request in
+      let http_respond_redirect ~uri = S.respond_redirect ~uri () in
+      let http_respond_notfound ~uri = S.respond_not_found ~uri () in
+      let http_uri ~request = S.Request.uri request in
 
       let get_asset ~name =
         ASSETS.size assets name                       >>> fun size ->
@@ -92,6 +91,6 @@ module Main
         let cid = Cohttp.Connection.to_string conn_id in
         C.log c (Printf.sprintf "conn %s closed" cid)
       in
-      http { Cohttp_mirage.Server.callback = callback; conn_closed }
+      http { HTTP.Server.callback = callback; conn_closed }
 
   end
