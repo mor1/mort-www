@@ -25,30 +25,35 @@ module Authors = struct
 end
 
 let t =
-  let open Cowabloga in
+  let module Date = Cowabloga.Date in
   let open Cowabloga.Blog in
   Entry.([
-      { updated = Date.date (2013, 10, 14, 10, 46);
+      { updated = Date.date (2013, 10, 13, 10, 46);
         author = Authors.mort;
         subject = "A 21st Century IDE";
         body = "21st-century-ide.md";
-        permalink = "/2013/10/13/21st-century-ide/";
+        permalink = "2013/10/13/21st-century-ide";
       };
       { updated = Date.date (2013, 12, 09, 10, 10);
         author = Authors.mort;
         subject = "A Brave New World";
         body = "a-brave-new-world.md";
-        permalink = "/2013/12/09/a-brave-new-world/";
+        permalink = "2013/12/09/a-brave-new-world";
       };
     ])
-  |> List.sort Cowabloga.Blog.Entry.compare
+  |> List.sort Entry.compare
+
+let id = "/blog/"
+let permalink filename =
+  let open Cowabloga.Blog.Entry in
+  id ^ (List.find (fun e -> e.body = filename) t).permalink
 
 let feed read_entry =
   let open Site_config in
   { Cowabloga.Atom_feed.title = Cow.Html.to_string title;
     subtitle = Some (Cow.Html.to_string subtitle);
     base_uri;
-    id = "/blog";
+    id;
     rights;
     author = Some Authors.mort;
     read_entry

@@ -27,6 +27,27 @@ let posts readf =
   in
   return (render ~title ~highlight:true ~sidebar body)
 
+let excerpts readf =
+  let title = Cow.Html.to_string Site_config.title in
+  lwt body =
+    let feed = Posts.feed (fun name ->
+      lwt post = readf ~name in
+      let v = match post with
+        | [] -> []
+        | p1 :: [] -> [p1]
+        | p1 :: p2 :: [] -> [p1; p2]
+        | p1 :: p2 :: p3 :: _ ->
+          p1 :: p2 :: p3 ::
+            <:html<
+              <a href="$str:Posts.permalink name$">read more...</a>
+            >>
+      in
+      return v
+      )
+    in
+    Cowabloga.Blog.to_html feed Posts.t
+  in return (render ~title ~highlight:true ~sidebar body)
+
 let feed readf =
   lwt feed =
     let feed = Posts.feed (fun name -> readf ~name) in
