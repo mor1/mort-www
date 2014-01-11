@@ -36,7 +36,10 @@ let dispatch unik request =
   in
 
   match cpts with
-  | [ ] -> Blog.dispatch unik []
+  | [ ] ->
+    log_ok path;
+    unik.http_respond_ok ~headers:Headers.html (Blog.excerpts unik.get_post)
+
   | "blog" :: tl -> Blog.dispatch unik tl
   | "papers" :: tl -> Papers.dispatch unik tl
   | "courses" :: tl -> Courses.dispatch unik tl
