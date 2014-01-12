@@ -47,4 +47,6 @@ run: | build
 
 clean:
 	$(MIRAGE) clean src/config.ml $(BFLAGS)
+
+distclean: | clean
 	$(RM) $(JSS)
