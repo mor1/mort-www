@@ -1,9 +1,12 @@
-src/_build
+## ignore build files
+/src/_build
+/src/main.native
+/src/mir-main
 
-src/Makefile
-src/main.ml
-src/main.native
-src/mir-main
+## ignore mirage generated files
+/src/Makefile
+/src/main.ml
+/src/myocamlbuild.ml
 
 ## un-ignore this once edited
-src/main.xl
+/src/main.xl
