@@ -19,6 +19,8 @@ open Unikernel
 open Lwt
 module Headers = Cowabloga.Headers
 
+let (|>) x f = f x (* for ocaml 4.00.1 *)
+
 let dispatch unik request =
   let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
 

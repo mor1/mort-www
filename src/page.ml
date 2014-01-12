@@ -19,6 +19,8 @@ open Cowabloga
 open Cow
 open Lwt
 
+let (|>) x f = f x (* for ocaml 4.00.1 *)
+
 let subtitle s =
   Cow.Html.to_string <:html< $Site_config.title$ | $str:s$ >>
 
