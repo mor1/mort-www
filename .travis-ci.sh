@@ -1,6 +1,7 @@
 # OPAM packages needed to build tests.
 OPAM_PACKAGES="mirage"
 
+# install OPAM
 case "$OCAML_VERSION,$OPAM_VERSION" in
     3.12.1,1.1.0) ppa=avsm/ocaml312+opam11 ;;
     4.00.1,1.1.0) ppa=avsm/ocaml40+opam11 ;;
@@ -15,4 +16,12 @@ export OPAMYES=1
 export OPAMVERBOSE=1
 opam init
 eval `opam config env`
+
+# install Mirage
 opam install ${OPAM_PACKAGES}
+
+# build mort-www
+cp .travis-config.ml src/config.ml
+cd src
+mirage --version
+MODE=$MIRAGE_BACKEND make
