@@ -1,5 +1,5 @@
 # OPAM packages needed to build tests.
-OPAM_PACKAGES="mirage cow ssl"
+OPAM_PACKAGES="mirage cow ssl cowabloga"
 
 # install OPAM
 case "$OCAML_VERSION,$OPAM_VERSION" in
@@ -17,12 +17,11 @@ export OPAMVERBOSE=1
 opam init
 eval `opam config env`
 
-# install Mirage
-opam install ${OPAM_PACKAGES}
-
 # use my cowabloga for now
 opam pin cowabloga git://github.com/mor1/cowabloga
-opam install cowabloga
+
+# install Mirage
+opam install ${OPAM_PACKAGES}
 
 # build mort-www
 cp .travis-config.ml src/config.ml
