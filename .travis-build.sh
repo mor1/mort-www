@@ -22,6 +22,5 @@ opam install ${OPAM_PACKAGES}
 
 # build mort-www
 cp .travis-config.ml src/config.ml
-cd src
 mirage --version
 make MODE=$MIRAGE_BACKEND
