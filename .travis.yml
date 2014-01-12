@@ -1,5 +1,5 @@
 language: c
-script: bash -ex .travis-ci.sh
+script: bash -ex .travis-build.sh
 env:
   matrix:
   - OCAML_VERSION=4.01.0 MIRAGE_BACKEND=unix OPAM_VERSION=1.1.0
