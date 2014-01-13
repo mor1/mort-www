@@ -33,7 +33,7 @@ js: $(JSS)
 
 MIRAGE = mirage
 MODE ?= unix
-FS_MODE ?= crunch
+FS_MODE ?= fat
 BFLAGS ?=
 
 configure:
@@ -47,6 +47,7 @@ run: | build
 
 clean:
 	$(MIRAGE) clean src/config.ml $(BFLAGS)
+	$(RM) -r src/myocamlbuild.ml src/_build
 
 distclean: | clean
 	$(RM) $(JSS)
