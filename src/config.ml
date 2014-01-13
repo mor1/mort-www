@@ -17,52 +17,37 @@
 
 open Mirage
 
-let (|>) x f = f x
+let kv_ro_of dir =
+  let mode =
+    (** set Unix `FS_MODE` to fat for FAT and block device storage; anything else
+        gives crunch static filesystem
+    *)
+    try (
+      match String.lowercase (Unix.getenv "FS_MODE") with
+      | "fat" -> `Fat
+      | _     -> `Crunch
+    ) with Not_found -> `Crunch
+  in
+  let fat_ro dir = kv_ro_of_fs (fat_of_files ~dir ()) in
+  match mode with
+    | `Fat -> fat_ro ("../store/" ^ dir)
+    | `Crunch -> crunch ("../store/" ^ dir)
 
-let mode =
-  (** set Unix `FS_MODE` to fat for FAT and block device storage; anything else
-      gives crunch static filesystem
-  *)
-  try (
-    match String.lowercase (Unix.getenv "FS_MODE") with
-    | "fat" -> `Fat
-    | _     -> `Crunch
-  ) with Not_found -> `Crunch
+let server = http_server 80 (default_ip [tap0])
 
-let fs_drivers = function
-  | `Crunch ->
-    let open KV_RO in
-    [ { name = "assets"; dirname = "../store/assets" };
-      { name = "pages";  dirname = "../store/pages"  };
-      { name = "posts";  dirname = "../store/posts"  };
-      { name = "courses";  dirname = "../store/courses" };
-      { name = "papers";  dirname = "../store/papers" };
-    ]
-    |> List.map (fun kvro -> Driver.KV_RO kvro)
-
-  | `Fat ->
-    let open Block in
-    [ { name = "assets"; filename = "assets.img"; read_only = true };
-      { name = "pages";  filename = "pages.img";  read_only = true };
-      { name = "posts";  filename = "posts.img";  read_only = true };
-      { name = "courses"; filename = "courses.img"; read_only = true };
-      { name = "papers"; filename = "papers.img"; read_only = true };
-    ]
-    |> List.map (fun b ->
-        Driver.Fat_KV_RO { Fat_KV_RO.name = b.name; block = b }
-      )
-
-let http =
-  Driver.HTTP {
-    HTTP.port = 80;
-    address = None;
-    ip = IP.local Network.Tap0;
-  }
+let main =
+  let packages = ["cow"; "cowabloga"] in
+  let libraries = ["cow.syntax"; "cowabloga"] in
+  foreign ~libraries ~packages "Server.Main"
+    (console @-> http
+     @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro
+     @-> job)
 
 let () =
-  add_to_opam_packages ["cow"; "cowabloga"];
-  add_to_ocamlfind_libraries ["cow.syntax"; "cowabloga"];
-
-  Job.register [
-    "Server.Main", [Driver.console; http] @ (fs_drivers mode)
+  register "mort-www" [
+    main $ default_console $ server $ (kv_ro_of "assets")
+    $ (kv_ro_of "pages")
+    $ (kv_ro_of "posts")
+    $ (kv_ro_of "courses")
+    $ (kv_ro_of "papers")
   ]
