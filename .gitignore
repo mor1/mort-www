@@ -1,4 +1,5 @@
 ## ignore build files
+/log
 /src/_build
 /src/main.native
 /src/mir-main
@@ -8,5 +9,9 @@
 /src/main.ml
 /src/myocamlbuild.ml
 
+## ignore FAT related files
+/src/*.img
+/src/make-fat*-image.sh
+
 ## un-ignore this once edited
-/src/main.xl
+/src/mort-www.xl
