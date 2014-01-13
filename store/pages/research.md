@@ -42,7 +42,9 @@ If you are interested in applying to undertake a Ph.D. with me, before I can con
 
 [jobs]: http://www.nottingham.ac.uk/jobs/home.aspx
 
-I am fortunate to have worked, and to continue to work, with some excellent students on a wide range of topics.
+### Current
+
+I am fortunate to have worked, and to continue to work, with some excellent Ph.D. students on a wide range of topics.
 
 <div class="no-bullet" media:type="text/omd">
 + __Sultan Alanazi__ (2012), co-supervised with [Prof. Derek McAuley][mac].  
@@ -55,8 +57,6 @@ I am fortunate to have worked, and to continue to work, with some excellent stud
   IT law and copyright.
 + __Marjan Falahrastegar__ (2012) at Queen Mary, University of London, co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].  
   Personal data in home hubs.
-+ __[Dr Hamed Haddadi][hamed]__ at University College London, co-supervised with [Dr Andrew W. Moore][andrew] and [Dr Miguel Rio][miguel]. Graduated 2008.  
-  "Topological Characteristics of IP Networks".
 + __Ewa Luger__ (2009), co-supervised with [Prof. Tom Rodden][tom].  
   Understanding consent in ubiquitous computing.
 + __Steven Luland__ (2013), co-supervised with [Prof. Derek McAuley][mac].  
@@ -68,6 +68,11 @@ I am fortunate to have worked, and to continue to work, with some excellent stud
   History and reconciliation in domestic network configuration.
 </div>
 
+### Graduated
+
++ __[Dr Hamed Haddadi][hamed]__ at University College London, co-supervised with [Dr Andrew W. Moore][andrew] and [Dr Miguel Rio][miguel]. Graduated 2008.  
+  "Topological Characteristics of IP Networks".
+
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
 [uhlig]: http://www.eecs.qmul.ac.uk/~steve/
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
@@ -78,6 +83,10 @@ I am fortunate to have worked, and to continue to work, with some excellent stud
 [lilian]: http://www.strath.ac.uk/humanities/courses/law/staff/edwardslilianprof/
 [andrew]: http://www.cl.cam.ac.uk/~awm22/
 [miguel]: https://www.ee.ucl.ac.uk/~mrio/
+
+### Masters & Undergraduate Projects
+
+
 
 <h2 data-magellan-destination="Publications" id="Research">Publications</h2>
 
