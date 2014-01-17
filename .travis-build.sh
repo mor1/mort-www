@@ -18,6 +18,7 @@ opam init
 eval `opam config env`
 
 # use my cowabloga for now
+opam pin mirage git://github.com/mor1/mirage#combinators
 opam pin cowabloga git://github.com/mor1/cowabloga
 opam pin fat-filesystem git://github.com/mor1/ocaml-fat
 
