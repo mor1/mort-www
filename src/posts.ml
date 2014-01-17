@@ -16,8 +16,6 @@
  *
  *)
 
-let (|>) x f = f x (* for ocaml 4.00.1 *)
-
 module Authors = struct
   let mort = Cow.Atom.({
       name = "Richard Mortier";
