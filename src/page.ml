@@ -190,7 +190,6 @@ let dispatch unik cpts =
     | _ -> []
   in
   log_ok path;
-  Printf.printf "%s\n%!" (String.concat "; " cpts);
   let p = List.hd cpts in
   Unikernel.(
     unik.http_respond_ok ~headers:Headers.html (static trailer unik.get_page p)
