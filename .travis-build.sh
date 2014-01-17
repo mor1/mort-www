@@ -19,6 +19,7 @@ eval `opam config env`
 
 # use my cowabloga for now
 opam pin cowabloga git://github.com/mor1/cowabloga
+opam pin fat-filesystem git://github.com/mor1/ocaml-fat
 
 # install Mirage
 opam install ${OPAM_PACKAGES}
