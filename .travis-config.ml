@@ -17,60 +17,49 @@
 
 open Mirage
 
-let (|>) x f = f x
-
-let mode =
-  (** set Unix `FS_MODE` to fat for FAT and block device storage; anything else
-      gives crunch static filesystem
-  *)
-  try (
-    match String.lowercase (Unix.getenv "FS_MODE") with
-    | "fat" -> `Fat
-    | _     -> `Crunch
-  ) with Not_found -> `Crunch
-
-let fs_drivers = function
-  | `Crunch ->
-    let open KV_RO in
-    [ { name = "assets"; dirname = "../store/assets" };
-      { name = "pages";  dirname = "../store/pages"  };
-      { name = "posts";  dirname = "../store/posts"  };
-      { name = "courses";  dirname = "../store/courses" };
-      { name = "papers";  dirname = "../store/papers" };
-    ]
-    |> List.map (fun kvro -> Driver.KV_RO kvro)
-
-  | `Fat ->
-    let open Block in
-    [ { name = "assets"; filename = "assets.img"; read_only = true };
-      { name = "pages";  filename = "pages.img";  read_only = true };
-      { name = "posts";  filename = "posts.img";  read_only = true };
-      { name = "courses"; filename = "courses.img"; read_only = true };
-      { name = "papers"; filename = "papers.img"; read_only = true };
-    ]
-    |> List.map (fun b ->
-        Driver.Fat_KV_RO { Fat_KV_RO.name = b.name; block = b }
-      )
-
-let http =
- let ip =
-    let open IP in
-    let address = Ipaddr.V4.of_string_exn "46.43.42.137" in
-    let netmask = Ipaddr.V4.of_string_exn "255.255.255.128" in
-    let gateway = [Ipaddr.V4.of_string_exn "46.43.42.129"] in
-    let config = IPv4 { address; netmask; gateway } in
-    { name = "www4"; config; networks = [ Network.Tap0 ] }
+let kv_ro_of dir =
+  let mode =
+    (** set Unix `FS_MODE` to fat for FAT and block device storage; anything
+        else gives crunch static filesystem
+    *)
+    try (
+      match String.lowercase (Unix.getenv "FS_MODE") with
+      | "fat" -> `Fat
+      | _     -> `Crunch
+    ) with Not_found -> `Crunch
   in
-  Driver.HTTP {
-    HTTP.port  = 80;
-    address    = None;
-    ip
-  }
+  let fat_ro dir = kv_ro_of_fs (fat_of_files ~dir ()) in
+  match mode with
+    | `Fat -> fat_ro ("../store/" ^ dir)
+    | `Crunch -> crunch ("../store/" ^ dir)
+
+let server =
+  let ipaddr =
+    let open Site_config in
+    let i s = Ipaddr.V4.of_string_exn s in
+    Mirage.IPv4 { address = i "46.43.42.137";
+                  netmask = i "255.255.255.128";
+                  gateway = [i "46.43.42.129"];
+                }
+  in
+  http_server Site_config.port (ipaddr [tap0])
+
+let main =
+  let packages = ["cow"; "cowabloga"] in
+  let libraries = ["cow.syntax"; "cowabloga"] in
+  foreign ~libraries ~packages "Server.Main"
+    (console @-> http
+     @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro
+     @-> job)
 
 let () =
-  add_to_opam_packages ["cow"; "cowabloga"];
-  add_to_ocamlfind_libraries ["cow.syntax"; "cowabloga"];
-
-  Job.register [
-    "Server.Main", [Driver.console; http] @ (fs_drivers mode)
+  register "mort-io" [
+    main $ default_console $ server $ (kv_ro_of "assets")
+    $ (kv_ro_of "pages")
+    $ (kv_ro_of "posts")
+    $ (kv_ro_of "courses")
+    (* XXX hack for now, until FAT32 supported; pr could perhaps use the mux
+       combinator? *)
+    $ (kv_ro_of "papers")
+    $ (kv_ro_of "big-pdfs")
   ]
