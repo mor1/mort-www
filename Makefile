@@ -40,8 +40,16 @@ TIMESTAMPS = $(patsubst store/%,timestamp-%,$(STORES)) # sync timestamp targets
 store: $(FATS) | $(TIMESTAMPS) configure
 
 # propagates subdirectory content mtimes up to root
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+  STAT_FLAGS = -f "%m %N"
+endif
+ifeq ($(UNAME_S),Darwin)
+  STAT_FLAGS = -c "%Y %N"
+endif
+
 timestamp-%:
-		find store/$* -type f -print0 | xargs -0 stat -f "%m %N" |	\
+		find store/$* -type f -print0 | xargs -0 stat $(STAT_FLAGS) |	\
 		sort -n | tail -1 | cut -f2- -d" " |			\
 		xargs -I {} touch -r {} store/$*
 
