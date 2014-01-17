@@ -1,0 +1,7 @@
+name = 'mort-www'
+kernel = './mir-mort-www.xen'
+builder = 'linux'
+memory = 256
+
+vif=['bridge=xenbr0']
+on_crash='restart'
