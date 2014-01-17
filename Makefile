@@ -14,7 +14,9 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: all configure build run clean
+.PHONY: all configure build run clean store store/%
+
+TARGET=src/mir-mort-www
 
 all: build
 	@ :
@@ -27,19 +29,38 @@ JSS = $(patsubst %.coffee,store/courses/js/%.js,$(COFFEES))
 store/courses/js/%.js: store/courses/coffee/%.coffee
 	$(COFFEE) -c -o store/courses/js $<
 
-js: $(JSS)
+jss: $(JSS)
+
+## FAT filesystem rules
+STORES = $(wildcard store/*)		# input directories
+FATS = $(wildcard src/fat*.img)	# output fat image files
+TIMESTAMPS = $(patsubst store/%,timestamp-%,$(STORES)) # sync timestamp targets
+
+# builds all output fat images if any input directory content mtimes changed
+store: $(FATS) | $(TIMESTAMPS) configure
+
+# propagates subdirectory content mtimes up to root
+timestamp-%:
+		find store/$* -type f -print0 | xargs -0 stat -f "%m %N" |	\
+		sort -n | tail -1 | cut -f2- -d" " |			\
+		xargs -I {} touch -r {} store/$*
+
+# build specific fat image if any input directory content mtime changed
+src/fat%.img: $(STORES) | $(TIMESTAMPS) configure
+	src/make-fat$*-image.sh
+	touch $@ # looks like the fat command line tool doesn't update mtime
 
 ## mirage rules
-
 MIRAGE = mirage
 MODE ?= unix
 FS_MODE ?= fat
 BFLAGS ?=
 
-configure:
+configure: src/Makefile
+src/Makefile: src/config.ml
 	$(MIRAGE) configure src/config.ml $(BFLAGS) --$(MODE)
 
-build: $(JSS) | configure
+build: $(JSS) | store configure
 	$(MIRAGE) build src/config.ml $(BFLAGS)
 
 run: | build
