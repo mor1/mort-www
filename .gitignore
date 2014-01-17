@@ -1,5 +1,7 @@
 ## ignore build files
 /log
+/src/log
+/src/mir-mort-www
 /src/_build
 /src/main.native
 /src/mir-main
