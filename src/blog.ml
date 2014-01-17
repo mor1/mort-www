@@ -39,7 +39,7 @@ let excerpts readf =
         | p1 :: p2 :: p3 :: _ ->
           p1 :: p2 :: p3 ::
             <:html<
-              <a class="secondary round label right" 
+              <a class="secondary round label right"
                  href="$str:Posts.permalink name$">
                  more&nbsp;&raquo;
               </a>
