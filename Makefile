@@ -44,7 +44,7 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
   STAT_FLAGS = -f "%m %N"
 endif
-ifeq ($(UNAME_S),Darwin)
+ifeq ($(UNAME_S),Linux)
   STAT_FLAGS = -c "%Y %N"
 endif
 
