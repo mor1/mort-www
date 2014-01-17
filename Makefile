@@ -68,7 +68,7 @@ run: | build
 
 clean:
 	$(MIRAGE) clean src/config.ml $(BFLAGS)
-	$(RM) -r src/myocamlbuild.ml src/_build
+	$(RM) -r src/myocamlbuild.ml src/_build log src/log src/static.ml[i]
 
 distclean: | clean
-	$(RM) $(JSS)
+	$(RM) $(JSS) $(FATS) $(FATSHS)
