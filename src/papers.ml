@@ -36,11 +36,16 @@ let dispatch unik cpts =
       if endswith ".js" path then Headers.javascript else
       if endswith ".css" path then Headers.css else
       if endswith ".json" path then Headers.json else
-      if endswith ".png" path then Headers.png
-      else []
+      if endswith ".png" path then Headers.png else
+      if endswith ".pdf" path then Headers.pdf else
+        []
     in
     unik.http_respond_ok ~headers (return body)
 
   with exn ->
-    unik.log (Printf.sprintf "404 GET %s" path);
-    unik.http_respond_notfound (Uri.of_string ("/papers/" ^ path))
+    try_lwt
+      lwt body = unik.get_bigpapers path in
+      unik.http_respond_ok ~headers:Headers.pdf (return body)
+    with exn ->
+      unik.log (Printf.sprintf "404 GET %s" path);
+      unik.http_respond_notfound (Uri.of_string ("/papers/" ^ path))

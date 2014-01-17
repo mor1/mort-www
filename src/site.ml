@@ -19,8 +19,6 @@ open Unikernel
 open Lwt
 module Headers = Cowabloga.Headers
 
-let (|>) x f = f x (* for ocaml 4.00.1 *)
-
 let dispatch unik request =
   let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
 
@@ -66,8 +64,9 @@ let dispatch unik request =
         if endswith ".js" path then Headers.javascript else
         if endswith ".css" path then Headers.css else
         if endswith ".json" path then Headers.json else
-        if endswith ".png" path then Headers.png
-        else []
+        if endswith ".png" path then Headers.png else
+        if endswith ".pdf" path then Headers.pdf else
+          []
       in
       unik.http_respond_ok ~headers (return body)
 
