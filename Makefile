@@ -45,7 +45,7 @@ ifeq ($(UNAME_S),Darwin)
   STAT_FLAGS = -f "%m %N"
 endif
 ifeq ($(UNAME_S),Linux)
-  STAT_FLAGS = -c "%Y %N"
+  STAT_FLAGS = -c "%Y %n"
 endif
 
 timestamp-%:
