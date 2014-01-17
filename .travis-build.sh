@@ -28,4 +28,4 @@ opam install ${OPAM_PACKAGES}
 # build mort-www
 cp .travis-config.ml src/config.ml
 mirage --version
-make MODE=$MIRAGE_BACKEND
+make MODE=$MIRAGE_BACKEND FS_MODE=fat
