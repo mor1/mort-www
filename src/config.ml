@@ -40,7 +40,7 @@ let main =
   let libraries = ["cow.syntax"; "cowabloga"] in
   foreign ~libraries ~packages "Server.Main"
     (console @-> http
-     @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro
+     @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro @-> kv_ro
      @-> job)
 
 let () =
@@ -49,5 +49,8 @@ let () =
     $ (kv_ro_of "pages")
     $ (kv_ro_of "posts")
     $ (kv_ro_of "courses")
+    (* XXX hack for now, until FAT32 supported; pr could perhaps use the mux
+       combinator? *)
     $ (kv_ro_of "papers")
+    $ (kv_ro_of "big-pdfs")
   ]

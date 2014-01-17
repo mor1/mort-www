@@ -18,21 +18,23 @@
 open Mirage_types.V1
 open Lwt
 
+(* XXX needs to plumb the failing name through somehow *)
 let (>>>) x f =
   x >>= function
-  | `Error _ -> fail (Failure ("name" ^ "X"))
+  | `Error _ -> fail (Failure "name")
   | `Ok x    -> f x
 
 module Main
          (C: CONSOLE) (S: Cohttp_lwt.Server) (ASSETS: KV_RO)
-         (PAGES: KV_RO) (POSTS: KV_RO) (COURSES: KV_RO) (PAPERS: KV_RO)
+         (PAGES: KV_RO) (POSTS: KV_RO) (COURSES: KV_RO)
+         (PAPERS: KV_RO) (BIGPAPERS: KV_RO)
   = struct
 
     (** Functor that produces a structure representing a unikernel given the
         driver structures specified in [config.ml]. Instantiated via e.g.,
         {! Lwt_unix.run} or as a Xen VM. *)
 
-    let start c http assets pages posts courses papers =
+    let start c http assets pages posts courses papers bigpapers =
       (** Unikernel entry point. *)
 
       (** First, project all the required methods we'll need from the Mirage
@@ -78,10 +80,16 @@ module Main
         return (Cstruct.copyv bufs)
       in
 
+      let get_bigpapers ~name =
+        BIGPAPERS.size bigpapers name                       >>> fun size ->
+        BIGPAPERS.read bigpapers name 0 (Int64.to_int size) >>> fun bufs ->
+        return (Cstruct.copyv bufs)
+      in
+
       let callback conn_id ?body req =
         let unik = {
           Unikernel.log = (fun ~msg -> C.log c msg);
-          get_asset; get_page; get_post; get_courses; get_papers;
+          get_asset; get_page; get_post; get_courses; get_papers; get_bigpapers;
           http_uri;
           http_respond_ok; http_respond_redirect; http_respond_notfound;
         } in

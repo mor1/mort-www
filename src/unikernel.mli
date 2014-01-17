@@ -27,6 +27,7 @@ type t = {
   get_post: name:string -> Html.t Lwt.t;    (** Read blog posts *)
   get_courses: name:string -> string Lwt.t; (** Read courses element *)
   get_papers: name:string -> string Lwt.t;  (** Read papers element *)
+  get_bigpapers: name:string -> string Lwt.t;  (** hack *)
 
   http_respond_ok: ?headers:(string*string) list
     -> string Lwt.t
