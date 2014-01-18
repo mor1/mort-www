@@ -28,7 +28,7 @@ let kv_ro_of dir =
       | _     -> `Crunch
     ) with Not_found -> `Crunch
   in
-  let fat_ro dir = kv_ro_of_fs (fat_of_files ~dir ()) in
+  let fat_ro dir = kv_ro_of_fs () (fat_of_files ~dir ()) in
   match mode with
     | `Fat -> fat_ro ("../store/" ^ dir)
     | `Crunch -> crunch ("../store/" ^ dir)
