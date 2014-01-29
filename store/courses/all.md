@@ -60,7 +60,6 @@ Note that:
   Loading...
 </div>
 
-<script src="/courses/js/jquery-1.9.1.min.js"> </script>
 <script type="text/javascript">
   //<![CDATA[
     $(window).load(function () {

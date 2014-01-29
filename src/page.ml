@@ -29,7 +29,7 @@ let render
       ?(headers=[])
       ?(highlight=false)
       ?sidebar
-      ?trailer
+      ?trailers
       body
   =
   let title = match title with
@@ -37,7 +37,7 @@ let render
     | Some t -> t
   in
   let sidebar = match sidebar with None -> <:html< >> | Some h -> h in
-  let trailer = match trailer with None -> <:html< >> | Some h -> h in
+  let trailers = match trailers with None -> <:html< >> | Some h -> h in
 
   let navbar =
     <:html<
@@ -130,15 +130,12 @@ let render
 
       </div>
     </div>
-
-    <!-- finally, trailer asset loading -->
-    $trailer$
     >>
   in
   let highlight =
     if highlight then Some "/css/highlight/solarized_light.css" else None
   in
-  let body = Foundation.body ?highlight ~title ~headers ~content () in
+  let body = Foundation.body ?highlight ~title ~headers ~content ~trailers () in
   Foundation.page ~body
 
 let sidebar =
@@ -173,18 +170,17 @@ let scripts root jss =
   in
   <:html< $list:jss$ >>
 
-let static trailer readf page =
+let static trailers readf page =
   let title = subtitle page in
   let heading = <:html< >> in
   lwt body = readf ~name:(page ^ ".md") in
-  return (render ~title ~trailer ~heading ~sidebar body)
+  return (render ~title ~trailers ~heading ~sidebar body)
 
 let dispatch unik cpts =
   let log_ok path = unik.Unikernel.log (Printf.sprintf "200 GET %s" path) in
   let path = String.concat "/" cpts in
   let trailer = match cpts with
-    | [ "research" ] ->
-      scripts "/papers" [ "jquery-1.9.1.min.js"; "papers.js"; "load-papers.js" ]
+    | [ "research" ] -> scripts "/papers" [ "papers.js"; "load-papers.js" ]
     | _ -> []
   in
   log_ok path;
