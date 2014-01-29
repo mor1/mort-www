@@ -49,8 +49,8 @@ ifeq ($(UNAME_S),Linux)
 endif
 
 timestamp-%:
-		find store/$* -type f -print0 | xargs -0 stat $(STAT_FLAGS) |	\
-		sort -n | tail -1 | cut -f2- -d" " |			\
+	find store/$* -type f -print0 | xargs -0 stat $(STAT_FLAGS) |	\
+		sort -n | tail -1 | cut -f2- -d" " |		\
 		xargs -I {} touch -r {} store/$*
 
 # build specific fat image if any input directory content mtime changed
