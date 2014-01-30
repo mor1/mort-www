@@ -23,9 +23,9 @@ let dispatch unik segments =
   let path = String.concat "/" segments in
   try_lwt
     (* evaluate thread now to trigger exn in case this is a bigpaper *)
-    return (`Page (lwt body = unik.get_papers path in return body))
+    return (`Asset (lwt body = unik.get_papers path in return body))
   with exn ->
     try_lwt
-      return (`Page (lwt body = unik.get_bigpapers path in return body))
+      return (`Asset (lwt body = unik.get_bigpapers path in return body))
     with exn ->
       return (`Not_found path)
