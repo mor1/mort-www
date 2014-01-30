@@ -181,4 +181,4 @@ let dispatch unik segments =
     | [ "research" ] -> scripts "/papers" [ "papers.js"; "load-papers.js" ]
     | _ -> []
   in
-  Headers.html, (static trailer unik.Unikernel.get_page (List.hd segments))
+  return (`Page (static trailer unik.Unikernel.get_page (List.hd segments)))

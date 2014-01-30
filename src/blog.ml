@@ -70,6 +70,6 @@ let post readf segments =
   return (render ~title ~highlight:true ~sidebar body)
 
 let dispatch unik = function
-  | [] -> C.Headers.html, (posts unik.get_post)
-  | [ "atom.xml" ] -> C.Headers.atom, (feed unik.get_post)
-  | segments -> C.Headers.html, (post unik.get_post segments)
+  | []           -> return (`Page (posts unik.get_post))
+  | ["atom.xml"] -> return (`Atom (feed unik.get_post))
+  | segments     -> return (`Page (post unik.get_post segments))

@@ -17,35 +17,15 @@
 
 open Lwt
 open Unikernel
-open Cowabloga
+module C = Cowabloga
 
-let dispatch unik cpts =
-  let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
-  let path = String.concat "/" cpts in
+let dispatch unik segments =
+  let path = String.concat "/" segments in
   try_lwt
-    lwt body = unik.get_papers path in
-    log_ok path;
-    let headers =
-      let endswith tail str =
-        let l = String.length tail in
-        let i = String.(length str - l) in
-        if i < 0 then false else
-          tail = String.sub str i l
-      in
-
-      if endswith ".js" path then Headers.javascript else
-      if endswith ".css" path then Headers.css else
-      if endswith ".json" path then Headers.json else
-      if endswith ".png" path then Headers.png else
-      if endswith ".pdf" path then Headers.pdf else
-        []
-    in
-    unik.http_respond_ok ~headers (return body)
-
+    (* evaluate thread now to trigger exn in case this is a bigpaper *)
+    return (`Page (lwt body = unik.get_papers path in return body))
   with exn ->
     try_lwt
-      lwt body = unik.get_bigpapers path in
-      unik.http_respond_ok ~headers:Headers.pdf (return body)
+      return (`Page (lwt body = unik.get_bigpapers path in return body))
     with exn ->
-      unik.log (Printf.sprintf "404 GET %s" path);
-      unik.http_respond_notfound (Uri.of_string ("/papers/" ^ path))
+      return (`Not_found path)

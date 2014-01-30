@@ -19,8 +19,6 @@ open Lwt
 open Unikernel
 open Cowabloga
 
-(* push into Cowabloga.Foundation *)
-
 let page readf scripts md =
   let render ~title ~trailer body =
     let content =
@@ -37,73 +35,40 @@ let page readf scripts md =
   lwt body = readf ~name:(md ^ ".md") in
   return (render ~title ~trailer body)
 
-let dispatch unik cpts =
-  let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
-  let path = String.concat "/" cpts in
+let dispatch unik segments =
   let read_md ~name =
     lwt body = unik.get_courses ~name in
     return (Cow.Markdown.of_string body)
   in
-  match cpts with
+  match segments with
   (* root page is the complete courses list *)
-  | [ ] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html
-      (page read_md ["courses.js"] "all")
+  | [ ] -> return (`Page (page read_md ["courses.js"] "all"))
 
   (* specific pages *)
-  | (["ugt"] as p)
-  | (["pgt"] as p) ->
-    log_ok path;
-    (match p with
-     | [ p ] ->
-       unik.http_respond_ok ~headers:Headers.html
-         (page read_md ["courses.js"] p)
-     | _ -> assert false
-    )
+  | ("ugt" as p) :: []
+  | ("pgt" as p) :: []
+    -> return (`Page (page read_md ["courses.js"] p))
 
-  | ["tt"] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (page read_md ["tt.js"] "tt")
-
-  | ["reqs"] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html
-      (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs")
+  | ["tt"]
+    -> return (`Page (page read_md ["tt.js"] "tt"))
+  | ["reqs"]
+    -> return (`Page (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs"))
 
   (* handle legacy URIs via redirects *)
-  | ["index.html"] ->
-    unik.http_respond_redirect ~uri:(Uri.of_string "/courses")
-  | ["ugt.html"]
-  | ["ugt"; "index.html"] ->
-    unik.http_respond_redirect ~uri:(Uri.of_string "/courses/ugt")
-  | ["pgt.html"]
-  | ["pgt"; "index.html"] ->
-    unik.http_respond_redirect ~uri:(Uri.of_string "/courses/pgt")
-  | ["tt"; "index.html"] ->
-    unik.http_respond_redirect ~uri:(Uri.of_string "/courses/tt")
+  | ["index.html"] -> return (`Redirect "/courses")
 
-  (* default: assume it's a standard file fetch; break this into Cowabloga.Foundation *)
+  | ["ugt.html"]
+  | ["ugt"; "index.html"] -> return (`Redirect "/courses/ugt")
+
+  | ["pgt.html"]
+  | ["pgt"; "index.html"] -> return (`Redirect "/courses/pgt")
+
+  | ["tt"; "index.html"] -> return (`Redirect "/courses/tt")
+
   | _ ->
+    let path = String.concat "/" segments in
     try_lwt
       lwt body = unik.get_courses path in
-      log_ok path;
-      let headers =
-        let endswith tail str =
-          let l = String.length tail in
-          let i = String.(length str - l) in
-          if i < 0 then false else
-            tail = String.sub str i l
-        in
-
-        if endswith ".js" path then Headers.javascript else
-        if endswith ".css" path then Headers.css else
-        if endswith ".json" path then Headers.json else
-        if endswith ".png" path then Headers.png
-        else []
-      in
-      unik.http_respond_ok ~headers (return body)
-
+      return (`Asset (return body))
     with exn ->
-      unik.log (Printf.sprintf "404 GET %s" path);
-      unik.http_respond_notfound (Uri.of_string ("/courses/" ^ path))
+      return (`Not_found ("/courses/" ^ path))
