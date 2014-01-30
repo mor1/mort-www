@@ -176,15 +176,9 @@ let static trailers readf page =
   lwt body = readf ~name:(page ^ ".md") in
   return (render ~title ~trailers ~heading ~sidebar body)
 
-let dispatch unik cpts =
-  let log_ok path = unik.Unikernel.log (Printf.sprintf "200 GET %s" path) in
-  let path = String.concat "/" cpts in
-  let trailer = match cpts with
+let dispatch unik segments =
+  let trailer = match segments with
     | [ "research" ] -> scripts "/papers" [ "papers.js"; "load-papers.js" ]
     | _ -> []
   in
-  log_ok path;
-  let p = List.hd cpts in
-  Unikernel.(
-    unik.http_respond_ok ~headers:Headers.html (static trailer unik.get_page p)
-  )
+  Headers.html, (static trailer unik.Unikernel.get_page (List.hd segments))

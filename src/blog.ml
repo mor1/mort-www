@@ -18,12 +18,13 @@
 open Lwt
 open Unikernel
 open Page
+module C = Cowabloga
 
 let posts readf =
   let title = subtitle "blog" in
   lwt body =
     let feed = Posts.feed (fun name -> readf ~name) in
-    Cowabloga.Blog.to_html feed Posts.t
+    C.Blog.to_html feed Posts.t
   in
   return (render ~title ~highlight:true ~sidebar body)
 
@@ -31,55 +32,44 @@ let excerpts readf =
   let title = Cow.Html.to_string Site_config.title in
   lwt body =
     let feed = Posts.feed (fun name ->
-      lwt post = readf ~name in
-      let v = match post with
-        | [] -> []
-        | p1 :: [] -> [p1]
-        | p1 :: p2 :: [] -> [p1; p2]
-        | p1 :: p2 :: p3 :: _ ->
-          p1 :: p2 :: p3 ::
-            <:html<
-              <a class="secondary round label right"
-                 href="$str:Posts.permalink name$">
-                 more&nbsp;&raquo;
-              </a>
-            >>
-      in
-      return v
+        lwt post = readf ~name in
+        let v = match post with
+          | [] -> []
+          | p1 :: [] -> [p1]
+          | p1 :: p2 :: [] -> [p1; p2]
+          | p1 :: p2 :: p3 :: _ ->
+            p1 :: p2 :: p3 ::
+              <:html<
+                <a class="secondary round label right"
+                   href="$str:Posts.permalink name$">
+                   more&nbsp;&raquo;
+                </a>
+              >>
+        in
+        return v
       )
     in
-    Cowabloga.Blog.to_html feed Posts.t
+    C.Blog.to_html feed Posts.t
   in return (render ~title ~highlight:true ~sidebar body)
 
 let feed readf =
   lwt feed =
     let feed = Posts.feed (fun name -> readf ~name) in
-    Cowabloga.Blog.to_atom feed Posts.t
+    C.Blog.to_atom feed Posts.t
   in
   return Cow.(Xml.to_string (Atom.xml_of_feed feed))
 
-let post readf path =
-  let entry = List.find (fun e -> e.Cowabloga.Blog.Entry.permalink = path) Posts.t in
-  let title = subtitle (" | blog | " ^ entry.Cowabloga.Blog.Entry.subject) in
+let post readf segments =
+  let path = String.concat "/" segments in
+  let entry = List.find (fun e -> e.C.Blog.Entry.permalink = path) Posts.t in
+  let title = subtitle (" | blog | " ^ entry.C.Blog.Entry.subject) in
   lwt body =
     let feed = Posts.feed (fun name -> readf ~name) in
-    Cowabloga.Blog.Entry.to_html ~feed ~entry
+    C.Blog.Entry.to_html ~feed ~entry
   in
   return (render ~title ~highlight:true ~sidebar body)
 
-let dispatch unik cpts =
-  let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
-  let path = String.concat "/" cpts in
-  let open Cowabloga in
-  match cpts with
-  | [] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (posts unik.get_post)
-
-  | [ "atom.xml" ] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.atom (feed unik.get_post)
-
-  | _ ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (post unik.get_post path)
+let dispatch unik = function
+  | [] -> C.Headers.html, (posts unik.get_post)
+  | [ "atom.xml" ] -> C.Headers.atom, (feed unik.get_post)
+  | segments -> C.Headers.html, (post unik.get_post segments)

@@ -17,59 +17,30 @@
 
 open Unikernel
 open Lwt
-module Headers = Cowabloga.Headers
+module C = Cowabloga
 
 let dispatch unik request =
-  let log_ok path = unik.log (Printf.sprintf "200 GET %s" path) in
-
   let uri = unik.http_uri ~request in
-  let path = Uri.path uri in
-  let cpts =
-    let rec aux = function
-      | [] | [""] -> []
-      | hd::tl -> hd :: aux tl
-    in
-    path
-    |> Re_str.(split_delim (regexp_string "/"))
-    |> aux
-    |> List.filter (fun e -> e <> "")
-  in
 
-  match cpts with
-  | [ ] ->
-    log_ok path;
-    unik.http_respond_ok ~headers:Headers.html (Blog.excerpts unik.get_post)
+  C.Dispatch.f
+    unik.log unik.get_asset unik.http_respond_ok unik.http_respond_notfound
+    (fun segments -> match segments with
+       | [ ] ->
+         Some (C.Headers.html, (Blog.excerpts unik.get_post))
 
-  | "blog" :: tl -> Blog.dispatch unik tl
-  | "papers" :: tl -> Papers.dispatch unik tl
-  | "courses" :: tl -> Courses.dispatch unik tl
+       | "blog" :: tl -> Some (Blog.dispatch unik tl)
 
-  | [ "research" ]
-  | [ "teaching" ]
-  | [ "codes" ]
-  | [ "me" ] -> Page.dispatch unik cpts
+(*
+       | "papers" :: tl -> Papers.dispatch unik tl
+       | "courses" :: tl -> Courses.dispatch unik tl
+*)
 
-  | _ ->
-    try_lwt
-      lwt body = unik.get_asset path in
-      log_ok path;
-      let headers =
-        let endswith tail str =
-          let l = String.length tail in
-          let i = (String.length str) - l in
-          if i < 0 then false else
-            tail = String.sub str i l
-        in
+       | [ "research" ]
+       | [ "teaching" ]
+       | [ "codes" ]
+       | [ "me" ]
+         -> Some (Page.dispatch unik segments)
 
-        if endswith ".js" path then Headers.javascript else
-        if endswith ".css" path then Headers.css else
-        if endswith ".json" path then Headers.json else
-        if endswith ".png" path then Headers.png else
-        if endswith ".pdf" path then Headers.pdf else
-          []
-      in
-      unik.http_respond_ok ~headers (return body)
-
-    with exn ->
-      unik.log (Printf.sprintf "404 GET %s" path);
-      unik.http_respond_notfound uri
+       | _ -> None
+    )
+    uri
