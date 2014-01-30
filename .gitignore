@@ -10,6 +10,7 @@
 /src/Makefile
 /src/main.ml
 /src/myocamlbuild.ml
+/src/mir-mort-www.xen
 
 ## ignore FAT related files
 /src/*.img

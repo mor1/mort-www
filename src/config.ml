@@ -34,6 +34,16 @@ let kv_ro_of dir =
     | `Crunch -> crunch ("../store/" ^ dir)
 
 let server = http_server 80 (default_ip [tap0])
+let server = 
+  let ip = 
+    let config = IP.DHCP in
+    { name = "www"; config; networks = [ Network.Tap0 ] }
+  in
+  Driver.HTTP {
+    HTTP.port = 80;
+    address = None;
+    ip
+  }
 
 let main =
   let packages = ["cow"; "cowabloga"] in
