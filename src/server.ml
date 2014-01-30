@@ -15,7 +15,6 @@
  *
  *)
 
-open Mirage_types.V1
 open Lwt
 
 (* XXX needs to plumb the failing name through somehow *)
@@ -25,9 +24,10 @@ let (>>>) x f =
   | `Ok x    -> f x
 
 module Main
-         (C: CONSOLE) (S: Cohttp_lwt.Server) (ASSETS: KV_RO)
-         (PAGES: KV_RO) (POSTS: KV_RO) (COURSES: KV_RO)
-         (PAPERS: KV_RO) (BIGPAPERS: KV_RO)
+         (C: V1_LWT.CONSOLE) (S: Cohttp_lwt.Server) (ASSETS: V1_LWT.KV_RO)
+         (PAGES: V1_LWT.KV_RO) (POSTS: V1_LWT.KV_RO) (COURSES: V1_LWT.KV_RO)
+         (PAPERS: V1_LWT.KV_RO) (BIGPAPERS: V1_LWT.KV_RO)
+
   = struct
 
     (** Functor that produces a structure representing a unikernel given the
@@ -99,6 +99,6 @@ module Main
         let cid = Cohttp.Connection.to_string conn_id in
         C.log c (Printf.sprintf "conn %s closed" cid)
       in
-      http { HTTP.Server.callback = callback; conn_closed }
+      http { S.callback = callback; conn_closed }
 
   end
