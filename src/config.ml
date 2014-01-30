@@ -19,31 +19,40 @@ open Mirage
 
 let kv_ro_of dir =
   let mode =
-    (** set Unix `FS_MODE` to fat for FAT and block device storage; anything else
-        gives crunch static filesystem
-    *)
+    (* set Unix `FS_MODE` to fat for FAT and block device storage; anything
+       else gives crunch static filesystem *)
     try (
-      match String.lowercase (Unix.getenv "FS_MODE") with
+      match String.lowercase (Unix.getenv "FS") with
       | "fat" -> `Fat
       | _     -> `Crunch
     ) with Not_found -> `Crunch
   in
-  let fat_ro dir = kv_ro_of_fs () (fat_of_files ~dir ()) in
+  let fat_ro dir = kv_ro_of_fs (fat_of_files ~dir ()) in
   match mode with
-    | `Fat -> fat_ro ("../store/" ^ dir)
-    | `Crunch -> crunch ("../store/" ^ dir)
+  | `Fat    -> fat_ro ("../store/" ^ dir)
+  | `Crunch -> crunch ("../store/" ^ dir)
 
-let server = http_server 80 (default_ip [tap0])
-let server = 
-  let ip = 
-    let config = IP.DHCP in
-    { name = "www"; config; networks = [ Network.Tap0 ] }
+let server =
+  let net =
+    try match Sys.getenv "NET" with
+      | "direct" -> `Direct
+      | "socket" -> `Socket
+      | _        -> `Direct
+    with Not_found -> `Direct
   in
-  Driver.HTTP {
-    HTTP.port = 80;
-    address = None;
-    ip
-  }
+  let dhcp =
+    try match Sys.getenv "IPADDR" with
+      | "static" -> `Static
+      | "dhcp"   -> `Dhcp
+    with Not_found -> `Dhcp
+  in
+  let stack console =
+    match net, dhcp with
+    | `Direct, `Dhcp   -> direct_stackv4_with_dhcp console tap0
+    | `Direct, `Static -> direct_stackv4_with_default_ipv4 console tap0
+    | `Socket, _       -> socket_stackv4 console [Ipaddr.V4.any]
+  in
+  http_server 80 (stack default_console)
 
 let main =
   let packages = ["cow"; "cowabloga"] in
@@ -55,7 +64,8 @@ let main =
 
 let () =
   register "mort-www" [
-    main $ default_console $ server $ (kv_ro_of "assets")
+    main $ default_console $ server
+    $ (kv_ro_of "assets")
     $ (kv_ro_of "pages")
     $ (kv_ro_of "posts")
     $ (kv_ro_of "courses")

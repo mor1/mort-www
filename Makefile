@@ -61,12 +61,16 @@ src/fat%.img: $(STORES) | $(TIMESTAMPS) configure
 ## mirage rules
 MIRAGE = mirage
 MODE ?= unix
-FS_MODE ?= fat
+FS ?= fat
+NET ?= direct
+IPADDR ?= dhcp
+
 BFLAGS ?=
 
 configure: src/Makefile
 src/Makefile: src/config.ml
-	FS_MODE=$(FS_MODE) $(MIRAGE) configure src/config.ml $(BFLAGS) --$(MODE)
+	NET=$(NET) IPADDR=$(IPADDR) FS=$(FS) \
+		$(MIRAGE) configure src/config.ml $(BFLAGS) --$(MODE)
 
 build: $(JSS) | store configure
 	$(MIRAGE) build src/config.ml $(BFLAGS)
