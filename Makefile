@@ -58,16 +58,23 @@ src/fat%.img: $(STORES) | $(TIMESTAMPS) configure
 	touch $@ # looks like the fat command line tool doesn't update mtime?!
 
 ## mirage rules
-MIRAGE = mirage
-MODE ?= unix
-FS ?= fat
-NET ?= direct
+MIRAGE  = mirage
+MODE   ?= unix
+FS     ?= fat ## really, crunch isn't worth it for 90MB `store` data
+NET    ?= direct
 IPADDR ?= static
 
 FLAGS ?=
 
+ifeq ($(FS),fat)
+configure: src/make-fat*-image.sh
+endif
+ifeq ($(FS),crunch)
 configure: src/Makefile
+endif
+
 src/Makefile: src/config.ml
+src/make-fat*-image.sh: src/config.ml
 	$(MIRAGE) configure src/config.ml --$(MODE)
 
 $(TARGET): build
