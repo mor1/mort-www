@@ -19,8 +19,7 @@ open Unikernel
 open Lwt
 module C = Cowabloga
 
-let dispatch unik request =
-  let uri = unik.http_uri ~request in
+let dispatch unik uri =
   let io = { C.Dispatch.
              log = unik.log;
              ok = unik.http_respond_ok;
@@ -28,26 +27,25 @@ let dispatch unik request =
              redirect = unik.http_respond_redirect;
            }
   in
-  let dispatcher = (function
-      | [ ] -> return (`Page (Blog.excerpts unik.get_post))
+  let dispatcher = function
+    | [ ] -> return (`Page (Blog.excerpts unik.get_post))
 
-      | "blog" :: tl -> Blog.dispatch unik tl
-      | "papers" :: tl -> Papers.dispatch unik tl
-      | "courses" :: tl -> Courses.dispatch unik tl
+    | "blog"    :: tl -> Blog.dispatch unik tl
+    | "papers"  :: tl -> Papers.dispatch unik tl
+    | "courses" :: tl -> Courses.dispatch unik tl
 
-      | [ "research" ]
-      | [ "teaching" ]
-      | [ "codes" ]
-      | [ "me" ] as segments
-        -> Page.dispatch unik segments
+    | [ "research" ]
+    | [ "teaching" ]
+    | [ "codes"    ]
+    | [ "me"       ] as segments
+      -> Page.dispatch unik segments
 
-      | segments ->
-        let path = String.concat "/" segments in
-        try_lwt
-          lwt body = unik.get_asset ~name:path in
-          return (`Asset (return body))
-        with exn ->
-          return (`Not_found path)
-    )
+    | segments ->
+      let path = String.concat "/" segments in
+      try_lwt
+        lwt body = unik.get_asset ~name:path in
+        return (`Asset (return body))
+      with exn ->
+        return (`Not_found path)
   in
   C.Dispatch.f io dispatcher uri
