@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013 Richard Mortier <mort@cantab.net>
+# Copyright (c) 2013--2014 Richard Mortier <mort@cantab.net>
 #
 # Permission to use, copy, modify, and distribute this software for any purpose
 # with or without fee is hereby granted, provided that the above copyright
@@ -19,7 +19,6 @@
 TARGET=src/mir-mort-www
 
 all: build
-	@ :
 
 ## pre-compile coffeescript for /courses
 COFFEE = coffee
@@ -32,8 +31,8 @@ store/courses/js/%.js: store/courses/coffee/%.coffee
 jss: $(JSS)
 
 ## FAT filesystem rules
-STORES = $(wildcard store/*)		# input directories
-FATS = $(wildcard src/fat*.img)	# output fat image files
+STORES = $(wildcard store/*)						   # input directories
+FATS = $(wildcard src/fat*.img)					   # output fat image files
 TIMESTAMPS = $(patsubst store/%,timestamp-%,$(STORES)) # sync timestamp targets
 
 # builds all output fat images if any input directory content mtimes changed
@@ -56,7 +55,7 @@ timestamp-%:
 # build specific fat image if any input directory content mtime changed
 src/fat%.img: $(STORES) | $(TIMESTAMPS) configure
 	src/make-fat$*-image.sh
-	touch $@ # looks like the fat command line tool doesn't update mtime
+	touch $@ # looks like the fat command line tool doesn't update mtime?!
 
 ## mirage rules
 MIRAGE = mirage
@@ -65,22 +64,23 @@ FS ?= fat
 NET ?= direct
 IPADDR ?= static
 
-BFLAGS ?=
+FLAGS ?=
 
 configure: src/Makefile
 src/Makefile: src/config.ml
-	NET=$(NET) IPADDR=$(IPADDR) FS=$(FS) \
-		$(MIRAGE) configure src/config.ml $(BFLAGS) --$(MODE)
+	$(MIRAGE) configure src/config.ml --$(MODE)
 
-build: $(JSS) | store configure
-	$(MIRAGE) build src/config.ml $(BFLAGS)
+$(TARGET): build
+build: $(JSS) configure | store
+	$(MIRAGE) build src/config.ml
 
-run: | build
+run: $(TARGET)
 	$(MIRAGE) run src/config.ml
 
 clean:
-	$(MIRAGE) clean src/config.ml $(BFLAGS)
-	$(RM) -r src/myocamlbuild.ml src/_build log src/log src/static.ml[i]
+	$(MIRAGE) clean src/config.ml $(FLAGS)
+	$(RM) -r src/myocamlbuild.ml src/_build log src/log 
 
 distclean: | clean
 	$(RM) $(JSS) $(FATS) $(FATSHS)
+	$(RM) src/static.ml[i] src/make-fat*-image.sh
