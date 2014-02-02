@@ -48,7 +48,6 @@ module Main
       in
       let http_respond_redirect ~uri = S.respond_redirect ~uri () in
       let http_respond_notfound ~uri = S.respond_not_found ~uri () in
-      let http_uri ~request = S.Request.uri request in
 
       let get_asset ~name =
         ASSETS.size assets name                       >>> fun size ->
@@ -86,14 +85,14 @@ module Main
         return (Cstruct.copyv bufs)
       in
 
-      let callback conn_id ?body req =
+      let callback conn_id ?body request =
+        let uri = S.Request.uri request in
         let unik = {
           Unikernel.log = (fun ~msg -> C.log c msg);
           get_asset; get_page; get_post; get_courses; get_papers; get_bigpapers;
-          http_uri;
           http_respond_ok; http_respond_redirect; http_respond_notfound;
         } in
-        Site.dispatch unik req
+        Site.dispatch unik uri
       in
       let conn_closed conn_id () =
         let cid = Cohttp.Connection.to_string conn_id in
