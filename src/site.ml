@@ -28,7 +28,7 @@ let dispatch unik uri =
            }
   in
   let dispatcher = function
-    | [ ] -> return (`Page (Blog.excerpts unik.get_post))
+    | [ ] -> return (`Html (Blog.excerpts unik.get_post))
 
     | "blog"    :: tl -> Blog.dispatch unik tl
     | "papers"  :: tl -> Papers.dispatch unik tl

@@ -42,17 +42,17 @@ let dispatch unik segments =
   in
   match segments with
   (* root page is the complete courses list *)
-  | [ ] -> return (`Page (page read_md ["courses.js"] "all"))
+  | [ ] -> return (`Html (page read_md ["courses.js"] "all"))
 
   (* specific pages *)
   | ("ugt" as p) :: []
   | ("pgt" as p) :: []
-    -> return (`Page (page read_md ["courses.js"] p))
+    -> return (`Html (page read_md ["courses.js"] p))
 
   | ["tt"]
-    -> return (`Page (page read_md ["tt.js"] "tt"))
+    -> return (`Html (page read_md ["tt.js"] "tt"))
   | ["reqs"]
-    -> return (`Page (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs"))
+    -> return (`Html (page read_md ["d3.v3.min.js"; "reqs.js"] "reqs"))
 
   (* handle legacy URIs via redirects *)
   | ["index.html"] -> return (`Redirect "/courses")
