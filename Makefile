@@ -16,6 +16,8 @@
 
 .PHONY: all configure build run clean store store/%
 
+-include Makefile.config
+
 TARGET=src/mir-mort-www
 
 all: build
@@ -36,7 +38,7 @@ FATS = $(wildcard src/fat*.img)					   # output fat image files
 TIMESTAMPS = $(patsubst store/%,timestamp-%,$(STORES)) # sync timestamp targets
 
 # builds all output fat images if any input directory content mtimes changed
-store: $(FATS) | $(TIMESTAMPS) configure
+store: $(FATS) | $(TIMESTAMPS)
 
 # propagates subdirectory content mtimes up to root
 UNAME_S := $(shell uname -s)
@@ -53,41 +55,24 @@ timestamp-%:
 		xargs -I {} touch -r {} store/$*
 
 # build specific fat image if any input directory content mtime changed
-src/fat%.img: $(STORES) | $(TIMESTAMPS) configure
+src/fat%.img: $(STORES) | $(TIMESTAMPS)
 	src/make-fat$*-image.sh
 	touch $@ # looks like the fat command line tool doesn't update mtime?!
 
-## mirage rules
-MIRAGE  = mirage
-MODE   ?= unix
-FS     ?= fat ## really, crunch isn't worth it for 90MB `store` data
-NET    ?= direct
-IPADDR ?= static
+configure:
+	FS=$(FS) NET=$(NET) IPADDR=$(IPADDR) \
+		$(MIRAGE) configure src/config.ml --$(MODE)
 
-FLAGS ?=
-
-ifeq ($(FS),fat)
-configure: src/make-fat*-image.sh
-endif
-ifeq ($(FS),crunch)
-configure: src/Makefile
-endif
-
-src/Makefile: src/config.ml
-src/make-fat*-image.sh: src/config.ml
-	$(MIRAGE) configure src/config.ml --$(MODE)
-
-$(TARGET): build
-build: $(JSS) configure | store
+build: $(JSS) | store
 	$(MIRAGE) build src/config.ml
 
-run: $(TARGET)
+run:
 	$(MIRAGE) run src/config.ml
 
 clean:
 	$(MIRAGE) clean src/config.ml $(FLAGS)
-	$(RM) -r src/myocamlbuild.ml src/_build log src/log 
+	$(RM) -r src/myocamlbuild.ml src/_build log src/log
 
 distclean: | clean
 	$(RM) $(JSS) $(FATS) $(FATSHS)
-	$(RM) src/static.ml[i] src/make-fat*-image.sh
+	$(RM) src/static.ml[i] src/make-fat*-image.sh src/fat*.img

@@ -19,9 +19,8 @@ open Mirage
 
 let kv_ro_of dir =
   let mode =
-    (* set Unix `FS_MODE` to fat for FAT and block device storage; anything
-       else gives crunch static filesystem *)
-    try (
+    (* set Unix `FS` to fat for FAT and block device storage; anything else
+       gives crunch static filesystem *) try (
       match String.lowercase (Unix.getenv "FS") with
       | "fat" -> `Fat
       | _     -> `Crunch
