@@ -14,6 +14,7 @@
 
 ## ignore FAT droppings
 /src/*.img
+/*.img
 /src/make-fat*-image.sh
 
 ## ignore Crunch droppings
