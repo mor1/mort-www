@@ -30,7 +30,10 @@ opam update -u
 # install Mirage
 export OPAMVERBOSE=1
 opam install mirage ${OPAM_PACKAGES}
+mirage --version
 
 # build mort-www
-mirage --version
-make MODE=$MIRAGE_BACKEND FS=fat NET=direct IPADDR=live
+make configure MODE=$MIRAGE_BACKEND FS=fat NET=direct IPADDR=live
+pwd
+cat Makefile
+make build
