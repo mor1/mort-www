@@ -34,6 +34,4 @@ mirage --version
 
 # build mort-www
 make configure MODE=$MIRAGE_BACKEND FS=fat NET=direct IPADDR=live
-pwd
-cat Makefile
 make build
