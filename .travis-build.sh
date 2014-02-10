@@ -17,8 +17,8 @@ export OPAMYES=1
 opam init
 eval `opam config env`
 
-opam remote add -k git mirage-split \
-    https://github.com/mirage/opam-repository#mirage-1.1.0
+opam remote add -k git mirage-1.1.0 \
+    https://github.com/mirage/opam-repository#mirage-1.1-release
 
 opam update -u
 
