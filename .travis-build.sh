@@ -1,4 +1,7 @@
-# OPAM packages needed to build tests.
+# APT packages
+APT_PACKAGES="ocaml ocaml-native-compilers camlp4-extra opam coffeescript"
+
+# OPAM packages needed to build tests
 OPAM_PACKAGES="cow ssl cowabloga"
 
 # install OPAM
@@ -11,7 +14,7 @@ esac
 
 echo "yes" | sudo add-apt-repository ppa:$ppa
 sudo apt-get update -qq
-sudo apt-get install -qq ocaml ocaml-native-compilers camlp4-extra opam
+sudo apt-get install -qq ${APT_PACKAGES}
 
 export OPAMYES=1
 opam init
