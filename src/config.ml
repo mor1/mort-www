@@ -32,6 +32,12 @@ let kv_ro_of dir =
   | `Crunch -> crunch ("../store/" ^ dir)
 
 let server =
+  let ipv4 =
+    let address = Ipaddr.V4.of_string_exn "46.43.42.137" in
+    let netmask = Ipaddr.V4.of_string_exn "255.255.255.128" in
+    let gateways = List.map Ipaddr.V4.of_string_exn ["46.43.42.129"] in
+    { address; netmask; gateways }
+  in
   let net =
     try match Sys.getenv "NET" with
       | "direct" -> `Direct
@@ -43,11 +49,13 @@ let server =
     try match Sys.getenv "IPADDR" with
       | "static" -> `Static
       | "dhcp"   -> `Dhcp
+      | "live" -> `Live
     with Not_found -> `Dhcp
   in
   let stack console =
     match net, dhcp with
     | `Direct, `Dhcp   -> direct_stackv4_with_dhcp console tap0
+    | `Direct, `Live -> direct_stackv4_with_static_ipv4 console tap0 ipv4
     | `Direct, `Static -> direct_stackv4_with_default_ipv4 console tap0
     | `Socket, _       -> socket_stackv4 console [Ipaddr.V4.any]
   in
