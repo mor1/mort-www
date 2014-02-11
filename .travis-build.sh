@@ -35,3 +35,44 @@ mirage --version
 # build mort-www
 make configure MODE=$MIRAGE_BACKEND FS=fat NET=direct IPADDR=live
 make build
+
+# deploy?
+if [ "$DEPLOY" = "1" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
+  # get the secure key out for deployment
+  opam install travis-senv
+
+  mkdir -p ~/.ssh
+  SSH_DEPLOY_KEY=~/.ssh/id_dsa
+  travis-senv decrypt > $SSH_DEPLOY_KEY
+  chmod 600 $SSH_DEPLOY_KEY
+
+  echo "Host mor1deploy github.com"     >> ~/.ssh/config
+  echo "  Hostname github.com"          >> ~/.ssh/config
+  echo "  StrictHostKeyChecking no"     >> ~/.ssh/config
+  echo "  CheckHostIP no"               >> ~/.ssh/config
+  echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+
+  git config --global user.email "travis@mort.io"
+  git config --global user.name "Travis the Build Bot"
+
+  git clone git@mor1deploy:mort1/mort-www-deployment
+  case "$MIRAGE_BACKEND" in
+      xen)
+          cd mirage-www-deployment
+          rm -rf xen/$TRAVIS_COMMIT
+          mkdir -p xen/$TRAVIS_COMMIT
+          cp ../src/mir-mort-www.xen ../src/config.ml xen/$TRAVIS_COMMIT
+          bzip2 -9 xen/$TRAVIS_COMMIT/mir-www.xen
+          git pull --rebase
+          echo $TRAVIS_COMMIT > xen/latest
+          git add xen/$TRAVIS_COMMIT xen/latest
+          ;;
+      *)
+          echo unsupported deploy mode: $MIRAGE_BACKEND
+          exit 1
+          ;;
+  esac
+
+  git commit -m "adding $TRAVIS_COMMIT for $MIRAGE_BACKEND"
+  git push
+fi
