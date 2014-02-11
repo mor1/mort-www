@@ -43,3 +43,11 @@ type t = {
   (** Standard HTTP 302 Found (temporary redirect) *)
 
 }
+
+type page = [
+  | `Html of string
+  | `Atom of string
+  | `Asset of string
+  | `Not_found of string
+  | `Redirect of string
+]
