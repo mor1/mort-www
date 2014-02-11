@@ -52,11 +52,11 @@ if [ "$DEPLOY" = "1" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
     travis-senv decrypt > $SSH_DEPLOY_KEY
     chmod 600 $SSH_DEPLOY_KEY
 
-    echo "Host $DEPLOY_ACCOUNT github.com" >> ~/.ssh/config
-    echo "  Hostname github.com"           >> ~/.ssh/config
-    echo "  StrictHostKeyChecking no"      >> ~/.ssh/config
-    echo "  CheckHostIP no"                >> ~/.ssh/config
-    echo "  UserKnownHostsFile=/dev/null"  >> ~/.ssh/config
+    echo "Host $DEPLOY_USER github.com"   >> ~/.ssh/config
+    echo "  Hostname github.com"          >> ~/.ssh/config
+    echo "  StrictHostKeyChecking no"     >> ~/.ssh/config
+    echo "  CheckHostIP no"               >> ~/.ssh/config
+    echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
 
     git config --global user.email "travis@mort.io"
     git config --global user.name "Travis the Build Bot"
