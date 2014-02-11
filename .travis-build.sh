@@ -38,41 +38,50 @@ make build
 
 # deploy?
 if [ "$DEPLOY" = "1" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
-  # get the secure key out for deployment
-  opam install travis-senv
 
-  mkdir -p ~/.ssh
-  SSH_DEPLOY_KEY=~/.ssh/id_dsa
-  travis-senv decrypt > $SSH_DEPLOY_KEY
-  chmod 600 $SSH_DEPLOY_KEY
+    opam install travis-senv
 
-  echo "Host mor1deploy github.com"     >> ~/.ssh/config
-  echo "  Hostname github.com"          >> ~/.ssh/config
-  echo "  StrictHostKeyChecking no"     >> ~/.ssh/config
-  echo "  CheckHostIP no"               >> ~/.ssh/config
-  echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+    SSH_DEPLOY_KEY=~/.ssh/id_dsa
+    XEN_DIR=xen/$TRAVIS_COMMIT
+    DEPLOY_REPO=mort-www-deployment
+    DEPLOY_USER=mor1deploy
+    DEPLOY_ACCOUNT=mor1
+    DEPLOY_IMAGE=mir-mort-www.xen
 
-  git config --global user.email "travis@mort.io"
-  git config --global user.name "Travis the Build Bot"
+    mkdir -p ~/.ssh
+    travis-senv decrypt > $SSH_DEPLOY_KEY
+    chmod 600 $SSH_DEPLOY_KEY
 
-  git clone git@mor1deploy:mor1/mort-www-deployment
-  case "$MIRAGE_BACKEND" in
-      xen)
-          cd mort-www-deployment
-          rm -rf xen/$TRAVIS_COMMIT
-          mkdir -p xen/$TRAVIS_COMMIT
-          cp ../src/mir-mort-www.xen ../src/config.ml xen/$TRAVIS_COMMIT
-          bzip2 -9 xen/$TRAVIS_COMMIT/mir-mort-www.xen
-          git pull --rebase
-          echo $TRAVIS_COMMIT > xen/latest
-          git add xen/$TRAVIS_COMMIT xen/latest
-          ;;
-      *)
-          echo unsupported deploy mode: $MIRAGE_BACKEND
-          exit 1
-          ;;
-  esac
+    echo "Host $DEPLOY_ACCOUNT github.com" >> ~/.ssh/config
+    echo "  Hostname github.com"           >> ~/.ssh/config
+    echo "  StrictHostKeyChecking no"      >> ~/.ssh/config
+    echo "  CheckHostIP no"                >> ~/.ssh/config
+    echo "  UserKnownHostsFile=/dev/null"  >> ~/.ssh/config
 
-  git commit -m "adding $TRAVIS_COMMIT for $MIRAGE_BACKEND"
-  git push
+    git config --global user.email "travis@mort.io"
+    git config --global user.name "Travis the Build Bot"
+
+    git clone git@$DEPLOY_USER:$DEPLOY_ACCOUNT/$DEPLOY_REPO
+
+    case "$MIRAGE_BACKEND" in
+        xen)
+            cd $DEPLOY_REPO
+            rm -rf $XEN_DIR
+            mkdir -p $XEN_DIR
+            cp ../src/$DEPLOY_IMAGE ../src/config.ml $XEN_DIR
+            bzip2 -9 $XEN_DIR/$DEPLOY_IMAGE
+            git pull --rebase
+            echo $TRAVIS_COMMIT > xen/latest
+            git add $XEN_DIR xen/latest
+            ;;
+
+        *)
+            echo unsupported deploy mode: $MIRAGE_BACKEND
+            exit 1
+            ;;
+    esac
+
+    git commit -m "adding $TRAVIS_COMMIT for $MIRAGE_BACKEND"
+    git push
+
 fi
