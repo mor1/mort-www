@@ -21,10 +21,10 @@ let kv_ro_of dir =
   let mode =
     (* set Unix `FS` to fat for FAT and block device storage; anything else
        gives crunch static filesystem *) try (
-      match String.lowercase (Unix.getenv "FS") with
-      | "fat" -> `Fat
-      | _     -> `Crunch
-    ) with Not_found -> `Crunch
+    match String.lowercase (Unix.getenv "FS") with
+    | "fat" -> `Fat
+    | _     -> `Crunch
+  ) with Not_found -> `Crunch
   in
   let fat_ro dir = kv_ro_of_fs (fat_of_files ~dir ()) in
   match mode with
