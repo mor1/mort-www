@@ -1,8 +1,13 @@
 PKG lwt
+PKG lwt.syntax
 PKG cow
 PKG cowabloga
 PKG mirage
+PKG mirage-unix
+PKG mirage-clock-unix
+PKG mirage-console-unix
+PKG mirage-net-unix
 PKG mirage-types
-PKG mirage-http-unix
+PKG mirage-types.lwt
+PKG mirage-http
 PKG cohttp
-REC
