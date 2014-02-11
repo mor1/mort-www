@@ -58,7 +58,7 @@ if [ "$DEPLOY" = "1" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
   git clone git@mor1deploy:mor1/mort-www-deployment
   case "$MIRAGE_BACKEND" in
       xen)
-          cd mirage-www-deployment
+          cd mort-www-deployment
           rm -rf xen/$TRAVIS_COMMIT
           mkdir -p xen/$TRAVIS_COMMIT
           cp ../src/mir-mort-www.xen ../src/config.ml xen/$TRAVIS_COMMIT
