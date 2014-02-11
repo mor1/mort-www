@@ -55,7 +55,7 @@ if [ "$DEPLOY" = "1" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
   git config --global user.email "travis@mort.io"
   git config --global user.name "Travis the Build Bot"
 
-  git clone git@mor1deploy:mort1/mort-www-deployment
+  git clone git@mor1deploy:mor1/mort-www-deployment
   case "$MIRAGE_BACKEND" in
       xen)
           cd mirage-www-deployment
