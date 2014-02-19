@@ -17,49 +17,62 @@
 
 open Mirage
 
-let kv_ro_of dir =
-  let mode =
-    (* set Unix `FS` to fat for FAT and block device storage; anything else
-       gives crunch static filesystem *) try (
-    match String.lowercase (Unix.getenv "FS") with
-    | "fat" -> `Fat
-    | _     -> `Crunch
-  ) with Not_found -> `Crunch
-  in
-  let fat_ro dir = kv_ro_of_fs (fat_of_files ~dir ()) in
-  match mode with
-  | `Fat    -> fat_ro ("../store/" ^ dir)
-  | `Crunch -> crunch ("../store/" ^ dir)
+let getenv var def =
+  try String.lowercase (Sys.getenv var) with Not_found -> def
 
-let server =
-  let ipv4 =
+let ipv4 =
+(*
     let address = Ipaddr.V4.of_string_exn "46.43.42.137" in
     let netmask = Ipaddr.V4.of_string_exn "255.255.255.128" in
     let gateways = List.map Ipaddr.V4.of_string_exn ["46.43.42.129"] in
-    { address; netmask; gateways }
+*)
+  let address = Ipaddr.V4.of_string_exn "100.64.0.2" in
+  let netmask = Ipaddr.V4.of_string_exn "255.255.255.128" in
+  let gateways = List.map Ipaddr.V4.of_string_exn ["100.64.0.1"] in
+  { address; netmask; gateways }
+
+let port = 80
+
+let path dir = "../store/" ^ dir
+
+let kv_ro_of dir =
+  let dir = path dir in
+  let fs_mode =
+    let fs = getenv "FS" "crunch" in
+    match fs with
+    | "fat"    -> `Fat
+    | "crunch" -> `Crunch
+    | fs       -> failwith ("Unknown FS mode: " ^ fs)
   in
+  match fs_mode, get_mode () with
+  | `Fat   , _     -> kv_ro_of_fs (fat_of_files ~dir ())
+  | `Crunch, `Xen  -> crunch dir
+  | `Crunch, `Unix -> direct_kv_ro dir
+
+let server port =
   let net =
-    try match Sys.getenv "NET" with
+    let net = getenv "NET" "direct" in
+    match net with
       | "direct" -> `Direct
       | "socket" -> `Socket
-      | _        -> `Direct
-    with Not_found -> `Direct
+      | net      -> failwith ("Unknown NET mode: " ^ net)
   in
-  let dhcp =
-    try match Sys.getenv "IPADDR" with
+  let addr =
+    let addr = getenv "ADDR" "dhcp" in
+    match addr with
       | "static" -> `Static
       | "dhcp"   -> `Dhcp
-      | "live" -> `Live
-    with Not_found -> `Dhcp
+      | "live"   -> `Live
+      | addr     -> failwith ("Unknown ADDR mode: " ^ addr)
   in
   let stack console =
-    match net, dhcp with
-    | `Direct, `Dhcp   -> direct_stackv4_with_dhcp console tap0
-    | `Direct, `Live -> direct_stackv4_with_static_ipv4 console tap0 ipv4
-    | `Direct, `Static -> direct_stackv4_with_default_ipv4 console tap0
+    match net, addr with
     | `Socket, _       -> socket_stackv4 console [Ipaddr.V4.any]
+    | `Direct, `Static -> direct_stackv4_with_default_ipv4 console tap0
+    | `Direct, `Dhcp   -> direct_stackv4_with_dhcp console tap0
+    | `Direct, `Live   -> direct_stackv4_with_static_ipv4 console tap0 ipv4
   in
-  http_server 80 (stack default_console)
+  http_server port (stack default_console)
 
 let main =
   let packages = ["cow"; "cowabloga"] in
@@ -71,7 +84,7 @@ let main =
 
 let () =
   register "mort-www" [
-    main $ default_console $ server
+    main $ default_console $ (server port)
     $ (kv_ro_of "assets")
     $ (kv_ro_of "pages")
     $ (kv_ro_of "posts")
