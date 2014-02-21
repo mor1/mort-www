@@ -5,6 +5,7 @@
 /src/_build
 /src/main.native
 /src/mir-main
+.nfs*
 
 ## ignore mirage generated files
 /src/Makefile
@@ -16,6 +17,7 @@
 /src/*.img
 /*.img
 /src/make-fat*-image.sh
+/src/mount-fat*-image.sh
 
 ## ignore Crunch droppings
 /src/static*.ml
