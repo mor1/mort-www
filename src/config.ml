@@ -17,9 +17,6 @@
 
 open Mirage
 
-let getenv var def =
-  try String.lowercase (Sys.getenv var) with Not_found -> def
-
 let ipv4 =
 (*
     let address = Ipaddr.V4.of_string_exn "46.43.42.137" in
@@ -27,16 +24,17 @@ let ipv4 =
     let gateways = List.map Ipaddr.V4.of_string_exn ["46.43.42.129"] in
 *)
   let address = Ipaddr.V4.of_string_exn "100.64.0.2" in
-  let netmask = Ipaddr.V4.of_string_exn "255.255.255.128" in
+  let netmask = Ipaddr.V4.of_string_exn "255.255.255.0" in
   let gateways = List.map Ipaddr.V4.of_string_exn ["100.64.0.1"] in
   { address; netmask; gateways }
 
 let port = 80
 
-let path dir = "../store/" ^ dir
+let getenv var default =
+  try String.lowercase (Sys.getenv var) with Not_found -> default
 
 let kv_ro_of dir =
-  let dir = path dir in
+  let dir = "../store/" ^ dir in
   let fs_mode =
     let fs = getenv "FS" "crunch" in
     match fs with
@@ -45,7 +43,8 @@ let kv_ro_of dir =
     | fs       -> failwith ("Unknown FS mode: " ^ fs)
   in
   match fs_mode, get_mode () with
-  | `Fat   , _     -> kv_ro_of_fs (fat_of_files ~dir ())
+  | `Fat   , `Unix -> kv_ro_of_fs (fat_of_files ~dir ())
+  | `Fat   , `Xen  -> kv_ro_of_fs (fat_of_files ~dir ())
   | `Crunch, `Xen  -> crunch dir
   | `Crunch, `Unix -> direct_kv_ro dir
 
