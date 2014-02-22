@@ -71,8 +71,8 @@ run:
 
 clean:
 	$(MIRAGE) clean src/config.ml $(FLAGS)
-	$(RM) -r src/myocamlbuild.ml src/_build log src/log
+	$(RM) -r src/myocamlbuild.ml src/_build log src/log $(TARGET).xen
 
 distclean: | clean
 	$(RM) $(JSS) $(FATS) $(FATSHS)
-	$(RM) src/static.ml[i] src/make-fat*-image.sh src/fat*.img
+	$(RM) src/static.ml[i] src/*-fat*-image.sh src/fat*.img
