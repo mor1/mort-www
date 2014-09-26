@@ -70,7 +70,8 @@ themes = {
   }
 
 ## increase legibility
-abbrev = (s) -> s
+abbrev = (s) ->
+  s
   .replace(/Bachelor of Science/i, "BSc")
   .replace(/Master (in|of) Science/i, "MSc")
   .replace(/with (Joint )*Honours/i, "(Hons)")
