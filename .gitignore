@@ -3,5 +3,8 @@ _site
 _coffee/*.js
 js/courses.js
 js/tt.js
+js/reqs.js
+js/d3.v3.js
 
 notes
+_posts
