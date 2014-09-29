@@ -1,15 +1,15 @@
 ---
 layout: plain
 stylesheet: [courses]
-title: postgraduate programmes, 2013/14
+title: postgraduate programmes, 2014/15
 js: [courses]
 ---
 
 # Postgraduate Taught Programmes<br /><small>School of Computer Science</small>
 
-+-- {.lead .span10 .offset1} 
++-- {.lead .span10 .offset1}
 
-This page collates course specifications for the various Postgraduate Taught Programmes of study offered by the School of Computer Science during 2013/14. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link.
+This page collates course specifications for the various Postgraduate Taught Programmes of study offered by the School of Computer Science during 2014/15. _It is indicative only, and should **not** be treated as definitive_. More detailed information about specific courses or modules can be found by clicking on the appropriate link.
 
 [Please contact me](mailto:richard.mortier@nottingham.ac.uk) with any queries.
 
@@ -31,26 +31,20 @@ This page collates course specifications for the various Postgraduate Taught Pro
           <td>Foundations of Computer Science</td>
         </tr>
         <tr>
-          <td><span class="badge purple">PR</span></td>
-          <td>Programming</td>
-          <td><span class="badge orange">NCC</span></td>
-          <td>Net-Centric Computing</td>
-        </tr>
-        <tr>
-          <td><span class="badge green">AI</span></td>
-          <td>Artificial Intelligence</td>
+          <td><span class="badge green">AIMO</span></td>
+          <td>Artificial Intelligence, Modelling and Optimisation</td>
           <td><span class="badge pink">HCI</span></td>
           <td>Human-Computer Interaction</td>
         </tr>
         <tr>
           <td><span class="badge brown">PJ</span></td>
           <td>Projects</td>
-          <td><span class="badge teal">OSA</span></td>
-          <td>Operating Systems &amp; Architecture</td>
-       </tr>
+          <td><span class="badge orange">OSN</span></td>
+          <td>Operating Systems &amp; Networks</td>
+        </tr>
         <tr>
-          <td><span class="badge grey">MO</span></td>
-          <td colspan="3">Modelling &amp; Optimisation</td>
+          <td><span class="badge purple">PR</span></td>
+          <td>Programming</td>
         </tr>
       </tbody>
     </table>

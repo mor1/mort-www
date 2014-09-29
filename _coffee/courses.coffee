@@ -62,7 +62,9 @@ themes = {
   OSA: "teal",      # 008080
   PR: "purple",     # 800080
   NCC: "orange",    # FFA500
+  OSN: "orange",    # FFA500
   AI: "green",      # 00FF00
+  AIMO: "green",      # 00FF00
   HCI: "pink",      # FAAFBE
   MO: "grey",       # 736F6E
   GV: "lightblue",  # ADD8E6
