@@ -1,11 +1,26 @@
-## ignore build files
+## OS droppings
+.DS_Store
+.nfs*
+
+## jekyll site pieces
+notes
+_site
+_posts
+
+## coffeescript generated files
+_coffee/*.js
+js/courses.js
+js/tt.js
+js/reqs.js
+js/d3.v3.js
+
+## ignore mirage build files
 /log
 /src/log
 /src/mir-mort-www
 /src/_build
 /src/main.native
 /src/mir-main
-.nfs*
 
 ## ignore mirage generated files
 /src/Makefile
