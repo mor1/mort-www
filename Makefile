@@ -73,9 +73,15 @@ js/%.js: _coffee/%.coffee
 	$(COFFEE) -c -o js $<
 
 ## Mirage sections
--include Makefile.config
+TARGET=_mirage/src/mir-mort-www
 
-TARGET=src/mir-mort-www
+MIRAGE  = mirage
+MODE   ?= unix
+FS     ?= fat     ## really, crunch isn't worth it for 90MB `store` data
+NET    ?= direct
+ADDR   ?= static
+
+FLAGS ?=
 
 store/courses/js/%.js: store/courses/coffee/%.coffee
 	$(COFFEE) -c -o store/courses/js $<
