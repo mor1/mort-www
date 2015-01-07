@@ -58,14 +58,19 @@ I am fortunate to have worked, and to continue to work, with some excellent Ph.D
 + __Marjan Falahrastegar__ (2012) at Queen Mary, University of London, co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].  
   Personal data in home hubs.
 + __Ewa Luger__ (2009), co-supervised with [Prof. Tom Rodden][tom].  
-  Understanding consent in ubiquitous computing.
-+ __Steven Luland__ (2013), co-supervised with [Prof. Derek McAuley][mac].  
+  Understanding consent in ubiquitous computing. Viva passed, March 2014.
+
+Consent reconsidered: reframing consent for ubiquitous computing systems
+
+
++ __Steven Luland__ (2013), co-supervised with [Prof. Derek McAuley][mac]. <http://cubiewave.wordpress.com/>  
 + __Dominic Price__ (2013), co-supervised with [Prof. Chris Greenhalgh][chris].  
   User-focused social network platforms.
 + __Jianhua Shao__ (2010), co-supervised with [Dr George Kuk][george].  
   Investigating markets in personal data.
 + __Robert Spencer__ (2011), co-supervised with [Prof. Tom Rodden][tom].  
   History and reconciliation in domestic network configuration.
++ __Luis Carlos Oviedo Garcia__ (2014), co-supervised with [Prof. Derek McAuley][mac]. Application-Controllable Load-Balancing.
 </div>
 
 ### Graduated
