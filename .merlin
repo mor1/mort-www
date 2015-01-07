@@ -6,8 +6,8 @@ PKG mirage
 PKG mirage-unix
 PKG mirage-clock-unix
 PKG mirage-block-unix
-PKG mirage-console-unix
-PKG mirage-net-unix
+PKG mirage-console
+PKG tcpip
 PKG mirage-types
 PKG mirage-types.lwt
 PKG mirage-http
