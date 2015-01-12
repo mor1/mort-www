@@ -14,11 +14,16 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
+## jekyll configuration
 safe: true
 exclude: [Makefile, README.md]
 lsi: false
 permalink: pretty
 highlighter: pygments
 
-baseurl: /
+## site configuration
+domain: mort.io
+title: mort's mythopoeia
+author: Richard Mortier
+email: mort@cantab.net
 analytics_id: UA-15796259-1
