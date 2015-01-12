@@ -1,8 +1,6 @@
 ---
 layout: default
-section: research
-title: research
-parent: mort
+title: me
 ---
 
 # Mort
@@ -35,9 +33,9 @@ I'm Richard Mortier or, more commonly, **mort**. I'm a Horizon Transitional Fell
 
 ## Location <small><a href="http://www.openstreetmap.org/?mlat=52.95344&amp;mlon=-1.18752#map=17/52.95344/-1.18752&amp;layers=N">View Larger Map</a></small>
 
-I am either in office C13 in the [School of Computer Science][cs] or occasionally in C12B in the [Nottingham Geospatial Building][map]. 
+I am either in office C13 in the [School of Computer Science][cs] or occasionally in C12B in the [Nottingham Geospatial Building][map].
 
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 1px solid black" src="http://www.openstreetmap.org/export/embed.html?bbox=-1.189892292022705%2C52.951346405967776%2C-1.1851394176483154%2C52.95552844308856&amp;layer=mapnik&amp;marker=52.95343747507741%2C-1.1875158548355103"> </iframe> <br /> 
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 1px solid black" src="http://www.openstreetmap.org/export/embed.html?bbox=-1.189892292022705%2C52.951346405967776%2C-1.1851394176483154%2C52.95552844308856&amp;layer=mapnik&amp;marker=52.95343747507741%2C-1.1875158548355103"> </iframe> <br />
 
 
 [email]: mailto:richard.mortier@nottingham.ac.uk
@@ -80,4 +78,3 @@ Outside work I practice [Wudang Tai Chi Chuan][wudang], and taught for the [Camb
 
 [wudang]: http://www.taichichuan.co.uk/
 [cutccs]: http://www.srcf.ucam.org/cutccs/
-

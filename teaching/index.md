@@ -1,8 +1,6 @@
 ---
 layout: default
-section: research
-title: research
-parent: mort
+title: teaching
 ---
 
 <div data-magellan-expedition="fixed">
@@ -165,7 +163,7 @@ A collection of links to material that I have found interesting, useful or amusi
 + [Learn how to write iOS apps](http://ashfurrow.com/2011/12/learn-how-to-write-ios-apps/)
 
 </div>
-  <div media:type="text/omd" class="content" id="links-mathematics">
+<div media:type="text/omd" class="content" id="links-mathematics">
 
 ## Probability and Statisics
 
@@ -194,9 +192,9 @@ A collection of links to material that I have found interesting, useful or amusi
 
 + [funny little calculus text](http://www.math.upenn.edu/~ghrist/FLCT/)
 
-  </div>
+</div>
 
-  <div media:type="text/omd" class="content" id="links-systems">
+<div media:type="text/omd" class="content" id="links-systems">
 
 ## Networking
 
@@ -244,6 +242,5 @@ A collection of links to material that I have found interesting, useful or amusi
 + [Stanford Database class](http://www.db-class.org/)
 + [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/)
 + [Mining of Massive Datasets](http://i.stanford.edu/~ullman/mmds.html)(book)
-  </div>
 </div>
-
+</div>

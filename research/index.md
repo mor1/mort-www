@@ -1,8 +1,6 @@
 ---
 layout: default
-section: research
 title: research
-parent: mort
 ---
 
 <div data-magellan-expedition="fixed">
