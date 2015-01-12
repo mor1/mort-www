@@ -15,7 +15,7 @@
 #
 
 safe: true
-exclude: [_less, _mirage]
+exclude: [Makefile, README.md]
 lsi: false
 permalink: pretty
 highlighter: pygments
