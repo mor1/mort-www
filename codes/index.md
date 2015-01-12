@@ -1,3 +1,10 @@
+---
+layout: default
+section: research
+title: research
+parent: mort
+---
+
 # Codes
 
 Most of the code I write is available via my [Github][] account -- pull requests always welcome! -- but I thought I'd collate links to some of the larger codebases I've been involved with as well as some of the Github organisations I'm involved in.

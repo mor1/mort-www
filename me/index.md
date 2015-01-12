@@ -1,3 +1,10 @@
+---
+layout: default
+section: research
+title: research
+parent: mort
+---
+
 # Mort
 
 I'm Richard Mortier or, more commonly, **mort**. I'm a Horizon Transitional Fellow in Computer Science at the [Horizon Digital Economy Research Institute][horizon] at the [University of Nottingham][nottingham] [School of Computer Science][cs]. I'm also a founding member of the [School's][cs] [Networked Systems Group][nsg]. I can be contacted by email (preferred) at [richard.mortier@nottingham.ac.uk][email], or by phone on +44 115 823 2552. I am online at [Twitter][] and [Github][]. My Erdős number appears to be 3.

@@ -1,3 +1,10 @@
+---
+layout: default
+section: research
+title: research
+parent: mort
+---
+
 <div data-magellan-expedition="fixed">
   <dl class="sub-nav">
     <dd data-magellan-arrival="Teaching"><a href="#Teaching">top</a></dd>
