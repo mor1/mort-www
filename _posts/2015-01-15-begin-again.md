@@ -1,3 +1,8 @@
+---
+title: Begin, Again!
+layout: post
+---
+
 ## And... _relax_!
 
 To celebrate the release of [Mirage 1.0][mirage], and frankly because it was simply time anyway, I've reworked my website. What do you think?
