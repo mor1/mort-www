@@ -1,7 +1,0 @@
-[
-{"name":"flare.physics.DragForce","size":1082,"imports":["flare.physics.Particle","flare.physics.IForce"]},
-{"name":"flare.physics.GravityForce","size":1336,"imports":["flare.physics.Particle","flare.physics.IForce"]},
-{"name":"flare.physics.IForce","size":319,"imports":[]},
-{"name":"flare.physics.NBodyForce","size":10498,"imports":["flare.physics.Particle","flare.physics.IForce"]},
-{"name":"flare.physics.Particle","size":2822,"imports":[]}
-]
