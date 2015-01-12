@@ -49,8 +49,8 @@ site: ## css js papers
 
 # js: $(JSS)
 
-test: _site ## css js
-	jekyll serve --trace --watch
+test: site ## css js
+	jekyll serve --trace --watch --skip-initial-build
 
 # deploy: js
 # 	sed 's!@BASEURL@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
