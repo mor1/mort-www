@@ -23,7 +23,20 @@ highlighter: pygments
 
 ## site configuration
 domain: mort.io
-title: mort's mythopoeia
+title: mort's mythopoeia ##'
 author: Richard Mortier
 email: mort@cantab.net
 analytics_id: UA-15796259-1
+
+## sidebar navigation menu
+navigation:
+- text: home
+  url: /
+- text: research
+  url: /research/
+- text: teaching
+  url: /teaching/
+- text: codes
+  url: /codes/
+- text: me
+  url: /me/

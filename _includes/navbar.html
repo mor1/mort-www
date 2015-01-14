@@ -1,5 +1,10 @@
-<li><a href="/">home</a></li>
-<li><a href="/research">research</a></li>
-<li><a href="/teaching">teaching</a></li>
-<li><a href="/codes">codes</a></li>
-<li><a href="/me">me</a></li>
+{% for link in site.navigation %}
+  {% assign active = nil %}
+  {% if page.url == link.url or page.layout == link.layout %}
+    {% assign active = 'active' %}
+  {% endif %}
+
+  <li class="{{ active }}">
+        <a href="{{ link.url }}">{{ link.text }}</a>
+  </li>
+{% endfor %}
