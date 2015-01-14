@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: menu
 title: me
 ---
 
@@ -40,15 +40,13 @@ Erdős number appears to be 3.
   <a class="skype" href="skype:mort___">mort___</a>
 </div>
 
-## Location <small><a href="http://www.openstreetmap.org/?mlat=52.95344&amp;mlon=-1.18752#map=17/52.95344/-1.18752&amp;layers=N">View Larger Map</a></small>
+## Location <small><a href="http://osm.org/go/0EQSAZQ6x-?layers=N">View Larger Map</a></small>
 
-My office in the [Computer Lab][map] is [FN17][].
+My office in the [Computer Lab][cucl] is [FN17][].
 
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
-  marginwidth="0" style="border: 1px solid black"
-  src="http://www.openstreetmap.org/export/embed.html?bbox=-1.189892292022705%2C52.951346405967776%2C-1.1851394176483154%2C52.95552844308856&amp;layer=mapnik&amp;marker=52.95343747507741%2C-1.1875158548355103"> </iframe> <br />
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=0.09029388427734374%2C52.20889528631561%2C0.09372711181640624%2C52.212859510682065&amp;layer=mapnik&amp;marker=52.210877442716104%2C0.092010498046875" style="border: 1px solid black"></iframe>
 
-[map]: [fn17]:
+[fn17]: http://www.cl.cam.ac.uk/research/dtg/openroommap/static/?s=FN17
 
 [cardcloud]: http://cardcloud.com/mort [about.me]: http://about.me/mort
 
@@ -87,7 +85,7 @@ Corp][voxeo]).
 Outside work I practice [Wudang Tai Chi Chuan][wudang], and taught for the [Cambridge University Tai Chi Chuan Society][cutccs] for several years. I am also a keen, if woefully out-of-practice, classical guitarist.
 
 [phd]: http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-532.pdf
-[srg]: http://www.cl.cam.ac.uk/research/srg/netos/
+[srg]: http://www.cl.cam.ac.uk/research/srg/
 [ucam]: http://www.cam.ac.uk/
 [cucl]: http://www.cl.cam.ac.uk/
 [ipgroup]: http://www.sprintlabs.com/ipgroup.html
