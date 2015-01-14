@@ -18,6 +18,7 @@
 
 BIBS = $(wildcard ~/me/footprint/publications/rmm-*.bib)
 PAPERS = research/papers/data/papers.json
+DRAFTS ?=
 
 all: site
 
@@ -25,7 +26,7 @@ clean:
 	$(RM) -r _site research/papers/data/papers.json
 
 site: papers
-	jekyll build --trace
+	jekyll build --trace --$(DRAFTS)
 
 test: site
 	jekyll serve --trace --watch --skip-initial-build
