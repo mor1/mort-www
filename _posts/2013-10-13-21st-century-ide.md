@@ -1,10 +1,9 @@
 ---
 title: A 21st Century IDE
+subtitle: Merlin, Tuareg and <code>ocp-indent</code>
 layout: post
 category: blog
 ---
-
-# A 21st Century IDE<br /><small>Merlin, Tuareg and <code>ocp-indent</code></small>
 
 I finally decided to sit down and get the shiny new [merlin][] mode for OCaml working with my emacs configuration. Basically, really rather simple in the end although (in the usual fashion!) I did end up spending considerable time tweaking various other customisations...
 
