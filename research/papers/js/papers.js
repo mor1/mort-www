@@ -78,12 +78,24 @@ var papers = (function () {
         var date = (e.month?e.month+" ":"") + e.year+". ";
 
         var links = "links: ";
+        var base = "http://mor1.github.io/publications/";
+        var dxdoi = "http://dx.doi.org/";
+
         if ("url" in e) links += link("url", "url", e.url);
         if ("html" in e) links += link("url html", "html", e.html);
-        if ("pdf" in e) links += link("url pdf", "pdf", e.pdf);
-        if ("doi" in e) links += link("url doi", "doi", e.doi);
+        if ("pdf" in e) links += link("url pdf", "pdf", base+e.pdf);
+        if ("doi" in e) links += link("url doi", "doi", dxdoi+e.doi);
 
-        var tags = "tags: ";
+        var pretty_type = (function (t) {
+            switch (t) {
+            case "inproceedings": return "conference";
+            case "article": return "journal";
+            case "inbook": return "chapter";
+            case "techreport": return "tr";
+            case "patent": return "patent";
+            }
+        });
+        var tags = "tags: "+span("tag", pretty_type(e._type));
         if ("tags" in e)
             for (var t in e.tags) {
                 if (t == 0) tags += span("tag", e.tags[t]);

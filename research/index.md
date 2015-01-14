@@ -124,7 +124,7 @@ Ph.D. students on a wide range of topics.
 [andrew]: http://www.cl.cam.ac.uk/~awm22/
 [miguel]: https://www.ee.ucl.ac.uk/~mrio/
 
-### Masters & Undergraduate Projects
+<!-- ### Masters & Undergraduate Projects -->
 
 <h2 data-magellan-destination="publications" id="publications">Publications</h2>
 
