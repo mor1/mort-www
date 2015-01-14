@@ -14,112 +14,25 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: all configure build run clean store store/% css site js test deploy papers
+.PHONY: all clean site test
+
+BIBS = $(wildcard ~/me/footprint/publications/rmm-*.bib)
+PAPERS = research/papers/data/papers.json
 
 all: site
 
 clean:
-	$(RM) -r _site #  css/screen.css
-	# $(RM) $(JSS) $(wildcard _coffee/*.js)
-	# git checkout -- _config.yml css/screen.css
-	# $(MIRAGE) clean src/config.ml $(FLAGS)
-	# $(RM) -r src/myocamlbuild.ml src/_build log src/log $(TARGET).xen
+	$(RM) -r _site research/papers/data/papers.json
 
-# distclean: | clean
-# 	$(RM) $(JSS) $(FATS) $(FATSHS)
-# 	$(RM) src/static.ml[i] src/*-fat*-image.sh src/fat*.img
-
-
-## Jekyll sections
-GH_ROOT=/
-CS_ROOT=/~rmm/
-
-COFFEE = coffee
-MIRROR = rsync -rvz --rsh=ssh --delete --progress
-
-# COFFEES = $(notdir $(wildcard _coffee/*.coffee))
-# JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
-
-site: ## css js papers
+site: papers
 	jekyll build --trace
 
-# css: css/screen.css
-# css/screen.css: _less/screen.css
-# 	sed 's!@BASEURL@!${GH_ROOT}!g' _less/screen.css >| css/screen.css
-
-# js: $(JSS)
-
-test: site ## css js
+test: site
 	jekyll serve --trace --watch --skip-initial-build
 
-# deploy: js
-# 	sed 's!@BASEURL@!${CS_ROOT}!g' _less/screen.css >| css/screen.css
-# 	sed -i '' 's!baseurl: /!baseurl: ${CS_ROOT}!;					\
-# 		s!analytics_id: UA-15796259-1!analytics_id: UA-15796259-2!' \
-# 			_config.yml
-# 	$(JEKYLL) build
-# 	$(MIRROR) _site/ severn.cs.nott.ac.uk:/lhome/rmm/public_html
-# 	git checkout -- _config.yml css/screen.css
-
-# papers: papers/papers.json
-# papers/papers.json: $(wildcard ~/me/bibs/rmm-*.bib)
-# 	~/src/python-scripts/bib2json.py			\
-# 	  -s ~/me/bibs/strings.bib					\
-# 	  ~/me/bibs/rmm-[cjptwu]*.bib				\
-# 	 >| papers/papers.json
-
-# js/%.js: _coffee/%.coffee
-# 	$(COFFEE) -c -o js $<
-
-# ## Mirage sections
-# TARGET=_mirage/src/mir-mort-www
-
-# MIRAGE  = mirage
-# MODE   ?= unix
-# FS     ?= fat     ## really, crunch isn't worth it for 90MB `store` data
-# NET    ?= direct
-# ADDR   ?= static
-
-# FLAGS ?=
-
-# store/courses/js/%.js: store/courses/coffee/%.coffee
-# 	$(COFFEE) -c -o store/courses/js $<
-
-# jss: $(JSS)
-
-# ## FAT filesystem rules
-# STORES = $(wildcard store/*)						   # input directories
-# FATS = $(wildcard src/fat*.img)					   # output fat image files
-# TIMESTAMPS = $(patsubst store/%,timestamp-%,$(STORES)) # sync timestamp targets
-
-# # builds all output fat images if any input directory content mtimes changed
-# store: $(FATS) | $(TIMESTAMPS)
-
-# # propagates subdirectory content mtimes up to root
-# UNAME_S := $(shell uname -s)
-# ifeq ($(UNAME_S),Darwin)
-#   STAT_FLAGS = -f "%m %N"
-# endif
-# ifeq ($(UNAME_S),Linux)
-#   STAT_FLAGS = -c "%Y %n"
-# endif
-
-# timestamp-%:
-# 	find store/$* -type f -print0 | xargs -0 stat $(STAT_FLAGS) |\
-# 	  sort -n | tail -1 | cut -f2- -d" " |\
-# 	  xargs -I {} touch -r {} store/$*
-
-# # build specific fat image if any input directory content mtime changed
-# src/fat%.img: $(STORES) | $(TIMESTAMPS)
-# 	src/make-fat$*-image.sh
-# 	touch $@ # looks like the fat command line tool doesn't update mtime?!
-
-# configure:
-# 	FS=$(FS) NET=$(NET) IPADDR=$(IPADDR) \
-# 	  $(MIRAGE) configure src/config.ml --$(MODE)
-
-# build: $(JSS) | store
-# 	$(MIRAGE) build src/config.ml
-
-# run:
-# 	$(MIRAGE) run src/config.ml
+papers: $(PAPERS)
+$(PAPERS): $(BIBS)
+	~/src/python-scripts/bib2json.py \
+	    -s ~/me/footprint/publications/strings.bib \
+	    ~/me/footprint/publications/rmm-[cjptwu]*.bib \
+	  >| $(PAPERS)
