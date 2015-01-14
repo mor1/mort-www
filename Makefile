@@ -23,7 +23,9 @@ DRAFTS ?=
 all: site
 
 clean:
-	$(RM) -r _site research/papers/data/papers.json
+	$(RM) -r _site
+distclean: | clean
+	$(RM) -r $(PAPERS)
 
 site: papers
 	jekyll build --trace --$(DRAFTS)
