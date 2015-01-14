@@ -130,6 +130,7 @@ ul.plain {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 }
+
 #entries .paper:hover { color: #000000; background-color: #DDEEFF; }
 
 /*
@@ -183,7 +184,7 @@ entries .paper span.issn {
     font-family: tahoma, sans-serif;
     font-weight: light;
 }
-#entries .paper span.pdf{
+#entries .paper span.pdf {
     background: #EEEEFF;
     color: #444444;
 }
