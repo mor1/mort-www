@@ -1,5 +1,5 @@
 ---
-title: index
+title: home
 layout: default
 ---
 

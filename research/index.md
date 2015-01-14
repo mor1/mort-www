@@ -1,6 +1,7 @@
 ---
 layout: default
 title: research
+jss: [/research/papers/js/papers.js,/research/papers/js/load-papers.js]
 ---
 
 <div data-magellan-expedition="fixed">

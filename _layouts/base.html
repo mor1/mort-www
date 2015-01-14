@@ -10,9 +10,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>{{ page.title }}</title>
+    <title>{{ site.title }} | {{ page.title }}</title>
     <meta name="description" content="{{ page.description }}"/>
-    <meta name="author" content="{{ page.author }}"/>
+    <meta name="author" content="Richard Mortier"/>
     <meta name="copyright" content="Copyright (c) 2009-2015 Richard Mortier"/>
 
     <link rel="stylesheet" href="/css/vendor/foundation.min.css"> </link>
@@ -37,41 +37,6 @@
 
   </head>
   <body>
-
-
-<!--
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">{{ site.title }}</a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        <ul class="left">
-          {% include navbar.html %}
-        </ul>
-      </section>
-    </nav>
-    -->
-<!--
-<div class="fixed">
-  <nav class="top-bar hide-for-small" data-topbar="">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">{{ site.title }}</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section hide-for-small">
-      <ul class="left">
-        {% include navbar.html %}
-      </ul>
-    </section>
-  </nav>
-</div>
--->
 
     <div class="off-canvas-wrap">
       <div class="inner-wrap">
@@ -142,8 +107,9 @@
     <script src="/js/vendor/highlight.pack.js"> </script>
     <script> hljs.initHighlightingOnLoad() </script>
 
-    <script src="/research/papers/js/papers.js"> </script>
-    <script src="/research/papers/js/load-papers.js"> </script>
+    {% for js in page.jss %}
+      <script src="{{ js }}"> </script>
+    {% endfor %}
 
   </body>
 </html>
