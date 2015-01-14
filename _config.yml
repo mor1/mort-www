@@ -20,6 +20,7 @@ exclude: [Makefile, README.md]
 lsi: false
 permalink: pretty
 highlighter: pygments
+future: false
 
 ## site configuration
 domain: mort.io
