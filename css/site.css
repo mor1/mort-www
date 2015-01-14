@@ -16,25 +16,42 @@
  * 02111-1307, USA.
  */
 
+footer div.text-right[role="copyright"] {
+    background: #eee;
+    padding: 1ex 1em 1ex 0;
+}
+
+[role=heading],
+[role=sidebar],
+[data-magellan-expedition] {
+    z-index: 100;
+}
+
+.fixed.right-sidebar {
+    z-index: 0;
+    padding-top: 4rem;
+}
+
 pre>code {
     font-size: 0.65rem;
     font-weight: normal;
     overflow-x: scroll;
 }
 
-footer div.text-right[role="copyright"] {
-    background: #eee;
-    padding: 1ex 1em 1ex 0;
+/*
+
+left: auto !important;
 }
+
+*/
+/*
 
 ul.off-canvas-list li label {
     text-transform: none;
 }
 
-.fixed.right-sidebar {
-    z-index: 0;
-    padding-top: 6rem;
-}
+
+*/
 /*
 @media only screen {
     .main-section {
@@ -48,6 +65,7 @@ ul.off-canvas-list li label {
 }
 */
 
+/*
 .f-topbar-fixed {
     padding-top: 0px;
 }
@@ -64,14 +82,10 @@ ul.off-canvas-list li label {
     margin-bottom: 0px;
 }
 
-[data-magellan-expedition] {
-    z-index: 100;
-    left: auto !important;
-}
-
 .clearfix {
     clear: both;
 }
+*/
 
 /* blog dates */
 
@@ -216,33 +230,4 @@ entries .paper span.issn {
 #entries .paper span.tag {
     font-variant: normal;
     text-transform: lowercase;
-}
-
-/* courses */
-
-.course tr,
-.course th {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-}
-
-/* as per world-of-warcraft, apparently
-   cf. <http://gamedev.stackexchange.com/questions/46463/is-there-an-optimum-set-of-colors-for-10-players>
-   */
-.red       { background-color: red;       }
-.blue      { background-color: blue;      }
-.teal      { background-color: teal;      }
-.purple    { background-color: purple;    }
-.yellow    { background-color: yellow;    }
-.orange    { background-color: orange;    }
-.green     { background-color: green;     }
-.pink      { background-color: pink;      }
-.grey      { background-color: grey;      }
-.lightblue { background-color: lightblue; }
-.darkgreen { background-color: darkgreen; }
-.brown     { background-color: brown;     }
-
-li {
-    line-height: 24px;
 }
