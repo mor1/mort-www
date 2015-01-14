@@ -11,7 +11,7 @@ title: research
   </dl>
 </div>
 
-<h1 class="clearfix" data-magellan-destination="Research" id="Research">Research</h1>
+<h1 data-magellan-destination="Research" id="Research">Research</h1>
 
 I am interested in computing infrastructures, specifically networked systems. In the past I have done extensive work on topics including [routing behaviour in backbone networks][pyrt], [future network architectures][plutarch], [performance analysis and modelling of distributed systems][magpie], [enterprise network management][anemone], and [analysis of network topologies][wsd]. Most recently I have become interested in interdisciplinary research and particularly the interplay between networked systems and topics that traditionally fall under human-computer interaction. For example,
 
@@ -52,35 +52,35 @@ If you are interested in applying to undertake a Ph.D. with me, before I can con
 I am fortunate to have worked, and to continue to work, with some excellent Ph.D. students on a wide range of topics.
 
 <div class="no-bullet" media:type="text/omd">
-+ __Sultan Alanazi__ (2012), co-supervised with [Prof. Derek McAuley][mac].  
++ __Sultan Alanazi__ (2012), co-supervised with [Prof. Derek McAuley][mac].
   Recommendation systems using rich personal data.
-+ __Anthony Brown__ (2010), co-supervised with [Prof. Tom Rodden][tom].  
++ __Anthony Brown__ (2010), co-supervised with [Prof. Tom Rodden][tom].
   Securing the domestic network.
-+ __Liz Dowthwaite__ (2012), co-supervised with [Dr Robert Houghton][rob].  
++ __Liz Dowthwaite__ (2012), co-supervised with [Dr Robert Houghton][rob].
   Social networks and web comic artists.
-+ __Christina-Dialechti Emmanouil__ (2014), co-supervised with [Prof. Derek McAuley][mac] and [Prof. Lilian Edwards][lilian].  
++ __Christina-Dialechti Emmanouil__ (2014), co-supervised with [Prof. Derek McAuley][mac] and [Prof. Lilian Edwards][lilian].
   IT law and copyright.
-+ __Marjan Falahrastegar__ (2012) at Queen Mary, University of London, co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].  
++ __Marjan Falahrastegar__ (2012) at Queen Mary, University of London, co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].
   Personal data in home hubs.
-+ __Ewa Luger__ (2009), co-supervised with [Prof. Tom Rodden][tom].  
++ __Ewa Luger__ (2009), co-supervised with [Prof. Tom Rodden][tom].
   Understanding consent in ubiquitous computing. Viva passed, March 2014.
 
 Consent reconsidered: reframing consent for ubiquitous computing systems
 
 
-+ __Steven Luland__ (2013), co-supervised with [Prof. Derek McAuley][mac]. <http://cubiewave.wordpress.com/>  
-+ __Dominic Price__ (2013), co-supervised with [Prof. Chris Greenhalgh][chris].  
++ __Steven Luland__ (2013), co-supervised with [Prof. Derek McAuley][mac]. <http://cubiewave.wordpress.com/>
++ __Dominic Price__ (2013), co-supervised with [Prof. Chris Greenhalgh][chris].
   User-focused social network platforms.
-+ __Jianhua Shao__ (2010), co-supervised with [Dr George Kuk][george].  
++ __Jianhua Shao__ (2010), co-supervised with [Dr George Kuk][george].
   Investigating markets in personal data.
-+ __Robert Spencer__ (2011), co-supervised with [Prof. Tom Rodden][tom].  
++ __Robert Spencer__ (2011), co-supervised with [Prof. Tom Rodden][tom].
   History and reconciliation in domestic network configuration.
 + __Luis Carlos Oviedo Garcia__ (2014), co-supervised with [Prof. Derek McAuley][mac]. Application-Controllable Load-Balancing.
 </div>
 
 ### Graduated
 
-+ __[Dr Hamed Haddadi][hamed]__ at University College London, co-supervised with [Dr Andrew W. Moore][andrew] and [Dr Miguel Rio][miguel]. Graduated 2008.  
++ __[Dr Hamed Haddadi][hamed]__ at University College London, co-supervised with [Dr Andrew W. Moore][andrew] and [Dr Miguel Rio][miguel]. Graduated 2008.
   "Topological Characteristics of IP Networks".
 
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
@@ -96,9 +96,7 @@ Consent reconsidered: reframing consent for ubiquitous computing systems
 
 ### Masters & Undergraduate Projects
 
-
-
-<h2 data-magellan-destination="Publications" id="Research">Publications</h2>
+<h2 data-magellan-destination="Publications" id="Publications">Publications</h2>
 
 Full citation details are available in [my github BibTeX repo][r] for up-to-date citation details. Please [contact me][e] if you have any problems obtaining any of these.
 

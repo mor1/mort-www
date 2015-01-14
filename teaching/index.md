@@ -3,7 +3,7 @@ layout: default
 title: teaching
 ---
 
-<div data-magellan-expedition="fixed">
+<div class="magellan-container" data-magellan-expedition="fixed">
   <dl class="sub-nav">
     <dd data-magellan-arrival="Teaching"><a href="#Teaching">top</a></dd>
     <dd data-magellan-arrival="ComputerScienceCourseInformation"><a href="#ComputerScienceCourseInformation">courses</a></dd>
@@ -11,7 +11,7 @@ title: teaching
   </dl>
 </div>
 
-<h1 class="clearfix" data-magellan-destination="Teaching" id="Teaching">Teaching</h1>
+<h1 data-magellan-destination="Teaching" id="Teaching">Teaching</h1>
 
 All teaching material at the University of Nottingham is now served out of [moodle][] so this page merely indexes into that. If you are interested in undertaking a Ph.D. with me, see [my research pages](/research#Students).
 

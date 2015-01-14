@@ -19,17 +19,29 @@
 footer div.text-right[role="copyright"] {
     background: #eee;
     padding: 1ex 1em 1ex 0;
+    margin-top: 1rem;
 }
 
-[role=heading],
-[role=sidebar],
-[data-magellan-expedition] {
+[role="content"] {
     z-index: 100;
 }
 
+[data-magellan-expedition] {
+    left: auto !important;
+}
+
+[data-magellan-destination] {
+    padding-top: 2rem;
+}
+
+section.right.tab-bar-section {
+
+    background: white;
+}
+
 .fixed.right-sidebar {
-    z-index: 0;
-    padding-top: 4rem;
+    padding-top: 3.5rem;
+    z-index: 49;
 }
 
 pre>code {
