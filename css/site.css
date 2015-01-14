@@ -51,6 +51,15 @@ pre>code {
 ul.side-nav li.active>a:first-child {
     font-weight: bold;
 }
+/*
+ul.side-nav li.active>a:first-child:before {
+    content: ">> ";
+}
+*/
+
+h1#top {
+    text-transform: capitalize;
+}
 
 ul.plain {
     list-style-type: none;
