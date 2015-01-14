@@ -1,27 +1,18 @@
 ---
-layout: default
+layout: menu
 title: teaching
+headings: [top, links]
 ---
 
-<div class="magellan-container" data-magellan-expedition="fixed">
-  <dl class="sub-nav">
-    <dd data-magellan-arrival="Teaching"><a href="#Teaching">top</a></dd>
-    <dd data-magellan-arrival="ComputerScienceCourseInformation"><a href="#ComputerScienceCourseInformation">courses</a></dd>
-    <dd data-magellan-arrival="Links"><a href="#Links">links</a></dd>
-  </dl>
-</div>
-
-<h1 data-magellan-destination="Teaching" id="Teaching">Teaching</h1>
-
-All teaching material at the University of Nottingham is now served out of [moodle][] so this page merely indexes into that. If you are interested in undertaking a Ph.D. with me, see [my research pages](/research#Students).
-
-[moodle]: http://moodle.nottingham.ac.uk/
+I do not presently have any teaching duties. While at the
+[University of Nottingham](http://www.nottingham.ac.uk/) I taught on the
+following modules:
 
 + [G52GRP][] Software Engineering Group Projects
 + [G53ID*][] Undergraduate Final Year Projects
-+ [G54ACC][] Advanced Computer Communications
++ [G54ACC][] Advanced Computer Communications (convened)
 + [G54GRP][] Horizon DTC Group Project
-+ [G54CCS][] Connected Computing at Scale
++ [G54CCS][] Connected Computing at Scale (convened)
 + [G64P*][] MSc Projects (IT, MIT, HCI)
 
 [g52grp]: http://moodle.nottingham.ac.uk/course/view.php?id=14379
@@ -35,26 +26,11 @@ I am always interested in supervising good final year and Masters projects that 
 
 [mirage]: http://openmirage.org/
 [hdi]: http://hdiresearch.org/
-[mail]: mailto:richard.mortier@nottingham.ac.uk
+[mail]: mailto:richard.mortier@cl.cam.ac.uk
 
-<h2 data-magellan-destination="ComputerScienceCourseInformation"
-    id="ComputerScienceCourseInformation">
-  Computer Science Course Information
-</h2>
+<h2 data-magellan-destination="links" id="links">Links</h2>
 
-One of my School admin roles is Marketing & Outreach. Following repeated requests  from candidates for more detailed information about the courses we offer, I decided to scrape the relevant information (all from publicly visible if obscure) sources and render it into some pages. The results are:
-
-+ [Course information](/courses), presenting module, outline timetable and theme information for the degrees we offer.
-+ [Module timetables](/courses/tt), detailed per-module timetables for all modules we offer.
-+ [Module dependencies](/courses/reqs), a visualisation of module dependency relationships. Each (_x_,_y_)-pixel indicates _x_ `depends-on` _y_; red indicates pre-requisite dependency and orange indicates co-requisite dependency.
-
-__Note that these links are provided for information only and should _not_ be treated as canonical. Contact <admissions@cs.nott.ac.uk> for up-to-date details and advice.__
-
-<h2 data-magellan-destination="Links" id="Links">
-  Links
-</h2>
-
-A collection of links to material that I have found interesting, useful or amusing, related (however tangentially) to Computer Science. Please note that these take you away from my pages and so __I am not responsible for their content__.
+Finally, a collection of links to material that I have found interesting, useful or amusing, related (however tangentially) to Computer Science. Please note that these take you away from my pages and so __I am not responsible for their content__.
 
 <dl class="tabs" data-tab="">
   <dd class="active"><a href="#links-misc">misc</a></dd>
@@ -64,16 +40,17 @@ A collection of links to material that I have found interesting, useful or amusi
 </dl>
 
 <div media:type="text/omd" class="tabs-content">
-  <div media:type="text/omd" class="content active" id="links-misc">
+<div media:type="text/omd" class="content active" id="links-misc" markdown="1">
+
 + [Twenty terrible reasons for lecturing](http://www.brookes.ac.uk/services/ocsd/2_learntch/20reasons.html)
 + [On the cruelty of really teaching computing science](http://userweb.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html)
-+ [A Tour through the Visualization Zoo](http://queue.acm.org/detail.cfm?id=1805128) ([cached](./material/p20-heer.pdf))
++ [A Tour through the Visualization Zoo](http://queue.acm.org/detail.cfm?id=1805128)
 + [CS51: Introduction to Computer Science II: Abstraction and Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
 + [6.006: Introduction to Algorithms](http://courses.csail.mit.edu/6.006/spring11/notes.shtml) (MIT)
 + [An entrance exam, MIT, 1869](http://libraries.mit.edu/archives/exhibits/exam/index.html)
 + [Mathematics, the most misunderstood subject](http://www.fordham.edu/academics/programs_at_fordham_/mathematics_departme/what_math/index.asp). Quite relevant to computer science (and probably other similarly "academic" subjects too).
-+ [A Mathematician's Apology](http://www.math.ualberta.ca/mss/) ([cached](./material/GHHardy-AMathematiciansApology.pdf)), G.H. Hardy
-+ [How to Write More Clearly, Think More Clearly, and Learn Complex Material More Easily](./material/WriteThinkLearn.pdf) (local copy)
++ [A Mathematician's Apology](https://archive.org/details/AMathematiciansApology), G.H. Hardy
++ [How to Write More Clearly, Think More Clearly, and Learn Complex Material More Easily](http://www.covingtoninnovations.com/mc/WriteThinkLearn.pdf)
 + [Seven selected Information Visualization papers](http://fellinlovewithdata.com/guides/7-classic-foundational-vis-papers)
 + [Colo(u)r wheels](http://blog.asmartbear.com/color-wheels.html) and from that, for more detail [Light and the eye](http://www.handprint.com/HP/WCL/color1.html)
 + [The Euler Archive](http://www.math.dartmouth.edu/~euler/)
@@ -86,9 +63,10 @@ A collection of links to material that I have found interesting, useful or amusi
 + [Hacking the Xbox](http://nostarch.com/xboxfree), Andrew "bunnie" Huang
 + [Formal Methods](https://www.scss.tcd.ie/Andrew.Butterfield/Teaching/CS4003/), Andrew Butterfield, TCD
 + [Denotational Semantics: A Methodology for Language Development](http://people.cis.ksu.edu/~schmidt/text/densem.html), David Schmidt, Kansas State University (book)
-  </div>
 
-  <div media:type="text/omd" class="content" id="links-programming">
+</div>
+<div media:type="text/omd" class="content" id="links-programming" markdown="1">
+
 + [10 papers every programmer should read at least twice](http://blog.fogus.me/2011/09/08/10-technical-papers-every-programmer-should-read-at-least-twice/)
 + [Freely available programming books](http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books)
 + [How to Design Programs](http://htdp.org/2003-09-26/Book/)
@@ -163,7 +141,7 @@ A collection of links to material that I have found interesting, useful or amusi
 + [Learn how to write iOS apps](http://ashfurrow.com/2011/12/learn-how-to-write-ios-apps/)
 
 </div>
-<div media:type="text/omd" class="content" id="links-mathematics">
+<div media:type="text/omd" class="content" id="links-mathematics" markdown="1">
 
 ## Probability and Statisics
 
@@ -194,7 +172,7 @@ A collection of links to material that I have found interesting, useful or amusi
 
 </div>
 
-<div media:type="text/omd" class="content" id="links-systems">
+<div media:type="text/omd" class="content" id="links-systems" markdown="1">
 
 ## Networking
 
@@ -242,5 +220,6 @@ A collection of links to material that I have found interesting, useful or amusi
 + [Stanford Database class](http://www.db-class.org/)
 + [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/)
 + [Mining of Massive Datasets](http://i.stanford.edu/~ullman/mmds.html)(book)
+
 </div>
 </div>

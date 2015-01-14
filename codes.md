@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: menu
 title: codes
+headings: [mirage, dataware, homework, karaka, pyrt]
 ---
 
 Most of the code I write is available via my [Github][] account -- pull requests
@@ -10,7 +11,9 @@ I'm involved in.
 
 [github]: https://github.com/mor1
 
-## [Mirage][mirage] <small>2010--date</small>
+<h2 data-magellan-destination="mirage" id="mirage">
+  <a href="http://openmirage.org">Mirage</a> <small>2010&ndash;date</small>
+</h2>
 
 MirageOS is a framework for creating _unikernels_ that revisits of library OS
 work from the 1990s joined with the application of functional programming
@@ -27,7 +30,10 @@ that can be deployed by non-expert users as part of the [HDI][] agenda.
 [cubieboard]: http://cubieboard.org/tag/cubieboard2/
 [hdi]: http://hdiresearch.org/
 
-## [Dataware][dataware-git] <small>2011--2014</small>
+<h2 data-magellan-destination="dataware" id="dataware">
+  <a href="http://github.com/dataware">Dataware</a>
+  <small>2011&ndash;2014</small>
+</h2>
 
 Developed through [Horizon Digital Economy Research][horizon], Dataware
 represents a set of prototype services enabling control over access to personal
@@ -35,28 +41,35 @@ data. Presents data via web services, and controls access via a personal
 catalogue. Third-parties access personal data by requesting permission via the
 catalogue, allowing accesses to be audited and managed.
 
-[dataware-git]: http://github.com/dataware
 [horizon]: http://www.horizon.ac.uk/
 
-## [Homework][homework-git] <small>2010--2013</small>
+<h2 data-magellan-destination="homework" id="homework">
+  <a href="http://github.com/mor1/homework/">Homework</a>
+  <small>2010&ndash;2013</small>
+</h2>
 
 Developed during the [Homework][] project, the Homework router reconstructs the
 home router informed by ethnographic study of home networks 'in the wild'. Uses
 OpenFlow (Open vSwitch and NOX/POX) to provide novel interrogation, control and
 policy interfaces to a home router.
 
-[homework-git]: http://github.com/mor1/homework/
 [homework]: http://homenetworks.ac.uk/
 
-## [Karaka][karaka-git] <small>2007--2009</small>
+<h2 data-magellan-destination="karaka" id="karaka">
+  <a href="http://github.com/mor1/karaka/">Karaka</a>
+  <small>2007&ndash;2009</small>
+</h2>
 
 Developed at Vipadia Limited, this is a scalable software system implementing a
 distributed Skype-XMPP gateway released under the GPLv2. Copyright was acquired
-by Voxeo Corp. in January 2010.
+by [Voxeo Corp.][voxeo] in January 2010.
 
-[karaka-git]: http://github.com/mor1/karaka/
+[voxeo]: http://voxeo.com/
 
-## [PyRT][pyrt-git] <small>2001--2002</small>
+<h2 data-magellan-destination="pyrt" id="pyrt">
+  <a href="http://github.com/mor1/pyrt">PyRT</a>
+  <small>2001&ndash;2002</small>
+</h2>
 
 I developed the Python Routeing Toolkit while at Sprint ATL, who released it
 under the GPLv2. It comprises code for collecting and analysing routeing data.
@@ -69,7 +82,6 @@ also subsequently written an [OCaml][ocaml-mrt] MRT dump parser as a learning
 exercise.
 
 [mirage]: http://openmirage.org/
-[pyrt-git]: http://github.com/mor1/pyrt/
 [pyrt]: https://research.sprintlabs.com/pyrt/
 [routeviews]: http://www.routeviews.org/
 [ripe-ris]: http://www.ripe.net/data-tools/stats/ris/ris-raw-data
