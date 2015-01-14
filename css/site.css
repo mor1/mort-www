@@ -61,6 +61,7 @@ h1#top {
     text-transform: capitalize;
 }
 
+div.plain > ul,
 ul.plain {
     list-style-type: none;
 }

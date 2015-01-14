@@ -1,7 +1,7 @@
 ---
 layout: menu
 title: codes
-headings: [mirage, dataware, homework, karaka, pyrt]
+headings: [top, mirage, dataware, homework, karaka, pyrt]
 ---
 
 Most of the code I write is available via my [Github][] account -- pull requests
