@@ -74,3 +74,8 @@ opam switch 4.01.0
 + return pages with headers permitting caching
 + add hcard/vcard markup per <http://indiewebcamp.com/Getting_Started>
 + add rel=me links to github, twitter per <http://indiewebcamp.com/Getting_Started>
+
+## github pdf hosting
+
+http://webapps.stackexchange.com/questions/48061/can-i-trick-github-into-displaying-the-pdf-in-the-browser-instead-of-downloading
+

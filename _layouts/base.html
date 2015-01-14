@@ -32,7 +32,89 @@
     </head>
     <body>
 
+    <div class="fixed">
+    <nav class="top-bar hide-for-small" data-topbar="">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">{{ site.title }}</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section hide-for-small">
+        <ul class="left">
+          {% include navbar.html %}
+        </ul>
+      </section>
+    </nav>
+    </div>
+
+    <div class="off-canvas-wrap">
+      <div class="inner-wrap">
+        <div class="fixed">
+          <nav class="tab-bar hide-for-medium hide-for-large">
+            <section class="left-small">
+              <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+            </section>
+            <section class="right tab-bar-section"></section>
+          </nav>
+        </div>
+
+        <aside class="left-off-canvas-menu hide-for-medium hide-for-large">
+          <ul class="off-canvas-list">
+            <li><label>{{ site.title }}</label></li>
+            {% include navbar.html %}
+          </ul>
+        </aside>
+
+        <section class="main-section">
+
+          <!-- right sidebar -->
+          <div class="row">
+            <div class="fixed right-sidebar">
+              <div class="small-3 small-offset-9 columns" role="sidebar">
+
+                $sidebar$
+
+              </div>
+            </div>
+          </div>
+
+          <!-- page heading -->
+          <div class="row">
+            <div class="small-8 small-offset-1 columns" role="heading">
+
+              $heading$
+
+            </div>
+          </div>
+
+          <!-- page body -->
+          <div class="row">
+            <div class="small-7 small-offset-1 columns" role="content">
         {{ content }}
+            </div>
+          </div>
+
+          <!-- page footer -->
+          <footer class="row">
+            <div class="large-12 columns">
+              <div class="row">
+                <div class="small-12 columns text-right" role="copyright">
+                  <small>
+                    <em>Copyright &copy; $copyright$</em>
+                  </small>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </footer>
+        </section>
+
+        <!-- close the off-canvas menu -->
+        <a class="exit-off-canvas"> </a>
+
+      </div>
+    </div>
 
         <script src="/js/vendor/jquery.min.js"> </script>
         <script src="/js/vendor/foundation.min.js"> </script>
