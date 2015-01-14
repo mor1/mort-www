@@ -52,54 +52,9 @@ ul.side-nav li.active>a:first-child {
     font-weight: bold;
 }
 
-/*
-
-left: auto !important;
-}
-
-*/
-/*
-
-ul.off-canvas-list li label {
-    text-transform: none;
-}
-
-
-*/
-/*
-@media only screen {
-    .main-section {
-        padding-top: 2.8125rem;
-    }
-}
-@media only screen and (min-width: 40.063em) {
-    .main-section {
-        padding-top: 0px;
-    }
-}
-*/
-
-/*
-.f-topbar-fixed {
-    padding-top: 0px;
-}
-
-.no-bullet > ul {
+ul.plain {
     list-style-type: none;
-    list-style-position: outside;
-    margin-left: 0px;
-    padding-left: 2rem;
-    text-indent: -2rem;
 }
-
-.tight > p {
-    margin-bottom: 0px;
-}
-
-.clearfix {
-    clear: both;
-}
-*/
 
 /* blog dates */
 
@@ -108,7 +63,7 @@ ul.off-canvas-list li label {
     line-height: 1;
     width: 3em;
     position: relative;
-    float: right;
+    float: left;
     margin-right: 15px;
     text-align: center;
 }
