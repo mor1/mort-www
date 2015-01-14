@@ -3,14 +3,6 @@ layout: default
 title: me
 ---
 
-<div class="magellan-container" data-magellan-expedition="fixed">
-  <dl class="sub-nav">
-    <dd data-magellan-arrival="top"><a href="#top">top</a></dd>
-  </dl>
-</div>
-
-<h1 data-magellan-destination="top" id="top">Mort</h1>
-
 I'm Richard Mortier or, more commonly, **mort**. I'm a University Lecturer in
 [NetOS][], part of the [Systems Research Group][SRG] in the
 [Cambridge University][ucam] [Computer Laboratory][cucl]. Until Dec/2014 I was a
