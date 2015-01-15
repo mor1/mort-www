@@ -9,11 +9,11 @@ layout: default
   </dl>
 </div>
 
-<h1 data-magellan-destination="top" id="top">some myths</h1>
+<h1 data-magellan-destination="top" id="top">mythography</h1>
 
 <ul class="plain">
   {% for post in site.posts %}
-  <li>
+  <li class="clearfix">
     <div class="date">
       <div class="month">{{ post.date | date:"%b" }}</div>
       <div class="day">{{ post.date | date:"%d" }}</div>
