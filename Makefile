@@ -17,18 +17,27 @@
 
 .PHONY: all clean site test
 
+COFFEE = coffee
+
 BIBS = $(wildcard ~/me/footprint/publications/rmm-*.bib)
-PAPERS = research/papers/data/papers.json
+COFFEES = $(notdir $(wildcard _coffee/*.coffee))
+JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
+
+PAPERS = research/papers/papers.json
 DRAFTS ?=
 
 all: site
 
 clean:
-	$(RM) -r _site
+	$(RM) -r _site _coffee/*.js js/*.js
 distclean: | clean
 	$(RM) -r $(PAPERS)
 
-site: papers
+jss: $(JSS)
+js/%.js: _coffee/%.coffee
+	$(COFFEE) -c -o js $<
+
+site: jss papers
 	jekyll build --trace --$(DRAFTS)
 
 test: site
