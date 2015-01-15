@@ -5,3 +5,7 @@
 ## jekyll site pieces
 _site
 _ignore
+
+## own generated js
+js/*.js
+_coffee/*.js
