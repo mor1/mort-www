@@ -2,7 +2,7 @@
 layout: menu
 title: research
 headings: [top, students, publications]
-jss: [/research/papers/js/papers.js,/research/papers/js/load-papers.js]
+jss: [papers/js/papers.js,papers/js/load-papers.js]
 ---
 
 I am interested in computing infrastructures, specifically networked systems. In
