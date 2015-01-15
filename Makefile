@@ -1,5 +1,6 @@
 #
-# Copyright (c) 2012--2015 Richard Mortier <mort@cantab.net>
+# Copyright (c) 2012--2015 Richard Mortier <mort@cantab.net>. All Rights
+# Reserved.
 #
 # Permission to use, copy, modify, and distribute this software for any purpose
 # with or without fee is hereby granted, provided that the above copyright
