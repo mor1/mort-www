@@ -28,7 +28,9 @@ title: mort's mythopoeia ##'
 author: Richard Mortier
 email: mort@cantab.net
 analytics_id: UA-15796259-1
-
+gems:
+  - jekyll-sitemap
+  
 ## sidebar navigation menu
 navigation:
 - text: home
