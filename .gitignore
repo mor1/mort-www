@@ -6,6 +6,5 @@
 _site
 _ignore
 
-## own generated js
-js/*.js
+## coffee droppings
 _coffee/*.js
