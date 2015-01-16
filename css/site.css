@@ -100,6 +100,16 @@ ul.plain {
 
 /* publications */
 
+.tool>p {
+    font-style: italic;
+    font-weight: light;
+    font-size: 80%;
+    text-align: right;
+    float: right;
+    clear: right;
+    overflow: auto;
+}
+
 #entries {
     overflow:auto;
     height: auto;
