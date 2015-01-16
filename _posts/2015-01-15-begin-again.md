@@ -2,6 +2,7 @@
 title: Begin, Again!
 subtitle: The Turtle Moves!
 layout: post
+category: blog
 ---
 
 Specifically, I've left [Horizon](http://www.horizon.ac.uk) and the
