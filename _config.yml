@@ -16,7 +16,7 @@
 
 ## jekyll configuration
 safe: true
-exclude: [Makefile, README.md]
+exclude: [Makefile, README.md, _coffee]
 lsi: false
 permalink: pretty
 highlighter: pygments
@@ -29,8 +29,8 @@ author: Richard Mortier
 email: mort@cantab.net
 analytics_id: UA-15796259-1
 gems:
-  - jekyll-sitemap
-  
+- jekyll-sitemap
+
 ## sidebar navigation menu
 navigation:
 - text: home
