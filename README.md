@@ -79,3 +79,4 @@ opam switch 4.01.0
 
 http://webapps.stackexchange.com/questions/48061/can-i-trick-github-into-displaying-the-pdf-in-the-browser-instead-of-downloading
 
+looks like mor1.github.{io,com} overlay each other with .io taking precedence?!
