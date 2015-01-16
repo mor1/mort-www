@@ -1,183 +1,136 @@
-/* Copyright (C) 2011 Richard Mortier <mort@cantab.net>.  All Rights
- * Reserved.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License version
- * 2 as published by the Free Software Foundation
- *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
- * 02111-1307, USA.
- */
+# Copyright (C) 2011-2015 Richard Mortier <mort@cantab.net>.  All Rights
+# Reserved.
 
-var papers = (function () {
-    var _promises = [];
-    var _authors = null;
-    var _papers = null;
+# Permission to use, copy, modify, and distribute this software for any purpose
+# with or without fee is hereby granted, provided that the above copyright
+# notice and this permission notice appear in all copies.
 
-    var wrap = function (tag, x, cl, id) {
-        var ids='', cls='';
-        if (id) ids = ' id="'+id+'"';
-        if (cl) cls = ' class="'+cl+'"';
-        return '<'+tag+ids+cls+'>'+ x +'</'+tag+'>';
-    };
-    var div = function (cl, x, id) { return wrap("div", x, cl, id); };
-    var span = function (cl, x) { return wrap("span", x, cl); };
-    var link = function (cl, x, u) {
-        return wrap("span", '<a href="'+u+'">'+ x +'</a>', cl);
-    };
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+# REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+# AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+# INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+# OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+# PERFORMANCE OF THIS SOFTWARE.
 
-    var code = function (m) {
-        switch (m) {
-        case "January": return "01";
-        case "February": return "02";
-        case "March": return "03";
-        case "April": return "04";
-        case "May": return "05";
-        case "June": return "06";
-        case "July": return "07";
-        case "August": return "08";
-        case "September": return "09";
-        case "October": return "10";
-        case "November": return "11";
-        case "December": return "12";
-        default: return "00";
-        }
-    };
+wrap = (tag, x, cl, id) ->
+  ids=''
+  cls=''
+  if id? then ids = " id='#{id}'"
+  if cl? then cls = " class='#{cl}'"
+  "<#{tag} #{ids} #{cls}>#{x}</#{tag}>"
 
-    var entry = function (e) {
-        var authors = e.author.map(function (a, _) {
-            var name = a.replace(/\b(\w)\w+ /, "$1. ");
-            name = name.replace(/(\w\.) (\w\.)/, "$1$2");
-            name = name.replace(/(\w\.) (\w\.)/, "$1$2");
+div = (cl, x, id) -> wrap "div", x, cl, id
+p = (cl, x) -> wrap "p", x, cl
+span = (cl, x) -> wrap "span", x, cl
+link = (cl, x, u) -> wrap "span", "<a href='#{u}'>#{x}</a>", cl
 
-            if (a in _authors) name = link(name, name, _authors[a]);
-            return span("author", name);
-        });
-        var venue = (function (e) {
-            switch (e._type) {
-            case "inproceedings":
-                return e.booktitle;
-            case "article":
-                return e.journal+", "+e.volume+"("+e.number+"):"+e.pages;
-            case "inbook":
-                return e.title+" "+e.chapter+", "+e.publisher;
-            case "techreport":
-                return e.number+", "+e.institution;
-            case "patent":
-                return e.number;
-            }
-            return "";
-        })(e);
-        var date = (e.month?e.month+" ":"") + e.year+". ";
+code = (m) ->
+  switch m
+    when "January" then "01"
+    when "February" then "02"
+    when "March" then "03"
+    when "April" then "04"
+    when "May" then "05"
+    when "June" then "06"
+    when "July" then "07"
+    when "August" then "08"
+    when "September" then "09"
+    when "October" then "10"
+    when "November" then "11"
+    when "December" then "12"
+    else "00"
 
-        var links = "links: ";
-        var base = "http://mor1.github.io/publications/";
-        var dxdoi = "http://dx.doi.org/";
+entry = (as, e) ->
+  authors = $.map(e.authors, (a,_) ->
+    name = a
+      .replace(/\b(\w)\w+ /, "$1. ")
+      .replace(/(\w\.) (\w\.)/, "$1$2")
+      .replace(/(\w\.) (\w\.)/, "$1$2")
 
-        if ("url" in e) links += link("url", "url", e.url);
-        if ("html" in e) links += link("url html", "html", e.html);
-        if ("pdf" in e) links += link("url pdf", "pdf", base+e.pdf);
-        if ("doi" in e) links += link("url doi", "doi", dxdoi+e.doi);
+    name = (if a of as then link name, name, as[a] else name)
+    span "author", name
+    ).join(", ")
 
-        var pretty_type = (function (t) {
-            switch (t) {
-            case "inproceedings": return "conference";
-            case "article": return "journal";
-            case "inbook": return "chapter";
-            case "techreport": return "tr";
-            case "patent": return "patent";
-            }
-        });
-        var tags = "tags: "+span("tag", pretty_type(e._type));
-        if ("tags" in e)
-            for (var t in e.tags) {
-                if (t == 0) tags += span("tag", e.tags[t]);
-                else
-                    tags += "; "+span("tag", e.tags[t]);
+  venue =
+    switch e._type
+      when "inproceedings" then e.booktitle
+      when "article" then "#{e.journal}, #{e.volume} (#{e.number}): #{e.pages}"
+      when "inbook" then "#{e.title} #{e.chapter}, #{e.publisher}"
+      when "techreport" then "#{e.number}, #{e.institution}"
+      when "patent" then e.number
+      else ""
 
-            }
+  date = if e.month then "#{e.month} #{e.year}." else "#{e.year}."
 
-        var issn = ("issn" in e)? issn = span("issn", "issn: "+e.issn) : "";
-        var publisher = ("publisher" in e)? span("publisher", e.publisher) : "";
-        var pubadd = (("publisher" in e && "address" in e)? ", "
-                      :("publisher" in e)? "." : "");
-        var address = ("address" in e)? span("address", e.address)+"." : "";
+  links = "links: "
+  links += if e.url? then link "url", "url", e.url else ""
+  links += if e.html? then link "url html", "html", e.html else ""
+  links +=
+    if e.pdf?
+    then link "url pdf", "pdf", "http://mor1.github.io/publications/#{e.pdf}"
+    else ""
+  links +=
+    if e.doi? then link "url doi", "doi", "http://dx.doi.org/#{e.doi}"
+    else ""
 
-        return div("paper "+e._venue,
-                   (span("title", e.title)+'<br>'
-                    +authors.join(", ")+'<br>'
-                    +span("venue", venue)+'. '+(e.note?e.note+". ":'')+'<br>'
-                    +date +publisher+pubadd+address
-                    +div("linkbar", (span("links", links)
-                                     +issn
-                                     +span("tags", tags)
-                                    ))));
-    };
+  ttag =
+    switch e._type
+      when "inproceedings" then "conference"
+      when "article" then "journal"
+      when "inbook" then "chapter"
+      when "techreport" then "tr"
+      when "patent" then "patent"
+      else ""
+  tags = [span 'tag', ttag].concat(e.tags?.map((t) -> span 'tag', t)).join('; ')
 
-    var me = {
-        fetch: function (au, pu) {
-            _promises.push($.Deferred(function () {
-                var promise = this;
-                $.getJSON(au, function (data) {
-                    _authors = data;
-                    promise.resolve();
-                });
-            }).promise());
+  issn = if e.issn? then "issn: #{span 'issn', e.issn}" else ""
+  publisher = if e.publisher then span "publisher", "#{e.publisher}." else ""
+  address = if e.address then span "address", "#{e.address}." else ""
+  note = if e.note then "#{e.note}. " else ""
+  linkbar = div 'linkbar',
+    "#{span 'links', links} #{issn} tags: #{span 'tags', tags}"
 
-            _promises.push($.Deferred(function () {
-                var promise = this;
-                $.getJSON(pu, function (data) {
-                    _papers = data;
-                    promise.resolve();
-                });
-            }).promise());
-            return me;
-        },
+  div "paper #{e._venue}",
+    "#{span 'title', e.title}<br>
+      #{authors}<br>
+      #{span "venue", venue}. #{note}<br>
+      #{date} #{publisher} #{address}<br>
+      #{linkbar}
+      "
 
-        render: function (tgt) {
-            var entries = {}, yms = [];
-            $.when.apply(null, _promises).then(function () {
-                var tool = link("tool", _papers.tool.name, _papers.tool.url);
-                $("#publications").after(
-                    div('', "Generated by "+tool+" on "+_papers.date+".", "tool"));
+$(document).ready ->
+  authors = $.getJSON "papers/authors.json"
+  papers = $.getJSON "papers/papers.json"
 
-                $(tgt).html('');
+  records = {}
+  yms = []
+  $.when(authors, papers).done ([as,...],[ps,...]) ->
+    tool = link '', ps.tool.name, ps.tool.url
 
-                $.each(_papers.records, function (k,e) {
-                    var y = e['year'];
-                    var m = (e['month']? code(e['month'].split(" ")[0]) : "00");
-                    var k = y+"-"+m;
+    tgt = $("#entries")
+    tgt.html('').after(
+      div 'tool', (p '', "Generated by #{tool} on #{ps.date}.")
+      )
 
-                    if (!entries[k]) entries[k] = [];
-                    entries[k].push(e);
-                });
+    $.each ps.records, (_, e) ->
+      m = if e.month then code e.month.split(" ")[0] else "00"
+      k = "#{e.year}-#{m}"
+      records[k] = [] unless k of records
+      records[k].push e
 
-                for (var ym in entries) yms.push(ym);
-                yms.sort().reverse();
+      yms.push k unless k in yms
 
-                var oy = null, last = false;
-                $.each(yms, function (i, ym) {
-                    var y = ym.split("-")[0];
-                    if (oy === null || y != oy) {
-                        if (oy != null)
-                            $(tgt).append(div('break',''));
-                        $(tgt).append(div("year", y, "y-"+y));
-                        oy = y;
-                    }
-                    $.each(entries[ym], function (i, e) {
-                        var h = entry(entries[ym][i]);
-                        $(tgt).append(h);
-                    });
-                });
-            });
-        }
-    };
-    return me;
-})();
+    oy = ""
+    yms.sort().reverse()
+    $.each yms, (_, ym) ->
+      console.log ym
+      y = ym.split("-")[0]
+      if oy == "" or y != oy then (
+        tgt.append (div 'break', '') unless oy == ""
+        tgt.append (div "year", y, "y-#{y}")
+      )
+      oy = y
+
+      $.each records[ym], (i, e) ->
+        tgt.append (entry as, records[ym][i])
