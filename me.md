@@ -9,7 +9,7 @@ I'm Richard Mortier or, more commonly, **mort**. I'm a University Lecturer in
 lecturer with the [Horizon Digital Economy Research Institute][horizon] at the
 [University of Nottingham][nottingham] [School of Computer Science][cs]. I can
 be contacted by email (preferred) at [richard.mortier@cl.cam.ac.uk][email], or
-by phone on +44 (0)1223 33419. I am online at [Twitter][] and [Github][]. My
+by phone on +44 (0)1223 334419. I am online at [Twitter][] and [Github][]. My
 Erdős number appears to be 3.
 
 [netos]: http://www.cl.cam.ac.uk/research/srg/netos/
