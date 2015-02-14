@@ -41,9 +41,9 @@ site: jss papers
 	jekyll build --trace --$(DRAFTS)
 
 test: site
-	jekyll serve --trace --watch --skip-initial-build
+	jekyll serve --trace --watch --skip-initial-build --$(DRAFTS)
 
-papers: $(PAPERS)
+papers: $(PAPERS) research/papers/authors.json
 $(PAPERS): $(BIBS)
 	~/src/python-scripts/bib2json.py \
 	    -s ~/me/footprint/publications/strings.bib \
