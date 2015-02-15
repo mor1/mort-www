@@ -24,7 +24,7 @@ COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
-DRAFTS ?=
+FLAGS ?=
 
 all: site
 
@@ -38,10 +38,10 @@ js/%.js: _coffee/%.coffee
 	$(COFFEE) -c -o js $<
 
 site: jss papers
-	jekyll build --trace --$(DRAFTS)
+	jekyll build --trace $(FLAGS)
 
 test: site
-	jekyll serve --trace --watch --skip-initial-build --$(DRAFTS)
+	jekyll serve --trace --watch --skip-initial-build $(FLAGS)
 
 papers: $(PAPERS) research/papers/authors.json
 $(PAPERS): $(BIBS)
