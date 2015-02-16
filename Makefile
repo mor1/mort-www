@@ -15,7 +15,7 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: all clean site test
+.PHONY: all clean distclean site test papers configure build
 
 COFFEE = coffee
 MIRAGE = mirage
@@ -63,6 +63,5 @@ _mirage/Makefile:
 	NET=$(NET) PORT=$(PORT) ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
 		$(MIRAGE) configure _mirage/config.ml --$(MODE)
 
-build: _mirage/mir-mortio
-_mirage/mir-mortio: _mirage/Makefile
+build:
 	cd _mirage && make build
