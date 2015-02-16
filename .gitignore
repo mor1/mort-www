@@ -8,3 +8,10 @@ _ignore
 
 ## coffee droppings
 _coffee/*.js
+/_mirage/Makefile
+/_mirage/_build/
+/_mirage/main.ml
+/_mirage/mortio.xe
+/_mirage/mortio.xl
+/_mirage/mortio_libvirt.xml
+/log
