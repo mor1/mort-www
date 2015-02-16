@@ -21,7 +21,7 @@ set -ex
 
 ## install jekyll and build site
 
-sudo apt-get install ruby ruby-dev rubygems build-essential
+sudo apt-get install ruby1.9.1-dev rubygems build-essential
 sudo gem install jekyll --no-rdoc --no-ri
 sudo gem install github-pages --no-rdoc --no-ri
 jekyll -v
