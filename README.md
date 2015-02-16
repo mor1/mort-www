@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/mor1/mort-www.png?branch=master)](https://travis-ci.org/mor1/mort-www)
 
-Built as a [Mirage](http://openmirage.org/) appliance.
+Built as a [Mirage][] appliance.
+
+[mirage]: http://openmirage.org/
 
 ## Dependencies
 
@@ -12,6 +14,35 @@ Built as a [Mirage](http://openmirage.org/) appliance.
     $ cd ocaml-fat && opam pin fat-filesystem .
     $ opam install mirage fat-filesystem
 
+
+## Targets
+
+Invoke Jekyll to build the static site:
+
+    $ make site
+
+Invoke [Mirage][] to configure using local stacks during development:
+
+    $ make configure
+
+Alternatively, invoke [Mirage][] to configure for UNIX using Mirage stacks:
+
+    $ FS=crunch NET=direct make configure
+
+Finally, invoke [Mirage][] to configure to build for Xen:
+
+    $ MODE=xen make configure
+
+In all cases, having configured the unikernel, build it:
+
+    $ make build
+
+And finally, run it (unless on Xen):
+
+    $ sudo ./_mirage/mir-mortio
+
+
+# Notes
 
 gem install travis
 opam install travis-senv
