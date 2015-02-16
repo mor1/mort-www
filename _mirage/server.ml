@@ -50,7 +50,12 @@ module Main (C: CONSOLE) (SITE: KV_RO) (S: Cohttp_lwt.Server) = struct
           read_site path >>= fun body ->
           S.respond_string ~status:`OK ~body ()
         with exn ->
-          S.respond_not_found ()
+          let path = path ^ "/index.html" in
+          try_lwt
+            read_site path >>= fun body ->
+            S.respond_string ~status:`OK ~body ()
+          with exn ->
+            S.respond_not_found ()
     in
 
     let callback conn_id request body =
