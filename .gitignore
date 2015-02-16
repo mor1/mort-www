@@ -17,3 +17,6 @@ _coffee/*.js
 /log
 /_mirage/main.native
 /_mirage/mir-mortio
+/_mirage/log
+/_mirage/static1.ml
+/_mirage/static1.mli
