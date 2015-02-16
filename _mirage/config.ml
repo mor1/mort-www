@@ -42,17 +42,18 @@ let split c s =
 let mkfs fs =
   let mode =
     try match String.lowercase (Unix.getenv "FS") with
-      | "fat" -> `Fat
-      | _     -> `Crunch
+      | "fat"    -> `Fat
+      | "direct" -> `Direct
+      | _        -> `Crunch
     with Not_found -> `Crunch
   in
   let fat_ro dir =
     kv_ro_of_fs (fat_of_files ~dir ())
   in
-  match mode, get_mode () with
-  | `Fat,    _    -> fat_ro fs
-  | `Crunch, `Xen -> crunch fs
-  | `Crunch, _    -> direct_kv_ro fs
+  match mode with
+  | `Fat    -> fat_ro fs
+  | `Crunch -> crunch fs
+  | `Direct -> direct_kv_ro fs
 
 let sitefs = mkfs "../_site"
 
