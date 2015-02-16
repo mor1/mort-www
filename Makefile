@@ -35,8 +35,8 @@ all: site build
 
 clean:
 	$(RM) -r _site _coffee/*.js js/*.js
-	[ -r src/Makefile ] && ( cd src && make clean ) || true
-	$(RM) log src/mir-tutorial src/main.ml src/Makefile
+	[ -r _mirage/Makefile ] && ( cd _mirage && make clean ) || true
+	$(RM) log_mirage/mir-mortio _mirage/main.ml _mirage/Makefile _mirage/mortio*
 
 distclean: | clean
 	$(RM) -r $(PAPERS)
