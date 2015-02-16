@@ -2,6 +2,7 @@
 title: Talks, Old and New
 subtitle: Homework and Enterprise Networks
 layout: post
+category: blog
 ---
 
 Thanks to an invitation from [Hitesh][], I recently got the chance to revisit my
