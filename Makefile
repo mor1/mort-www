@@ -58,9 +58,8 @@ $(PAPERS): $(BIBS)
 	    ~/me/footprint/publications/rmm-[cjptwu]*.bib \
 	  >| $(PAPERS)
 
-configure: _mirage/Makefile
-_mirage/Makefile:
-	NET=$(NET) PORT=$(PORT) ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
+configure:
+	FS=$(FS) NET=$(NET) PORT=$(PORT) ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
 		$(MIRAGE) configure _mirage/config.ml --$(MODE)
 
 build:
