@@ -106,10 +106,7 @@ let https =
   http_server mode server
 
 let main =
-  let libraries = [ "cow.syntax"; "cowabloga" ] in
-  let packages = [ "cow"; "cowabloga" ] in
-  foreign ~libraries ~packages "Server.Main"
-    (console @-> kv_ro @-> http @-> job)
+  foreign "Server.Main" (console @-> kv_ro @-> http @-> job)
 
 let () =
   register "mortio" [
