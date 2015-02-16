@@ -1,0 +1,10 @@
+language: c
+install: wget https://raw.githubusercontent.com/ocaml/ocaml-travisci-skeleton/master/.travis-mirage.sh
+script: bash -ex .travis-mirage.sh
+env:
+  matrix:
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=socket
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=direct
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen
+    MIRAGE_ADDR="46.43.42.137" MIRAGE_MASK="255.255.255.128" MIRAGE_GWS="46.43.42.129"
+    DEPLOY=1
