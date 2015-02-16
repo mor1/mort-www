@@ -15,3 +15,5 @@ _coffee/*.js
 /_mirage/mortio.xl
 /_mirage/mortio_libvirt.xml
 /log
+/_mirage/main.native
+/_mirage/mir-mortio
