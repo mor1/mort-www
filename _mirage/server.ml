@@ -23,32 +23,39 @@ module Main (C: CONSOLE) (SITE: KV_RO) (S: Cohttp_lwt.Server) = struct
   let start c site http =
     let read_site name =
       SITE.size site name >>= function
-      | `Error (SITE.Unknown_key _) ->
-        fail (Failure ("read_site_size " ^ name))
+      | `Error (SITE.Unknown_key _) -> fail (Failure ("size " ^ name))
       | `Ok size ->
         SITE.read site name 0 (Int64.to_int size) >>= function
-        | `Error (SITE.Unknown_key _) ->
-          fail (Failure ("read_site " ^ name))
+        | `Error (SITE.Unknown_key _) -> fail (Failure ("read " ^ name))
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    let callback conn_id req body =
-      let path = req |> S.Request.uri |> Uri.path in
-      C.log c (Printf.sprintf "URL: '%s'" path);
+    (* Split a URI into a list of path segments *)
+    let split_path uri =
+      let path = Uri.path uri in
+      let rec aux = function
+        | [] | [""] -> []
+        | hd::tl -> hd :: aux tl
+      in
+      List.filter (fun e -> e <> "")
+        (aux (Re_str.(split_delim (regexp_string "/") path)))
+    in
 
-      try_lwt
-        read_site path >>= fun body ->
-        S.respond_string ~status:`OK ~body ()
-      with
-      | Failure m ->
-        Printf.printf "CATCH: '%s'\n%!" m;
-        let cpts = path
-                   |> Re_str.(split_delim (regexp_string "/"))
-                   |> List.filter (fun e -> e <> "")
-        in
-        match cpts with
-        | [] | [""] -> S.respond_string ~status:`OK ~body:Content.body ()
-        | x -> S.respond_not_found ~uri:(S.Request.uri req) ()
+    (* dispatch non-file URLs *)
+    let rec dispatcher = function
+      | [] | [""] -> dispatcher ["index.html"]
+      | segments ->
+        let path = String.concat "/" segments in
+        try_lwt
+          read_site path >>= fun body ->
+          S.respond_string ~status:`OK ~body ()
+        with exn ->
+          S.respond_not_found ()
+    in
+
+    let callback conn_id request body =
+      let uri = S.Request.uri request in
+      dispatcher (split_path uri)
     in
 
     let conn_closed (_, conn_id) =
