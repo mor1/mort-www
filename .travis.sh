@@ -21,8 +21,21 @@ set -ex
 
 ## install jekyll and build site
 
-sudo apt-get install ruby1.9.1-dev rubygems build-essential
-sudo gem install jekyll --no-rdoc --no-ri
+sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 build-essential
+
+sudo update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 400 \
+     --slave /usr/share/man/man1/ruby.1.gz ruby.1.gz /usr/share/man/man1/ruby1.9.1.1.gz
+
+# choose your interpreter
+# changes symlinks for /usr/bin/ruby , /usr/bin/gem
+# /usr/bin/irb, /usr/bin/ri and man (1) ruby
+sudo update-alternatives --config ruby
+sudo update-alternatives --config gem
+
+# now try
+ruby --version
+
+sudo gem install jekyll
 sudo gem install github-pages --no-rdoc --no-ri
 jekyll -v
 make site
