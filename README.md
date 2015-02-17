@@ -1,6 +1,6 @@
 # Mort's Web Pages
 
-[![Build Status](https://travis-ci.org/mor1/mort-www.png?branch=master)](https://travis-ci.org/mor1/mort-www)
+[![Build Status](https://travis-ci.org/mor1/mor1.github.io.png?branch=master)](https://travis-ci.org/mor1/mor1.github.io)
 
 Built as a [Mirage][] appliance.
 
