@@ -84,8 +84,8 @@ if [ "$DEPLOY" = "1" \
     git config --global user.name "Travis the Build Bot"
     git clone git@mir-deploy:${TRAVIS_REPO_SLUG}-deployment
 
-    DEPLOYD=${TRAVIS_REPO_SLUG#mirage/}-deployment
-    XENIMG=mir-${TRAVIS_REPO_SLUG#mirage/mirage-}.xen
+    DEPLOYD=${TRAVIS_REPO_SLUG#mor1/}-deployment
+    XENIMG=mir-mortio.xen
     case "$MIRAGE_BACKEND" in
         xen)
             cd $DEPLOYD
