@@ -22,6 +22,7 @@ set -ex
 ## install jekyll and build site
 
 sudo apt-get remove ruby1.8
+sudo apt-get autoremove
 sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1
 
 # sudo update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 400 \
@@ -40,8 +41,8 @@ sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1
 # now try
 ruby --version
 
-sudo gem install jekyll
-sudo gem install github-pages --no-rdoc --no-ri
+gem install jekyll
+gem install github-pages --no-rdoc --no-ri
 jekyll -v
 make site
 
