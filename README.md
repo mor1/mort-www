@@ -1,6 +1,10 @@
-# Mort's Web Pages
-
 [![Build Status](https://travis-ci.org/mor1/mor1.github.io.png?branch=master)](https://travis-ci.org/mor1/mor1.github.io)
+
+** All of what follows is woefully out-of-date. I'm in the process of updating
+   it. Watch this space, or in the meantime, head to the deployed pages at
+   <http://mort.io>. **
+
+# Mort's Web Pages
 
 Built as a [Mirage][] appliance.
 
