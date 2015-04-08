@@ -15,39 +15,26 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-## mirage setup
-
 set -ex
 
-## install jekyll and build site
-
+## remove old ubuntu rubies
 sudo apt-get -y remove ruby ruby1.8 ruby1.9.1
 sudo apt-get -y autoremove
 
-# # Install mpapis public key (might need `gpg2` and or `sudo`)
-# gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-
-# \curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer
-# \curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer.asc
-
-# gpg --verify rvm-installer.asc && bash rvm-installer stable
-
+## use rvm and a modern-ish ruby
 source ~/.rvm/scripts/rvm
-
 rvm --default use 2.1
 
-# sudo apt-get -y install python-software-properties
-# sudo apt-add-repository -y ppa:brightbox/ruby-ng
-# sudo apt-get -y update
-# sudo apt-get -y install ruby2.1
-
-# now try
+## check that worked
 which ruby
 ruby --version
 
+## install jekyll and github-pages
 gem install jekyll
 gem install github-pages --no-rdoc --no-ri
 jekyll -v
+
+## build site
 make site
 
 # If a fork of these scripts are specified, use that GitHub user instead
