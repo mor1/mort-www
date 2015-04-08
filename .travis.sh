@@ -21,9 +21,11 @@ set -ex
 
 ## install jekyll and build site
 
-sudo apt-get remove ruby1.8
-sudo apt-get autoremove
-sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1
+rvm use 2.1 --install --binary --fuzzy
+
+# sudo apt-get remove ruby1.8
+# sudo apt-get autoremove
+# sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1
 
 # sudo update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 400 \
 #      --slave /usr/share/man/man1/ruby.1.gz ruby.1.gz /usr/share/man/man1/ruby1.9.1.1.gz
