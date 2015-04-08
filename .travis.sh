@@ -47,6 +47,7 @@ sh .travis-ocaml.sh
 ## install mirage
 export OPAMYES=1
 eval $(opam config env)
+opam pin add cohttp 0.15.2
 opam install mirage
 
 DEPLOY=$DEPLOY MODE=$MIRAGE_BACKEND NET=$MIRAGE_NET \
