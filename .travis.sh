@@ -24,22 +24,9 @@ set -ex
 sudo apt-get -y install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -y update
-sudo apt-get -y remove ruby1.8
+sudo apt-get -y remove ruby1.8 ruby1.9
 sudo apt-get -y autoremove
 sudo apt-get -y install ruby2.1
-
-# sudo update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 400 \
-#      --slave /usr/share/man/man1/ruby.1.gz ruby.1.gz /usr/share/man/man1/ruby1.9.1.1.gz
-
-# # choose your interpreter
-# # changes symlinks for /usr/bin/ruby , /usr/bin/gem
-# # /usr/bin/irb, /usr/bin/ri and man (1) ruby
-# sudo update-alternatives --config ruby
-# sudo update-alternatives --config gem
-
-# ## nerf ruby1.8 for good measure
-# gem1.8 list | cut -d" " -f1 | xargs sudo gem1.8 uninstall -aIx
-# sudo apt-get remove libruby1.8 ruby1.8 ruby1.8-dev rubygems1.8
 
 # now try
 ruby --version
