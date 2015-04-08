@@ -19,20 +19,18 @@
 
 set -ex
 
-dpkg -S $(which ruby)
-
 ## install jekyll and build site
 
 sudo apt-get -y remove ruby ruby1.8 ruby1.9.1
 sudo apt-get -y autoremove
 
-# Install mpapis public key (might need `gpg2` and or `sudo`)
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+# # Install mpapis public key (might need `gpg2` and or `sudo`)
+# gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
-\curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer
-\curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer.asc
+# \curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer
+# \curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer.asc
 
-gpg --verify rvm-installer.asc && bash rvm-installer stable
+# gpg --verify rvm-installer.asc && bash rvm-installer stable
 
 source ~/.rvm/scripts/rvm
 
