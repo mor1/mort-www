@@ -17,10 +17,14 @@
 ## jekyll configuration
 safe: true
 exclude: [Makefile, README.md, _coffee]
-lsi: false
-permalink: pretty
-highlighter: pygments
+
 future: false
+
+markdown: redcarpet
+highlighter: pygments
+lsi: false
+
+permalink: pretty
 
 ## site configuration
 domain: mort.io
