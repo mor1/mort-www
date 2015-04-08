@@ -21,7 +21,7 @@ set -ex
 
 ## install jekyll and build site
 
-rvm use 2.1 --install --binary --fuzzy
+rvm --default use 2.1
 
 # sudo apt-get remove ruby1.8
 # sudo apt-get autoremove
