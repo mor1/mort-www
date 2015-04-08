@@ -26,7 +26,7 @@ sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -y update
 sudo apt-get -y remove ruby1.8
 sudo apt-get -y autoremove
-sudo apt-get -y install ruby2.1 ruby2.1-dev rubygems2.1
+sudo apt-get -y install ruby2.1
 
 # sudo update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 400 \
 #      --slave /usr/share/man/man1/ruby.1.gz ruby.1.gz /usr/share/man/man1/ruby1.9.1.1.gz
