@@ -21,11 +21,11 @@ set -ex
 
 ## install jekyll and build site
 
+sudo apt-get -y remove ruby ruby1.8 ruby1.9.3
+sudo apt-get -y autoremove
 sudo apt-get -y install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -y update
-sudo apt-get -y remove ruby1.8 ruby1.9
-sudo apt-get -y autoremove
 sudo apt-get -y install ruby2.1
 
 # now try
