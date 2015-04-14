@@ -20,7 +20,7 @@ exclude: [Makefile, README.md, _coffee]
 
 future: false
 
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 lsi: false
 
