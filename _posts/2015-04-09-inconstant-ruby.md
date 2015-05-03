@@ -5,16 +5,16 @@ layout: post
 category: blog
 ---
 
-As [noted previously](/blog/2015/01/15/begin-again/), this site is
-basically a [Github][]-hosted [Jekyll][] site at present, though one that can be
-built as a [Mirage][] unikernel. Part of the [Mirage][] workflow to publish a
-new post involves using [Travis CI][travis] to build and then commit back a new
-unikernel image. Thus it is currently necessary to run [Jekyll][] in the
-[Travis][] build scripts, and the dynamism of the Ruby environment meant that
-this broke (again) recently as one of the `github-pages` gem's dependencies now
-depends on `Ruby >= 2.0` while the default Rubies on the [Travis][] Ubuntu image
-for `C` language builds is `1.8` (via Ubuntu packaging) or, if you remove that
-one, `1.9` (via [rvm][]). Read on to find out how to fix this...
+As [noted previously](/blog/2015/01/15/begin-again/), this site is basically a
+[Github][]-hosted [Jekyll][] site at present, though one that can be built as a
+[Mirage][] unikernel. Part of the [Mirage][] workflow to publish a new post
+involves using [Travis CI][travis] to build and then commit back a new unikernel
+image. Thus it is currently necessary to run [Jekyll][] in the [Travis][] build
+scripts, and the dynamism of the Ruby environment meant that this broke (again)
+recently as one of the `github-pages` gem's dependencies now depends on `Ruby >=
+2.0` while the default Rubies on the [Travis][] Ubuntu image for `C` language
+builds is `1.8` (via Ubuntu packaging) or, if you remove that one, `1.9` (via
+[rvm][]). Read on to find out how to fix this...
 
 [github]: https://github.com/
 [jekyll]: http://jekyllrb.com/
