@@ -27,7 +27,7 @@ default ruby to something reasonable -- in this case, 2.1.
 
 [rvm]: https://rvm.io/
 
-```bash
+{% highlight bash %}
 ## remove old ubuntu rubies
 sudo apt-get -y remove ruby ruby1.8
 sudo apt-get -y autoremove
@@ -44,7 +44,7 @@ ruby --version
 gem install jekyll
 gem install github-pages --no-rdoc --no-ri
 jekyll -v
-```
+{% endhighlight %}
 
 And that's all there is to it -- you should now be able to call `jekyll` in your
 [Travis][] environment as you'd expect...

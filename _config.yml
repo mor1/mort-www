@@ -26,6 +26,9 @@ lsi: false
 
 permalink: pretty
 
+kramdown:
+  input: GFM
+
 ## site configuration
 domain: mort.io
 title: mort's mythopoeia ##'
