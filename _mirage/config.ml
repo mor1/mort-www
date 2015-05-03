@@ -1,5 +1,5 @@
 (*
- * Copyright (c) 2013 Richard Mortier <mort@cantab.net>
+ * Copyright (c) 2013-2015 Richard Mortier <mort@cantab.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -57,7 +57,7 @@ let mkfs fs =
 
 let sitefs = mkfs "../_site"
 
-let https =
+let httpd =
   let deploy =
     try match Sys.getenv "DEPLOY" with
       | "1" | "true" | "yes" -> true
@@ -110,5 +110,5 @@ let main =
 
 let () =
   register "mortio" [
-    main $ default_console $ sitefs $ https
+    main $ default_console $ sitefs $ httpd
   ]
