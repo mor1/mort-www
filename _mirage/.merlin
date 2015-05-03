@@ -1,4 +1,5 @@
 PKG cohttp
+PKG cohttp.lwt
 PKG cow
 PKG cowabloga
 PKG cstruct
