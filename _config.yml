@@ -28,6 +28,7 @@ permalink: pretty
 
 kramdown:
   input: GFM
+  hard_wrap: false
 
 ## site configuration
 domain: mort.io
