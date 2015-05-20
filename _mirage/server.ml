@@ -15,12 +15,26 @@
  *
  *)
 
-open Lwt
-open V1_LWT
+open Mirage
+open Printf
 
-module Main (C: CONSOLE) (SITE: KV_RO) (S: Cohttp_lwt.Server) = struct
+let httpd_port = 80
+let ns_port = 53
 
-  let start c site http =
+let red fmt    = sprintf ("\027[31m"^^fmt^^"\027[m")
+let green fmt  = sprintf ("\027[32m"^^fmt^^"\027[m")
+let yellow fmt = sprintf ("\027[33m"^^fmt^^"\027[m")
+let blue fmt   = sprintf ("\027[36m"^^fmt^^"\027[m")
+let grey fmt   = sprintf (""^^fmt^^"")
+
+module Main (C: CONSOLE) (SITE: KV_RO) (ZONE: KV_RO) (S: STACKV4) = struct
+
+  module U = S.UDPV4
+  module DNS = Dns_server_mirage.Make(ZONE)(S)
+
+  let start c site zonefile stack =
+    let log msg = C.log_s c msg in
+
     let read_site name =
       SITE.size site name >>= function
       | `Error (SITE.Unknown_key _) -> fail (Failure ("size " ^ name))
@@ -29,45 +43,50 @@ module Main (C: CONSOLE) (SITE: KV_RO) (S: Cohttp_lwt.Server) = struct
         | `Error (SITE.Unknown_key _) -> fail (Failure ("read " ^ name))
         | `Ok bufs -> return (Cstruct.copyv bufs)
     in
-
-    (* Split a URI into a list of path segments *)
-    let split_path uri =
-      let path = Uri.path uri in
-      let rec aux = function
-        | [] | [""] -> []
-        | hd::tl -> hd :: aux tl
-      in
-      List.filter (fun e -> e <> "")
-        (aux (Re_str.(split_delim (regexp_string "/") path)))
+    let read_zone name =
+      ZONE.size zone name >>= function
+      | `Error (ZONE.Unknown_key _) -> fail (Failure ("size " ^ name))
+      | `Ok size ->
+        ZONE.read site name 0 (Int64.to_int size) >>= function
+        | `Error (ZONE.Unknown_key _) -> fail (Failure ("read " ^ name))
+        | `Ok bufs -> return (Cstruct.copyv bufs)
     in
 
-    (* dispatch non-file URLs *)
-    let rec dispatcher = function
-      | [] | [""] -> dispatcher ["index.html"]
-      | segments ->
-        let path = String.concat "/" segments in
-        try_lwt
-          read_site path >>= fun body ->
-          S.respond_string ~status:`OK ~body ()
-        with exn ->
-          let path = path ^ "/index.html" in
+    let dnsd =
+      let t = DNS.create s k in
+      DNS.serve_with_zonebuf t ~port ~zonefile
+    in
+
+    let httpd =
+      let rec dispatcher = function
+        | [] | [""] -> dispatcher ["index.html"]
+        | segments ->
+          let path = String.concat "/" segments in
           try_lwt
             read_site path >>= fun body ->
-            S.respond_string ~status:`OK ~body ()
+            HTTP.respond_string ~status:`OK ~body ()
           with exn ->
-            S.respond_not_found ()
+            let path = path ^ "/index.html" in
+            try_lwt
+              read_site path >>= fun body ->
+              HTTP.respond_string ~status:`OK ~body ()
+            with exn ->
+              HTTP.respond_not_found ()
+      in
+
+      let callback conn_id request body =
+        let uri = HTTP.Request.uri request in
+        dispatcher (Config.split "/" uri)
+      in
+
+      let conn_closed (_, conn_id) =
+        let cid = Cohttp.Connection.to_string conn_id in
+        C.log c (Printf.sprintf "conn %s closed" cid)
+      in
+
+      http (HTTP.make ~callback ~conn_closed ())
     in
 
-    let callback conn_id request body =
-      let uri = S.Request.uri request in
-      dispatcher (split_path uri)
-    in
-
-    let conn_closed (_, conn_id) =
-      let cid = Cohttp.Connection.to_string conn_id in
-      C.log c (Printf.sprintf "conn %s closed" cid)
-    in
-
-    http (S.make ~callback ~conn_closed ())
+    dnsd <?> httpd
 
 end

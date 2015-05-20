@@ -1,7 +1,10 @@
 PKG cohttp
 PKG cohttp.lwt
+PKG dns
+PKG dns.lwt
 PKG cow
 PKG cowabloga
 PKG cstruct
 PKG lwt
+PKG lwt.syntax
 PKG mirage

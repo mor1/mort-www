@@ -39,76 +39,72 @@ let split c s =
   in
   aux c s (String.length s) []
 
-let mkfs fs =
-  let mode =
-    try match String.lowercase (Unix.getenv "FS") with
+let getenv notfound v f =
+  try
+    let v = String.lowercase (Sys.getenv v) in f v
+  with Not_found -> notfound
+
+let mkfs d =
+  let mode = getenv `Crunch "FS" (function
       | "fat"    -> `Fat
       | "direct" -> `Direct
       | _        -> `Crunch
-    with Not_found -> `Crunch
+    )
   in
+  let open Mirage in
   let fat_ro dir =
     kv_ro_of_fs (fat_of_files ~dir ())
   in
   match mode with
-  | `Fat    -> fat_ro fs
-  | `Crunch -> crunch fs
-  | `Direct -> direct_kv_ro fs
+  | `Fat    -> fat_ro d
+  | `Crunch -> crunch d
+  | `Direct -> direct_kv_ro d
 
-let sitefs = mkfs "../_site"
+let stack c =
+  let net = getenv `Direct "NET" (function
+      | "socket" -> `Socket
+      | _        -> `Direct
+    )
+  in
+  let dhcp = getenv false "DHCP" (function
+      | "1" | "true" | "yes" -> true
+      | _  -> false
+    )
+  in
+  match net, dhcp with
+  | `Direct, false -> (
+      try
+        let staticip =
+          let address = Sys.getenv "ADDR" |> Ipaddr.V4.of_string_exn in
+          let netmask = Sys.getenv "MASK" |> Ipaddr.V4.of_string_exn in
+          let gateways =
+            Sys.getenv "GWS" |> split ':' |> List.map Ipaddr.V4.of_string_exn
+          in
+          { address; netmask; gateways }
+        in
+        direct_stackv4_with_static_ipv4 c tap0 staticip
+      with
+      | Not_found -> direct_stackv4_with_default_ipv4 c tap0
+
+    )
+  | `Direct, true  -> direct_stackv4_with_dhcp c tap0
+  | `Socket, _     -> socket_stackv4 c [Ipaddr.V4.any]
 
 let httpd =
-  let deploy =
-    try match Sys.getenv "DEPLOY" with
-      | "1" | "true" | "yes" -> true
-      | _ -> false
-    with Not_found -> false
-  in
-  let stack console =
-    match deploy with
-    | true ->
-      let staticip =
-        let address = Sys.getenv "ADDR" |> Ipaddr.V4.of_string_exn in
-        let netmask = Sys.getenv "MASK" |> Ipaddr.V4.of_string_exn in
-        let gateways =
-          Sys.getenv "GWS" |> split ':' |> List.map Ipaddr.V4.of_string_exn
-        in
-        { address; netmask; gateways }
-      in
-      direct_stackv4_with_static_ipv4 console tap0 staticip
-
-    | false ->
-      let net =
-        try match Sys.getenv "NET" with
-          | "socket" -> `Socket
-          | _        -> `Direct
-        with Not_found -> `Direct
-      in
-      let dhcp =
-        try match Sys.getenv "DHCP" with
-          | "1" | "true" | "yes" -> true
-          | _  -> false
-        with Not_found -> false
-      in
-      match net, dhcp with
-      | `Direct, false -> direct_stackv4_with_default_ipv4 console tap0
-      | `Direct, true  -> direct_stackv4_with_dhcp console tap0
-      | `Socket, _     -> socket_stackv4 console [Ipaddr.V4.any]
-  in
-  let port =
-    try match Sys.getenv "PORT" with
-      | "" -> 80
-      | s  -> int_of_string s
-    with Not_found -> 80
-  in
   let server = conduit_direct (stack default_console) in
   let mode = `TCP (`Port port) in
   http_server mode server
 
+let sitefs = mkfs "../_site"
+let zonefs = mkfs "../_zone"
+
 let main =
-  foreign "Server.Main" (console @-> kv_ro @-> http @-> job)
+  let libraries = [ "mirage" ] in
+  foreign ~libraries "Server.Main" (
+    console @-> kv_ro @-> kv_ro @-> stackv4 @-> job
+  )
 
 let () =
   register "mortio" [
-    main $ default_console $ sitefs $ httpd
+    main $ default_console $ sitefs $ zonefs $ (stack default_console)
   ]
