@@ -8,15 +8,20 @@ _ignore
 
 ## coffee droppings
 _coffee/*.js
+
+## mirage droppings
 /_mirage/Makefile
 /_mirage/_build/
 /_mirage/main.ml
 /_mirage/mortio.xe
 /_mirage/mortio.xl
 /_mirage/mortio_libvirt.xml
-/log
 /_mirage/main.native
 /_mirage/mir-mortio
 /_mirage/log
-/_mirage/static1.ml
-/_mirage/static1.mli
+/_mirage/static*.ml
+/_mirage/static*.mli
+/log
+
+## merlin/ocaml droppings
+*.cmt
