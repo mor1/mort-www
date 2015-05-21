@@ -5,11 +5,12 @@ layout: post
 category: blog
 ---
 
-For a little while I've had this site running as a [MirageOS][] unikernel,
-shadowing the main site hosted on [GitHub][]. I've finally decided to make the
-switch, as part of moving over to take advantage of Mirage's DNS and TLS
-libraries.
+For a little while I've had [this site][mortio] running as a [MirageOS][]
+unikernel, shadowing the main site hosted on [GitHub][]. I've finally decided to
+make the switch, as part of moving over to take advantage of Mirage's DNS and
+TLS libraries.
 
+[mortio]: http://github.com/mor1/mor1.github.io
 [MirageOS]: http://openmirage.org/
 [Github]: http://github.com/
 [Jekyll]: http://jekyllrb.com
@@ -81,3 +82,41 @@ $ make configure.xen build \
 {% endhighlight %}
 + __Xen__ uses the Mirage network stack and expects static configuration of the
   network device.
+
+
+## Using Travis CI
+
+Of course, all that is for local development -- for the live site, this is
+actually all wrapped up using [Travis CI][travis]. Due to a small pull request
+waiting on the [OCaml Travis CI skeleton scripts][travisci-skeleton] and a few
+Mirage releases currently being readied, this looks a little more complex than
+it needs to (the `FORK_USER` and `DEV_REMOTE` variables shouldn't need to be
+specified in the long run) but anyway:
+
+{% highlight yaml %}
+language: c
+script: bash -ex .travis.sh
+env:
+  matrix:
+  - FORK_USER=mor1 DEV_REMOTE=git://github.com/mirage/mirage-dev
+    OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=socket
+  - FORK_USER=mor1 DEV_REMOTE=git://github.com/mirage/mirage-dev
+    OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=direct
+  - FORK_USER=mor1 DEV_REMOTE=git://github.com/mirage/mirage-dev
+    UPDATE_GCC_BINUTILS=1
+    OCAML_VERSION=4.02 MIRAGE_BACKEND=xen
+    MIRAGE_ADDR="46.43.42.137" MIRAGE_GWS="46.43.42.129" MIRAGE_MASK="255.255.255.128"
+    XENIMG=mortio MIRDIR=_mirage DEPLOY=1
+{% endhighlight %}
+
+This uses the local [`.travis-sh`][travis-sh] script to build the three versions
+of the site, using the [Mirage development OPAM repository][mirage-dev] so as to
+pick up the latest versions of all the various packages, and updating the Travis
+`gcc` and `binutils` to ensure the stubs for a couple of packages (notably
+`mirage-entropy-xen`) build.
+
+Next stop: adding TLS and DNS support...
+
+[travis]: https://travis-ci.org
+[travisci-skeleton]: https://github.com/ocaml/ocaml-travisci-skeleton
+[mirage-dev]: https://github.com/mirage/mirage-dev
