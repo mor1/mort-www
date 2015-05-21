@@ -37,9 +37,13 @@ jekyll -v
 ## build site
 make site
 
-# If a fork of these scripts are specified, use that GitHub user instead
+## use forks if specified
 fork_user=${FORK_USER:-ocaml}
+fork_branch=${FORK_BRANCH:-master}
+get () {
+  wget https://raw.githubusercontent.com/${fork_user}/ocaml-travisci-skeleton/${fork_branch}/$@
+}
 
-## fetch+execute the Mirage setup script
-wget https://raw.githubusercontent.com/${fork_user}/ocaml-travisci-skeleton/master/.travis-mirage.sh
-sh .travis-mirage.sh
+## go!
+get .travis-mirage.sh
+sh  .travis-mirage.sh
