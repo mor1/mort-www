@@ -63,7 +63,7 @@ PORT  ?= 80
 
 configure:
 	FS=$(FS) NET=$(NET) PORT=$(PORT) ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
-		$(MIRAGE) configure $(MIRFLAGS) _mirage/config.ml --$(MODE)
+		$(MIRAGE) configure _mirage/config.ml --$(MODE)
 
 configure.xen:
 	MODE=xen ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
