@@ -16,7 +16,7 @@
 
 ## jekyll configuration
 safe: true
-exclude: [Makefile, README.md, _coffee]
+exclude: [Makefile, README.md, _coffee, _mirage]
 
 future: false
 

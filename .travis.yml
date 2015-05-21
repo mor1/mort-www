@@ -2,9 +2,13 @@ language: c
 script: bash -ex .travis.sh
 env:
   matrix:
-  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=socket FORK_USER=mor1
-  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=direct FORK_USER=mor1
-  - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen                    FORK_USER=mor1
+  - FORK_USER=mor1 DEV_REMOTE=git://github.com/mirage/mirage-dev
+    OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=socket
+  - FORK_USER=mor1 DEV_REMOTE=git://github.com/mirage/mirage-dev
+    OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=direct
+  - FORK_USER=mor1 DEV_REMOTE=git://github.com/mirage/mirage-dev
+    UPDATE_GCC_BINUTILS=1
+    OCAML_VERSION=4.02 MIRAGE_BACKEND=xen
     MIRAGE_ADDR="46.43.42.137" MIRAGE_GWS="46.43.42.129" MIRAGE_MASK="255.255.255.128"
     XENIMG=mortio MIRDIR=_mirage DEPLOY=1
   global:
