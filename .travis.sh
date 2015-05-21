@@ -30,7 +30,7 @@ which ruby
 ruby --version
 
 ## install jekyll and github-pages
-gem install jekyll
+gem install jekyll --no-rdoc --no-ri
 gem install github-pages --no-rdoc --no-ri
 jekyll -v
 
@@ -41,7 +41,7 @@ make site
 fork_user=${FORK_USER:-ocaml}
 fork_branch=${FORK_BRANCH:-master}
 get () {
-  wget https://raw.githubusercontent.com/${fork_user}/ocaml-travisci-skeleton/${fork_branch}/$@
+    wget https://raw.githubusercontent.com/${fork_user}/ocaml-travisci-skeleton/${fork_branch}/$@
 }
 
 ## go!
