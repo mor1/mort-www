@@ -42,10 +42,9 @@ Finally, a collection of links to material that I have found interesting, useful
 <div media:type="text/omd" class="tabs-content">
 <div media:type="text/omd" class="content active" id="links-misc" markdown="1">
 
-+ [Twenty terrible reasons for lecturing](http://www.brookes.ac.uk/services/ocsd/2_learntch/20reasons.html)
-+ [On the cruelty of really teaching computing science](http://userweb.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html)
++ [Twenty terrible reasons for lecturing](http://shop.brookes.ac.uk/browse/extra_info.asp?compid=1&modid=1&deptid=47&catid=227&prodid=1174)
++ [On the cruelty of really teaching computing science](https://www.cs.utexas.edu/~EWD/transcriptions/EWD10xx/EWD1036.html)
 + [A Tour through the Visualization Zoo](http://queue.acm.org/detail.cfm?id=1805128)
-+ [CS51: Introduction to Computer Science II: Abstraction and Design](http://www.seas.harvard.edu/courses/cs51) (Harvard)
 + [6.006: Introduction to Algorithms](http://courses.csail.mit.edu/6.006/spring11/notes.shtml) (MIT)
 + [An entrance exam, MIT, 1869](http://libraries.mit.edu/archives/exhibits/exam/index.html)
 + [Mathematics, the most misunderstood subject](http://www.fordham.edu/academics/programs_at_fordham_/mathematics_departme/what_math/index.asp). Quite relevant to computer science (and probably other similarly "academic" subjects too).
@@ -55,7 +54,7 @@ Finally, a collection of links to material that I have found interesting, useful
 + [Colo(u)r wheels](http://blog.asmartbear.com/color-wheels.html) and from that, for more detail [Light and the eye](http://www.handprint.com/HP/WCL/color1.html)
 + [The Euler Archive](http://www.math.dartmouth.edu/~euler/)
 + [How To Criticize Computer Scientists](http://www.cs.purdue.edu/homes/dec/essay.criticize.html)
-+ [Elements of Computing Systems](http://diycomputerscience.com/courses/course/the-elements-of-computing-systems)
++ [From NAND to Tetris](http://www.nand2tetris.org/)
 + [Knuth's Computer Musings](http://scpd.stanford.edu/knuth/index.jsp)
 + [24/192 music downloads](http://people.xiph.org/~xiphmont/demo/neil-young.html)
 + [Natural Language Processing for the Working Programmer](http://nlpwp.org/book/)
@@ -77,7 +76,7 @@ Finally, a collection of links to material that I have found interesting, useful
 + [If you think you're a Java programmer, just read this](http://chaosinmotion.com/blog/?p=622).  Please.
 + [What every C programmer should know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html), followed by especially [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
 + [Coding Kata](http://codekata.pragprog.com/2007/01/code_kata_backg.html)
-+ [The Art of Assembly Language Programming](http://www.arl.wustl.edu/~lockwood/class/cs306/books/artofasm/toc.html)
++ [The Art of Assembly Language Programming](http://www.plantation-productions.com/Webster/www.artofasm.com/Linux/HTML/AoATOC.html)
 + [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 + [Let's build a compiler!](http://compilers.iecc.com/crenshaw/) _per_ <http://prog21.dadgum.com/30.html>
 + [Small Memory Software](http://www.cix.co.uk/~smallmemory/) with [online PDF copy](http://www.cix.co.uk/~smallmemory/book.html) available
@@ -86,7 +85,7 @@ Finally, a collection of links to material that I have found interesting, useful
 + [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
 + [Programming language development: the past 5 years](http://blog.fogus.me/2011/10/18/programming-language-development-the-past-5-years/)
 + [Rob Pike's Notes on Programming in C](http://doc.cat-v.org/bell_labs/pikestyle)
-+ [Semantics of Programming Languages](https://www.scss.tcd.ie/Matthew.Hennessy/slexternal/resources/sembookWiley.pdf), Hennesey (book, out-of-print, online copy)
++ [Semantics of Programming Languages](http://repository.readscheme.org/ftp/papers/plsemantics/textbooks/Hennessy-sembookWiley.pdf), Hennesey (book, out-of-print, online copy)
 
 ## Tutorials
 
@@ -116,7 +115,7 @@ Finally, a collection of links to material that I have found interesting, useful
 + [Mastering Node](https://github.com/visionmedia/masteringnode/)
 + [JavaScript Language Advanced Tips 'n' Tricks](http://code.google.com/p/jslibs/wiki/JavascriptTips)
 + [Javascript Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/), mini-book
-+ [Crockford on Javascript](http://yuiblog.com/crockford/)
++ [Crockford on Javascript](http://yuiblog.com/blog/2010/02/03/video-crockonjs-1/)
 + [Automated Cross-browser Javascript Testing](http://www.catonmat.net/blog/announcing-testling/)
 + [Smooth CoffeeScript](http://autotelicum.github.com/Smooth-CoffeeScript/SmoothCoffeeScript.html)
 + [Iced CoffeScript](http://maxtaco.github.com/coffee-script/)
@@ -136,7 +135,7 @@ Finally, a collection of links to material that I have found interesting, useful
 + [Become an XCoder](http://www.cocoalab.com/?q=becomeanxcoder)
 + [Objective C 2.0 essentials](http://www.techotopia.com/index.php/Objective-C_2.0_Essentials)
 + [Learning Cocoa with Objective-C](http://commons.oreilly.com/wiki/index.php/Learning_Cocoa_with_Objective-C)
-+ [The Objective-C programming language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
++ [The Objective-C programming language](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 + [Objective-C for Java programmers](http://www.informit.com/articles/article.aspx?p=1568732)
 + [Learn how to write iOS apps](http://ashfurrow.com/2011/12/learn-how-to-write-ios-apps/)
 
@@ -152,7 +151,6 @@ Finally, a collection of links to material that I have found interesting, useful
 
 ## Machine Learning
 
-+ [A collection of online resources](http://metaoptimize.com/qa/questions/186/)
 + [Mining of Massive Datasets](http://infolab.stanford.edu/~ullman/pub/book.pdf) (book)
 + [ML Demos](http://mldemos.epfl.ch/)
 + [Stanford Machine Learning class](http://www.ml-class.org/)
@@ -162,9 +160,8 @@ Finally, a collection of links to material that I have found interesting, useful
 ## Graph Theory
 
 + [Graph Theory](http://diestel-graph-theory.com/), Reinhard Diestel (book)
-+ [Graph Theory with Applications](http://www.ecp6.jussieu.fr/pageperso/bondy/books/gtwa/gtwa.html), J.A. Bondy and U.S.R. Murty (book)
++ [Graph Theory with Applications](http://www.iro.umontreal.ca/~hahn/IFT3545/GTWA.pdf), J.A. Bondy and U.S.R. Murty (book)
 + [Spectral Graph Theory](http://www.math.ucsd.edu/~fan/research/revised.html), Fan Chung (book chapters)
-+ [Graph Theory Resource Page](http://www.mongoosemetrics.com/phone-articles/graph-theory-resource-page.php)
 
 ## Calculus
 
@@ -177,21 +174,18 @@ Finally, a collection of links to material that I have found interesting, useful
 ## Networking
 
 + [The TCP/IP Guide](http://www.tcpipguide.com/free/index.htm), Charles M. Kozierok
-+ [Mathematical Foundations of Computer Networking](http://blizzard.cs.uwaterloo.ca/keshav/mediawiki-1.4.7/index.php/Mathematical_Foundations_of_Computer_Networking), S. Keshav
++ [Mathematical Foundations of Computer Networking](http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/12/book.htm), S. Keshav
 + [Applets](http://wps.aw.com/aw_kurose_network_5/111/28536/7305314.cw/index.html) for [Computer Networking: A Top-Down Approach](http://www.aw-bc.com/kurose_ross/)
 + [Telephone line audio interface circuits](http://www.epanorama.net/circuits/teleinterface.html)
-+ [Smartphone traffic impact on battery and networks](https://labs.ericsson.com/developer-community/blog/smartphone-traffic-impact-battery-and-networks)
-+ [Overview of 4G and LTE wireless systems](http://host.comsoc.org/freetutorial/anritsu4/anritsu4.html). Or [go right to it](http://host.comsoc.org/freetutorial/anritsu4/Myung/sun_tut8.htm) without all the screen rubbish.
-+ [Brief tutorial to raw sockets programming](http://mixter.void.ru/rawip.html)
 + [Computer Networking: Principles, Protocols and Practice](http://inl.info.ucl.ac.be/CNP3)
 + [Networking Conference Statistics](http://www.cs.ucsb.edu/~almeroth/conf/stats/)
 + [Wireless Networking in the Developing World, 3rd Edition](http://wndw.net/)
 
 ## Operating Systems
 
-+ [Odd Comments and Strange Doings in Unix](http://cm.bell-labs.com/cm/cs/who/dmr/odd.html), Dennis Ritchie
++ [Odd Comments and Strange Doings in Unix](http://orkinos.cmpe.boun.edu.tr/~kosar/odd.html), Dennis Ritchie
 + [Scalable memory allocation using jemalloc](http://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919)
-+ [Write your own (simple) OS](http://mikeos.berlios.de/write-your-own-os.html)
++ [Write your own (simple) OS](http://mikeos.sourceforge.net/write-your-own-os.html)
 + [Roll your own toy-Unix OS](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 + [Gustavo Duarte blog: Internals](http://duartes.org/gustavo/blog/category/internals)
 + [Bootstrapping a compiler from nothing](http://homepage.ntlworld.com/edmund.grimley-evans/bcompiler.html)

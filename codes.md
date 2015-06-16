@@ -44,7 +44,7 @@ catalogue, allowing accesses to be audited and managed.
 [horizon]: http://www.horizon.ac.uk/
 
 <h2 data-magellan-destination="homework" id="homework">
-  <a href="http://github.com/mor1/homework/">Homework</a>
+  <a href="https://github.com/homework/">Homework</a>
   <small>2010&ndash;2013</small>
 </h2>
 

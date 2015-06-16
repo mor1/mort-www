@@ -14,7 +14,7 @@ Erdős number appears to be 3.
 
 [netos]: http://www.cl.cam.ac.uk/research/srg/netos/
 [srg]: http://www.cl.cam.ac.uk/research/srg/
-[horizon]: https://www.horizon.ac.uk/
+[horizon]: http://www.horizon.ac.uk/
 [nottingham]: http://www.nottingham.ac.uk/
 [cs]: http://www.cs.nott.ac.uk/
 [email]: mailto:richard.mortier@nottingham.ac.uk
@@ -65,8 +65,8 @@ I occasionally undertake consultancy and selected development work -- [contact
 me](mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20enquiry%5d) if
 desired.
 
-[vipadia]: http://vipadia.com/ 
-[camrivox]: http://camrivox.com/ 
+[vipadia]: http://vipadia.com/
+[camrivox]: http://camrivox.com/
 [cplane]: http://cplane.com/
 [alertme]: http://alertme.com/
 [sprint]: http://sprint.com/

@@ -27,11 +27,11 @@ I try to maintain [a complete list of my publications][papers] in addition to
 the usual sites including [Google Scholar][scholar],
 [Microsoft Academic][microsoft], [CiteULike][] and the [ACM DL][acm-dl].
 
-[pyrt]: /papers/pdf/imw02-linkfailures.pdf
-[magpie]: /papers/pdf/osdi04-magpie.pdf
-[anemone]: /papers/pdf/usenix06-anemone.pdf
-[plutarch]: /papers/pdf/fdna03-plutarch.pdf
-[wsd]: /papers/pdf/ton10-wsd.pdf
+[pyrt]: http://mor1.github.io/publications/pdf/imw02-linkfailures.pdf
+[magpie]: http://mor1.github.io/publications/pdf/osdi04-magpie.pdf
+[anemone]: http://mor1.github.io/publications/pdf/usenix06-anemone.pdf
+[plutarch]: http://mor1.github.io/publications/pdf/fdna03-plutarch.pdf
+[wsd]: http://mor1.github.io/publications/pdf/ton10-wsd.pdf
 
 [mirage]: http://openmirage.org/
 [homework]: http://homenetworks.ac.uk/
