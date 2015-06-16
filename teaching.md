@@ -67,7 +67,6 @@ Finally, a collection of links to material that I have found interesting, useful
 <div media:type="text/omd" class="content" id="links-programming" markdown="1">
 
 + [10 papers every programmer should read at least twice](http://blog.fogus.me/2011/09/08/10-technical-papers-every-programmer-should-read-at-least-twice/)
-+ [Freely available programming books](http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books)
 + [How to Design Programs](http://htdp.org/2003-09-26/Book/)
 + [Clever Algorithms: Nature-Inspired Programming Recipes](http://www.cleveralgorithms.com/)
 + [Interesting but lesser known data structures](http://stackoverflow.com/questions/500607/what-are-the-lesser-known-but-cool-data-structures)
@@ -75,11 +74,11 @@ Finally, a collection of links to material that I have found interesting, useful
 + [Parsing Techniques - A Practical Guide](http://www.few.vu.nl/~dick/PTAPG.html)
 + [If you think you're a Java programmer, just read this](http://chaosinmotion.com/blog/?p=622).  Please.
 + [What every C programmer should know](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html), followed by especially [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
-+ [Coding Kata](http://codekata.pragprog.com/2007/01/code_kata_backg.html)
++ [Coding Kata](http://codekata.com/)
 + [The Art of Assembly Language Programming](http://www.plantation-productions.com/Webster/www.artofasm.com/Linux/HTML/AoATOC.html)
 + [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 + [Let's build a compiler!](http://compilers.iecc.com/crenshaw/) _per_ <http://prog21.dadgum.com/30.html>
-+ [Small Memory Software](http://www.cix.co.uk/~smallmemory/) with [online PDF copy](http://www.cix.co.uk/~smallmemory/book.html) available
++ [Small Memory Software](http://www.smallmemory.com/) with [online PDF copy](http://www.smallmemory.com/book.html) available
 + [Modern GPU](http://www.moderngpu.com/)
 + [Quake2 source code review](http://fabiensanglard.net/quake2/index.php)
 + [The World's Best Introduction to `sed`](http://www.catonmat.net/blog/worlds-best-introduction-to-sed/)
@@ -211,9 +210,8 @@ Finally, a collection of links to material that I have found interesting, useful
 
 ## Databases
 
-+ [Stanford Database class](http://www.db-class.org/)
 + [Introduction to Information Retrieval](http://nlp.stanford.edu/IR-book/)
-+ [Mining of Massive Datasets](http://i.stanford.edu/~ullman/mmds.html)(book)
++ [Mining of Massive Datasets](http://i.stanford.edu/~ullman/mmds.html) (book)
 
 </div>
 </div>
