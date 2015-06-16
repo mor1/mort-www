@@ -59,7 +59,7 @@ module Main (C: CONSOLE) (SITE: KV_RO) (S: Cohttp_lwt.Server) = struct
     in
 
     let callback conn_id request body =
-      let uri = S.Request.uri request in
+      let uri = Cohttp.Request.uri request in
       dispatcher (split_path uri)
     in
 
@@ -68,6 +68,6 @@ module Main (C: CONSOLE) (SITE: KV_RO) (S: Cohttp_lwt.Server) = struct
       C.log c (Printf.sprintf "conn %s closed" cid)
     in
 
-    http (S.make ~callback ~conn_closed ())
+    http (`TCP 80) (S.make ~callback ~conn_closed ())
 
 end

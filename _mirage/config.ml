@@ -95,15 +95,7 @@ let httpd =
       | `Direct, true  -> direct_stackv4_with_dhcp console tap0
       | `Socket, _     -> socket_stackv4 console [Ipaddr.V4.any]
   in
-  let port =
-    try match Sys.getenv "PORT" with
-      | "" -> 80
-      | s  -> int_of_string s
-    with Not_found -> 80
-  in
-  let server = conduit_direct (stack default_console) in
-  let mode = `TCP (`Port port) in
-  http_server mode server
+  stack default_console |> conduit_direct |> http_server
 
 let main =
   foreign "Server.Main" (console @-> kv_ro @-> http @-> job)
