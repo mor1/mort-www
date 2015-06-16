@@ -26,7 +26,7 @@ JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
 FLAGS ?=
-MIRFLAGS ?= --no-depext
+MIRFLAGS ?= --no-opam
 
 all: site build
 
