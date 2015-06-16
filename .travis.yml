@@ -2,15 +2,11 @@ language: c
 script: bash -ex .travis.sh
 env:
   matrix:
-  - FORK_USER=mor1 FORK_BRANCH=yorick-mirage EXTRA_REMOTES=git://github.com/mirage/mirage-dev
-    OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=socket
-  - FORK_USER=mor1 FORK_BRANCH=yorick-mirage EXTRA_REMOTES=git://github.com/mirage/mirage-dev
-    OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=direct
-  - FORK_USER=mor1 FORK_BRANCH=yorick-mirage EXTRA_REMOTES=git://github.com/mirage/mirage-dev
-    UPDATE_GCC_BINUTILS=1 OCAML_VERSION=4.02
-    DEPLOY=1 XENIMG=mortio MIRDIR=_mirage
-    MIRAGE_BACKEND=xen
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=socket
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix MIRAGE_NET=direct
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1
     MIRAGE_ADDR="46.43.42.137" MIRAGE_GWS="46.43.42.129" MIRAGE_MASK="255.255.255.128"
+    UPDATE_GCC_BINUTILS=1 XENIMG=mortio MIRDIR=_mirage
   global:
   - secure: aJr69EvXZrAoAxICpXc71SVobUb44A3BFwP+KPWCQUNyuQLn56jYeq6qjVmNwCyXGQj/67Crl5P0+XTGkUDk2jOZCuRBl3jq8oy9PbSCg4ptPBL5F/w1BZfcYAv2NvwuM2OOwdyLSdw9WXk2lOWmNAb+4tR2qkROYgcDCqF0a9Q=
   - secure: BMciH1rAKkv7OKEvM4Vqe+VYKZyYEViB/gYjqYwGfsIr/poeBLFXX6dRm8Uzn3APTm29ig67rlrRH9zzlVy0V08GiEzcY7JatlkC1RSbpH5Rp9MSfVu925QlcHyIUo6yLJDQDAnyr4NxW6OdeZfgp9uFCdN/xCsHLbT3IjBXBZg=
