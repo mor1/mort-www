@@ -57,9 +57,9 @@ $(PAPERS): $(BIBS)
 
 ## mirage
 
-FS    ?= crunch
+FS    ?= direct
 NET   ?= socket
-PORT  ?= 80
+PORT  ?= 4000
 
 configure:
 	FS=$(FS) NET=$(NET) PORT=$(PORT) ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
