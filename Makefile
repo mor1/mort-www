@@ -31,12 +31,11 @@ MIRFLAGS ?= --no-opam
 all: site build
 
 clean:
-	$(RM) -r _site _coffee/*.js js/*.js log
 	[ -r _mirage/Makefile ] && ( cd _mirage && make clean ) || true
 	cd _mirage && $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
 
 distclean: | clean
-	$(RM) -r $(PAPERS)
+	$(RM) -r _site _coffee/*.js js/*.js log $(PAPERS)
 
 jss: $(JSS)
 js/%.js: _coffee/%.coffee
