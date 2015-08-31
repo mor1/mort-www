@@ -17,7 +17,17 @@
 
 open Mirage
 
-(** [split c s] splits string [s] at every occurrence of character [c] *)
+(** Mirage environment. Remove once parameter passing / `Mirage_env` is
+    accepted. *)
+
+let err fmt =
+  Printf.ksprintf (fun str ->
+      Printf.eprintf ("\027[31m[ERROR]\027[m     %s\n") str;
+      exit 1
+    ) fmt
+
+let env_info fmt = Printf.printf ("\027[33mENV\027[m         " ^^ fmt ^^ "\n%!")
+
 let split c s =
   let rec aux c s ri acc =
     (* half-closed intervals. [ri] is the open end, the right-fencepost.
@@ -39,68 +49,76 @@ let split c s =
   in
   aux c s (String.length s) []
 
-let mkfs fs =
-  let mode =
-    try match String.lowercase (Unix.getenv "FS") with
-      | "fat"    -> `Fat
-      | "direct" -> `Direct
-      | _        -> `Crunch
-    with Not_found -> `Crunch
-  in
-  let fat_ro dir =
-    kv_ro_of_fs (fat_of_files ~dir ())
-  in
-  match mode with
-  | `Fat    -> fat_ro fs
-  | `Crunch -> crunch fs
-  | `Direct -> direct_kv_ro fs
+let ips_of_env x = split ':' x |> List.map Ipaddr.V4.of_string_exn
+let bool_of_env = function "1" | "true" | "yes" -> true | _ -> false
+let net_of_env = function "socket" -> `Socket | _ -> `Direct
+let fs_of_env = function "fat" -> `Fat | "direct" -> `Direct | _ -> `Crunch
+let opt_string_of_env x = Some x
+let string_of_env x = x
 
-let sitefs = mkfs "../_site"
+let get_env name fn =
+  let res = Sys.getenv name in
+  env_info "%s => %s" name res;
+  fn (String.lowercase res)
 
-let httpd =
-  let deploy =
-    try match Sys.getenv "DEPLOY" with
-      | "1" | "true" | "yes" -> true
-      | _ -> false
-    with Not_found -> false
-  in
-  let stack console =
-    match deploy with
-    | true ->
-      let staticip =
-        let address = Sys.getenv "ADDR" |> Ipaddr.V4.of_string_exn in
-        let netmask = Sys.getenv "MASK" |> Ipaddr.V4.of_string_exn in
-        let gateways =
-          Sys.getenv "GWS" |> split ':' |> List.map Ipaddr.V4.of_string_exn
-        in
-        { address; netmask; gateways }
-      in
-      direct_stackv4_with_static_ipv4 console tap0 staticip
+let get_exn name fn =
+  try get_env name fn
+  with Not_found ->
+    err "%s is not set." name
 
-    | false ->
-      let net =
-        try match Sys.getenv "NET" with
-          | "socket" -> `Socket
-          | _        -> `Direct
-        with Not_found -> `Direct
-      in
-      let dhcp =
-        try match Sys.getenv "DHCP" with
-          | "1" | "true" | "yes" -> true
-          | _  -> false
-        with Not_found -> false
-      in
-      match net, dhcp with
-      | `Direct, false -> direct_stackv4_with_default_ipv4 console tap0
-      | `Direct, true  -> direct_stackv4_with_dhcp console tap0
-      | `Socket, _     -> socket_stackv4 console [Ipaddr.V4.any]
+let get ~default name fn =
+  try get_env name fn
+  with Not_found ->
+    env_info "%s unset => %s" name default;
+    fn (String.lowercase default)
+
+let fs = get "FS" ~default:"crunch" fs_of_env
+let deploy = get "DEPLOY" ~default:"false" bool_of_env
+let net = get "NET" ~default:"socket" net_of_env
+let dhcp = get "DHCP" ~default:"false" bool_of_env
+let image = get "XENIMG" ~default:"mort.io" string_of_env
+
+let blocks = ref 0
+let mkfs fs path =
+  let fat_of_files dir = kv_ro_of_fs (fat_of_files ~dir ()) in
+  let fat_of_device device =
+    let block = block_of_file (string_of_int device) in
+    let fat   = fat block in
+    kv_ro_of_fs fat
   in
-  stack default_console |> conduit_direct |> http_server
+  match fs, get_mode () with
+  | `Fat   , `Xen -> incr blocks; fat_of_device (51711 + !blocks)
+  | `Fat   , _    -> fat_of_files path
+  | `Crunch, _    -> crunch path
+  | `Direct, `Xen -> crunch path
+  | `Direct, _    -> direct_kv_ro path
+
+let cons0 = default_console
+
+let stack = match deploy with
+  | true ->
+    let staticip =
+      let address = get_exn "IP" Ipaddr.V4.of_string_exn in
+      let netmask = get_exn "NETMASK" Ipaddr.V4.of_string_exn in
+      let gateways = get_exn "GATEWAYS" ips_of_env in
+      { address; netmask; gateways }
+    in
+    direct_stackv4_with_static_ipv4 cons0 tap0 staticip
+  | false ->
+    match net, dhcp with
+    | `Direct, false -> direct_stackv4_with_default_ipv4 cons0 tap0
+    | `Direct, true  -> direct_stackv4_with_dhcp cons0 tap0
+    | `Socket, _     -> socket_stackv4 cons0 [Ipaddr.V4.any]
+
+(** *)
+
+let sitefs = mkfs fs "../_site"
+let httpsvr = http_server (conduit_direct (stack))
 
 let main =
   foreign "Server.Main" (console @-> kv_ro @-> http @-> job)
 
 let () =
-  register "mortio" [
-    main $ default_console $ sitefs $ httpd
+  register image [
+    main $ default_console $ sitefs $ httpsvr
   ]
