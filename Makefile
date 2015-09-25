@@ -28,7 +28,7 @@ PAPERS = research/papers/papers.json
 FLAGS ?=
 MIRFLAGS ?= --no-opam
 
-all: papers
+all: jss papers
 
 clean:
 	$(RM) log
