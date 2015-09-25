@@ -33,8 +33,8 @@ all: papers
 clean:
 	$(RM) log
 	cd _mirage \
-	&& ( [ -r _mirage/Makefile ] && make clean ) || true \
-	&& $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
+	  && ( [ -r _mirage/Makefile ] && make clean ) || true \
+	  && $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
 
 distclean: | clean
 	$(RM) -r _site _coffee/*.js js/*.js $(PAPERS)
