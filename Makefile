@@ -20,7 +20,7 @@
 COFFEE = coffee
 MIRAGE = mirage
 
-BIBS = $(wildcard ~/me/footprint/publications/rmm-*.bib)
+BIBS = $(wildcard ~/me/publications/rmm-*.bib)
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
@@ -31,11 +31,13 @@ MIRFLAGS ?= --no-opam
 all: site build
 
 clean:
-	[ -r _mirage/Makefile ] && ( cd _mirage && make clean ) || true
-	cd _mirage && $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
+	$(RM) log
+	cd _mirage \
+	&& ( [ -r _mirage/Makefile ] && make clean ) || true \
+	&& $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
 
 distclean: | clean
-	$(RM) -r _site _coffee/*.js js/*.js log $(PAPERS)
+	$(RM) -r _site _coffee/*.js js/*.js $(PAPERS)
 
 jss: $(JSS)
 js/%.js: _coffee/%.coffee
@@ -50,8 +52,7 @@ test: site
 papers: $(PAPERS) research/papers/authors.json
 $(PAPERS): $(BIBS)
 	~/src/python-scripts/bib2json.py \
-	    -s ~/me/footprint/publications/strings.bib \
-	    ~/me/footprint/publications/rmm-[cjptwu]*.bib \
+	    -s ~/me/publications/strings.bib ~/me/publications/rmm-[cjptwu]*.bib \
 	  >| $(PAPERS)
 
 ## mirage
