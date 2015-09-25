@@ -71,7 +71,7 @@ Ph.D. students on a wide range of topics.
 + __Sultan Alanazi__ (2012, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Recommendation systems using rich personal data.
 + __Anthony Brown__ (2010, Nottingham), co-supervised with
-  [Prof. Tom Rodden][tom]. Securing the domestic network.
+  [Prof. Tom Rodden][tom]. Domesticating Home Networks.
 + __Liz Dowthwaite__ (2012, Nottingham), co-supervised with
   [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa]. Social networks and
   web comic artists.
@@ -80,7 +80,7 @@ Ph.D. students on a wide range of topics.
   [Prof. Lilian Edwards][lilian]. IT law and copyright.
 + __Marjan Falahrastegar__ (2012, Queen Mary, University of London),
   co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].
-  Personal data in home hubs.
+  Online Web Tracking Ecosystem.
 + __Luis Carlos Oviedo Garcia__ (2014, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Application-Controllable Load-Balancing.
 + __Steven Luland__ (2013, Nottingham), co-supervised with
@@ -89,7 +89,7 @@ Ph.D. students on a wide range of topics.
 + __Dominic Price__ (2013, Nottingham), co-supervised with
   [Prof. Chris Greenhalgh][chris]. User-focused social network platforms.
 + __Jianhua Shao__ (2010, Nottingham), co-supervised with
-  [Dr George Kuk][george]. Investigating markets in personal data.
+  [Dr George Kuk][george]. Strategic Signals and Complements in the App Economy.
 + __Robert Spencer__ (2011, Nottingham), co-supervised with
   [Prof. Tom Rodden][tom]. History and reconciliation in domestic network
   configuration.
