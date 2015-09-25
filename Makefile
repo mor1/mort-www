@@ -28,7 +28,7 @@ PAPERS = research/papers/papers.json
 FLAGS ?=
 MIRFLAGS ?= --no-opam
 
-all: site build
+all: papers
 
 clean:
 	$(RM) log
@@ -43,17 +43,17 @@ jss: $(JSS)
 js/%.js: _coffee/%.coffee
 	$(COFFEE) -c -o js $<
 
-site: jss papers
-	jekyll build --trace $(FLAGS)
-
-test: site
-	jekyll serve --trace --watch --skip-initial-build $(FLAGS)
-
 papers: $(PAPERS) research/papers/authors.json
 $(PAPERS): $(BIBS)
 	~/src/python-scripts/bib2json.py \
 	    -s ~/me/publications/strings.bib ~/me/publications/rmm-[cjptwu]*.bib \
 	  >| $(PAPERS)
+
+site: jss papers
+	jekyll build --trace $(FLAGS)
+
+test: site
+	jekyll serve --trace --watch --skip-initial-build $(FLAGS)
 
 ## mirage
 
