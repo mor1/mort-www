@@ -89,7 +89,8 @@ Ph.D. students on a wide range of topics.
 + __Dominic Price__ (2013, Nottingham), co-supervised with
   [Prof. Chris Greenhalgh][chris]. User-focused social network platforms.
 + __Jianhua Shao__ (2010, Nottingham), co-supervised with
-  [Dr George Kuk][george]. Strategic Signals and Complements in the App Economy.
+  [Dr George Kuk][george]. Strategic Signals in the App Economy An Empirical
+  Study of Google Play Store.
 + __Robert Spencer__ (2011, Nottingham), co-supervised with
   [Prof. Tom Rodden][tom]. History and reconciliation in domestic network
   configuration.
