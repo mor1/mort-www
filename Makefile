@@ -19,7 +19,7 @@
 
 DOCKER = docker run -it --rm
 COFFEE = $(DOCKER) -v `pwd`:/pwd -w /pwd shouldbee/coffeescript coffee
-JEKYLL = $(DOCKER) -v `pwd`:/srv/jekyll jekyll/jekyll:builder jekyll
+JEKYLL = $(DOCKER) -v `pwd`:/srv/jekyll jekyll/jekyll:pages jekyll
 JEKYLLS = $(DOCKER) -v `pwd`:/srv/jekyll -p 4000:4000 -p 80:80 jekyll/jekyll:pages jekyll
 MIRAGE = mirage
 
