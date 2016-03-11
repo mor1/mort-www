@@ -5,7 +5,10 @@ layout: post
 category: blog
 ---
 
-I finally decided to sit down and get the shiny new [merlin][] mode for OCaml working with my emacs configuration. Basically, really rather simple in the end although (in the usual fashion!) I did end up spending considerable time tweaking various other customisations...
+I finally decided to sit down and get the shiny new [merlin][] mode for OCaml
+working with my emacs configuration. Basically, really rather simple in the end
+although (in the usual fashion!) I did end up spending considerable time
+tweaking various other customisations...
 
 Most of the information below is based on the following sources:
 
@@ -17,9 +20,14 @@ Before we begin, install `merlin`:
 
     $ opam install merlin
 
-The complete [commit][] change is in my [github][] account (combined with a large cleanup of various other aborted OCaml configurations). Breaking it down a bit, first setup some paths: where to find `ocp-indent`,  `merlin.el` for `merlin-mode`, and the `ocamlmerlin` command itself. Note that this relies on the current state of `opam`, so when you start `emacs` be sure to have selected the `opam` compiler-switch that you installed the `merlin` package into, above.
+The complete [commit][] change is in my [github][] account (combined with a
+large cleanup of various other aborted OCaml configurations). Breaking it down a
+bit, first setup some paths: where to find `ocp-indent`, `merlin.el` for
+`merlin-mode`, and the `ocamlmerlin` command itself. Note that this relies on
+the current state of `opam`, so when you start `emacs` be sure to have selected
+the `opam` compiler-switch that you installed the `merlin` package into, above.
 
-{% highlight common-lisp %}
+```elisp
 ;; ocp-indent
 (load-file (concat
             (substring (shell-command-to-string "opam config var prefix") 0 -1)
@@ -39,11 +47,14 @@ The complete [commit][] change is in my [github][] account (combined with a larg
        "/ocamlmerlin"
        ))
 (autoload 'merlin-mode "merlin" "Merlin mode" t)
-{% endhighlight %}
+```
 
-Now the meat: when we select `tuareg-mode`, use `ocp-indent` to indent lines, turn on `merlin` auto-complete, and finally set a couple of local key bindings so that I can fix up `merlin` to not conflict with my now-neurologically-hardwired navigation keys.
+Now the meat: when we select `tuareg-mode`, use `ocp-indent` to indent lines,
+turn on `merlin` auto-complete, and finally set a couple of local key bindings
+so that I can fix up `merlin` to not conflict with my
+now-neurologically-hardwired navigation keys.
 
-{% highlight common-lisp %}
+```elisp
 (add-hook 'tuareg-mode-hook
           '(lambda ()
              (merlin-mode)
@@ -52,14 +63,14 @@ Now the meat: when we select `tuareg-mode`, use `ocp-indent` to indent lines, tu
              (local-set-key (kbd "C-S-<up>") 'merlin-type-enclosing-go-up)
              (local-set-key (kbd "C-S-<down>") 'merlin-type-enclosing-go-down)
              ))
-{% endhighlight %}
+```
 
 Finally, do the usual to use `tuareg-mode` for OCaml/F# editing.
 
-{% highlight common-lisp %}
+```elisp
 (push'("\\.ml[iylp]?" . tuareg-mode) auto-mode-alist)
 (push '("\\.fs[ix]?" . tuareg-mode) auto-mode-alist)
-{% endhighlight %}
+```
 
 And that's it!
 

@@ -35,9 +35,9 @@ my [`_config.yml`][jekyll-yml] so as to make sure my local toolchain matched the
 one used by Github, ensuring consistency between versions of the site. For
 convenience:
 
-{% highlight bash %}
+```bash
 make site
-{% endhighlight %}
+```
 
 
 ## Bringing up the network
@@ -61,25 +61,25 @@ content using Jekyll.
 This tests the three basic combinations of network backend for a Mirage
 appliance:
 
-{% highlight bash %}
+```bash
 $ make configure.socket build
-{% endhighlight %}
+```
 + __UNIX/socket__ requires no configuration. The network device is configured
   with the loopback address, `127.0.0.1`. Appliances can be run without
   requiring `root` privileges, assuming they only bind to non-privileged ports.
 
-{% highlight bash %}
+```bash
 $ make configure.direct build
-{% endhighlight %}
+```
 + __UNIX/direct/dhcp__ requires no configuration if a DHCP server is running and
   can respond. The appliance must be run with `root` privileges to use the new
   network bridging capability of OSX 10.10, whereupon the DHCP client in the
   appliance follows the usual protocol.
 
-{% highlight bash %}
+```bash
 $ make configure.xen build \
   ADDR="46.43.42.137" GWS="46.43.42.129" MASK="255.255.255.128"
-{% endhighlight %}
+```
 + __Xen__ uses the Mirage network stack and expects static configuration of the
   network device.
 
@@ -93,7 +93,7 @@ Mirage releases currently being readied, this looks a little more complex than
 it needs to (the `FORK_USER` and `DEV_REMOTE` variables shouldn't need to be
 specified in the long run) but anyway:
 
-{% highlight yaml %}
+```yaml
 language: c
 script: bash -ex .travis.sh
 env:
@@ -107,7 +107,7 @@ env:
     OCAML_VERSION=4.02 MIRAGE_BACKEND=xen
     MIRAGE_ADDR="46.43.42.137" MIRAGE_GWS="46.43.42.129" MIRAGE_MASK="255.255.255.128"
     XENIMG=mortio MIRDIR=_mirage DEPLOY=1
-{% endhighlight %}
+```
 
 This uses the local [`.travis-sh`][travis-sh] script to build the three versions
 of the site, using the [Mirage development OPAM repository][mirage-dev] so as to

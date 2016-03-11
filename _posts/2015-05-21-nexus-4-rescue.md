@@ -19,14 +19,14 @@ on the developer options that allow access to the filesystem via the Android SDK
 tools. To find out the details, read on...
 
 First, download the recovery image:
-{% highlight bash %}
+```bash
 $ wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.3.1-mako.img
-{% endhighlight %}
+```
 
 Next, install the Android SDK -- I'm on OSX using [Homebrew][] so I do:
-{% highlight bash %}
+```bash
 $ brew install android-sdk
-{% endhighlight %}
+```
 
 Now, power off and disconnect the phone! Then boot it into fastboot mode by
 holding down `power` and `volume-down`. Once it boots you should be in the
@@ -34,45 +34,45 @@ fastboot list -- the volume keys will cycle you through the list. You should now
 also be able to see the device once connected to USB, and you can then OEM
 unlock it:
 
-{% highlight bash %}
+```bash
 $ sudo fastboot devices -l
 04f02d4bdcd3b6e2       fastboot usb:FD123000
 $ sudo fastboot oem unlock
 ...
 OKAY [ 17.937s]
 finished. total time: 17.937s
-{% endhighlight %}
+```
 
 Having unlocked it, you can now install the clockwork recovery bootloader you
 downloaded (assuming it's in the local directory):
 
-{% highlight bash %}
+```bash
 $ sudo fastboot flash recovery recovery-clockwork-touch-6.0.3.1-mako.img
 sending 'recovery' (7560 KB)...
 OKAY [  0.526s]
 writing 'recovery'...
 OKAY [  0.448s]
 finished. total time: 0.975s
-{% endhighlight %}
+```
 
 When you now use the volume keys to cycle through the list, you should now see
 __recovery mode__ as an option -- select it, and you should be able to see the
 device listed in the usual way via `adb`:
 
 
-{% highlight bash %}
+```bash
 : mort@greyjay:phone$; sudo adb devices -l
 List of devices attached
 04f02d4bdcd3b6e2       recovery usb:FD123000 product:occam model:Nexus_4 device:mako
-{% endhighlight %}
+```
 
 Finally, pull all the contents off the sdcard:
 
-{% highlight bash %}
+```bash
 $ adb pull /sdcard/0 ./sdcard/
 $ adb pull /data/ ./data/
 $ adb pull /system/ ./system/
-{% endhighlight %}
+```
 
 ...and that's it -- you should now have a local copy of everything off the
 phone, and you can send it away for repair (or whatever you feel like

@@ -68,7 +68,7 @@ with [Karabiner][]:
 
 [karabiner.xml]: https://github.com/mor1/rc-files/blob/master/karabiner.xml
 
-{% highlight xml %}
+```xml
 <deviceproductdef>
   <productname>MACBOOK_PRO_UK_KEYBOARD</productname>
   <productid>0x0253</productid>
@@ -83,12 +83,12 @@ with [Karabiner][]:
   <productname>FIVE_BUTTON_MOUSE_WITH_INTELLIEYE</productname>
   <productid>0x0039</productid>
 </deviceproductdef>
-{% endhighlight %}
+```
 
 There are then two  `<item></item>` stanzas that configure the two different
 keyboards, e.g.,
 
-{% highlight xml %}
+```xml
 <item>
   <name>Keyboard mappings for Microsoft keyboard</name>
   <identifier>private.io.mort.microsoft_keyboard</identifier>
@@ -97,14 +97,14 @@ keyboards, e.g.,
     DeviceProduct::DIGITAL_MEDIA_KEYBOARD
   </device>
   ...
-{% endhighlight %}
+```
 
 Each of these contains a number of `<autogen></autogen>` stanza mapping specific
 keycodes for that keymap. For example, I want the top-left key on the main block
 to be ``` ` ``` and, when shifted, to be `€`. This leads to the following on the
 Microsoft keyboard:
 
-{% highlight xml %}
+```xml
 <!-- shift-` to € -->
 <autogen>
   __KeyToKey__
@@ -116,14 +116,14 @@ Microsoft keyboard:
   KeyCode::BACKQUOTE, ModifierFlag::SHIFT_R | ModifierFlag::NONE,
   KeyCode::KEY_2, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R
 </autogen>
-{% endhighlight %}
+```
 
 ...but to the following on the Macbook built-in UK keyboard, to take account
 first of the different keycode it generates but also to ensure that when used
 with command and command-shift, the standard behaviour of cycling between
 windows works:
 
-{% highlight xml %}
+```xml
 <!-- top-left § to ` -->
 <autogen>
   __KeyToKey__
@@ -152,7 +152,7 @@ windows works:
   KeyCode::DANISH_DOLLAR, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
   KeyCode::BACKQUOTE, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R
 </autogen>
-{% endhighlight %}
+```
 
 There are a number of other mappings made in [karabiner.xml][]: `shift-'` is
 `@`, `shift-2` is `"`, `shift-3` is `£`, and resolving general confusion among
@@ -167,11 +167,11 @@ event processing but suffice it to say that Emacs was receiving `shift-@` and
 [my hacks to enforce a `my-keys-minor-mode` to override everything](https://github.com/mor1/rc-files/blob/master/emacs.d/init.el#L929-L1019),
 the fix was pretty straightforward:
 
-{% highlight elisp %}
+```elisp
 (define-key my-keys-minor-mode-map (kbd "s-@") "€")
 (define-key my-keys-minor-mode-map (kbd "s-3")
   '(lambda () (interactive) (insert-char #x00A3))) ; £
-{% endhighlight %}
+```
 
 ### Result?
 
