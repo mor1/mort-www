@@ -17,7 +17,10 @@
 
 .PHONY: all clean distclean site test papers configure build
 
-COFFEE = coffee
+DOCKER = docker run -it --rm
+COFFEE = $(DOCKER) -v `pwd`:/pwd -w /pwd shouldbee/coffeescript coffee
+JEKYLL = $(DOCKER) -v `pwd`:/srv/jekyll jekyll/jekyll:builder jekyll
+JEKYLLS = $(DOCKER) -v `pwd`:/srv/jekyll -p 4000:4000 -p 80:80 jekyll/jekyll:pages jekyll
 MIRAGE = mirage
 
 BIBS = $(wildcard ~/me/publications/rmm-*.bib)
@@ -50,10 +53,10 @@ $(PAPERS): $(BIBS)
 	  >| $(PAPERS)
 
 site: jss papers
-	jekyll build --trace $(FLAGS)
+	$(JEKYLL) build --trace $(FLAGS)
 
 test: site
-	jekyll serve --trace --watch --skip-initial-build $(FLAGS)
+	$(JEKYLLS) serve --trace --watch --skip-initial-build $(FLAGS)
 
 ## mirage
 
