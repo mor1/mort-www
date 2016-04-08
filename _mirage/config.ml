@@ -119,6 +119,7 @@ let main =
   foreign "Server.Main" (console @-> kv_ro @-> http @-> job)
 
 let () =
-  register image [
+  let tracing = None in 
+  register ?tracing ~libraries ~packages image [
     main $ default_console $ sitefs $ httpsvr
   ]
