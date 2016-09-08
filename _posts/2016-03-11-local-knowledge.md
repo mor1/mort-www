@@ -94,12 +94,12 @@ include:
   beer, no food in the evenings, and prices that make me think I'm 15 years
   younger...
 + [The Victoria Hotel, Beeston](http://www.victoriabeeston.co.uk/). Consistently
-  excellent pub, Excellent beer, very good food.
+  excellent pub. Excellent beer, very good food.
 + [The Crown Inn, Beeston](http://www.everards.co.uk/our-pubs/crown-inn-beeston/).
   Also consistently excellent beer, though no food in the evenings.
 + [The Wollaton Pub and Kitchen, Wollaton](http://www.molefacepubcompany.co.uk/the-wollaton-pub-and-kitchen.html).
-  Gastro-pub-ish. Generally good beer, often excellent food, occasionally
-  patchy).
+  Gastro-pub-ish. Generally good beer, often excellent but occasionally
+  patchy food.
 
 So there you go. Some opinions if relatively little knowledge. YMMV. Etc.
 
