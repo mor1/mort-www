@@ -32,7 +32,7 @@ COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
-FLAGS ?=
+JEKFLAGS ?=
 MIRFLAGS ?= --no-opam
 
 all: jss papers
@@ -57,17 +57,20 @@ $(PAPERS): $(BIBS) # create JSON data for papers
 	  >| $(PAPERS)
 
 site: jss papers
-	$(JEKYLL) build --trace  --incremental $(FLAGS)
+	$(JEKYLL) build --trace --incremental $(JEKFLAGS)
+	pwd
+	ls -la
+	ls -la ..
 
 test: jss papers
-	$(JEKYLL) serve -H 0.0.0.0 -P 80 --trace --watch --incremental $(FLAGS)
+	$(JEKYLL) serve -H 0.0.0.0 -P 80 --trace --watch --incremental $(JEKFLAGS)
 
 ## mirage
 
 CONFIG = _mirage/config.ml
 
 configure:
-	$(MIRAGE) configure --$(MODE) $(FLAGS) -f $(CONFIG)
+	$(MIRAGE) configure -t $(MODE) $(MIRFLAGS) -f $(CONFIG)
 
 configure.xen:
 	MODE=xen FLAGS="-vv --net direct" \
