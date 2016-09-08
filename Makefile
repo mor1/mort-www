@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2012--2015 Richard Mortier <mort@cantab.net>. All Rights
+# Copyright (c) 2012--2016 Richard Mortier <mort@cantab.net>. All Rights
 # Reserved.
 #
 # Permission to use, copy, modify, and distribute this software for any purpose
@@ -17,11 +17,15 @@
 
 .PHONY: all clean distclean site test papers configure build
 
-DOCKER = docker run -it --rm
-COFFEE = $(DOCKER) -v `pwd`:/pwd -w /pwd shouldbee/coffeescript coffee
-JEKYLL = $(DOCKER) -v `pwd`:/srv/jekyll jekyll/jekyll:pages jekyll
-JEKYLLS = $(DOCKER) -v `pwd`:/srv/jekyll -p 4000:4000 -p 80:80 jekyll/jekyll:pages jekyll
-MIRAGE = mirage
+help: # list targets
+	@egrep "^[^\w]+:" Makefile
+
+DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
+
+COFFEE = $(DOCKER) mor1/alpine-coffeescript
+JEKYLL = $(DOCKER) -p 80:80 mor1/alpine-jekyll
+PYTHON = $(DOCKER) mor1/alpine-python3
+MIRAGE = mirage # $(DOCKER) -v `pwd`:/src avsm/mirage mirage
 
 BIBS = $(wildcard ~/me/publications/rmm-*.bib)
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
@@ -33,52 +37,47 @@ MIRFLAGS ?= --no-opam
 
 all: jss papers
 
-clean:
+clean: # remove Mirage build outputs
 	$(RM) log
 	cd _mirage \
 	  && ( [ -r _mirage/Makefile ] && make clean ) || true \
 	  && $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
 
-distclean: | clean
+distclean: | clean # also remove built site and assets
 	$(RM) -r _site _coffee/*.js js/*.js $(PAPERS)
 
 jss: $(JSS)
-js/%.js: _coffee/%.coffee
+js/%.js: _coffee/%.coffee # create .js from .coffee
 	$(COFFEE) -c -o js $<
 
 papers: $(PAPERS) research/papers/authors.json
-$(PAPERS): $(BIBS)
-	~/src/python-scripts/bib2json.py \
-	    -s ~/me/publications/strings.bib ~/me/publications/rmm-[cjptwu]*.bib \
+$(PAPERS): $(BIBS) # create JSON data for papers
+	$(PYTHON) _papers/bib2json.py \
+	    -s _papers/strings.bib _papers/rmm-[cjptwu]*.bib \
 	  >| $(PAPERS)
 
 site: jss papers
-	$(JEKYLL) build --trace $(FLAGS)
+	$(JEKYLL) build --trace  --incremental $(FLAGS)
 
-test: site
-	$(JEKYLLS) serve --trace --watch --skip-initial-build $(FLAGS)
+test: jss papers
+	$(JEKYLL) serve -H 0.0.0.0 -P 80 --trace --watch --incremental $(FLAGS)
 
 ## mirage
 
-FS    ?= direct
-NET   ?= socket
-PORT  ?= 4000
+CONFIG = _mirage/config.ml
 
 configure:
-	FS=$(FS) NET=$(NET) PORT=$(PORT) ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
-		$(MIRAGE) configure _mirage/config.ml --$(MODE)
+	$(MIRAGE) configure --$(MODE) $(FLAGS) -f $(CONFIG)
 
 configure.xen:
-	MODE=xen ADDR=$(ADDR) MASK=$(MASK) GWS=$(GWS) \
-		$(MIRAGE) configure $(MIRFLAGS) _mirage/config.ml --$(MODE)
-
+	MODE=xen FLAGS="-vv --net direct" \
+	  $(MIRAGE) configure $$FLAGS -f $(CONFIG) --$$MODE
 configure.socket:
-	MODE=unix FS=direct NET=socket \
-		$(MIRAGE) configure $(MIRFLAGS) _mirage/config.ml --$(MODE)
-
+	MODE=unix FLAGS="-vv --net socket" \
+	  $(MIRAGE) configure $$FLAGS -f $(CONFIG) --$$MODE
 configure.direct:
-	MODE=unix FS=direct NET=direct DHCP=true \
-		$(MIRAGE) configure $(MIRFLAGS) _mirage/config.ml --$(MODE)
+	MODE=unix FLAGS="-vv --net direct" \
+	  $(MIRAGE) configure $$FLAGS -f $(CONFIG) --$$MODE
 
 build:
 	cd _mirage && make build

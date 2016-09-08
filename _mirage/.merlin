@@ -1,7 +1,4 @@
-PKG cohttp
-PKG cohttp.lwt
-PKG cow
-PKG cowabloga
-PKG cstruct
-PKG lwt
-PKG mirage
+PKG functoria mirage mirage-types logs mirage-logs lwt cohttp cstruct
+PKG astring magic-mime
+S .
+B ./_build/**
