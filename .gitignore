@@ -3,21 +3,28 @@
 .nfs*
 
 ## jekyll site pieces
+/.jekyll-metadata
 _site
 _ignore
 
 ## coffee droppings
 _coffee/*.js
 
+## hardlinks to generate papers
+/_papers/
+
+
 ## mirage droppings
 /_mirage/Makefile
 /_mirage/_build/
 /_mirage/main.ml
-/_mirage/mortio.xe
-/_mirage/mortio.xl
-/_mirage/mortio_libvirt.xml
 /_mirage/main.native
-/_mirage/mir-mortio
+/_mirage/key_gen.ml
+/_mirage/mir-mort.io
+/_mirage/mort.io.xe
+/_mirage/mort.io.xl.in
+/_mirage/mort.io.xl
+/_mirage/mort.io_libvirt.xml
 /_mirage/log
 /_mirage/static*.ml
 /_mirage/static*.mli
@@ -25,10 +32,3 @@ _coffee/*.js
 
 ## merlin/ocaml droppings
 *.cmt
-/.jekyll-metadata
-/_mirage/key_gen.ml
-/_mirage/mir-mort.io
-/_mirage/mort.io.xe
-/_mirage/mort.io.xl
-/_mirage/mort.io.xl.in
-/_mirage/mort.io_libvirt.xml
