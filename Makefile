@@ -33,7 +33,7 @@ JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
 JEKFLAGS ?=
-MIRFLAGS ?= --no-opam
+MIRFLAGS ?= # --no-opam
 
 all: jss papers
 
