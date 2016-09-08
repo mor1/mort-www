@@ -43,7 +43,7 @@ let port =
       ~doc:"Listening port."
       ~docv:"PORT" ~env:"PORT" ["port"]
   in
-  Key.(create "port" Arg.(opt int 8080 doc))
+  Key.(create "port" Arg.(opt int 80 doc))
 
 let fs_key = Key.(value @@ kv_ro ())
 let sitefs = generic_kv_ro ~key:fs_key "../_site"
