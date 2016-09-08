@@ -33,7 +33,7 @@ JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
 JEKFLAGS ?=
-MIRFLAGS ?= # --no-opam
+FLAGS ?= # --no-opam
 
 all: jss papers
 
@@ -70,7 +70,7 @@ test: jss papers
 CONFIG = _mirage/config.ml
 
 configure:
-	$(MIRAGE) configure -t $(MODE) $(MIRFLAGS) -f $(CONFIG)
+	$(MIRAGE) configure -f $(CONFIG) $(FLAGS) -t $(MODE)
 
 configure.xen:
 	MODE=xen FLAGS="-vv --net direct" \
