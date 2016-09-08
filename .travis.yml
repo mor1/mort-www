@@ -17,7 +17,7 @@ env:
   - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net socket"
   - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net direct"
   - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1 XENIMG="mort.io"
-    MIRDIR=_mirage FLAGS="-vv --net direct --dhcp false
+    MIRDIR=_mirage FLAGS="-vv --net direct --dhcp false --network 0
     --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
     UPDATE_GCC_BINUTILS=1
 
