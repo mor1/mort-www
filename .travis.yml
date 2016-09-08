@@ -19,6 +19,7 @@ env:
   - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1 XENIMG="mort.io"
     MIRDIR=_mirage FLAGS="-vv --net direct --dhcp false --network 0
     --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
+    PINS="mirage-net-xen:1.4.2"
     UPDATE_GCC_BINUTILS=1
 
   global:
