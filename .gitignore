@@ -26,3 +26,9 @@ _coffee/*.js
 ## merlin/ocaml droppings
 *.cmt
 /.jekyll-metadata
+/_mirage/key_gen.ml
+/_mirage/mir-mort.io
+/_mirage/mort.io.xe
+/_mirage/mort.io.xl
+/_mirage/mort.io.xl.in
+/_mirage/mort.io_libvirt.xml
