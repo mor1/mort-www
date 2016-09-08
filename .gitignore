@@ -25,3 +25,4 @@ _coffee/*.js
 
 ## merlin/ocaml droppings
 *.cmt
+/.jekyll-metadata
