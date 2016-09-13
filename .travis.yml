@@ -14,17 +14,17 @@ script:
 
 env:
   global:
-    - FORK_USER=mor1
   matrix:
-    - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net socket"
-    - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net direct"
-    - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1 XENIMG="mort.io"
-      MIRDIR=_mirage FLAGS="-vv --net direct --dhcp false --network 0
-      --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
-      PINS="mirage-net-xen:1.4.2"
-      UPDATE_GCC_BINUTILS=1
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net socket"
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net direct"
+  - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1 XENIMG="mort.io"
+    UPDATE_GCC_BINUTILS=1 MIRDIR=_mirage
+    PINS="mirage-net-xen:1.4.2"
+    FLAGS="-vv --net direct --dhcp false --network 0
+           --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
 
   global:
+  - FORK_USER=mor1
   - secure: aJr69EvXZrAoAxICpXc71SVobUb44A3BFwP+KPWCQUNyuQLn56jYeq6qjVmNwCyXGQj/67Crl5P0+XTGkUDk2jOZCuRBl3jq8oy9PbSCg4ptPBL5F/w1BZfcYAv2NvwuM2OOwdyLSdw9WXk2lOWmNAb+4tR2qkROYgcDCqF0a9Q=
   - secure: BMciH1rAKkv7OKEvM4Vqe+VYKZyYEViB/gYjqYwGfsIr/poeBLFXX6dRm8Uzn3APTm29ig67rlrRH9zzlVy0V08GiEzcY7JatlkC1RSbpH5Rp9MSfVu925QlcHyIUo6yLJDQDAnyr4NxW6OdeZfgp9uFCdN/xCsHLbT3IjBXBZg=
   - secure: ZeHUTIcBjFaKR/HAnpZPwmglrCfSTVlvLDs1zHkZSoyAXiOd9p71BMLNE+fqF/yewv2Ospljju/mGwQ3bjy6jrK9j/pJiljh5lBeSJoDd/1y4qov6AXqmxg6MranI1VgbbjyIv636wy7Fz0JJNnrY0blntLDN1vAFs3MlgwzSZ4=
