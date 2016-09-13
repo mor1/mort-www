@@ -13,14 +13,16 @@ script:
   - bash -ex .travis-mirage.sh
 
 env:
+  global:
+    - FORK_USER=mor1
   matrix:
-  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net socket"
-  - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net direct"
-  - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1 XENIMG="mort.io"
-    MIRDIR=_mirage FLAGS="-vv --net direct --dhcp false --network 0
-    --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
-    PINS="mirage-net-xen:1.4.2"
-    UPDATE_GCC_BINUTILS=1
+    - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net socket"
+    - OCAML_VERSION=4.02 MIRAGE_BACKEND=unix FLAGS="-vv --net direct"
+    - OCAML_VERSION=4.02 MIRAGE_BACKEND=xen  DEPLOY=1 XENIMG="mort.io"
+      MIRDIR=_mirage FLAGS="-vv --net direct --dhcp false --network 0
+      --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
+      PINS="mirage-net-xen:1.4.2"
+      UPDATE_GCC_BINUTILS=1
 
   global:
   - secure: aJr69EvXZrAoAxICpXc71SVobUb44A3BFwP+KPWCQUNyuQLn56jYeq6qjVmNwCyXGQj/67Crl5P0+XTGkUDk2jOZCuRBl3jq8oy9PbSCg4ptPBL5F/w1BZfcYAv2NvwuM2OOwdyLSdw9WXk2lOWmNAb+4tR2qkROYgcDCqF0a9Q=
