@@ -3,14 +3,15 @@ layout: menu
 title: me
 ---
 
-I'm Richard Mortier or, more commonly, **mort**. I'm a University Lecturer in
-[NetOS][], part of the [Systems Research Group][SRG] in the
-[Cambridge University][ucam] [Computer Laboratory][cucl]. Until Dec/2014 I was a
-lecturer with the [Horizon Digital Economy Research Institute][horizon] at the
-[University of Nottingham][nottingham] [School of Computer Science][cs]. I can
-be contacted by email (preferred) at [richard.mortier@cl.cam.ac.uk][email], or
-by phone on +44 (0)1223 334419. I am online at [Twitter][] and [Github][]. My
-Erdős number appears to be 3.
+I'm Richard Mortier or, more commonly, **mort**. I'm a University Lecturer
+in [NetOS][], part of the [Systems Research Group][SRG] in the [Cambridge
+University][ucam] [Computer Laboratory][cucl]. Until Dec/2014 I was a Horizon
+Transitional Fellow in Computer Science with
+the [Horizon Digital Economy Research Institute][horizon] at the [University of
+Nottingham][nottingham] [School of Computer Science][cs]. I can be contacted by
+email (preferred) at [richard.mortier@cl.cam.ac.uk][email], or by phone on +44
+(0)1223 334419. I am online at [Twitter][] and [Github][]. My Erdős number
+appears to be 3.
 
 [netos]: http://www.cl.cam.ac.uk/research/srg/netos/
 [srg]: http://www.cl.cam.ac.uk/research/srg/
@@ -57,9 +58,11 @@ debugging, to Internet routing protocols, to real-time media platform design and
 implementation. I have worked in a variety of roles, from high-level platform
 architect, to designer and implementer of complex networked systems, to website
 designer and builder. I have consulted and worked for a broad range of
-companies, including startups ([&mu;][vipadia], [S][camrivox], [M][cplane],
-[L][alertme]) and corporates ([M][sprint], [L][microsoft]) in both the US and
-UK.
+companies, including startups
+([&mu;][vipadia], [S][camrivox], [M][cplane], [L][alertme]) and corporates
+([M][sprint], [L][microsoft]) in both the US and UK. Following the acquisition
+of [Unikernel Systems](http://unikernel.com)
+by [Docker Inc.](https://docker.com), I currently contract with Docker Inc.
 
 I occasionally undertake consultancy and selected development work -- [contact
 me](mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20enquiry%5d) if
