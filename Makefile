@@ -15,15 +15,20 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: all clean distclean site test papers configure build
+.PHONY: clean distclean site test papers configure build
+
+PORT ?= 8080
 
 help: # list targets
-	@egrep "^[^\w]+:" Makefile
+	@egrep "^\S+:" Makefile \
+	  | grep -v "^.PHONY" \
+	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("%s\n--%s\n", $$1, $$2) }'
 
 DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
 
 COFFEE = $(DOCKER) mor1/alpine-coffeescript
-JEKYLL = $(DOCKER) -p 80:80 mor1/alpine-jekyll
+JEKYLL = $(DOCKER) mor1/jekyll
+JEKYLLS= $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
 PYTHON = $(DOCKER) mor1/alpine-python3
 MIRAGE = mirage # $(DOCKER) -v `pwd`:/src avsm/mirage mirage
 
@@ -32,38 +37,31 @@ COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
-JEKFLAGS ?=
 FLAGS ?= # --no-opam
 
-all: jss papers
-
-clean: # remove Mirage build outputs
+clean: # remove Mirage build outputs and built site
 	$(RM) log
-	cd _mirage \
-	  && ( [ -r _mirage/Makefile ] && make clean ) || true \
-	  && $(RM) log mir-mortio main.ml Makefile mortio* *.cmt static*.ml*
+	-cd _mirage && make clean
+	$(RM) -r _site
 
-distclean: | clean # also remove built site and assets
-	$(RM) -r _site _coffee/*.js js/*.js $(PAPERS)
+distclean: | clean # also remove built assets
+	$(RM) -r _coffee/*.js js/*.js $(PAPERS)
 
 jss: $(JSS)
 js/%.js: _coffee/%.coffee # create .js from .coffee
 	$(COFFEE) -c -o js $<
 
-papers: $(PAPERS) research/papers/authors.json
-$(PAPERS): $(BIBS) # create JSON data for papers
+papers: $(PAPERS) research/papers/authors.json # create JSON data for papers
+$(PAPERS): $(BIBS)
 	$(PYTHON) _papers/bib2json.py \
 	    -s _papers/strings.bib _papers/rmm-[cjptwu]*.bib \
 	  >| $(PAPERS)
 
 site: jss papers
-	$(JEKYLL) build --trace --incremental $(JEKFLAGS)
-	pwd
-	ls -la
-	ls -la ..
+	$(JEKYLL) build --trace --incremental
 
 test: jss papers
-	$(JEKYLL) serve -H 0.0.0.0 -P 80 --trace --watch --incremental $(JEKFLAGS)
+	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --incremental
 
 ## mirage
 
