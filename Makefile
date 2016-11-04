@@ -57,10 +57,10 @@ $(PAPERS): $(BIBS)
 	  >| $(PAPERS)
 
 site: jss papers
-	$(JEKYLL) build --trace --incremental
+	$(JEKYLL) build --trace
 
 test: jss papers
-	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --incremental
+	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch
 
 ## mirage
 
