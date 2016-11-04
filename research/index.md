@@ -70,14 +70,13 @@ Ph.D. students on a wide range of topics.
 
 + __Sultan Alanazi__ (2012, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Recommendation systems using rich personal data.
-+ __Anthony Brown__ (2010, Nottingham), co-supervised with
-  [Prof. Tom Rodden][tom]. Domesticating Home Networks.
 + __Liz Dowthwaite__ (2012, Nottingham), co-supervised with
   [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa]. Social networks and
   web comic artists.
-+ __Christina-Dialechti Emmanouil__ (2014, Nottingham), co-supervised with
-  [Prof. Derek McAuley][mac], [Dr Michael Brown][mike] and
-  [Prof. Lilian Edwards][lilian]. IT law and copyright.
++ __Christina-Dialechti Emmanouil__ (2014, Nottingham), co-supervised
+  with [Prof. Derek McAuley][mac], [Dr Michael Brown][mike]
+  and [Prof. Lilian Edwards][lilian]. Designing for the Commercial Exploitation
+  of Online Identity.
 + __Marjan Falahrastegar__ (2012, Queen Mary, University of London),
   co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].
   Online Web Tracking Ecosystem.
@@ -101,6 +100,8 @@ Ph.D. students on a wide range of topics.
 
 <div class="plain" media:type="text/omd" markdown="1">
 
++ __Anthony Brown__ (2010, Nottingham), co-supervised with
+  [Prof. Tom Rodden][tom]. Domesticating Home Networks.
 + __[Dr Ewa Luger][ewa]__ (University of Nottingham, 2009--2013), co-supervised
   with [Prof. Tom Rodden][tom]. "_Consent reconsidered: reframing consent for
   ubiquitous computing systems_"
