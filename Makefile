@@ -37,7 +37,6 @@ COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
-FLAGS ?= # --no-opam
 
 clean: # remove Mirage build outputs and built site
 	$(RM) log
@@ -65,20 +64,18 @@ test: jss papers
 
 ## mirage
 
+FLAGS ?= -vv --net socket -t unix
 CONFIG = _mirage/config.ml
 
 configure:
-	$(MIRAGE) configure -f $(CONFIG) $(FLAGS) -t $(MODE)
+	$(MIRAGE) configure -f $(CONFIG) $(FLAGS)
 
 configure.xen:
-	MODE=xen FLAGS="-vv --net direct" \
-	  $(MIRAGE) configure $$FLAGS -f $(CONFIG) --$$MODE
+	FLAGS="-vv --net direct" $(MIRAGE) configure $$FLAGS -f $(CONFIG) -t xen
 configure.socket:
-	MODE=unix FLAGS="-vv --net socket" \
-	  $(MIRAGE) configure $$FLAGS -f $(CONFIG) --$$MODE
+	FLAGS="-vv --net socket" $(MIRAGE) configure $$FLAGS -f $(CONFIG) -t unix
 configure.direct:
-	MODE=unix FLAGS="-vv --net direct" \
-	  $(MIRAGE) configure $$FLAGS -f $(CONFIG) --$$MODE
+	FLAGS="-vv --net direct" $(MIRAGE) configure $$FLAGS -f $(CONFIG) -t unix
 
 build:
 	cd _mirage && make build
