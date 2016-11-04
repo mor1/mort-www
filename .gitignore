@@ -9,10 +9,10 @@ _ignore
 
 ## coffee droppings
 _coffee/*.js
+js/papers.js
 
 ## hardlinks to generate papers
 /_papers/
-
 
 ## mirage droppings
 /_mirage/Makefile
