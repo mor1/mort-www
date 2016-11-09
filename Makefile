@@ -15,7 +15,7 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: clean distclean site test papers configure build
+.PHONY: clean distclean site test papers configure build $(AUTHORS)
 
 PORT ?= 8080
 
@@ -37,6 +37,7 @@ COFFEES = $(notdir $(wildcard _coffee/*.coffee))
 JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 
 PAPERS = research/papers/papers.json
+AUTHORS= research/papers/authors.json
 
 clean: # remove Mirage build outputs and built site
 	$(RM) log
@@ -50,7 +51,7 @@ jss: $(JSS)
 js/%.js: _coffee/%.coffee # create .js from .coffee
 	$(COFFEE) -c -o js $<
 
-papers: $(PAPERS) research/papers/authors.json # create JSON data for papers
+papers: $(PAPERS) $(AUTHORS) # create JSON data for papers
 $(PAPERS): $(BIBS)
 	$(PYTHON) _papers/bib2json.py \
 	    -s _papers/strings.bib _papers/rmm-[cjptwu]*.bib \
@@ -60,7 +61,7 @@ site: jss papers
 	$(JEKYLL) build --trace
 
 test: jss papers
-	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch
+	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --future --drafts
 
 ## mirage
 
