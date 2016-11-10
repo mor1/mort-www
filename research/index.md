@@ -1,7 +1,7 @@
 ---
 layout: menu
 title: research
-headings: [top, students, publications]
+headings: [top, projects, students, publications]
 jss: [/js/papers.js]
 ---
 
@@ -42,6 +42,34 @@ the usual sites including [Google Scholar][scholar],
 [acm-dl]: http://dl.acm.org/author_page.cfm?id=81313480954
 [microsoft]: http://academic.research.microsoft.com/Author/317246/richard-mortier
 [citeulike]: http://www.citeulike.org/search/all?q=author%3A%22richard+mortier%22+author%3A%22r+mortier%22
+
+<h2 data-magellan-destination="projects" id="projects">Projects</h2>
+
+I am actively involved in a number of current projects, including:
+
++ [Databox](http://databoxproject.uk/), building infrastructure to support us
+  all in managing our personal data.
++ [Contrive](http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/N028422/1),
+  supporting
+  the
+  [HAT](http://hubofallthings.com) [Living Labs](http://hubofallthings.com/hall/).
++ [Networks as a Service](http://www.naas-project.org/), exploring how to
+  provide application control over network resources, down to programmable
+  hardware.
+* [MirageOS](https://mirage.io/), developing the OCaml unikernel, Mirage.
+* [Artcodes](http://aestheticodes.com/), developing beautiful, machine-readable
+  codes.
+
+Completed past projects include:
+
++ [UCN](http://usercentricnetworking.eu/)
++ [Homework](http://homenetworks.ac.uk/)
++ [PAWS (Public Access WiFi Service](http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/K012703/1)
+
+More details of my past and present EPSRC funding portfolio can be found
+at
+[Grants of the Web](http://gow.epsrc.ac.uk/NGBOViewPerson.aspx?PersonId=-140023).
+
 
 <h2 data-magellan-destination="students" id="students">Students</h2>
 
