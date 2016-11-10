@@ -1,12 +1,46 @@
 ---
 layout: menu
 title: teaching
-headings: [top, links]
+headings: [top, projects, past, links]
 ---
 
-I do not presently have any teaching duties. While at the
-[University of Nottingham](http://www.nottingham.ac.uk/) I taught on the
-following modules:
+I am currently responsible for two courses at Cambridge: first year
+(IA) [Operating Systems][ia.os] (taken by both CST [50%][] and [75%][]
+candidates) and the [M.Phil in Advanced Computer Science][acs]
+and [Part III][partiii] course, [R01 Advanced Topics in Computer Systems][r01].
+The former is a standard lecture course, the latter is a reading-based course
+where students read, review and present assigned papers.
+
+[ia.os]: http://www.cl.cam.ac.uk/teaching/1617/OpSystems/
+[r01]: http://www.cl.cam.ac.uk/teaching/1617/R01/
+[acs]: http://www.cl.cam.ac.uk/teaching/1617/acs.html
+[partiii]: http://www.cl.cam.ac.uk/teaching/1617/part3.html
+[50%]: http://www.cl.cam.ac.uk/teaching/1617/part1a-50.html
+[75%]: http://www.cl.cam.ac.uk/teaching/1617/part1a-75.html
+
+<h2 data-magellan-destination="projects" id="projects">Projects</h2>
+
+I am always interested in supervising good final year and Masters projects that
+relate to my research. Of particular interest are projects that use [Mirage][],
+produce network trace processing tools or visualisations,  or relate
+to [Human-Data Interaction][hdi]. Please [contact me][mail] if you have ideas or
+proposals related to these topics.
+
+Among the past projects I have supervised are:
+
+### 2015/16
+
++ Rupert Horlick. _Encrypted Keyword Search Using Path ORAM on MirageOS_.
++ Daniel Karaj. _Unikernels for Bus Data Serving_.
++ Alex Rakowski. _TCP Stack Spoofing with MirageOS_.
++ Sean Saville, _Simulating Scheduling Algorithms_.
++ Gabriela Sklencarova. _Functional Network Stacks with MirageOS and Irmin_.
++ Daniel Spencer. _Secure Auditable Logging with Dog_.
+
+<h2 data-magellan-destination="past" id="past">Past</h2>
+
+While at the [University of Nottingham](http://www.nottingham.ac.uk/) I taught
+on the following modules:
 
 + [G52GRP][] Software Engineering Group Projects
 + [G53ID*][] Undergraduate Final Year Projects
@@ -22,15 +56,18 @@ following modules:
 [g54acc]: http://moodle.nottingham.ac.uk/course/view.php?id=14433
 [G54GRP]: http://moodle.nottingham.ac.uk/course/view.php?id=14445
 
-I am always interested in supervising good final year and Masters projects that relate to my research. Of particular interest are projects that use [Mirage][], produce network trace processing tools or visualisations,  or relate to [Human-Data Interaction][hdi]. Please [contact me][mail] if you have ideas or proposals related to these topics.
-
 [mirage]: http://openmirage.org/
 [hdi]: http://hdiresearch.org/
 [mail]: mailto:richard.mortier@cl.cam.ac.uk
 
 <h2 data-magellan-destination="links" id="links">Links</h2>
 
-Finally, a collection of links to material that I have found interesting, useful or amusing, related (however tangentially) to Computer Science. Please note that these take you away from my pages and so __I am not responsible for their content__.
+Finally, a collection of links to material that I have found interesting, useful
+or amusing, related (however tangentially) to Computer Science. Please note that
+these take you away from my pages and so __I am not responsible for their
+content__. If you happen to spot that any are broken, please
+do
+[let me know](mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20broken%20link%5d).
 
 <dl class="tabs" data-tab="">
   <dd class="active"><a href="#links-misc">misc</a></dd>
