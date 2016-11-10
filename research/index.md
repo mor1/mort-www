@@ -87,12 +87,6 @@ Ph.D. students on a wide range of topics.
   <http://cubiewave.wordpress.com/>
 + __Dominic Price__ (2013, Nottingham), co-supervised with
   [Prof. Chris Greenhalgh][chris]. User-focused social network platforms.
-+ __Jianhua Shao__ (2010, Nottingham), co-supervised with
-  [Dr George Kuk][george]. Strategic Signals in the App Economy An Empirical
-  Study of Google Play Store.
-+ __Robert Spencer__ (2011, Nottingham), co-supervised with
-  [Prof. Tom Rodden][tom]. History and reconciliation in domestic network
-  configuration.
 
 </div>
 
@@ -100,8 +94,14 @@ Ph.D. students on a wide range of topics.
 
 <div class="plain" media:type="text/omd" markdown="1">
 
-+ __Anthony Brown__ (2010, Nottingham), co-supervised with
-  [Prof. Tom Rodden][tom]. Domesticating Home Networks.
++ __[Dr Robert Spencer][robert]__ (University of Nottingham, 2011--2016),
+  co-supervised with [Prof. Tom Rodden][tom]. "_Understanding Configuration
+  History of Domestic Networks_"
++ __[Dr Anthony Brown][tosh]__ (University of Nottingham, 2010--2015),
+  co-supervised with [Prof. Tom Rodden][tom]. "_Domesticating Home Networks_"
++ __[Dr Jianhua Shao][jianhua]__ (University of Nottingham, 2010--2015),
+  co-supervised with [Dr George Kuk][george]. "_Strategic Signals in the App
+  Economy -- An Empirical Study of Google Play Store_"
 + __[Dr Ewa Luger][ewa]__ (University of Nottingham, 2009--2013), co-supervised
   with [Prof. Tom Rodden][tom]. "_Consent reconsidered: reframing consent for
   ubiquitous computing systems_"
@@ -125,8 +125,9 @@ Ph.D. students on a wide range of topics.
 [lilian]: http://www.strath.ac.uk/humanities/courses/law/staff/edwardslilianprof/
 [andrew]: http://www.cl.cam.ac.uk/~awm22/
 [miguel]: https://www.ee.ucl.ac.uk/~mrio/
-
-<!-- ### Masters & Undergraduate Projects -->
+[robert]: https://github.com/rjspencer1989
+[tosh]: https://github.com/ToshBrown
+[jianhua]: https://about.me/jianhuashao
 
 <h2 data-magellan-destination="publications" id="publications">Publications</h2>
 
