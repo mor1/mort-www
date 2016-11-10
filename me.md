@@ -64,7 +64,7 @@ companies, including startups
 of [Unikernel Systems](http://unikernel.com)
 by [Docker Inc.](https://docker.com), I currently contract with Docker Inc.
 
-I occasionally undertake consultancy and selected development work -- [contact
+I do occasionally undertake other consultancy and development work -- [contact
 me](mailto:richard.mortier@cl.cam.ac.uk?subject=%5BWebsite%20enquiry%5d) if
 desired.
 
@@ -77,15 +77,18 @@ desired.
 
 ## Background
 
-In 2001 I completed my Ph.D., "[Internet Traffic Engineering][phd]" with the
-[Systems Research Group][srg] at the [University of Cambridge][ucam] [Computer
-Laboratory][cucl]. Since then I have worked as a researcher with the [IP
-Group][ipgroup], [Sprint ATL][atl]; the [Systems &amp; Networking
-Group][camsys], [Microsoft Research Cambridge][msrc]; and most recently I was
-founder at [Vipadia Limited][vipadia] (technology acquired by [Voxeo
-Corp][voxeo]).
+In 2001 I completed my Ph.D., "[Internet Traffic Engineering][phd]" with
+the [Systems Research Group][srg] at the [University of
+Cambridge][ucam] [Computer Laboratory][cucl]. Since then I have worked as a
+researcher with the [IP Group][ipgroup], [Sprint ATL][atl];
+the
+[Systems &amp; Networking Group][camsys], [Microsoft Research Cambridge][msrc];
+and most recently I was founder at [Vipadia Limited][vipadia] (technology
+acquired by [Voxeo Corp][voxeo]).
 
-Outside work I practice [Wudang Tai Chi Chuan][wudang], and taught for the [Cambridge University Tai Chi Chuan Society][cutccs] for several years. I am also a keen, if woefully out-of-practice, classical guitarist.
+Outside work I practice [Wudang Tai Chi Chuan][wudang], and taught for
+the [Cambridge University Tai Chi Chuan Society][cutccs] for several years. I am
+also a keen, if woefully out-of-practice, classical guitarist.
 
 [phd]: http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-532.pdf
 [srg]: http://www.cl.cam.ac.uk/research/srg/
