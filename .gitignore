@@ -6,6 +6,7 @@
 /.jekyll-metadata
 _site
 _ignore
+_drafts
 
 ## coffee droppings
 _coffee/*.js
