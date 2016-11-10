@@ -1,6 +1,6 @@
 ---
 title: Evolving the Unikernel Revolution!
-subtitle: Revolution to evolution
+subtitle: From revolution to evolution
 layout: post
 category: blog
 ---
@@ -32,7 +32,15 @@ the [Devox Belgium][devoxx] conference. [Devoxx][] is primarily a Java community
 so I was interested to see how the talk would go down given that [MirageOS][] is
 staunchly OCaml-centric, and the [unikernels][] movement in general is language
 specific and (at least until now) somewhat weighted toward functional
-programming, our good friends at [IncludeOS][] notwithstanding.
+programming, our good friends at [IncludeOS][] notwithstanding. In the end it
+seemed to go pretty well, based on what little I could see through the bright
+lights-- maybe one day I'll get used to that when being videoed! Certainly some
+good questions again, on the specific utility of unikernels to IoT, the
+relationship between unikernels and Docker, and more besides.
 
 [devoxx]: https://devoxx.be/
 [includeos]: https://includeos.org/
+
+Anyway, I hope anyone who came to either talk enjoyed it and found it
+interesting. Happy to respond to comments or questions via email or
+on [Twitter](https://twitter.com/mort___)!
