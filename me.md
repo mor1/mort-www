@@ -18,7 +18,7 @@ appears to be 3.
 [horizon]: http://www.horizon.ac.uk/
 [nottingham]: http://www.nottingham.ac.uk/
 [cs]: http://www.cs.nott.ac.uk/
-[email]: mailto:richard.mortier@nottingham.ac.uk
+[email]: mailto:richard.mortier@cl.cam.ac.uk
 [twitter]: http://twitter.com/mort___
 [github]: http://github.com/mor1
 

@@ -1,12 +1,31 @@
 ---
 title: Zen and the Art of Research Management
+subtitle: with apologies to Sun Tzu
 layout: post
 ---
 
-# Zen and the Art of Research Management <small>(with apologies to Sun Tzu)</small>
+I think this is a bit of a classic, the first written form of which I came
+across
+in
+[Prof. Roger Needham](http://www.cl.cam.ac.uk/~rmn/)'s [50+5 Festschrift][50+5]
+celebrating his time at
+the [Cambridge University Computer Lab](http://www.cl.cam.ac.uk/)
+and [Microsoft Research Cambridge][msrc]. I don't know who originated it, but
+the copy there is certainly due to [John Naughton][jjn]
+and [Bob Taylor][taylor]. I suppose one might quibble point 12, in that I seem
+to recall Roger did a lot of pacing about, but a good chair is certainly a
+worthwhile thing to provide.
 
-__John Naughton, Open University, Milton Keynes, England  
-Robert W. Taylor, Woodside, California, USA__
+Anyway, I find myself wanting to point at it from time-to-time, so here it is!
+
+
+By [John Naughton][jjn] (_Open University, Milton Keynes, England_),
+and [Robert W. Taylor][taylor] (_Woodside, California, USA_).
+
+[jjn]: http://
+[taylor]: http://
+[msrc]: http://
+[50+5]: http://
 
  1. HIRE ONLY THE VERY BEST PEOPLE, EVEN IF THEY ARE CUSSED. Perhaps especially
     if they are cussed. Your guiding principle should be to employ people who
