@@ -5,11 +5,8 @@ layout: post
 ---
 
 I think this is a bit of a classic, the first written form of which I came
-across
-in
-[Prof. Roger Needham](http://www.cl.cam.ac.uk/~rmn/)'s [50+5 Festschrift][50+5]
-celebrating his time at
-the [Cambridge University Computer Lab](http://www.cl.cam.ac.uk/)
+across in [Prof. Roger Needham][rmn]'s [50+5 Festschrift][50+5] celebrating his
+time at the [Cambridge University Computer Lab](http://www.cl.cam.ac.uk/)
 and [Microsoft Research Cambridge][msrc]. I don't know who originated it, but
 the copy there is certainly due to [John Naughton][jjn]
 and [Bob Taylor][taylor]. I suppose one might quibble point 12, in that I seem
@@ -22,10 +19,11 @@ Anyway, I find myself wanting to point at it from time-to-time, so here it is!
 By [John Naughton][jjn] (_Open University, Milton Keynes, England_),
 and [Robert W. Taylor][taylor] (_Woodside, California, USA_).
 
-[jjn]: http://
-[taylor]: http://
-[msrc]: http://
-[50+5]: http://
+[rmn]: http://www.cl.cam.ac.uk/misc/obituaries/needham/
+[jjn]: http://memex.naughtons.org/
+[taylor]: https://en.wikipedia.org/wiki/Robert_Taylor_(computer_scientist)
+[msrc]: https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/
+[50+5]: http://research.microsoft.com/en-us/um/cambridge/events/needhambook/
 
  1. HIRE ONLY THE VERY BEST PEOPLE, EVEN IF THEY ARE CUSSED. Perhaps especially
     if they are cussed. Your guiding principle should be to employ people who
