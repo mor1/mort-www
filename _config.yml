@@ -14,23 +14,34 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-## jekyll configuration
-safe: true
-exclude: [Makefile, README.md, _coffee, _mirage]
-
-future: false
-
-markdown: kramdown
-highlighter: rouge
+## jekyll configuration, enforced
 lsi: false
+safe: true
+source: .
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
 
-permalink: pretty
-
+## jekyll configuration, can be overridden
+github: [metadata]
 kramdown:
   input: GFM
   hard_wrap: false
+gems:
+  - jekyll-coffeescript
+  - jekyll-paginate
 
-## site configuration
+## my configuration
+exclude: [Makefile, README.md, _coffee, _mirage]
+permalink: pretty
+
+## fix fenced syntax highlighting for mirage build at least
+kramdown:
+  syntax_highlighter: coderay
+
 domain: mort.io
 title: mort's mythopoeia ##'
 author: Richard Mortier
@@ -39,7 +50,6 @@ analytics_id: UA-15796259-1
 gems:
 - jekyll-sitemap
 
-## sidebar navigation menu
 navigation:
 - text: home
   url: /
