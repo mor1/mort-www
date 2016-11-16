@@ -1,6 +1,6 @@
 ---
 title: Zen and the Art of Research Management
-subtitle: with apologies to Sun Tzu
+subtitle: With apologies to Sun Tzu
 layout: post
 ---
 
