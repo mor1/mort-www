@@ -55,7 +55,7 @@ card.
 
 ## Using the Image
 
-The end result shoudl be an SD card that you can use to boot your device into
+The end result should be an SD card that you can use to boot your device into
 [Alpine Linux v3.4][alpine]. At present, completing installation requires then:
 
   * [resetting the environment](https://github.com/mirage/xen-arm-builder#first-boot--re-initialisation),
