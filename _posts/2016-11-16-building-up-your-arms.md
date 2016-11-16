@@ -13,7 +13,7 @@ Networking][ucn][^1] I recently had cause to revisit the excellent work that
 The resulting repo, [mirage/xen-arm-builder][xab], had languished for several
 months and the past SD card images had some problems and had been allowed to
 drop off the 'Net as a result. However, sterling work by [Ian Campbell][ijc] at
-a recent Mirage [hackathon][] had started to resurrect this work based of
+a recent Mirage [hackathon][] had started to resurrect this work based on
 the [Alpine Linux][alpine] distribution. This seemed a promising place to start,
 so I did :)
 
@@ -33,12 +33,12 @@ is hopefully reasonably self-explanatory but in summary,
 
 2. Use the `make` targets:
 
-{% highlight bash %}
-make all       # runs `make prepare build image`
-# make prepare # clones repos, pulls tarballs
-# make build   # use Docker to build the `linux/` and `u-boot/` trees
-# make image   # finally, create the on-disk `sdcard.img`
-{% endhighlight %}
+   ```bash
+   make all       # runs `make prepare build image`
+   # make prepare # clones repos, pulls tarballs
+   # make build   # use Docker to build the `linux/` and `u-boot/` trees
+   # make image   # finally, create the on-disk `sdcard.img`
+   ```
 
 This clones the necessary repos (Linux, u-boot), builds them, and then puts
 together the image file `sdcard.img` in the current directory. If on OSX, `make
@@ -46,9 +46,9 @@ sdcard` will then attempt to write that to a blank, mounted SD card. This does a
 rather hacky auto-discovery of where the SD card might be mounted; if in doubt,
 and in any case, always safer to simply
 
-{% highlight bash %}
+```bash
 MNT=the-correct-mount-point make sdcard
-{% endhighlight %}
+```
 
 ...or simply use your favourite tools to write the `sdcard.img` file to your SD
 card.
