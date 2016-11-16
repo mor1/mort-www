@@ -41,6 +41,11 @@ section.tab-bar-section {
     z-index: 49;
 }
 
+p {
+    margin-bottom: 0;
+    margin-top: 1.25rem;
+}
+
 pre>code {
     font-size: 0.65rem;
     font-weight: normal;
@@ -50,6 +55,7 @@ pre>code {
 ul.side-nav li.active>a:first-child {
     font-weight: bold;
 }
+
 /*
 ul.side-nav li.active>a:first-child:before {
     content: ">> ";
