@@ -26,10 +26,10 @@ is hopefully reasonably self-explanatory but in summary,
 
 1. Clone the repo:
 
-   ~~~ bash
+   ```bash
    git clone https://github.com/mor1/arm-image-builder.git
    cd arm-image-builder
-   ~~~
+   ```
 
 2. Use the `make` targets:
 
