@@ -1,14 +1,14 @@
 [![Build Status](https://travis-ci.org/mor1/mor1.github.io.png?branch=master)](https://travis-ci.org/mor1/mor1.github.io)
 
-`_papers` contains hardlinks to handle docker invocation of python
-
 # Mort's Web Pages
 
 Built as a [Mirage][] appliance, and deployed to <http://mort.io/>.
 
 I now use [Docker](https://docker.com/) containers to avoid the need to install
 dependencies: [Coffeescript][], [Jekyll][], [Python][]. OPAM and Mirage
-currently still need to be installed on the host however.
+currently still need to be installed on the host however. As a simple hack to
+deal with access to my `.bib` files which are elsewhere on the host, I've
+hardlinked them under `_papers`.
 
 ## Targets
 
