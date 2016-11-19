@@ -1,110 +1,55 @@
 [![Build Status](https://travis-ci.org/mor1/mor1.github.io.png?branch=master)](https://travis-ci.org/mor1/mor1.github.io)
 
-** All of what follows is woefully out-of-date. I'm in the process of updating
-   it. Watch this space, or in the meantime, head to the deployed pages at
-   <http://mort.io>. **
+`_papers` contains hardlinks to handle docker invocation of python
 
 # Mort's Web Pages
 
-Built as a [Mirage][] appliance.
+Built as a [Mirage][] appliance, and deployed to <http://mort.io/>.
 
-[mirage]: http://openmirage.org/
-
-## Dependencies
-
-    $ sudo apt-get install coffeescript
-
-    $ cd mirage && opam pin mirage .
-    $ cd ocaml-fat && opam pin fat-filesystem .
-    $ opam install mirage fat-filesystem
-
+I now use [Docker](https://docker.com/) containers to avoid the need to install
+dependencies: [Coffeescript][], [Jekyll][], [Python][]. OPAM and Mirage
+currently still need to be installed on the host however.
 
 ## Targets
 
-Invoke Jekyll to build the static site:
+`make site` will invoke the [Jekyll][] container to build the site to `_site`.
 
-    $ make site
+`make test` will invoke the [Jekyll][] container to run the site locally for
+testing.
 
-Invoke [Mirage][] to configure using local stacks during development:
+`make configure` will invoke [Mirage][] to configure the unikernel, defaulting
+to building for UNIX using the Sockets API. Alternatives include:
 
-    $ make configure
++ `configure.xen`, build for Xen
++ `configure.socket`, UNIX/Sockets
++ `configure.direct`, UNIX/Mirage network stack
 
-Alternatively, invoke [Mirage][] to configure for UNIX using Mirage stacks:
+Then `make build` to build the unikernel.
 
-    $ FS=crunch NET=direct make configure
+[jekyll]: http://jekyllrb.com/
+[coffeescript]: http://coffeescript.org/
+[mirage]: https://mirage.io/
+[python]: http://python.org/
 
-Finally, invoke [Mirage][] to configure to build for Xen:
+## Deployment Setup
 
-    $ MODE=xen make configure
+Use Travis to build the unikernel and push it back to
+a [deployment repo](https://github.com/mor1/mor1.githu.io-deployment/):
 
-In all cases, having configured the unikernel, build it:
-
-    $ make build
-
-And finally, run it (unless on Xen):
-
-    $ sudo ./_mirage/mir-mortio
-
-
-# Notes
-
+```
 gem install travis
 opam install travis-senv
 [[ run travis to stop it whining about installing cli completion or not ]]
-generate passwordless keypair
-
 ssh-keygen -b 4096 -f ~/.ssh/mor1-www-key
-
 travis-senv encrypt ~/.ssh/mor1-www-key travis-ssh-envs
-
 cat travis-ssh-envs | travis encrypt -ps --add
+```
 
-## VirtualBox Development Environment
+Then take the result and past it into the `_travis.yml`
+per
+[this site](https://github.com/mor1/mor1.github.io/blob/master/.travis.yml#L28-L40).
 
-manual:
-
-vbox -- create linux 64bit vm -- attach netboot iso (debian 7.4.0) -- boot --
-install
-
-homebrew/vagrant:
-
-use-rvm
-
-gem install veewee
-
-git clone ...vagrant-vms && cd vagrant-vms
-mv ~/Desktop/debian-7.4.0-amd64-netinst.iso ./iso
-
-veewee vbox build 'debian-7.4.0-xen'
-veewee vbox export 'debian-7.4.0-xen'
-
-mv *.box boxes
-
-vagrant box add debian-7.4.0 boxes/debian-7.4.0.box
-vagrant box add 'debian-7.4.0-xen'
-'/Users/mort/research/projects/mirage/src/vagrant-vms/boxes/debian-7.4.0-xen.box'
-
-
-vagrant init 'debian-7.4.0-xen'
-vagrant up
-vagrant ssh
-
-
-sudo apt-get install -y build-essential m4 ocaml ocaml-native-compilers git
-camlp4-extra aspcud
-
-
-wget
-https://github.com/ocaml/opam/releases/download/1.1.1/opam-full-1.1.1.tar.gz
-tar xzvf opam-full-1.1.1.tar.gz
-
-cd opam-full-1.1.1 && ./configure && make && make install
-
-opam init
-opam switch 4.01.0
-
-
-## TODO
+# TODO
 
 + return pages with headers permitting caching
 + add hcard/vcard markup per <http://indiewebcamp.com/Getting_Started>
