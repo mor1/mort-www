@@ -36,6 +36,7 @@ gems:
 
 ## my configuration
 exclude: [Makefile, README.md, _coffee, _mirage]
+include: [.well-known]
 permalink: pretty
 
 ## fix fenced syntax highlighting for mirage build at least
