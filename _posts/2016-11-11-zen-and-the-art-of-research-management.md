@@ -2,6 +2,7 @@
 title: Zen and the Art of Research Management
 subtitle: With apologies to Sun Tzu
 layout: post
+category: blog
 ---
 
 I think this is a bit of a classic, the first written form of which I came
