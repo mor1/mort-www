@@ -126,16 +126,17 @@ Ph.D. students on a wide range of topics.
   co-supervised with [Prof. Tom Rodden][tom]. "_Understanding Configuration
   History of Domestic Networks_"
 + __[Dr Anthony Brown][tosh]__ (University of Nottingham, 2010--2015),
-  co-supervised with [Prof. Tom Rodden][tom]. "_Domesticating Home Networks_"
+  co-supervised with [Prof. Tom Rodden][tom].
+  "_[Domesticating Home Networks][tosh-phd]_"
 + __[Dr Jianhua Shao][jianhua]__ (University of Nottingham, 2010--2015),
-  co-supervised with [Dr George Kuk][george]. "_Strategic Signals in the App
-  Economy -- An Empirical Study of Google Play Store_"
+  co-supervised with [Dr George Kuk][george]. "_[Strategic Signals in the App
+  Economy -- An Empirical Study of Google Play Store][jianhua-phd]_"
 + __[Dr Ewa Luger][ewa]__ (University of Nottingham, 2009--2013), co-supervised
   with [Prof. Tom Rodden][tom]. "_Consent reconsidered: reframing consent for
   ubiquitous computing systems_"
 + __[Dr Hamed Haddadi][hamed]__ (University College London, 2004--2008),
   co-supervised with [Dr Andrew W. Moore][andrew] and [Dr Miguel Rio][miguel].
-  "_Topological Characteristics of IP Networks_"
+  "_[Topological Characteristics of IP Networks][hamed-phd]_"
 
 </div>
 
@@ -143,7 +144,9 @@ Ph.D. students on a wide range of topics.
 [mike]: http://www.nottingham.ac.uk/engineering/people/michael.brown
 [james]: http://nottingham.ac.uk/horizon/people/James.Pinchin
 [ewa]: https://ewaluger.wordpress.com/home/
+
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
+[hamed-phd]: http://discovery.ucl.ac.uk/14222/
 [uhlig]: http://www.eecs.qmul.ac.uk/~steve/
 [george]: http://www.nottingham.ac.uk/business/LIZGK.html
 [rob]: http://www.nottingham.ac.uk/engineering/people/robert.houghton
@@ -155,7 +158,9 @@ Ph.D. students on a wide range of topics.
 [miguel]: https://www.ee.ucl.ac.uk/~mrio/
 [robert]: https://github.com/rjspencer1989
 [tosh]: https://github.com/ToshBrown
+[tosh-phd]: http://eprints.nottingham.ac.uk/34145/1/thesis.pdf
 [jianhua]: https://about.me/jianhuashao
+[jianhua-phd]: http://eprints.nottingham.ac.uk/32742/
 
 <h2 data-magellan-destination="publications" id="publications">Publications</h2>
 
