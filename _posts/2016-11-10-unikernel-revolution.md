@@ -39,7 +39,7 @@ good questions again, on the specific utility of unikernels to IoT, the
 relationship between unikernels and Docker, and more besides.
 
 [devoxx]: https://devoxx.be/
-[includeos]: https://includeos.org/
+[includeos]: http://www.includeos.org/
 
 Anyway, I hope anyone who came to either talk enjoyed it and found it
 interesting. Happy to respond to comments or questions via email or
