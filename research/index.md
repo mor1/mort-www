@@ -105,9 +105,6 @@ Ph.D. students on a wide range of topics.
   with [Prof. Derek McAuley][mac], [Dr Michael Brown][mike]
   and [Prof. Lilian Edwards][lilian]. Designing for the Commercial Exploitation
   of Online Identity.
-+ __Marjan Falahrastegar__ (2012, Queen Mary, University of London),
-  co-supervised with [Prof. Steve Uhlig][uhlig] and [Dr Hamed Haddadi][hamed].
-  Online Web Tracking Ecosystem.
 + __Luis Carlos Oviedo Garcia__ (2014, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Application-Controllable Load-Balancing.
 + __Steven Luland__ (2013, Nottingham), co-supervised with
@@ -122,6 +119,9 @@ Ph.D. students on a wide range of topics.
 
 <div class="plain" media:type="text/omd" markdown="1">
 
++ __[Marjan Falahrastegar][marjan]__ (Queen Mary, University of London,
+  2012--2016), co-supervised with [Prof. Steve Uhlig][uhlig]
+  and [Dr Hamed Haddadi][hamed]. "_Online Web Tracking Ecosystem_".
 + __[Dr Robert Spencer][robert]__ (University of Nottingham, 2011--2016),
   co-supervised with [Prof. Tom Rodden][tom]. "_Understanding Configuration
   History of Domestic Networks_"
@@ -129,8 +129,8 @@ Ph.D. students on a wide range of topics.
   co-supervised with [Prof. Tom Rodden][tom].
   "_[Domesticating Home Networks][tosh-phd]_"
 + __[Dr Jianhua Shao][jianhua]__ (University of Nottingham, 2010--2015),
-  co-supervised with [Dr George Kuk][george]. "_[Strategic Signals in the App
-  Economy -- An Empirical Study of Google Play Store][jianhua-phd]_"
+  co-supervised with [Dr George Kuk][george].
+  "_[Strategic Signals in the App Economy -- An Empirical Study of Google Play Store][jianhua-phd]_"
 + __[Dr Ewa Luger][ewa]__ (University of Nottingham, 2009--2013), co-supervised
   with [Prof. Tom Rodden][tom]. "_Consent reconsidered: reframing consent for
   ubiquitous computing systems_"
@@ -161,6 +161,7 @@ Ph.D. students on a wide range of topics.
 [tosh-phd]: http://eprints.nottingham.ac.uk/34145/1/thesis.pdf
 [jianhua]: https://about.me/jianhuashao
 [jianhua-phd]: http://eprints.nottingham.ac.uk/32742/
+[marjan]: http://www.eecs.qmul.ac.uk/~marjan/
 
 <h2 data-magellan-destination="publications" id="publications">Publications</h2>
 
