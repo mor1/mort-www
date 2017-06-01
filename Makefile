@@ -29,7 +29,7 @@ DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
 COFFEE = $(DOCKER) mor1/alpine-coffeescript
 JEKYLL = $(DOCKER) mor1/jekyll
 JEKYLLS= $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
-PYTHON = $(DOCKER) mor1/alpine-python3
+PYTHON = $(DOCKER) mor1/python3
 MIRAGE = mirage # $(DOCKER) -v `pwd`:/src avsm/mirage mirage
 
 BIBS = $(wildcard ~/me/publications/rmm-*.bib)
