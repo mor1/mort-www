@@ -15,22 +15,21 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: clean distclean site test papers configure build $(AUTHORS)
+.PHONY: clean distclean papers site test drafts $(JSS) $(AUTHORS)
 
 PORT ?= 8080
 
 help: # list targets
 	@egrep "^\S+:" Makefile \
 	  | grep -v "^.PHONY" \
-	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("%s\n--%s\n", $$1, $$2) }'
+	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
 
 DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
 
-COFFEE = $(DOCKER) mor1/alpine-coffeescript
+COFFEE = $(DOCKER) mor1/coffeescript
 JEKYLL = $(DOCKER) mor1/jekyll
 JEKYLLS= $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
 PYTHON = $(DOCKER) mor1/python3
-MIRAGE = mirage # $(DOCKER) -v `pwd`:/src avsm/mirage mirage
 
 BIBS = $(wildcard ~/me/publications/rmm-*.bib)
 COFFEES = $(notdir $(wildcard _coffee/*.coffee))
@@ -39,44 +38,27 @@ JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 PAPERS = research/papers/papers.json
 AUTHORS= research/papers/authors.json
 
-clean: # remove Mirage build outputs and built site
-	$(RM) log
-	-cd _mirage && make clean
+clean: # remove built site
 	$(RM) -r _site
 
 distclean: | clean # also remove built assets
 	$(RM) -r _coffee/*.js js/*.js $(PAPERS)
 
-jss: $(JSS)
+jss: $(JSS) # build all .js files
 js/%.js: _coffee/%.coffee # create .js from .coffee
 	$(COFFEE) -c -o js $<
 
 papers: $(PAPERS) $(AUTHORS) # create JSON data for papers
-$(PAPERS): $(BIBS)
+$(PAPERS): $(BIBS) # build `papers.json`
 	$(PYTHON) _papers/bib2json.py \
 	    -s _papers/strings.bib _papers/rmm-[cjptwu]*.bib \
 	  >| $(PAPERS)
 
-site: jss papers
+site: jss papers # build site
 	$(JEKYLL) build --trace
 
-test: jss papers
+test: jss papers # serve site for testing
+	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --future
+
+drafts: jss papers # serve site, including draft posts
 	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --future --drafts
-
-## mirage
-
-FLAGS ?= -vv --net socket -t unix
-CONFIG = _mirage/config.ml
-
-configure:
-	$(MIRAGE) configure -f $(CONFIG) $(FLAGS)
-
-configure.xen:
-	FLAGS="-vv --net direct" $(MIRAGE) configure $$FLAGS -f $(CONFIG) -t xen
-configure.socket:
-	FLAGS="-vv --net socket" $(MIRAGE) configure $$FLAGS -f $(CONFIG) -t unix
-configure.direct:
-	FLAGS="-vv --net direct" $(MIRAGE) configure $$FLAGS -f $(CONFIG) -t unix
-
-build:
-	cd _mirage && make build
