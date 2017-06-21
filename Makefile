@@ -52,6 +52,7 @@ papers: $(PAPERS) $(AUTHORS) # create JSON data for papers
 $(PAPERS): $(BIBS) # build `papers.json`
 	$(PYTHON) _papers/bib2json.py \
 	    -s _papers/strings.bib _papers/rmm-[cjptwu]*.bib \
+	  | tr '\r\n' '\n' \
 	  >| $(PAPERS)
 
 site: jss papers # build site
