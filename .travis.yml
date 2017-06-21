@@ -11,11 +11,11 @@ notifications:
 
 script:
   - make jss
+  - git add js && git commit -m 'autobuild $(JSS)' && git push
 
 deploy:
   provider: pages
   target_branch: master # user repo so doesn't use branch `gh-pages`
-  fqdn: mort.io
   skip_cleanup: true
   on:
     branch: source
