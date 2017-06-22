@@ -7,12 +7,14 @@ notifications:
   email:
     recipients:
       - richard.mortier+www-build@gmail.com
-    on_success: always
-    on_failure: always
+    on_success: never
+    on_failure: never
 
 before_install:
   - ls -la .
   - ls -la ..
+  - ls -la _mirage
+  - cat _mirage/.mirage.image
   - pwd
   - whoami
   - sudo apt-get -qq update
