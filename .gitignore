@@ -13,7 +13,8 @@ _mirage/key_gen.ml
 _mirage/myocamlbuild.ml
 _mirage/*.opam
 _mirage/Makefile
-_mirage/.mirage.*
+_mirage/.mirage.container
+_mirage/.mirage.config
 _mirage/static*.ml
 _mirage/static*.mli
 _mirage/main.*
