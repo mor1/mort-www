@@ -1,0 +1,3 @@
+PKG lwt mirage mirage-types mirage-types-lwt cohttp magic-mime
+S .
+B _build/*

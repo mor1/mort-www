@@ -19,25 +19,30 @@ open Lwt.Infix
 
 module type HTTP = Cohttp_lwt.Server
 
-let https_src = Logs.Src.create "https" ~doc:"HTTPS server"
-module Https_log = (val Logs.src_log https_src : Logs.LOG)
-
-let http_src = Logs.Src.create "http" ~doc:"HTTP server"
-module Http_log = (val Logs.src_log http_src : Logs.LOG)
+let err fmt = Fmt.kstrf failwith fmt
 
 module Http
-    (Clock: V1.CLOCK) (S: HTTP) (SITE: V1_LWT.KV_RO)
+    (MClock: Mirage_types.MCLOCK)
+    (S: HTTP)
+    (SITE: Mirage_types_lwt.KV_RO)
 = struct
 
-  module Logs_reporter = Mirage_logs.Make(Clock)
+  let https_src = Logs.Src.create "https" ~doc:"HTTPS server"
+  module Https_log = (val Logs.src_log https_src : Logs.LOG)
 
-  let read_site site name =
-      SITE.size site name >>= function
-      | `Error (SITE.Unknown_key _) -> Lwt.fail (Failure ("size " ^ name))
-      | `Ok size ->
-        SITE.read site name 0 (Int64.to_int size) >>= function
-        | `Error (SITE.Unknown_key _) -> Lwt.fail (Failure ("read " ^ name))
-        | `Ok bufs -> Lwt.return (Cstruct.copyv bufs)
+  let http_src = Logs.Src.create "http" ~doc:"HTTP server"
+  module Http_log = (val Logs.src_log http_src : Logs.LOG)
+
+  let size_then_read ~pp_error ~size ~read device name =
+    size device name >>= function
+    | Error e -> err "%a" pp_error e
+    | Ok size ->
+      read device name 0L size >>= function
+      | Error e -> err "%a" pp_error e
+      | Ok bufs -> Lwt.return (Cstruct.copyv bufs)
+
+  let site_read =
+    size_then_read ~pp_error:SITE.pp_error ~size:SITE.size ~read:SITE.read
 
   let respond path body =
     let mime_type = Magic_mime.lookup path in
@@ -57,12 +62,11 @@ module Http
       | Some '/' -> dispatcher site (Uri.with_path uri (path ^ "index.html"))
       | Some _ | None ->
         Lwt.catch
-          (fun () -> read_site site path >>= fun body -> respond path body)
+          (fun () -> site_read site path >>= fun body -> respond path body)
           (fun _exn -> S.respond_not_found ())
 
   let start _clock http site =
     Logs.(set_level (Some Info));
-    Logs_reporter.(create () |> run) @@ fun () ->
 
     let callback (_, cid) request _body =
       let uri = Cohttp.Request.uri request in
