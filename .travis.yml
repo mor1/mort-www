@@ -11,6 +11,10 @@ notifications:
     on_failure: always
 
 before_install:
+  - ls -la .
+  - ls -la ..
+  - pwd
+  - whoami
   - sudo apt-get -qq update
   - sudo apt-get install -y realpath # needed on ubuntu 14.04.5 LTS / trusty
   - wget https://raw.githubusercontent.com/mor1/dommage/master/dommage
