@@ -11,6 +11,8 @@ notifications:
     on_failure: always
 
 before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y realpath
   - wget https://raw.githubusercontent.com/mor1/dommage/master/dommage
 
 script:
