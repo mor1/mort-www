@@ -23,7 +23,7 @@ help: # list targets
 	  | grep -v "^.PHONY" \
 	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
 
-MIRAGE = cd _mirage && dommage
+MIRAGE = cd _mirage && DOCKER_FLAGS="-v $$(realpath ../_site):/cwd/site:ro" dommage
 
 DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
 COFFEE = $(DOCKER) mor1/coffeescript
@@ -66,7 +66,7 @@ drafts: jss papers # serve site, including draft posts
 	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --future --drafts
 
 FLAGS ?= -vv --net socket -t unix
-configure:
+configure: site
 	$(MIRAGE) configure $(FLAGS)
 
 configure.socket:
@@ -78,3 +78,9 @@ configure.xen:
 
 build:
 	$(MIRAGE) build
+
+publish:
+	$(MIRAGE) publish mor1/www
+
+destroy:
+	$(MIRAGE) destroy
