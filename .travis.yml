@@ -11,12 +11,6 @@ notifications:
     on_failure: never
 
 before_install:
-  - ls -la .
-  - ls -la ..
-  - ls -la _mirage
-  - cat _mirage/.mirage.image
-  - pwd
-  - whoami
   - sudo apt-get -qq update
   - sudo apt-get install -y realpath # needed on ubuntu 14.04.5 LTS / trusty
   - wget https://raw.githubusercontent.com/mor1/dommage/master/dommage
@@ -24,7 +18,7 @@ before_install:
   - export PATH=$PATH:$PWD/
 
 script:
-  - mkdir _site
+  - mkdir _site _mirage/_build
   - make site configure build
 
 env:
