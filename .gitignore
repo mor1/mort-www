@@ -1,4 +1,14 @@
+# draft posts
 _drafts
 
 # hardlinks for papers.json generation
 _papers
+
+# mirage droppings
+_mirage/_build
+_mirage/main.ml
+_mirage/key_gen.ml
+_mirage/myocamlbuild.ml
+_mirage/*.opam
+_mirage/Makefile
+_mirage/.mirage.*

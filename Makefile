@@ -15,17 +15,17 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-.PHONY: clean distclean papers site test drafts $(JSS) $(AUTHORS)
-
-PORT ?= 8080
+.PHONY: clean distclean jss papers site test drafts \
+	$(JSS) $(PAPERS) $(AUTHORS) configure build
 
 help: # list targets
 	@egrep "^\S+:" Makefile \
 	  | grep -v "^.PHONY" \
 	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
 
-DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
+MIRAGE = cd _mirage && dommage
 
+DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
 COFFEE = $(DOCKER) mor1/coffeescript
 JEKYLL = $(DOCKER) mor1/jekyll
 JEKYLLS= $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
@@ -40,6 +40,7 @@ AUTHORS= research/papers/authors.json
 
 clean: # remove built site
 	$(RM) -r _site
+	$(MIRAGE) clean
 
 distclean: | clean # also remove built assets
 	$(RM) -r _coffee/*.js js/*.js $(PAPERS)
@@ -63,3 +64,17 @@ test: jss papers # serve site for testing
 
 drafts: jss papers # serve site, including draft posts
 	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --future --drafts
+
+FLAGS ?= -vv --net socket -t unix
+configure:
+	$(MIRAGE) configure $(FLAGS)
+
+configure.socket:
+	FLAGS="-vv --net socket -t unix" $(MIRAGE) configure $(FLAGS)
+configure.direct:
+	FLAGS="-vv --net direct -t unix" $(MIRAGE) configure $(FLAGS)
+configure.xen:
+	FLAGS="-vv --net direct -t xen" $(MIRAGE) configure $(FLAGS)
+
+build:
+	$(MIRAGE) build
