@@ -4,6 +4,9 @@ _drafts
 # hardlinks for papers.json generation
 _papers
 
+# generated site
+_site
+
 # mirage droppings
 _mirage/_build
 _mirage/key_gen.ml
@@ -13,5 +16,5 @@ _mirage/Makefile
 _mirage/.mirage.*
 _mirage/static*.ml
 _mirage/static*.mli
-_mirage/mortio
 _mirage/main.*
+_mirage/mortio*

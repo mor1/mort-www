@@ -23,12 +23,15 @@ help: # list targets
 	  | grep -v "^.PHONY" \
 	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
 
-MIRAGE = cd _mirage && DOCKER_FLAGS="-v $$(realpath ../_site):/cwd/site:ro" dommage
+PORT  ?= 8080
+MIRAGE = cd _mirage && \
+	DOCKER_FLAGS="-v $$(realpath ../_site):/cwd/.site:ro -p $(PORT):$(PORT)" \
+	  dommage
 
 DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
 COFFEE = $(DOCKER) mor1/coffeescript
 JEKYLL = $(DOCKER) mor1/jekyll
-JEKYLLS= $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
+JEKYLLS = $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
 PYTHON = $(DOCKER) mor1/python3
 
 BIBS = $(wildcard ~/me/publications/rmm-*.bib)
@@ -38,11 +41,15 @@ JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 PAPERS = research/papers/papers.json
 AUTHORS= research/papers/authors.json
 
-clean: # remove built site
-	$(RM) -r _site
-	$(MIRAGE) clean
+clean: # remove build outputs
+	$(RM) -r _mirage/_build
+	$(MIRAGE) clean || true
+	cd _mirage && mirage clean || true
+	$(RM) -r _mirage/_build
+	rmdir _mirage/.site
 
 distclean: | clean # also remove built assets
+	$(RM) -r _site
 	$(RM) -r _coffee/*.js js/*.js $(PAPERS)
 
 jss: $(JSS) # build all .js files
@@ -65,16 +72,16 @@ test: jss papers # serve site for testing
 drafts: jss papers # serve site, including draft posts
 	$(JEKYLLS) serve -H 0.0.0.0 -P $(PORT) --trace --watch --future --drafts
 
-FLAGS ?= -vv --net socket -t unix
+FLAGS ?= -vv --net socket -t unix --port $(PORT)
 configure: site
 	$(MIRAGE) configure $(FLAGS)
 
 configure.socket:
-	FLAGS="-vv --net socket -t unix" $(MIRAGE) configure $(FLAGS)
+	$(MIRAGE) configure -vv --net socket -t unix --port $(PORT)
 configure.direct:
-	FLAGS="-vv --net direct -t unix" $(MIRAGE) configure $(FLAGS)
+	$(MIRAGE) configure -vv --net direct -t unix --port $(PORT)
 configure.xen:
-	FLAGS="-vv --net direct -t xen" $(MIRAGE) configure $(FLAGS)
+	$(MIRAGE) configure -vv --net direct -t xen --port $(PORT)
 
 build:
 	$(MIRAGE) build
@@ -84,3 +91,6 @@ publish:
 
 destroy:
 	$(MIRAGE) destroy
+
+run:
+	$(MIRAGE) run ./mortio
