@@ -14,6 +14,7 @@ before_install:
   - wget https://raw.githubusercontent.com/mor1/dommage/master/dommage
 
 script:
+  - mkdir _site
   - make site configure build
 
 global:
