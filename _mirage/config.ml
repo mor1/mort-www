@@ -46,15 +46,18 @@ let port =
   Key.(create "port" Arg.(opt int 80 doc))
 
 let fs_key = Key.(value @@ kv_ro ())
-let sitefs = generic_kv_ro ~key:fs_key "../_site"
+let sitefs = generic_kv_ro ~key:fs_key "./site"
 
 let secrets_key = Key.(value @@ kv_ro ())
 let secrets = generic_kv_ro ~key:secrets_key "./tls"
 
 let keys = Key.([ abstract host_key; abstract port ])
-let packages =
-  List.map package [
-    "uri"; "mirage-http"; "mirage-logs"; "magic-mime"; "astring"; "irmin"; "irmin-mirage"
+let packages = List.map package [
+    "astring";
+    "magic-mime";
+    "mirage-http";
+    "mirage-logs";
+    "uri";
   ]
 
 let stack = generic_stackv4 default_network
