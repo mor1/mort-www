@@ -23,6 +23,7 @@ before_install:
 script:
   - mkdir _site _mirage/_build
   - make site configure build
+  - dommage-deploy
 
 env:
   matrix:
