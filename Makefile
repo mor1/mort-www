@@ -77,11 +77,12 @@ configure: site
 	$(MIRAGE) configure $(FLAGS)
 
 configure.socket:
-	$(MIRAGE) configure -vv --net socket -t unix --port $(PORT)
+	$(MIRAGE) configure -t unix -vv --net socket --port $(PORT)
 configure.direct:
-	$(MIRAGE) configure -vv --net direct -t unix --port $(PORT)
+	$(MIRAGE) configure -t unix -vv --net direct --port $(PORT)
 configure.xen:
-	$(MIRAGE) configure -vv --net direct -t xen --port $(PORT)
+	$(MIRAGE) configure -t xen  -vv --net direct --port $(PORT) --dhcp false \
+	  --interface 0 --ipv4 46.43.42.137/25 --ipv4-gateway 46.43.42.129
 
 build:
 	$(MIRAGE) build

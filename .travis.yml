@@ -25,8 +25,8 @@ env:
   matrix:
     - FLAGS="-t unix -vv --net socket"
     - FLAGS="-t unix -vv --net direct"
-    - FLAGS="-t xen  -vv --net direct --dhcp false --network 0
-        --ip 46.43.42.137 --netmask 255.255.255.128 --gateways 46.43.42.129"
+    - FLAGS="-t xen  -vv --net direct --dhcp false --interface 0
+        --ipv4 46.43.42.137/25 --ipv4-gateway 46.43.42.129"
       DEPLOY=1 XENIMG="mort.io" UPDATE_GCC_BINUTILS=1 MIRDIR=_mirage
 
   global:
