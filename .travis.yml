@@ -15,7 +15,7 @@ before_install:
   - sudo add-apt-repository -y ppa:avsm/ppa
   - sudo apt-get -qq update
   - sudo apt-get install -y realpath # needed on ubuntu 14.04.5 LTS / trusty
-  - sudo apt-get install -y opam && opam init
+  - sudo apt-get install -y opam && opam init -y
   - wget https://raw.githubusercontent.com/mor1/dommage/master/dommage
   - wget https://raw.githubusercontent.com/mor1/dommage/master/dommage-deploy
   - chmod +x dommage dommage-deploy
