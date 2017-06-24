@@ -22,6 +22,9 @@ before_install:
   - export PATH=$PATH:$PWD/
 
 script:
+  - ls -la .
+  - ls -la ..
+  - ls -la _mirage
   - make site configure build
   - dommage-deploy
 
@@ -35,7 +38,7 @@ env:
 
   global:
     - OCAMLRUNPARAM=b
-    - DOCKER_FLAGS="--user $(id -u)"
+    - DOCKER_FLAGS="--user $(id -u):$(id -g)"
     - DOMMAGE_DEBUG=true
     - secure: aJr69EvXZrAoAxICpXc71SVobUb44A3BFwP+KPWCQUNyuQLn56jYeq6qjVmNwCyXGQj/67Crl5P0+XTGkUDk2jOZCuRBl3jq8oy9PbSCg4ptPBL5F/w1BZfcYAv2NvwuM2OOwdyLSdw9WXk2lOWmNAb+4tR2qkROYgcDCqF0a9Q=
     - secure: BMciH1rAKkv7OKEvM4Vqe+VYKZyYEViB/gYjqYwGfsIr/poeBLFXX6dRm8Uzn3APTm29ig67rlrRH9zzlVy0V08GiEzcY7JatlkC1RSbpH5Rp9MSfVu925QlcHyIUo6yLJDQDAnyr4NxW6OdeZfgp9uFCdN/xCsHLbT3IjBXBZg=
