@@ -22,9 +22,6 @@ before_install:
   - export PATH=$PATH:$PWD/
 
 script:
-  - id
-  - env | sort
-#  - mkdir _site _mirage/_build
   - make site configure build
   - dommage-deploy
 

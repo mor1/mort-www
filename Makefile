@@ -16,19 +16,20 @@
 #
 
 .PHONY: clean distclean jss papers site test drafts \
-	$(JSS) $(PAPERS) $(AUTHORS) configure build
+        $(JSS) $(PAPERS) $(AUTHORS) configure build
 
 help: # list targets
 	@egrep "^\S+:" Makefile \
 	  | grep -v "^.PHONY" \
-	  | awk -F"\s*#\s*" '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
+	  | awk -F"\s*#\s*" \
+	      '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
 
 PORT  ?= 8080
 MIRAGE = cd _mirage && \
-	DOCKER_FLAGS="-v $$(realpath ../_site):/cwd/.site:ro -p $(PORT):$(PORT)" \
+	DOCKER_FLAGS="$$DOCKER_FLAGS -v $$(realpath ../_site):/cwd/.site:ro -p $(PORT)" \
 	  dommage
 
-DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd
+DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd $$DOCKER_FLAGS
 COFFEE = $(DOCKER) mor1/coffeescript
 JEKYLL = $(DOCKER) mor1/jekyll
 JEKYLLS = $(DOCKER) -p $(PORT):$(PORT) mor1/jekyll
@@ -41,7 +42,7 @@ JSS = $(patsubst %.coffee,js/%.js,$(COFFEES))
 PAPERS = research/papers/papers.json
 AUTHORS= research/papers/authors.json
 
-clean: # remove build outputs
+clean: # remove build artefacts
 	$(RM) -r _mirage/_build
 	$(MIRAGE) clean || true
 	cd _mirage && mirage clean || true
