@@ -45,9 +45,7 @@ AUTHORS= research/papers/authors.json
 clean: # remove build artefacts
 	$(RM) -r _mirage/_build
 	$(MIRAGE) clean || true
-	cd _mirage && mirage clean || true
-	$(RM) -r _mirage/_build
-	rmdir _mirage/.site
+	$(MIRAGE) destroy || true
 
 distclean: | clean # also remove built assets
 	$(RM) -r _site
