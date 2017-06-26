@@ -17,13 +17,10 @@
 
 open Lwt.Infix
 
-module type HTTP = Cohttp_lwt.Server
-
 let err fmt = Fmt.kstrf failwith fmt
 
 module Http
-    (MClock: Mirage_types.MCLOCK)
-    (S: HTTP)
+    (S: Cohttp_lwt.Server)
     (SITE: Mirage_types_lwt.KV_RO)
 = struct
 
@@ -65,7 +62,7 @@ module Http
           (fun () -> site_read site path >>= fun body -> respond path body)
           (fun _exn -> S.respond_not_found ())
 
-  let start _clock http site =
+  let start http site =
     Logs.(set_level (Some Info));
 
     let callback (_, cid) request _body =

@@ -66,17 +66,17 @@ let https_svr = http_server @@ conduit_direct ~tls:true stack
 
 let http_job =
   foreign ~packages ~keys
-    "Unikernel.Http" (mclock @-> http @-> kv_ro @-> job)
+    "Unikernel.Http" (http @-> kv_ro @-> job)
 
 let https_job =
-  let packages = packages @ [ package "tls" ] in
+  let packages = packages @ [ package ~sublibs:["mirage"] "tls" ] in
   foreign ~packages ~keys ~deps:[abstract nocrypto]
-    "Unikernel.Https" (mclock @-> kv_ro @-> http @-> kv_ro @-> job)
+    "Unikernel.Https" (kv_ro @-> http @-> kv_ro @-> job)
 
 let dispatcher =
   if_impl (Key.value tls_key)
-    (https_job $ default_monotonic_clock $ secrets $ https_svr)
-    (http_job $ default_monotonic_clock $ http_svr)
+    (https_job $ secrets $ https_svr)
+    (http_job $ http_svr)
 
 let () =
   register ~packages "mort.io" [
