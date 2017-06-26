@@ -41,6 +41,7 @@ containers:
 [mirage]: https://mirage.io/
 [python]: http://python.org/
 [dommage]: https://github.com/mor1/dommage
+[hub]: https://hub.docker.com
 
 ## Deployment Setup
 
