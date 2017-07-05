@@ -46,7 +46,7 @@ let port =
   Key.(create "port" Arg.(opt int 80 doc))
 
 let fs_key = Key.(value @@ kv_ro ())
-let sitefs = generic_kv_ro ~key:fs_key "./.site"
+let sitefs = generic_kv_ro ~key:fs_key "../_site"
 
 let secrets_key = Key.(value @@ kv_ro ())
 let secrets = generic_kv_ro ~key:secrets_key "./tls"

@@ -25,9 +25,8 @@ help: # list targets
 	      '{ if (length($2) != 0) printf("-- %s\n  %s\n\n", $$1, $$2) }'
 
 PORT  ?= 8080
-MIRAGE = cd _mirage && \
-	DOCKER_FLAGS="$$DOCKER_FLAGS -v $$(realpath ../_site):/cwd/.site:ro -p $(PORT)" \
-	  dommage
+MIRAGE = DOCKER_FLAGS="$$DOCKER_FLAGS -p $(PORT)" \
+    dommage --dommage-chdir _mirage
 
 DOCKER = docker run -ti -v $$(pwd -P):/cwd -w /cwd $$DOCKER_FLAGS
 COFFEE = $(DOCKER) mor1/coffeescript
@@ -94,3 +93,6 @@ destroy:
 
 run:
 	$(MIRAGE) run ./mortio
+
+shell:
+	$(MIRAGE) run /bin/bash
