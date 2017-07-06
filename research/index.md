@@ -98,9 +98,10 @@ Ph.D. students on a wide range of topics.
 
 + __Sultan Alanazi__ (2012, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Recommendation systems using rich personal data.
-+ __Liz Dowthwaite__ (2012, Nottingham), co-supervised with
-  [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa]. Social networks and
-  web comic artists.
++ __Liz Dowthwaite__ (2012, Nottingham), co-supervised
+  with [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa]. Crowdfunding in
+  the Creative Industries: The Roles of Community, Reciprocity, and Altruism in
+  the Crowdfunding of Webcomics.
 + __Christina-Dialechti Emmanouil__ (2014, Nottingham), co-supervised
   with [Prof. Derek McAuley][mac], [Dr Michael Brown][mike]
   and [Prof. Lilian Edwards][lilian]. Designing for the Commercial Exploitation
