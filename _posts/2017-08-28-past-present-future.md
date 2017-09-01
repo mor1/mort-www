@@ -199,7 +199,7 @@ So that's it: a simple executable distribution taken from old-school [Oasis] and
 [OCamlBuild] infrastructure to shiny new modern [jbuilder] and [topkg]. The new
 scheme seems to me to be an improvement: faster build times, simpler (to my
 eyes) metadata, autogeneration of more of the repeated metadata (`.merlin` etc),
-and a reasonably simply [`Makefile`] that I actually think I understand.
+and a reasonably simple [`Makefile`] that I actually think I understand.
 Definitely progress :)
 
 [Oasis]: http://oasis.forge.ocamlcore.org/
