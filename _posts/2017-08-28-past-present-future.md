@@ -156,10 +156,10 @@ distrib:
 	topkg distrib
 ```
 
-...which creates tokens for for accessing the GitHub repo for this project (if
-they don't already exist), creates a release tag based on entries in
-[`CHANGES.md`], and then creates the release tarballs (without the edits to
-[`pkg/pkg.ml`] this would also build the docs, but we have none).
+...which creates tokens for accessing the GitHub repo for this project (if they
+don't already exist), creates a release tag based on entries in [`CHANGES.md`],
+and then creates the release tarballs (without the edits to [`pkg/pkg.ml`] this
+would also build the docs, but we have none).
 
 ### Publish a release
 
