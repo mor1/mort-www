@@ -98,10 +98,6 @@ Ph.D. students on a wide range of topics.
 
 + __Sultan Alanazi__ (2012, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Recommendation systems using rich personal data.
-+ __Liz Dowthwaite__ (2012, Nottingham), co-supervised
-  with [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa]. Crowdfunding in
-  the Creative Industries: The Roles of Community, Reciprocity, and Altruism in
-  the Crowdfunding of Webcomics.
 + __Christina-Dialechti Emmanouil__ (2014, Nottingham), co-supervised
   with [Prof. Derek McAuley][mac], [Dr Michael Brown][mike]
   and [Prof. Lilian Edwards][lilian]. Designing for the Commercial Exploitation
@@ -120,9 +116,13 @@ Ph.D. students on a wide range of topics.
 
 <div class="plain" media:type="text/omd" markdown="1">
 
-+ __[Marjan Falahrastegar][marjan]__ (Queen Mary, University of London,
++ __[Liz Dowthwaite][liz]__ (University of Nottingham, 2012--2017),
+  co-supervised with [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa].
+  "_Crowdfunding Webcomics: The Role of Incentives & Reciprocity in Monetising
+  Free Content_"
++ __[Dr Marjan Falahrastegar][marjan]__ (Queen Mary, University of London,
   2012--2016), co-supervised with [Prof. Steve Uhlig][uhlig]
-  and [Dr Hamed Haddadi][hamed]. "_Online Web Tracking Ecosystem_".
+  and [Dr Hamed Haddadi][hamed]. "_Online Web Tracking Ecosystem_"
 + __[Dr Robert Spencer][robert]__ (University of Nottingham, 2011--2016),
   co-supervised with [Prof. Tom Rodden][tom]. "_Understanding Configuration
   History of Domestic Networks_"
@@ -146,6 +146,7 @@ Ph.D. students on a wide range of topics.
 [james]: http://nottingham.ac.uk/horizon/people/James.Pinchin
 [ewa]: https://ewaluger.wordpress.com/home/
 
+[liz]: https://dowthwaite.wordpress.com/
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
 [hamed-phd]: http://discovery.ucl.ac.uk/14222/
 [uhlig]: http://www.eecs.qmul.ac.uk/~steve/
