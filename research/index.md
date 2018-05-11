@@ -98,10 +98,6 @@ Ph.D. students on a wide range of topics.
 
 + __Sultan Alanazi__ (2012, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Recommendation systems using rich personal data.
-+ __Christina-Dialechti Emmanouil__ (2014, Nottingham), co-supervised
-  with [Prof. Derek McAuley][mac], [Dr Michael Brown][mike]
-  and [Prof. Lilian Edwards][lilian]. Designing for the Commercial Exploitation
-  of Online Identity.
 + __Luis Carlos Oviedo Garcia__ (2014, Nottingham), co-supervised with
   [Prof. Derek McAuley][mac]. Application-Controllable Load-Balancing.
 + __Steven Luland__ (2013, Nottingham), co-supervised with
@@ -116,7 +112,11 @@ Ph.D. students on a wide range of topics.
 
 <div class="plain" media:type="text/omd" markdown="1">
 
-+ __[Liz Dowthwaite][liz]__ (University of Nottingham, 2012--2017),
++ __[Dr Christina-Dialechti Emmanouil][christina]__ (University of Nottingham,
+  2014--2017), co-supervised with [Prof. Derek McAuley][mac], [Dr Michael
+  Brown][mike] and [Prof. Lilian Edwards][lilian]. "_[Designing for the
+  commercial exploitation of online identity][christina-phd]_"
++ __[Dr Liz Dowthwaite][liz]__ (University of Nottingham, 2012--2017),
   co-supervised with [Dr Robert Houghton][rob] and [Dr Alexa Spence][alexa].
   "_Crowdfunding Webcomics: The Role of Incentives & Reciprocity in Monetising
   Free Content_"
@@ -146,6 +146,8 @@ Ph.D. students on a wide range of topics.
 [james]: http://nottingham.ac.uk/horizon/people/James.Pinchin
 [ewa]: https://ewaluger.wordpress.com/home/
 
+[christina]: https://uk.linkedin.com/in/christina-emmanouil-ux
+[christina-phd]: http://eprints.nottingham.ac.uk/44956/
 [liz]: https://dowthwaite.wordpress.com/
 [hamed]: http://www.eecs.qmul.ac.uk/~hamed/
 [hamed-phd]: http://discovery.ucl.ac.uk/14222/
